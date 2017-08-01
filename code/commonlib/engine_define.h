@@ -1,0 +1,72 @@
+// 与引擎的宏一致
+
+#ifndef engine_define_h__
+#define engine_define_h__
+
+
+// 关卡行为
+#define REGULAR_ACTION_CREATE_MONSTER 1
+#define REGULAR_ACTION_CREATE_BOSS 2
+#define REGULAR_ACTION_STOP_SUMMON 3
+#define REGULAR_ACTION_CLEAR_ALL_MONSTERS 4
+#define REGULAR_ACTION_RESURGENCE 5
+#define REGULAR_ACTION_SENDDEAD 6
+#define REGULAR_ACTION_RESURGENCE_AND_SEND_DEAD 7
+#define REGULAR_ACTION_ATTACKABLE 8
+
+
+// 关卡事件
+#define REGULAR_EVENT_PLAYER_DEAD 1
+#define REGULAR_EVENT_MONSTER_CLEAR 2
+#define REGULAR_EVENT_MONSTER_DEAD 3
+#define REGULAR_EVENT_TIMER 4
+#define REGULAR_EVENT_TRIGGER 5
+#define REGULAR_EVENT_OFFLINE_PLAYER_DEAD 6
+#define REGULAR_EVENT_ALL_PLAYER_DEAD 7
+#define REGULAR_EVENT_PLAYER_RESURGENCE_REQ 8
+#define REGULAR_EVENT_START_TIME 9
+#define REGULAR_EVENT_END_TIME 10
+#define REGULAR_EVENT_KICK_TIME 11
+#define REGULAR_EVENT_SPAWN_END 12
+
+// ROG关卡事件
+#define ROG_REGULAR_EVENT_PLAYER_DEAD 101
+#define ROG_REGULAR_EVENT_MONSTER_CLEAR 102
+#define ROG_REGULAR_EVENT_MONSTER_DEAD 103
+#define ROG_REGULAR_EVENT_TIMER 104
+#define ROG_REGULAR_EVENT_COMBO_KILL 105            // 连杀数事件
+#define ROG_REGULAR_EVENT_THREE_PLAYER 106          // 三人通关且无人退出
+#define ROG_REGULAR_EVENT_DAMAGE_RANK 107           // 伤害排名第一
+
+
+// 关卡类型
+#define REGULAR_TYPE_TEAM 2
+#define REGULAR_TYPE_ASHURA 15
+#define REGULAR_TYPE_FREE_FOR_ALL 27        // 三国使用
+#define REGULAR_TYPE_VOID_FIELD 28
+#define REGULAR_TYPE_VOID_FIELD_SOLO 35
+#define REGULAR_TYPE_CHAOS_FACTION 36
+
+// Trigger功能
+#define TRIGGER_CHANGE_SCENE 1          // 跳场景
+#define TRIGGER_TOUCH_STONE 2           // 暂时无用
+#define TRIGGER_ACTIVATE_MOVIE 3        // 触发演绎(纯客户端)
+#define TRIGGER_JUMP_DUNGEON 4
+#define TRIGGER_REGULAR_EVENT 5         // 触发关卡逻辑
+
+// Trigger功能类型
+#define TRIGGER_TYPE_CLIENT_CLIENT  1   // client-client
+#define TRIGGER_TYPE_CLIENT_SERVER  2   // client-server
+
+
+#define SKILL_SHOOT_LEVEL_MOD     100        // 技能弹道级数对序号的模
+
+// 出怪控制器类型
+#define SPAWN_CONTROL_NONE 0            // 错误的控制器类型
+#define SPAWN_CONTROL_SPEED 1           // 出怪速度控制
+#define SPAWN_CONTROL_WAIT_WAVE_DEAD 2  // 等一波死完再出下一波
+#define SPAWN_CONTROL_MAX_NUM 3         // 最大怪数量
+#define SPAWN_CONTROL_WAVE_DELAY 4      // 每波延时
+#define SPAWN_CONTROL_TRIGGER 5         // 触发器触发
+
+#endif // engine_define_h__

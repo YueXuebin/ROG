@@ -1,32 +1,47 @@
-# Prerequisites
-*.d
+#*#
+*.ncb
+*.suo
+*.user
+*.filters
+*.swp
+*~
+~$$*
+*.as
+*.log
+*.err
+log/
+code/res/
+code/robot.bat
+nbproject/
+#visual studio
+/lib
+obj/
+tmp/
+bin/
+code/lib/
+Debug/
+Release/
+.DS_Store
+#QT
+code/qtgameserver/GeneratedFiles/
+*/.DS_Store
+#eclipse
+.metadata/
+#.project
+#.cproject
+.settings
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+#robot
+code/robot.bat
+*.pyc
 
-# Precompiled Headers
-*.gch
-*.pch
+/kunlun_web/nbproject/private/
+code/af-server.ib_ini
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+code/robot/interface.cpp
+Runtime/
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+!log_web/vendor/psr/log
+!log_web/vendor/psr/log/psr/log
+!log_web/vendor/bin
+!log_web/vendor/laravel/framework/src/Illuminate/Log

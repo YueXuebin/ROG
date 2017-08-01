@@ -1,0 +1,22 @@
+#ifndef regular_maoxian_156_h__
+#define regular_maoxian_156_h__
+
+#include "regular_maoxian_base.h"
+
+// 冒险地图156
+class RegularMaoXian_156 : public RegularMaoXianBase
+{
+public:
+    RegularMaoXian_156(RegularDoc* pDoc);
+    virtual ~RegularMaoXian_156();
+
+    virtual void FirstUpdate();
+
+
+
+};
+
+
+
+
+#endif // regular_maoxian_056_h__

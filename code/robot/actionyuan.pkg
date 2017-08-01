@@ -1,0 +1,49 @@
+
+$#include "robot_pch.h"
+//////////////////////////////////////////////////////////////////////////////////
+$#include "CLuaObj.h"
+
+class CLuaObj
+{
+public:
+	CLuaObj(const char* name);
+	virtual ~CLuaObj();
+
+public:
+	void	SetObjId(int nId);
+	int		GetObjId() const;
+	
+	const char* GetName()const;
+
+	void	SetLuaObjIndex(int nLuaIndex);
+	int		GetLuaObjIndex()const;
+	void	AddIndexFunc(const char* funcName,int nFuncIndex);
+	int		FindFuncIndex(const char* funcName);
+};
+
+$#include "CLuaRobot.h"
+$#include "case_lua.h"
+
+class CLuaRobot : public CLuaObj
+{
+public:
+	void ShowActionList();
+	-void DoAction(const char* actionName, int arg1 = 0, int arg2 = 0);
+	
+	int		GetDungeonID();
+    int		GetChannelID();
+    int     GetRandomDungeonID();
+    int     GetX();
+    int     GetY();
+    int     GetUnitX(int id);
+    int     GetUnitY(int id);
+    int     GetOneEnemy();
+    void	CallGM( const char* command );
+    void    UseSkill(int objectId, int skillId);
+    void    ChangeName(const char* name);
+    int     GetTime();
+    const char* GetAccount();
+    
+    void    Close();
+
+};

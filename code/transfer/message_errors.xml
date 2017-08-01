@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<coder name="MessageEncoder" version="1">
+	<defines>
+		<!-- ================================================================================ -->
+		<!--公共错误-->
+		<!-- ================================================================================ -->
+		<!--成功-->
+		<define name="ERR_SUCCEED" value="0"/>
+		<!--失败-->
+		<define name="ERR_FAILED" value="1"/>
+		<!--未找到配置文件-->
+		<define name="ERR_UNFOUND_CONFIG" value="2"/>
+		<!--已被激活-->
+		<define name="ERR_SERVER_ACTIVATED" value="3"/>
+		<!--网关服务器关闭-->
+		<define name="ERR_GATESVR_CLOSE" value="6"/>
+		<!--游戏服务器关闭-->
+		<define name="ERR_GAMESVR_CLOSE" value="7"/>
+		<!--中心服务器关闭-->
+		<define name="ERR_CENTERSVR_CLOSE" value="8"/>
+		<!--踢出该玩家-->
+		<define name="ERR_CHANGE_SCENE_FAILED" value="9"/>
+		<!--切换场景失败-->
+		<define name="ERR_KICKOUT_PLAYER" value="10"/>
+		<!--超过距离-->
+		<define name="ERR_EXCEED_DISTANCE" value="11"/>
+		<!--未找到等级对应表-->
+		<define name="ERR_UNFOUND_LEVELUP" value="12"/>
+		<!--未查找到装备-->
+		<define name="ERR_UNFOUND_EQUIP" value="13"/>
+		<!--已达到装备的最大品质-->
+		<define name="ERR_MAX_EQUIP_QUALITY" value="14"/>
+		<!--精魂不够-->
+		<define name="ERR_NO_ENOUGH_SOUL" value="15"/>
+		<!--升阶石不够-->
+		<define name="ERR_NO_ENOUGH_LVUPSTONE" value="16"/>
+		<!--最大的装备等级-->
+		<define name="ERR_MAX_EQUIP_LEVEL" value="17"/>
+		<!--最大的装备星级-->
+		<define name="ERR_MAX_EQUIP_STAR" value="18"/>
+		<!--未找到任务-->
+		<define name="ERR_UNFOUND_TASK" value="19"/>
+		<!--任务未完成-->
+		<define name="ERR_TASK_UNFINSH" value="20"/>
+		<!--建筑已达到最大级-->
+		<define name="ERR_MAX_BUILD_LEVEL" value="21"/>
+		<!--建筑未到时间-->
+		<define name="ERR_BUILD_NOREACH_TIME" value="22"/>
+		<!--生产未到时间-->
+		<define name="ERR_PRODUCE_NOREACH_TIME" value="23"/>
+		<!--金钱不够-->
+		<define name="ERR_NO_ENOUGH_GAMEPOINT" value="24"/>
+		<!--未到达时间-->
+		<define name="ERR_NO_REACH_TIME" value="25"/>
+		<!--当前建筑等级大于王宫等级-->
+		<define name="ERR_GREATER_KINDOM_LEVEL" value="26"/>
+		<!--同一时间只能升级或建造一个建筑-->
+		<define name="ERR_LOGIN_ONLY_ONE_BUILD" value="27"/>
+		<!--同名角色-->
+		<define name="ERR_SAME_NAME_PLAYER" value="28"/>
+		<!--最大好友数量-->
+		<define name="ERR_MAX_FRIEND_NUM" value="29"/>
+		<!--包裹空间不足-->
+		<define name="ERR_NO_ENOUGH_BAGPOS" value="30"/>
+		<!--角色名重复-->
+		<define name="ERR_DUPLICATE_PLAYER_NAME" value="31"/>
+		<!--未找到指定物品-->
+		<define name="ERR_UNFOUND_ITEM" value="32"/>
+		<!--最大跟宠等级-->
+		<define name="ERR_MAX_FOLLOW_PET_LEVEL" value="33"/>
+		<!--体力值不足-->
+		<define name="ERR_NO_ENOUGH_VIGOR" value="34"/>
+		<!--魔力不够-->
+		<define name="ERR_NO_ENOUGH_MP" value="35"/>
+		<!--此类物品无法使用-->
+		<define name="ERR_ITEM_CANT_USE" value="36"/>
+		<!--技能符文已达到最大级-->
+		<define name="ERR_MAX_RUNE_LEVEL" value="37"/>
+		<!--队伍人数上限-->
+		<define name="ERR_MAX_TEAM_MEMBER" value="38"/>
+		<!--任务完成数量不足-->
+		<define name="ERR_BOX_COMPLETE_NUM_LACK" value="39"/>
+		<!--人物等级-->
+		<define name="ERR_NO_ENOUGH_PLAYER_LEVEL" value="40"/>
+		<!--邮件发送失败-->
+		<define name="ERR_MAIL_SEND_FAILED" value="41"/>
+		<!--邮件附件已领取-->
+		<define name="ERR_MAIL_ATTACH_TAKE" value="42"/>
+		<!--玩家不在线-->
+		<define name="ERR_PLAYER_NOTONLINE" value="44"/>
+		<!--玩家VIP等级不足-->
+		<define name="ERR_NO_ENOUGH_VIP" value="46"/>
+		<!--没有足够的人民币-->
+		<define name="ERR_NO_ENOUGH_MONEYPOINT" value="47"/>
+		<!--荣誉不足-->
+		<define name="ERR_NO_ENOUGH_HONOR" value="48"/>
+		<!--没有足够的星魂-->
+		<define name="ERR_NO_ENOUGH_STAR_SOUL_POINT" value="49"/>
+		<!-- ================================================================================ -->
+		<!--登陆错误-->
+		<!-- ================================================================================ -->
+		<!--未找到账户-->
+		<define name="ERR_UNFOUND_PLAYER" value="50"/>
+		<!--账户重复登陆-->
+		<define name="ERR_REPEAT_LOGIN" value="51"/>
+		<!--账号验证失败-->
+		<define name="ERR_VERIFY_LOGIN" value="52"/>
+		<!--该账号在其他地方登录-->
+		<define name="ERR_OTHER_LOGIN" value="53"/>
+		<!--账户已经在游戏中-->
+		<define name="ERR_ACCOUNT_INGAME" value="54"/>
+		<!--版本号不匹配-->
+		<define name="ERR_VERSION_ERROR" value="55"/>
+		<!--服务器还未准备好-->
+		<define name="ERR_SERVER_NO_READY" value="56"/>
+		<!--该帐号被封-->
+		<define name="ERR_BAN_ACCOUNT_LOGIN" value="57"/>
+		<!--角色对象不存在了-->
+		<define name="ERR_PLAYER_NOT_EXIST_LOGIN" value="58"/>
+		<!--Add Login失败-->
+		<define name="ERR_ADD_ACCOUNT_LOGIN" value="59"/>
+		<!--昆仑Event错误-->
+		<define name="ERR_KUNLUN_EVENT_LOGIN" value="60"/>
+		<!--从数据库加载数据错误-->
+		<define name="ERR_LOAD_DB_LOGIN" value="61"/>
+		<!--玩家不存在-->
+		<define name="ERR_PLAYER_NOT_EXIT" value="62"/>
+		<!--功能未开启-->
+		<define name="ERR_FUNCT_NOT_OPEN" value="63"/>
+		<!--对方未开启此功能-->
+		<define name="ERR_RECEIVER_FUNCT_NOT_OPEN" value="64"/>
+		<!--名字首字母不能为数字-->
+		<define name="ERR_FIRST_NAME_CHAR_DIGIT" value="70"/>
+		<!--名字中包含非法字符-->
+		<define name="ERR_USE_ILLEGAL_NAME_CHAR" value="71"/>
+		<!--角色名字不能小于3个字符-->
+		<define name="ERR_LESS_MIN_NAME_LENGTH" value="72"/>
+		<!--名字不能大于48个字符-->
+		<define name="ERR_MORE_MAX_NAME_LENGTH" value="73"/>
+		<!--账号已存在,请重新输入新的名字-->
+		<define name="ERR_HAVE_EXIST_PLAYER_NAME" value="74"/>
+		<!--创建角色失败-->
+		<define name="ERR_CREATE_PLAYER_FAILED" value="75"/>
+		<!--缺少用户ID-->
+		<define name="ERR_LACK_USERNAME" value="80"/>
+		<!--缺少用户ID-->
+		<define name="ERR_LACK_QID" value="81"/>
+		<!--缺少服务器ID-->
+		<define name="ERR_LACK_SERVERID" value="82"/>
+		<!--缺少时间-->
+		<define name="ERR_LACK_TIME" value="83"/>
+		<!--缺少签名-->
+		<define name="ERR_LACK_SIGN" value="84"/>
+		<!--缺少实名制-->
+		<define name="ERR_LACK_ISADULT" value="85"/>
+		<!--缺少防沉迷-->
+		<define name="ERR_LACK_FCM" value="86"/>
+		<!--签名不同-->
+		<define name="ERR_MISMATCH_SIGN" value="87"/>
+		<!--副本不存在-->
+		<define name="ERR_DUNGEON_NOT_EXIST" value="88"/>
+		<!-- ================================================================================ -->
+		<!--宠物-->
+		<!-- ================================================================================ -->
+		<!--骑宠栏位已经满了-->
+		<define name="ERR_NOENOUG_HUNAG" value="112"/>
+		<!--没有足够的饥饿度-->
+		<define name="ERR_QUALITY" value="113"/>
+		<!--品质超出范围-->
+		<define name="ERR_FIELDNUM_FULL" value="114"/>
+		<!--跟宠-->
+		<!--出战中的跟宠不能探索-->
+		<define name="ERR_CAN_SEARCH" value="115"/>
+		<!--训练模式没有开启-->
+		<define name="ERR_TRAIN_MODELS_NO_OPEN" value="116"/>
+		<!--没有宠物之星的物品-->
+		<define name="ERR_ITEM_PET_START" value="117"/>
+		<!--没有足够的突破结晶石-->
+		<define name="ERR_ITEM_PET_STONE" value="118"/>
+		<!--没有足够的魂之碎片-->
+		<define name="ERR_ITEM_PET_SOUL_FRAGAMENT" value="119"/>
+		<!--请先升阶然后再升级-->
+		<define name="ERR_LEVE_UP_BEFOR_STEP" value="120"/>
+		<!--已经是最大的阶级不能再升阶-->
+		<define name="ERR_MAX_STEP" value="121"/>
+		<!--不能大于玩家级别-->
+		<define name="ERR_MAX_PLAYER" value="122"/>
+		<!--跟宠没有解锁-->
+		<define name="ERR_CAN_NOT_LOCK" value="123"/>
+		<!--没有达到vip等级，不能完美吸收-->
+		<define name="ERR_RIDE_ABOB" value="124"/>
+		<!--宠物已经到达最大的等级-->
+		<define name="ERR_PET_MAX_LEVEL" value="125"/>
+		<!--没有刻印坐骑-->
+		<define name="ERR_NO_CLEAR_MARK_RIDE" value="126"/>
+		<!--R技能CD中，不能切换跟宠-->
+		<define name="ERR_RSKILL_INCD" value="127"/>
+		<!-- ================================================================================ -->
+		<!--VIP-->
+		<!-- ================================================================================ -->
+		<!--没有达到vip等级,不能一键类 或秒cd操作-->
+		<define name="ERR_VIP_OPERATION" value="130"/>
+		<!-- ================================================================================ -->
+		<!--背包-->
+		<!-- ================================================================================ -->
+		<define name="ERR_SUCCEED_SWAP" value="150"/>
+		<!--背包里没有物品-->
+		<define name="ERR_BAG_NO_ITME" value="151"/>
+		<!--材料不够-->
+		<define name="ERR_NO_MATERIAL" value="153"/>
+		<!--背包满了-->
+		<define name="ERR_BAG_FULL" value="154"/>
+		<!--物品使用次数不足-->
+		<define name="ERR_ITEM_NO_ENOUGH_USE_TIME" value="155" />
+		<!-- ================================================================================ -->
+		<!--聊天-->
+		<!-- ================================================================================ -->
+		<!--聊天频率过于频繁-->
+		<define name="ERR_CHAT_FREQUENTLY" value="160"/>
+		<define name="ERR_CHAT_WORLD_LEVEL" value="161"/>
+		<define name="ERR_CHAT_TEAM_LEVEL" value="162"/>
+		<define name="ERR_CHAT_PRIVATE_LEVEL" value="163"/>
+		<define name="ERR_CHAT_HORN_LEVEL" value="164"/>
+		<define name="ERR_CHAT_GUILD_LEVEL" value="165"/>
+		<!-- ================================================================================ -->
+		<!--公会-->
+		<!-- ================================================================================ -->
+		<!--公会人数达到上限-->
+		<define name="ERR_MAX_GUILD_MEMBERNUM" value="170"/>
+		<!--已经有公会-->
+		<define name="ERR_HAVE_GUILD" value="171"/>
+		<!--没有公会-->
+		<define name="ERR_HAVENT_GUILD" value="172"/>
+		<!--未找到公会信息-->
+		<define name="ERR_UNFOUND_GUILD" value="173"/>
+		<!--公会等级已达到最高级-->
+		<define name="ERR_MAX_GUILD_LEVEL" value="174"/>
+		<!--龙盘达到最大使用次数-->
+		<define name="ERR_MAX_GUILD_TURNTABLE_NUM" value="175"/>
+		<!--公会贡献点不足-->
+		<define name="ERR_NO_ENOUGH_GUILDPOINT" value="176"/>
+		<!--公会怪物抢夺战未开启-->
+		<define name="ERR_CRUSADE_MONSTER_CLOSE" value="177"/>
+		<!--公会副本未开启-->
+		<define name="ERR_GUILD_DUNGEON_CLOSE" value="178"/>
+		<!--公会BOSS今日已击杀-->
+		<define name="ERR_GUILD_BOSS_KILLED" value="179"/>
+		<!--暮光之战未开启-->
+		<define name="ERR_TWILIGHT_WAR_CLOSE" value="180"/>
+		<!--暮光之战的BOSS已被击杀-->
+		<define name="ERR_TWILIGHT_WAR_BOSS_DEAD" value="181"/>
+		<!--退出公会后24小时内不能加入新公会-->
+		<define name="ERR_CANT_JOIN_NEW_GUILD" value="182"/>
+		<!--个人轮盘重置次数达到上限-->
+		<define name="ERR_MAX_GUILD_MEMBER_TURNTABLE_BUY_TIMES" value="183"/>
+		<!--受到请玩家已有公会-->
+		<define name="ERR_INVITE_PLAYER_HAVE_GUILD" value="184"/>
+		<!--已存在同名公会-->
+		<define name="ERR_GUILD_DUPLICATE_GUILD_NAME" value="185"/>
+	    <!--公会已经解散-->
+		<define name="ERR_GUILD_DISMISS" value="186"/>
+		<!--公会副会长人数已经到达上限-->
+		<define name="ERR_GUILD_VICE_PRESIDENT_MAX" value="187"/>
+		<!--公会科技提升使用金币当日次数上限-->
+		<define name="ERR_GUILD_ADD_GAMEPOINT_TIME_LIMIT" value="188"/>
+		<!--公会科技提升使用魔石当日次数上限-->
+		<define name="ERR_GUILD_ADD_MONEYPOINT_TIME_LIMIT" value="189"/>
+		<!--公会科技等级不高于公会等级上限-->
+		<define name="ERR_GUILD_ADD_GUILD_LEVEL_LIMIT" value="190"/>
+		<!--当前不符合继承的条件-->
+		<define name="ERR_GUILD_NO_INHERIT_CHAIRMAN" value="191"/>
+		<!--公会科技等级达到最高级-->
+		<define name="ERR_GUILD_SCIENCE_MAX_LEVEL" value="192"/>
+		<!--公会名字不能小于4个字符-->
+		<define name="ERR_LESS_MIN_GUILD_NAME_LENGTH" value="193"/>
+		<!-- ================================================================================ -->
+		<!-- 城市争夺战 -->
+		<!-- ================================================================================ -->
+		<!-- 城市争夺战未开启 -->
+		<define name="ERR_CITY_FIGHT_NO_START" value="195"/>
+		<!-- 城市争夺战已占领 -->
+		<define name="ERR_CITY_FIGHT_OCCUPY" value="196"/>
+		<!-- 城市争夺战跳转冷却中 -->
+		<define name="ERR_CITY_FIGHT_DUNGEON_CD" value="197"/>
+		<!-- ================================================================================ -->
+		<!--在线PK-->
+		<!-- ================================================================================ -->
+		<define name="ERR_ONLINE_PK_CANT_REQUEST" value="201"/>
+		<define name="ERR_ONLINE_PK_TEAM_NO_EXIST" value="202"/>
+		<define name="ERR_ONLINE_PK_CANT_ADDIN" value="203"/>
+		<define name="ERR_ONLINE_PK_INVITER_NO_IN_CITY" value="204"/>
+		<define name="ERR_ONLINE_PK_ACCEPTER_NO_IN_CITY" value="205"/>
+		<!-- ================================================================================ -->
+		<!--宝库-->
+		<!-- ================================================================================ -->
+		<!--宝库进入次数用完-->
+		<define name="ERR_TREASURY_NUMBER_END" value="220"/>
+		<!--宝库冷却中-->
+		<define name="ERR_TREASURY_CD" value="221"/>
+		<!--宝库购买进入次数不足-->
+		<define name="ERR_TREASURY_NO_ENOUGH_BUY_COUNT" value="222"/>
+		<!-- ================================================================================ -->
+		<!-- 商城 -->
+		<!-- ================================================================================ -->
+		<!-- 没有这个商品 -->
+		<define name="ERR_MALL_PRODUCT_UNFOUND" value="230"/>
+		<!-- 商品数量不足 -->
+		<define name="ERR_MALL_PRODUCT_NOENOUGH" value="231"/>
+		<!-- 商品不在时间内 -->
+		<define name="ERR_MALL_PRODUCT_TIMEOUT" value="232"/>
+		<!-- 商品被抢光 -->
+		<define name="ERR_MALL_PRODUCT_SELLOUT" value="233"/>
+		<!-- 商品不出售 -->
+		<define name="ERR_MALL_PRODUCT_NOTSELL" value="234"/>
+		<!-- 商品已发送到对方邮箱 -->
+		<define name="ERR_MALL_PRODUCT_SEND_TO_RECEIVER" value="235"/>
+		<!--超过限购次数-->
+		<define name="ERR_LIMT_BUY_NUM" value="236"/>
+		<!--商品不能赠送-->
+		<define name="ERR_MALL_CANT_PRESENT" value="237"/>
+		<!-- ================================================================================ -->
+		<!-- 交易 -->
+		<!-- ================================================================================ -->
+		<!-- 交易成功 -->
+		<define name="ERR_TRADE_ORDER_SUCCEED" value="240"/>
+		<!-- 交易失败 -->
+		<define name="ERR_TRADE_ORDER_FAILED" value="241"/>
+		<!-- 正在交易中 -->
+		<define name="ERR_TRADE_IN_TRADING" value="242"/>
+		<!-- ================================================================================ -->
+		<!-- 时装 -->
+		<!-- ================================================================================ -->
+		<!-- 不能添加相同的时装 -->
+		<define name="ERR_ADD_FASHION" value="260"/>
+		<!-- 不能合成的物品 -->
+		<define name="ERR_COMPOSE_FASHION" value="261"/>
+		<!-- 负值检查 -->
+		<define name="ERR_NO_ENOUGH_INCARNATION_POINT" value="262"/>
+		<define name="ERR_NO_ENOUGH_INCARNATION" value="263"/>
+		<!-- 激活物品不足 -->
+		<define name="ERR_NO_ACTIVATE_ITEM" value="264"/>
+		<!-- 升级物品不足 -->
+		<define name="ERR_NO_FASHION_LEVEL_UP_ITEM" value="265"/>
+		<!-- 抽取宝藏物品不足 -->
+		<define name="ERR_NO_FASHION_GET_TREASURE_ITEM" value="266"/>
+		<!-- 没有特殊消耗类型 -->
+		<define name="ERR_NO_FASHION_NO_TYPE" value="267"/>
+		<!-- ================================================================================ -->
+		<!-- 时装 -->
+		<!-- ================================================================================ -->
+		<!--没有足够的绑定魔石-->
+		<define name="ERR_NO_ENOUGH_BIND_MONEY_POINT" value="270"/>
+		<!-- ================================================================================ -->
+		<!-- 装备系统(强化，合成，分解，融合等系统) -->
+		<!-- ================================================================================ -->
+		<!-- 装备升星失败 -->
+		<define name="ERR_EQUIP_STAR_UP_FAILED" value="301"/>
+		<!-- ================================================================================ -->
+		<!-- 副本 -->
+		<!-- ================================================================================ -->
+		<define name="ERR_CHANGE_DUNGEON_NO_DUNGEON" value="401"/>
+		<define name="ERR_CHANGE_DUNGEON_IN_CHANGE" value="402"/>
+		<define name="ERR_CHANGE_DUNGEON_CANT_JUMP" value="403"/>
+		<define name="ERR_CHANGE_DUNGEON_NOT_BACKCITY" value="404"/>
+		<define name="ERR_CHANGE_DUNGEON_TOO_FAST" value="405"/>
+		<define name="ERR_CHANGE_DUNGEON_NO_COUNT" value="406"/>
+		<define name="ERR_CHANGE_DUNGEON_CLOSED" value="407"/>
+		<define name="ERR_CHANGE_DUNGEON_REPETITION" value="408"/>
+		<define name="ERR_CHANGE_DUNGEON_SEAL" value="409"/>
+		<!-- ================================================================================ -->
+		<!-- 激活码 -->
+		<!-- ================================================================================ -->
+		<!--激活码无效-->
+		<define name="ERR_ACTIVE_CODE_NOT_FOUND" value="500"/>
+		<!--激活码已使用-->
+		<define name="ERR_ACTIVE_CODE_USED" value="501"/>
+		<!--该礼品已经领过了-->
+		<define name="ERR_ACTIVE_CODE_GIFT_ID_USED" value="502"/>
+		<!--账号未用激活码激活-->
+		<define name="ERR_ACTIVE_NOT_ACTIVE_LOGIN" value="510"/>
+		<!-- ================================================================================ -->
+		<!-- 体力 -->
+		<!-- ================================================================================ -->
+		<!--最大体力购买次数-->
+		<define name="ERR_MAX_VIGOR_BUYTIMES" value="600"/>
+		<!-- ================================================================================ -->
+		<!--翅膀-->
+		<!-- ================================================================================ -->
+		<!--翅膀已经激活-->
+		<define name="ERR_WING_ACTIVATE" value="701"/>
+		<!--激活的翅膀不存在-->
+		<define name="ERR_NO_EXIST" value="702"/>
+		<!-- 翅膀没有激活激活 -->
+		<define name="ERR_WIMG_NO_ACTIVATE" value="703"/>
+		<!-- 翅膀激活失败-->
+		<define name="ERR_WIMG_ACTIVATE_FAILED" value="704"/>
+		<!-- 翅膀已经是最大等级不能升级-->
+		<define name="ERR_WIMG_MAX_LEVEL" value="705"/>
+		<!--翅膀等级大于玩家级别-->
+		<define name="ERR_WIMG_MAX_PLAYER_LEVEL" value="706"/>
+		<!-- ================================================================================ -->
+		<!--金像-->
+		<!-- ================================================================================ -->
+		<!--金像进入次数用完-->
+		<define name="ERR_GOLDTREE_NUMBER_END" value="801"/>
+		<!--金像冷却中-->
+		<define name="ERR_GOLDTREE_CD" value="802"/>
+		<!--金像购买次数为不足-->
+		<define name="ERR_GOLDTREE_NO_ENOUGH_BUY_COUNT" value="803"/>
+		<!-- ================================================================================ -->
+		<!-- 女仆 -->
+		<!-- ================================================================================ -->
+		<!-- 任务达到最大数 -->
+		<define name="ERR_TASK_REACH_MAX_COUNT" value="901"/>
+		<!-- 日常任务重置次数达到最大值 -->
+		<define name="ERR_TASK_DAILY_MAX_RESET" value="902"/>
+		<!-- 护卫任务购买次数达到最大值 -->
+		<define name="ERR_TASK_GUARD_MAX_BUY_COUNT" value="903"/>
+		<!--日常任务做完才能重刷 -->
+		<define name="ERR_TASK_DAILY_RESET" value="904"/>
+		<!-- ================================================================================ -->
+		<!-- 公会任务 -->
+		<!-- ================================================================================ -->
+		<!-- 公会任务只能接一个 -->
+		<define name="ERR_TASK_CAN_TAKE_ONE" value="920"/>
+		<!-- ================================================================================ -->
+		<!-- 修罗场 -->
+		<!-- ================================================================================ -->
+		<!-- 修罗场领取次数用尽 -->
+		<define name="ERR_ASHURA_NO_ENOUGH_COUNT" value="1000"/>
+		<!-- 修罗场没有奖励可以领取 -->
+		<define name="ERR_ASHURA_NO_REWARD" value="1001"/>
+		<!-- ================================================================================ -->
+		<!-- 被动技能 -->
+		<!-- ================================================================================ -->
+		<!-- 被动技能已经开启 -->
+		<define name="ERR_PASSIVE_SKILL_IS_OPEN" value="1100"/>
+		<!-- 被动技能不存在 -->
+		<define name="ERR_PASSIVE_SKILL_NOT_EXIST" value="1101"/>
+		<!-- 被动技能未开启 -->
+		<define name="ERR_PASSIVE_SKILL_NOT_OPEN" value="1102"/>
+		<!-- 被动技能等级不存在 -->
+		<define name="ERR_PASSIVE_SKILL_LEVEL_NO_EXIST" value="1103"/>
+		<!-- 被动技能等级达到最高级 -->
+		<define name="ERR_PASSIVE_SKILL_MAX_LEVEL" value="1104"/>
+		<!-- 被动技能战魂数量不足 -->
+		<define name="ERR_NO_ENOUGH_BATTLE_SOUL" value="1105"/>
+		<!-- 被动技能等级不得高于玩家等级 -->
+		<define name="ERR_PASSIVE_SKILL_LEVEL_GREATER_THAN_PLAYER_LEVEL" value="1106"/>
+		<!-- 被动技能无可用点数 -->
+		<define name="ERR_PASSIVE_SKILL_NO_AVAILABLE_POINTS" value="1107"/>
+		<!-- ================================================================================ -->
+		<!-- 物品 -->
+		<!-- ================================================================================ -->
+		<!-- 物品冷却中 -->
+		<define name="ERR_ITEM_CD" value="1201"/>
+		<!-- 物品数量不足 -->
+		<define name="ERR_NO_ENOUGH_ITEM" value="1202"/>
+		<!-- ================================================================================ -->
+		<!-- 符文 -->
+		<!-- ================================================================================ -->
+		<!-- 符文等级不高于玩家等级 -->
+		<define name="ERR_SKILL_MAX_LEVEL" value="1301"/>
+		<!-- ================================================================================ -->
+		<!-- 组队 -->
+		<!-- ================================================================================ -->
+		<!-- 队伍不存在 -->
+		<define name="ERR_NO_TEAM" value="1401"/>
+		<define name="ERR_I_HAS_TEAM" value="1402"/>
+		<define name="ERR_REJECT_JOIN_TEAM" value="1403"/>
+		<define name="ERR_NO_ENOUGH_TEAM_TIMES" value="1404"/>
+		<define name="ERR_NO_TEAM_JOIN" value="1405"/>
+		<define name="ERR_TEAM_MEMBER_NO_READY" value="1406"/>
+		<define name="ERR_TEAM_DUNGEON_REACH_MAX_NUM" value="1407"/>
+		<define name="ERR_NO_TEAM_BUY_TIMES" value="1408"/>
+		<define name="ERR_IN_TEAM_NEED_LEAVE" value="1409"/>
+		<define name="ERR_TEAM_ACCEPTER_UNOPEN" value="1410"/>
+		<define name="ERR_HE_HAS_TEAM" value="1411"/>
+		<!-- ================================================================================ -->
+		<!-- 怪物之门 -->
+		<!-- ================================================================================ -->
+		<!-- 自动挑战中 -->
+		<define name="ERR_MONSTER_DOOR_IN_AUTO_CHALLENGE" value="1501"/>
+		<!-- ================================================================================ -->
+		<!-- 跳舞 -->
+		<!-- ================================================================================ -->
+		<!-- 不在主城里 -->
+		<define name="ERR_NOT_IN_CITY" value="1601"/>
+		<!-- 跳舞类型3未购买 -->
+		<define name="ERR_DANCE_TYPE_3_NOT_BUY" value="1602"/>
+		<!-- 正在跳舞 -->
+		<define name="ERR_DANCE_IS_DANCING" value="1603"/>
+		<!-- 舞蹈类型不存在 -->
+		<define name="ERR_DANCE_TYPE_NOT_EXIST" value="1604"/>
+		<!-- 无权跳这个舞 -->
+		<define name="ERR_DANCE_NOT_USE" value="1605"/>
+		<!-- 战斗状态不能跳舞 -->
+		<define name="ERR_DANCE_IN_BATTLE" value="1606"/>
+		<!-- ================================================================================ -->
+		<!-- 活动 -->
+		<!-- ================================================================================ -->
+		<!--活动未开启-->
+		<define name="ERR_ACTIVITY_NO_OPEN" value="1700"/>
+		<define name="ERR_ACTIVITY_CLOSED" value="1701"/>
+		<define name="ERR_ACTIVITY_NO_REACH_LEVEL" value="1702"/>
+		<define name="ERR_ACTIVITY_CANT_JOIN" value="1703"/>
+		<!--不能再进入了-->
+		<define name="ERR_ACTIVITY_NO_ENOUGH_ENTER" value="1704"/>
+		<define name="ERR_IN_TEAM_CANNT_JOIN_ACTIVITY" value="1409"/>
+		
+		<define name="ERR_MICRO_CLIENT_ACTIVITY_NO_STATUS" value="1705"/>
+		<define name="ERR_MICRO_CLIENT_ACTIVITY_NO_RANGE" value="1706"/>
+		<!-- ================================================================================ -->
+		<!-- 扫荡 -->
+		<!-- ================================================================================ -->
+		<!--扫荡次数不能为0-->
+		<define name="ERR_RAIDS_TIME_NO_EMPTY" value="1801"/>
+		<!--没有扫荡的副本-->
+		<define name="ERR_RAIDS_NO_DUGEON" value="1802"/>
+		<!--需要通关当前副本-->
+		<define name="ERR_NEED_CLEAR_DUNGEON" value="1803"/>
+		<!--正在扫荡中-->
+		<define name="ERR_RAIDSING_DUNGEON" value="1804"/>
+		<!-- ================================================================================ -->
+		<!-- 护魂 -->
+		<!-- ================================================================================ -->
+		<!--大于的护魂购买次数-->
+		<define name="ERR_MAX_PROTECT_SOUL_BUYTIMES" value="1900"/>
+		<!--扫荡副本没有开启-->
+		<define name="ERR_PROTECT_SOUL_NO_OPEN" value="1901"/>
+		<!--购买扫荡次数小于要扫荡的次数-->
+		<define name="ERR_PROTECT_SOUL_LESS_NUM" value="1902"/>
+		<!--护魂副本不能扫荡-->
+		<define name="ERR_PROTECT_SOUL_NO_RAIDS" value="1903"/>
+		<!-- ================================================================================ -->
+		<!--塔防-->
+		<!--每天只能进一次-->
+		<define name="ERR_TD_NO_ENOUGH_ENTER" value="2000"/>
+		<!-- ================================================================================ -->
+		<!--圣剑争辉-->
+		<!--退出后不可在进入-->
+		<define name="ERR_FACTION_NO_ENOUGH_ENTER" value="2100"/>
+		<!-- ================================================================================ -->
+		<!-- 开旗 -->
+		<!-- ================================================================================ -->
+		<!--开集点不存在-->
+		<define name="ERR_TOUCH_NO_EXIST" value="2200"/>
+		<!--开旗中-->
+		<define name="ERR_TOUCH_START" value="2201"/>
+		<!--超出范围-->
+		<define name="ERR_TOUCH_OUT_RADIUS" value="2202"/>
+		<!-- ================================================================================ -->
+		<!-- 答题 -->
+		<!-- ================================================================================ -->
+		<define name="ERR_ANSWER_HAVE_JOIN" value="2300"/>
+		<define name="ERR_ANSWER_IN_CROSS_GAMESERVER" value="2301"/>
+		<!--总时间没有到装备升星的时间-->
+		<!-- ================================================================================ -->
+		<define name="ERR_EQUIP_START_TIME" value="2400"/>
+		<!--不能升星点击，总时间大于装备升星的时间-->
+		<define name="ERR_EQUIP_START_POINT" value="2401"/>
+		<!-- ================================================================================ -->
+		<!-- 至尊魔宫 -->
+		<!-- ================================================================================ -->
+		<!--当前没有可扫荡的魔宫-->
+		<define name="ERR_BABEL_NO_DUNGEON_CAN_RAIDS" value="2500"/>
+		<!--背包-->
+		<!-- ================================================================================ -->
+		<!--背包已满，通过邮件形式发送-->
+		<define name="ERR_BAG_FULL_MALL_SEND" value="2600"/>
+		<define name="ERR_BAG_GRID_UNLOCK_FAIL" value="2601" />
+		<define name="ERR_BAG_GRID_UNLOCK_MONEYPOINT_LACK" value="2602" />
+		<define name="ERR_BAG_GRID_UNLOCK_DISABLE" value="2603" />
+		<!-- ================================================================================ -->
+		<!-- 资源挽回 -->
+		<!-- ================================================================================ -->
+		<!-- 已领取 -->
+		<define name="ERR_RESOURCE_CLAIMED" value="2650"/>
+		<!-- ================================================================================ -->
+		<!-- 世界尽头 -->
+		<!-- ================================================================================ -->
+		<!-- 积分不足 -->
+		<define name="ERR_JUMPING_OFF_NO_SCORE" value="2700"/>
+		<!-- ================================================================================ -->
+		<!-- 僵尸生存 -->
+		<!-- ================================================================================ -->
+		<!-- 僵尸副本次数上限 -->
+		<define name="ERR_ENTER_ZOMBIE_OUT_LIMIT" value="2701"/>
+		<!-- 没有配置的僵尸副本 -->
+		<define name="ERR_NONE_ZOMBIE_DUNGEON" value="2702"/>
+		<!-- 必须先完成前面的僵尸副本 -->
+		<define name="ERR_PRE_ZOMBIE_NO_FINISH" value="2703"/>
+		<!-- ================================================================================ -->
+		<!-- 圣剑系统 -->
+		<!-- ================================================================================ -->
+		<!-- 已经达到最大阶数 -->
+		<define name="ERR_SWORD_MAX_PLAYER_LEVEL" value="2800"/>
+		<!-- ================================================================================ -->
+		<!-- 虚空幻境 -->
+		<!-- ================================================================================ -->
+		<!-- 世界等级未达到 -->
+		<define name="ERR_VOID_FIELD_WORLD_LEVEL_NOT_ENOUGH" value="2900"/>
+		<!-- 玩家等级未达到 -->
+		<define name="ERR_VOID_FIELD_PlAYER_LEVEL_NOT_ENOUGH" value="2901"/>
+		<!-- 珍兽状态不能切换攻击模式 -->
+		<define name="ERR_VOID_FIELD_CANNOT_CHANGE_FIGHT_MODE" value="3000"/>
+		<!--在线奖励 -->
+		<!-- ================================================================================ -->
+		<define name="ERR_ONLIEN_REWARD_GET" value="4000"/>
+		<!-- ================================================================================ -->
+		<!-- 跨服pk -->
+		<!-- ================================================================================ -->
+		<!-- 昨天次数未完成 -->
+		<define name="ERR_MULTISERVER_YESTERDAY_COUNT" value="4100"/>
+		<!-- 今天已领取 -->
+		<define name="ERR_MULTISERVER_YESTERDAY_GET" value="4101"/>
+		<!-- 等级不够 -->
+		<define name="ERR_MULTISERVER_NEED_LEVEL" value="4102"/>
+		<!-- 次数用完 -->
+		<define name="ERR_MULTISERVER_NEED_COUNT" value="4103"/>
+		<!-- 开始时间未定 -->
+		<define name="ERR_MULTISERVER_NEED_TIME" value="4104"/>
+		<!-- 跨服服务器未打开 -->
+		<define name="ERR_MULTISERVER_NOT_SERVICE" value="4105"/>
+		<!-- 功勋购买次数超出限制 -->
+		<define name="ERR_MULTISERVER_ITEM_LIMIT_NUM" value="4106"/>
+		<!-- 功勋购买段位不足 -->
+		<define name="ERR_MULTISERVER_ITEM_LIMIT_LEVEL" value="4107"/>
+		<!-- 昨天次数未完成3v3 -->
+		<define name="ERR_MULTISERVER_YESTERDAY_COUNT_3V3" value="4108"/>
+		<!-- 今天已领取3v3 -->
+		<define name="ERR_MULTISERVER_YESTERDAY_GET_3V3" value="4109"/>
+		<!-- ================================================================================ -->
+		<!-- 投资计划 -->
+		<!-- ================================================================================ -->
+		<!-- 超过追加时间 -->
+		<define name="ERR_INVESTMENT_PLAN_ADDITIONAL_TIME_OVER" value="4201"/>
+		<!-- ================================================================================ -->
+		<!-- 充值积分抽奖 -->
+		<!-- ================================================================================ -->
+		<define name="ERR_PAY_POINT_EXCHANGE_ITEM_OUT_DATA" value="4301" />
+		<define name="ERR_PAY_POINT_EXCHANGE_ITEM_NOT_EXIST" value="4302" />
+		<define name="ERR_PAY_POINT_EXCHANGE_ITEM_POINT_LACK" value="4303" />
+		<define name="ERR_PAY_POINT_LOTTERY_OUT_DATA" value="4304" />
+		<define name="ERR_PAY_POINT_LOTTERY_COST_ITEM_LACK" value="4305" />
+		<define name="ERR_PAY_POINT_LOTTERY_FAIL" value="4306" />
+		<!-- ================================================================================ -->
+		<!-- VIP独享副本 -->
+		<!-- ================================================================================ -->
+		<define name="ERR_VIP_ONLY_DUNGEON_FAIL" value="4401" />
+		<define name="ERR_VIP_ONLY_DUNGEON_COUNT_LACK" value="4402" />
+		<define name="ERR_VIP_ONLY_DUNGEON_MONEY_POINT_LACK" value="4403" />
+		<!-- ================================================================================ -->
+		<!-- 好友 -->
+		<!-- ================================================================================ -->
+		<!-- 好友已经存在 -->
+		<define name="ERR_FRIEND_EXIST" value="4500" />
+	</defines>
+</coder>

@@ -1,0 +1,960 @@
+/*
+** Lua binding: action
+** Generated automatically by tolua++-1.0.92 on 10/26/13 17:56:32.
+*/
+
+#ifndef __cplusplus
+#include "stdlib.h"
+#endif
+#include "string.h"
+
+#include "tolua++.h"
+
+/* Exported function */
+TOLUA_API int  tolua_action_open (lua_State* tolua_S);
+
+#include "robot_pch.h"
+#include "CLuaObj.h"
+#include "CLuaRobot.h"
+#include "case_lua.h"
+
+/* function to release collected object via destructor */
+#ifdef __cplusplus
+
+static int tolua_collect_-void (lua_State* tolua_S)
+{
+ -void* self = (-void*) tolua_tousertype(tolua_S,1,0);
+	Mtolua_delete(self);
+	return 0;
+}
+
+static int tolua_collect_CLuaObj (lua_State* tolua_S)
+{
+ CLuaObj* self = (CLuaObj*) tolua_tousertype(tolua_S,1,0);
+	Mtolua_delete(self);
+	return 0;
+}
+#endif
+
+
+/* function to register type */
+static void tolua_reg_types (lua_State* tolua_S)
+{
+ tolua_usertype(tolua_S,"CLuaObj");
+ tolua_usertype(tolua_S,"-void");
+ tolua_usertype(tolua_S,"CLuaRobot");
+}
+
+/* method: new of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_new00
+static int tolua_action_CLuaObj_new00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const char* name = ((const char*)  tolua_tostring(tolua_S,2,0));
+  {
+   CLuaObj* tolua_ret = (CLuaObj*)  Mtolua_new((CLuaObj)(name));
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"CLuaObj");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: new_local of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_new00_local
+static int tolua_action_CLuaObj_new00_local(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const char* name = ((const char*)  tolua_tostring(tolua_S,2,0));
+  {
+   CLuaObj* tolua_ret = (CLuaObj*)  Mtolua_new((CLuaObj)(name));
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"CLuaObj");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: delete of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_delete00
+static int tolua_action_CLuaObj_delete00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaObj* self = (CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'delete'", NULL);
+#endif
+  Mtolua_delete(self);
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'delete'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: SetObjId of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_SetObjId00
+static int tolua_action_CLuaObj_SetObjId00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaObj* self = (CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+  int nId = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'SetObjId'", NULL);
+#endif
+  {
+   self->SetObjId(nId);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'SetObjId'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetObjId of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_GetObjId00
+static int tolua_action_CLuaObj_GetObjId00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const CLuaObj",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const CLuaObj* self = (const CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetObjId'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetObjId();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetObjId'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetName of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_GetName00
+static int tolua_action_CLuaObj_GetName00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const CLuaObj",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const CLuaObj* self = (const CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetName'", NULL);
+#endif
+  {
+   const char* tolua_ret = (const char*)  self->GetName();
+   tolua_pushstring(tolua_S,(const char*)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetName'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: SetLuaObjIndex of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_SetLuaObjIndex00
+static int tolua_action_CLuaObj_SetLuaObjIndex00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaObj* self = (CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+  int nLuaIndex = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'SetLuaObjIndex'", NULL);
+#endif
+  {
+   self->SetLuaObjIndex(nLuaIndex);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'SetLuaObjIndex'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetLuaObjIndex of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_GetLuaObjIndex00
+static int tolua_action_CLuaObj_GetLuaObjIndex00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const CLuaObj",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const CLuaObj* self = (const CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetLuaObjIndex'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetLuaObjIndex();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetLuaObjIndex'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: AddIndexFunc of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_AddIndexFunc00
+static int tolua_action_CLuaObj_AddIndexFunc00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,4,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaObj* self = (CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+  const char* funcName = ((const char*)  tolua_tostring(tolua_S,2,0));
+  int nFuncIndex = ((int)  tolua_tonumber(tolua_S,3,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'AddIndexFunc'", NULL);
+#endif
+  {
+   self->AddIndexFunc(funcName,nFuncIndex);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'AddIndexFunc'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: FindFuncIndex of class  CLuaObj */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaObj_FindFuncIndex00
+static int tolua_action_CLuaObj_FindFuncIndex00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaObj",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaObj* self = (CLuaObj*)  tolua_tousertype(tolua_S,1,0);
+  const char* funcName = ((const char*)  tolua_tostring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'FindFuncIndex'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->FindFuncIndex(funcName);
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'FindFuncIndex'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: ShowActionList of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_ShowActionList00
+static int tolua_action_CLuaRobot_ShowActionList00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'ShowActionList'", NULL);
+#endif
+  {
+   self->ShowActionList();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'ShowActionList'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: DoAction of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_DoAction00
+static int tolua_action_CLuaRobot_DoAction00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,3,1,&tolua_err) ||
+     !tolua_isnumber(tolua_S,4,1,&tolua_err) ||
+     !tolua_isnumber(tolua_S,5,1,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,6,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  const char* actionName = ((const char*)  tolua_tostring(tolua_S,2,0));
+  int arg1 = ((int)  tolua_tonumber(tolua_S,3,0));
+  int arg2 = ((int)  tolua_tonumber(tolua_S,4,0));
+  int arg3 = ((int)  tolua_tonumber(tolua_S,5,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'DoAction'", NULL);
+#endif
+  {
+  -void tolua_ret = (-void)  self->DoAction(actionName,arg1,arg2,arg3);
+   {
+#ifdef __cplusplus
+    void* tolua_obj = Mtolua_new((-void)(tolua_ret));
+     tolua_pushusertype(tolua_S,tolua_obj,"-void");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#else
+    void* tolua_obj = tolua_copy(tolua_S,(void*)&tolua_ret,sizeof(-void));
+     tolua_pushusertype(tolua_S,tolua_obj,"-void");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+#endif
+   }
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'DoAction'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetDungeonID of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetDungeonID00
+static int tolua_action_CLuaRobot_GetDungeonID00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetDungeonID'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetDungeonID();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetDungeonID'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetChannelID of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetChannelID00
+static int tolua_action_CLuaRobot_GetChannelID00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetChannelID'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetChannelID();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetChannelID'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetRandomDungeonID of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetRandomDungeonID00
+static int tolua_action_CLuaRobot_GetRandomDungeonID00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetRandomDungeonID'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetRandomDungeonID();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetRandomDungeonID'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetX of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetX00
+static int tolua_action_CLuaRobot_GetX00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetX'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetX();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetX'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetY of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetY00
+static int tolua_action_CLuaRobot_GetY00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetY'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetY();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetY'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetUnitX of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetUnitX00
+static int tolua_action_CLuaRobot_GetUnitX00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  int id = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetUnitX'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetUnitX(id);
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetUnitX'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetUnitY of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetUnitY00
+static int tolua_action_CLuaRobot_GetUnitY00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  int id = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetUnitY'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetUnitY(id);
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetUnitY'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetOneEnemy of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetOneEnemy00
+static int tolua_action_CLuaRobot_GetOneEnemy00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetOneEnemy'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetOneEnemy();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetOneEnemy'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: CallGM of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_CallGM00
+static int tolua_action_CLuaRobot_CallGM00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  const char* command = ((const char*)  tolua_tostring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'CallGM'", NULL);
+#endif
+  {
+   self->CallGM(command);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'CallGM'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: UseSkill of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_UseSkill00
+static int tolua_action_CLuaRobot_UseSkill00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,3,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,4,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  int objectId = ((int)  tolua_tonumber(tolua_S,2,0));
+  int skillId = ((int)  tolua_tonumber(tolua_S,3,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'UseSkill'", NULL);
+#endif
+  {
+   self->UseSkill(objectId,skillId);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'UseSkill'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: ChangeName of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_ChangeName00
+static int tolua_action_CLuaRobot_ChangeName00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+  const char* name = ((const char*)  tolua_tostring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'ChangeName'", NULL);
+#endif
+  {
+   self->ChangeName(name);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'ChangeName'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetTime of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetTime00
+static int tolua_action_CLuaRobot_GetTime00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetTime'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetTime();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetTime'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetAccount of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_GetAccount00
+static int tolua_action_CLuaRobot_GetAccount00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetAccount'", NULL);
+#endif
+  {
+   const char* tolua_ret = (const char*)  self->GetAccount();
+   tolua_pushstring(tolua_S,(const char*)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetAccount'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: Close of class  CLuaRobot */
+#ifndef TOLUA_DISABLE_tolua_action_CLuaRobot_Close00
+static int tolua_action_CLuaRobot_Close00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"CLuaRobot",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  CLuaRobot* self = (CLuaRobot*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'Close'", NULL);
+#endif
+  {
+   self->Close();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'Close'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* Open function */
+TOLUA_API int tolua_action_open (lua_State* tolua_S)
+{
+ tolua_open(tolua_S);
+ tolua_reg_types(tolua_S);
+ tolua_module(tolua_S,NULL,0);
+ tolua_beginmodule(tolua_S,NULL);
+  #ifdef __cplusplus
+  tolua_cclass(tolua_S,"CLuaObj","CLuaObj","",tolua_collect_CLuaObj);
+  #else
+  tolua_cclass(tolua_S,"CLuaObj","CLuaObj","",NULL);
+  #endif
+  tolua_beginmodule(tolua_S,"CLuaObj");
+   tolua_function(tolua_S,"new",tolua_action_CLuaObj_new00);
+   tolua_function(tolua_S,"new_local",tolua_action_CLuaObj_new00_local);
+   tolua_function(tolua_S,".call",tolua_action_CLuaObj_new00_local);
+   tolua_function(tolua_S,"delete",tolua_action_CLuaObj_delete00);
+   tolua_function(tolua_S,"SetObjId",tolua_action_CLuaObj_SetObjId00);
+   tolua_function(tolua_S,"GetObjId",tolua_action_CLuaObj_GetObjId00);
+   tolua_function(tolua_S,"GetName",tolua_action_CLuaObj_GetName00);
+   tolua_function(tolua_S,"SetLuaObjIndex",tolua_action_CLuaObj_SetLuaObjIndex00);
+   tolua_function(tolua_S,"GetLuaObjIndex",tolua_action_CLuaObj_GetLuaObjIndex00);
+   tolua_function(tolua_S,"AddIndexFunc",tolua_action_CLuaObj_AddIndexFunc00);
+   tolua_function(tolua_S,"FindFuncIndex",tolua_action_CLuaObj_FindFuncIndex00);
+  tolua_endmodule(tolua_S);
+  tolua_cclass(tolua_S,"CLuaRobot","CLuaRobot","CLuaObj",NULL);
+  tolua_beginmodule(tolua_S,"CLuaRobot");
+   tolua_function(tolua_S,"ShowActionList",tolua_action_CLuaRobot_ShowActionList00);
+   tolua_function(tolua_S,"DoAction",tolua_action_CLuaRobot_DoAction00);
+   tolua_function(tolua_S,"GetDungeonID",tolua_action_CLuaRobot_GetDungeonID00);
+   tolua_function(tolua_S,"GetChannelID",tolua_action_CLuaRobot_GetChannelID00);
+   tolua_function(tolua_S,"GetRandomDungeonID",tolua_action_CLuaRobot_GetRandomDungeonID00);
+   tolua_function(tolua_S,"GetX",tolua_action_CLuaRobot_GetX00);
+   tolua_function(tolua_S,"GetY",tolua_action_CLuaRobot_GetY00);
+   tolua_function(tolua_S,"GetUnitX",tolua_action_CLuaRobot_GetUnitX00);
+   tolua_function(tolua_S,"GetUnitY",tolua_action_CLuaRobot_GetUnitY00);
+   tolua_function(tolua_S,"GetOneEnemy",tolua_action_CLuaRobot_GetOneEnemy00);
+   tolua_function(tolua_S,"CallGM",tolua_action_CLuaRobot_CallGM00);
+   tolua_function(tolua_S,"UseSkill",tolua_action_CLuaRobot_UseSkill00);
+   tolua_function(tolua_S,"ChangeName",tolua_action_CLuaRobot_ChangeName00);
+   tolua_function(tolua_S,"GetTime",tolua_action_CLuaRobot_GetTime00);
+   tolua_function(tolua_S,"GetAccount",tolua_action_CLuaRobot_GetAccount00);
+   tolua_function(tolua_S,"Close",tolua_action_CLuaRobot_Close00);
+  tolua_endmodule(tolua_S);
+ tolua_endmodule(tolua_S);
+ return 1;
+}
+
+
+#if defined(LUA_VERSION_NUM) && LUA_VERSION_NUM >= 501
+ TOLUA_API int luaopen_action (lua_State* tolua_S) {
+ return tolua_action_open(tolua_S);
+};
+#endif
+

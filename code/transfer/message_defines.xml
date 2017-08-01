@@ -1,0 +1,4019 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<coder name="MessageEncoder" version="1">
+	<defines>
+		<!--版本号-->
+		<define name="VERSION_MAJOR" value="0"/>
+		<define name="VERSION_MINOR" value="7"/>
+		<define name="VERSION_REVISION" value="3"/>
+		<!--默认加密号码-->
+		<define name="ENCRYPT_MAGIC_NUMBER" value="20990103"/>
+		<!--默认端口号-->
+		<define name="PORT" value="443"/>
+		<define name="PORT2" value="8000"/>
+		<!--SQL查询缓冲长度-->
+		<define name="MAX_SQLTXT_LEN" value="81920"/>
+		<!--SQL查存储缓冲长度-->
+		<define name="MAX_SQLTXT_SAVE_LEN" value="16777215"/>
+		<!--缓冲区长度-->
+		<define name="NET_MSG_BUFFER_LEN" value="65535"/>
+		<!--SessionKey长度-->
+		<define name="SESSION_KEY_LEN" value="33"/>
+		<!-- 服务器网络状态 -->
+		<define name="NET_STATE_INIT" value="0"/>
+		<define name="NET_STATE_CREATE" value="1"/>
+		<define name="NET_STATE_CLOSED" value="2"/>
+		<define name="NET_STATE_RECONNECT" value="3"/>
+		<define name="NET_STATE_CONNECTED" value="4"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="HANDLER_STATE_INIT" value="0"/>
+		<define name="HANDLER_STATE_CONNECTED" value="1"/>
+		<define name="HANDLER_STATE_SEND_INFO_REQ" value="2"/>
+		<define name="HANDLER_STATE_SEND_INFO_ACK" value="3"/>
+		<define name="HANDLER_STATE_SEND_ACTIATE_REQ" value="4"/>
+		<define name="HANDLER_STATE_SEND_ACTIATE_ACK" value="5"/>
+		<!-- ================================================================================ -->
+		<!-- 服务器类型 -->
+		<!-- ================================================================================ -->
+		<define name="SERVER_TYPE_GATE" value="1"/>
+		<define name="SERVER_TYPE_GAME" value="2"/>
+		<define name="SERVER_TYPE_CENTER" value="3"/>
+		<define name="SERVER_TYPE_TIMER" value="4"/>
+		<define name="SERVER_TYPE_FLASH" value="5"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!--独立服务器-->
+		<define name="GAMESVR_TYPE_INDIE" value="1"/>
+		<!--跨服服务器-->
+		<define name="GAMESVR_TYPE_CROSS" value="2"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="CENTERSVR_TYPE_MASTER" value="1"/>
+		<define name="CENTERSVR_TYPE_WORKER" value="2"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="MSG_NET_ACCEPT" value="0"/>
+		<define name="MSG_NET_CONNECT" value="1"/>
+		<define name="MSG_NET_CLOSE" value="2"/>
+		<define name="MSG_NET_ERROR" value="3"/>
+		<!-- ================================================================================ -->
+		<!-- 跳副本类型 1跳trigger 2跳trigger到队友所在频道 3跳某个坐标点 4跳到某玩家身边 -->
+		<!-- ================================================================================ -->
+		<define name="DUNGEON_JUMP_TRIGGER" value="1"/>
+		<define name="DUNGEON_JUMP_TEAM" value="2"/>
+		<define name="DUNGEON_JUMP_POS" value="3"/>
+		<define name="DUNGEON_JUMP_PLAYER" value="4"/>
+		<!-- ================================================================================ -->
+		<!-- 配置文件 -->
+		<!-- ================================================================================ -->
+		<define name="RES_CONFIG_PATH" value="../res/config/"/>
+		<define name="RES_SDB_PATH" value="../res/sdb/"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="RES_PATH" value="../res/"/>
+		<define name="RES_MAP_PATH" value="../res/scene/map/"/>
+		<define name="RES_DESIGN_PATH" value="../res/design/"/>
+		<define name="RES_SKILL_PATH" value="../res/skill/"/>
+		<define name="RES_BUFF_PATH" value="../res/buff/"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="SKILL_LIST_FILE" value="skilllist.txt"/>
+		<define name="BUFF_LIST_FILE" value="bufflist.txt"/>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<define name="CENTER_CONFIG_FILE" value="center_config.xml"/>
+		<define name="CROSS_CENTER_CONFIG_FILE" value="cross_center_config.xml"/>
+		<define name="DUNGEON_CONFIG_FILE" value="dungeon_config.xml"/>
+		<define name="GAMESVR_CONFIG_FILE" value="gamesvr_config.xml"/>
+		<define name="FORMULA_CONFIG_FILE" value="formula.xml"/>
+		<define name="LEVELUP_CONFIG_FILE" value="levelup.xml"/>
+		<define name="NAMELIMITE_CONFIG_FILE" value="word.txt"/>
+		<define name="GUILD_CONFIG_FILE" value="guild.xml"/>
+		<define name="ACTIVITY_CONFIG_FILE" value="activity.xml"/>
+		<define name="SPECIAL_ACTIVITY_CONFIG_FILE" value="special_activity.xml"/>
+		<define name="SYNTHETIZE_CONFIG_FILE" value="synthetize.xml"/>
+		<define name="VIGOR_CONFIG_FILE" value="vigor.xml"/>
+		<define name="VIP_REWARD_CONFIG_FILE" value="vip_reward.xml"/>
+		<define name="VIP_CARD_CONFIG_FILE" value="vip_card.xml"/>
+		<define name="VIP_CONFIG_FILE" value="vip_privilege.xml"/>
+		<define name="VIP_GIFT_CONFIG_FILE" value="vip_gift.xml"/>
+		<define name="HOROSCOPE_CONFIG_FILE" value="horoscope.xml"/>
+		<define name="ITEM_CONFIG_FILE" value="item.xml"/>
+		<define name="SALE_CONFIG_FILE" value="sale.xml"/>
+		<define name="HONOR_SALE_CONFIG_FILE" value="honor_sale.xml"/>
+		<define name="GUILD_SALE_CONFIG_FILE" value="guild_sale.xml"/>
+		<define name="BIND_MONEY_POINT_SALE_CONFIG_FILE" value="bind_money_point_sale.xml"/>
+		<define name="MALL_CONFIG_FILE" value="mall.xml"/>
+		<define name="ONLINE_REWARD_CONFIG_FILE" value="online_reward.xml"/>
+		<define name="SKILL_CONFIG_FILE" value="skill.xml"/>
+		<define name="SKILL_LEVELUP_TABLE_FILE" value="skill_levelup.xml"/>
+		<define name="TASK_GAME_CONFIG_FILE" value="task_game.xml"/>
+		<define name="MONSTER_CONFIG_FILE" value="monster.xml"/>
+		<define name="NPC_CONFIG_FILE" value="npc.xml"/>
+		<define name="RIDE_PET_CONFIG_FILE" value="ride_pet.xml"/>
+		<define name="BATTLE_PET_CONFIG_FILE" value="battle_pet.xml"/>
+		<define name="FOLLOW_PET_CONFIG_FILE" value="follow_pet.xml"/>
+		<define name="FOLLOW_PET_LEVEL_CONFIG_FILE" value="follow_pet_level.xml"/>
+		<define name="FOLLOW_PET_CONST_CONFIG_FILE" value="follow_petconst.xml"/>
+		<define name="FOLLOW_PET_GAIN_CONFIG_FILE" value="pet_gain.xml"/>
+		<define name="RIDE_PET_LEVEL_CONFIG_FILE" value="ride_pet_level.xml"/>
+		<define name="RIDE_PET_RIDEGAIN_CONFIG_FILE" value="ride_pet_gain.xml"/>
+		<define name="FOLLOW_PET_SKILL_CONFIG_FILE" value="followpetskill.xml"/>
+		<define name="RIDE_PET_RIDE_CONST_CONFIG_FILE" value="ride_petconst.xml"/>
+		<define name="BOSS_CONFIG_FILE" value="boss.xml"/>
+		<define name="TEAMDUNGEON_CONFIG_FILE" value="team_dungeon.xml"/>
+		<define name="BATTLE_PLAYER_CONFIG_FILE" value="battle_player.xml"/>
+		<define name="DUNGEON_GAIN_CONFIG_FILE" value="dungeon_gain.xml"/>
+		<define name="ASHURA_CONFIG_FILE" value="ashura.xml"/>
+		<define name="ANSWER_FILE" value="answer.xml"/>
+		<define name="SIGN_GAIN_CONFIG_FILE" value="sign_gain.xml"/>
+		<define name="SIGN_MAKEUP_CONFIG_FILE" value="sign_makeup.xml"/>
+		<define name="LOGIN_GAIN_CONFIG_FILE" value="login_gain.xml"/>
+		<define name="MINING_CONFIG_FILE" value="mining.xml"/>
+		<define name="WORLD_BOSS_CONFIG_FILE" value="world_boss.xml"/>
+		<define name="MONSTER_DOOR_CONFIG_FILE" value="monster_door.xml"/>
+		<define name="ADVENTURE_CONFIG_FILE" value="adventure.xml"/>
+		<define name="WING_CONFIG_FILE" value="wing.xml"/>
+		<define name="ACHIVE_CONFIG_FILE" value="achieve.xml"/>
+		<define name="TITLE_CONFIG_FILE" value="title.xml"/>
+		<define name="TREASURY_CONFIG_FILE" value="treasury.xml"/>
+		<define name="GOLDTREE_CONFIG_FILE" value="goldtree.xml"/>
+		<define name="PLAYER_DOOR_REWARD_CONFIG_FILE" value="player_door_reward.xml"/>
+		<define name="ACTIVITY_REGULAR_CONFIG_FILE" value="activity_regular.xml"/>
+		<define name="ACTIVITY_REWARD_CONFIG_FILE" value="activity_reward.xml"/>
+		<define name="DAY_INVESTMENT_CONFIG_FILE" value="day_investment.xml"/>
+		<define name="LEVEL_INVESTMENT_CONFIG_FILE" value="level_investment.xml"/>
+		<define name="SKILL_ATTACK_CONFIG_FILE" value="skill_attack.xml"/>
+		<define name="PASSIVE_SKILL_CONFIG_FILE" value="passive_skill.xml"/>
+		<define name="AUTO_FIGHT_CONFIG_FILE" value="auto_fight.xml"/>
+		<define name="SYSTEM_SETTING_CONFIG_FILE" value="system_setting.xml"/>
+		<define name="VOID_FIELD_SETTING_CONFIG_FILE" value="void_field_setting.xml"/>
+		<define name="SERVER_PUBLIC_FILE" value="public.xml"/>
+		<define name="MAIL_TITLE_FILE" value="mail_title.xml"/>
+		<define name="PROTECT_SOUL_FILE" value="protect_soul.xml"/>
+		<define name="COMMON_REWARD_FILE" value="common_reward.xml"/>
+		<define name="DANCE_FILE" value="dance.xml"/>
+		<define name="ASHURA_KILL_RANK_REWARD_FILE" value="ashura_kill_rank_reward.xml"/>
+		<define name="ASHURA_DEAD_RANK_REWARD_FILE" value="ashura_dead_rank_reward.xml"/>
+		<define name="LIVENESS_CONFIG_FILE" value="liveness.xml"/>
+		<define name="TOWER_DEFENCE_FILE" value="tower_defence.xml"/>
+		<define name="GROUP_PK_FILE" value="group_pk.xml"/>
+		<define name="FACTION_PK_FILE" value="faction_pk.xml"/>
+		<define name="CAPTURE_FLAG_FILE" value="capture_flag.xml"/>
+		<define name="BUFF_FILE" value="buff.xml"/>
+		<define name="EVERYDAY_TIPS_FILL" value="every_day_tips.xml"/>
+		<define name="CITY_SURVIVAL_CONFIG_FILE" value="city_survival.xml"/>
+		<define name="STONE_TURN_GOLD_CONFIG_FILE" value="stone_turn_gold.xml"/>
+		<define name="LIMIT_BUY_CONFIG_FILE" value="limit_buy.xml"/>
+		<define name="SINGLE_ANSWER_CONFIG_FILE" value="single_answer.xml"/>
+		<define name="SEVEN_DAYS_TARGET" value="seven_days_target.xml"/>
+		<define name="EQUIP_LIGHTING" value="equip_lighting.xml"/>
+		<define name="GUILD_TASK" value="guild_task.xml"/>
+		<define name="GUILD_SCIENCE_FILE" value="guild_science.xml"/>
+		<define name="FISHIONS_CONFIG_FILE" value="fashions.xml"/>
+		<define name="FISHIONS_TREASURE_CONFIG_FILE" value="fashions_treasure.xml"/>
+		<define name="FASHIONS_TREASURE_PACKAGE_FILE" value="fashions_treasure_package.xml"/>
+		<define name="SWORD_CONFIG_FILE" value="sword.xml"/>
+		<define name="ZOMBIE_FILE" value="zombie.xml"/>
+		<define name="FISHIONS_SALE_FILE" value="fashion_sale.xml"/>
+		<define name="VOID_FIELD_FILE" value="void_field.xml"/>
+		<define name="VOID_FIELD_SOLO_FILE" value="void_field_solo.xml"/>
+		<define name="BRAVE_HEART_CONFIG_FILE" value="brave_heart.xml"/>
+		<define name="GM_CONFIG_FILE" value="gm_config.xml"/>
+		<define name="GIFTSCODE_CONFIG_FILE" value="giftcode_config.xml"/>
+		<define name="FIELD_BOSS_FILE" value="field_boss.xml"/>
+		<define name="MULTISERVER_BATTLE_FILE" value="multi_server_battle_info.xml"/>
+		<define name="SHORCUT_CONFIG_FILE" value="shorcut.xml"/>
+		<define name="WELCOMEREWARD_CONFIG_FILE" value="welcome.xml"/>
+		<define name="PROTECT_CONFIG_FILE" value="protect.xml"/>
+		<define name="CHAOS_FACTION_FILE" value="chaos_faction.xml"/>
+		<define name="BAG_GRID_OPEN_COST_FILE" value="bag_grid_open_cost.xml"/>
+		<define name="PAY_POINT_LOTTERY_FILE" value="pay_point_lottery.xml"/>
+		<define name="VIP_ONLY_DUNGEON_FILE" value="vip_only_dungeon.xml"/>
+		<define name="OFF_LINE_VIGOR" value="off_line_vigor.xml"/>
+		<define name="DONATE" value="donate.xml"/>
+		<define name="GAME_COMMON_SETTING" value="game_common_setting.xml"/>
+		<define name="BATTLE_POWER_FILE" value="battle_power.xml"/>
+		<define name="FASHION_SKILL_FILE" value="fashion_skill.xml"/>
+		<define name="EGG_FILE" value="egg.xml"/>
+		<define name="BUY_CHEAP_CONFIG_FILE" value="buy_cheap.xml"/>
+		<define name="DAILY_DRAW_FASHION_FILE" value="daily_draw_fashion.xml"/>
+		<!-- ================================================================================ -->
+		<!--Define-->
+		<!-- ================================================================================ -->
+		<!--全服激活码前缀-->
+		<define name="ACTIVATION_PREFIX" value="doingame"/>
+		<!--限制长度-->
+		<define name="MAX_CHAT_TOKEN_LEN" value="128"/>
+		<define name="MAX_CHAT_MSG_LEN" value="1024"/>
+		<define name="MAX_ACTIVE_CODE_LEN" value="128"/>
+		<define name="MAX_HP_LEN" value="2000000000"/>
+		<!--角色广播ID-->
+		<define name="BROADCAST_PLAYER_ID" value="0xFFFFFFFFFFFFFFFF"/>
+		<!--1小时等于多少秒-->
+		<define name="DAY_SECONDS" value="86400"/>
+		<define name="WEEK_SECONDS" value="604800"/>
+		<define name="HOUR_SECONDS" value="3600"/>
+		<!--1分等于多少秒-->
+		<define name="MINUTES_SECONDS" value="60"/>
+		<!--数据库插入操作-->
+		<define name="DB_OPT_INSERT" value="1"/>
+		<!--列表操作标记-->
+		<!--初始化-->
+		<define name="OPT_INIT_FLAG" value="1"/>
+		<!--添加-->
+		<define name="OPT_ADD_FLAG" value="2"/>
+		<!--删除-->
+		<define name="OPT_DEL_FLAG" value="3"/>
+		<!--更新-->
+		<define name="OPT_UPDATE_FLAG" value="4"/>
+		<!--权利标记-->
+		<!--GM标记-->
+		<define name="RIGHT_FLAG_GM" value="1"/>
+		<!--登陆标记-->
+		<define name="RIGHT_FLAG_FORBID_LOGIN" value="2"/>
+		<!--聊天标记-->
+		<define name="RIGHT_FLAG_FORBID_CHAT" value="4"/>
+		<!--跳地图标记-->
+		<define name="RIGHT_FLAG_GM_JUMP_DUNGEON" value="8"/>
+		<!--技能无CD-->
+		<define name="RIGHT_FLAG_GM_NO_COOLDOWN" value="16"/>
+		<!--仇人攻击标记-->
+		<define name="ENEMY_FLAG_ATTACK" value="1"/>
+		<!--仇人反击标记-->
+		<define name="ENEMY_FLAG_FIGHTBACK" value="2"/>
+		<!--改名卡id-->
+		<define name="RENAMED_CARD_ID" value="542"/>
+		<!-- ================================================================================ -->
+		<!--玩法通知ID-->
+		<!-- ================================================================================ -->
+		<!--活跃度-->
+		<define name="NOTIFY_LIVENESS" value="0"/>
+		<!--日常任务-->
+		<define name="NOTIFY_DAILY" value="1"/>
+		<!--护卫-->
+		<define name="NOTIFY_PROTECT" value="2"/>
+		<!--讨伐令-->
+		<define name="NOTIFY_CRUSADE" value="3"/>
+		<!--勇者争霸-->
+		<define name="NOTIFY_PLAYER_DOOR" value="4"/>
+		<!--宝库-->
+		<define name="NOTIFY_TREASURE" value="5"/>
+		<!--砸金像-->
+		<define name="NOTIFY_GOLDTREE" value="6"/>
+		<!--怪物之门-->
+		<define name="NOTIFY_MONSTER_DOOR" value="8"/>
+		<!--护魂迷宫-->
+		<define name="NOTIFY_PROTECT_SOUL" value="9"/>
+		<!--点石成金-->
+		<define name="NOTIFY_STONE_TURN_GOLD" value="10"/>
+		<!--召唤之地-->
+		<define name="NOTIFY_RIDE_SUMMON" value="11"/>
+		<!--签到-->
+		<define name="NOTIFY_SIGN" value="12"/>
+		<!--至尊魔宫-->
+		<define name="NOTIFY_BABEL" value="13"/>
+		<!--坐骑训练-->
+		<define name="NOTIFY_RIDE_PET_TRAINING" value="14"/>
+		<!--单人答题-->
+		<define name="NOTIFY_SINGLE_ANSWER" value="15"/>
+		<!--七日登陆-->
+		<define name="NOTIFY_7TH_LOGIN" value="16"/>
+		<!--七日目标-->
+		<define name="NOTIFY_7TH_GOAL" value="17"/>
+		<!--僵尸-->
+		<define name="NOTIFY_ZOMBOE" value="18"/>
+		<!--公主-->
+		<define name="NOTIFY_PRINCESS" value="19"/>
+		<!--勇敢的心-->
+		<define name="NOTIFY_BRAVEHEART" value="20"/>
+		<!--投资理财-->
+		<define name="NOTIFY_INVESTMENT" value="21"/>
+		<!--七夕节日-->
+		<define name="NOTIFY_FESTIVAL" value="22"/>
+		<!--壕气冲天-->
+		<define name="NOTIFY_DONATE" value="23"/>
+		<!--中秋节-->
+		<define name="NOTIFY_AUTUMN" value="24"/>
+		<!--跨服战斗-->
+		<define name="NOTIFY_MULTISERVER_BATTLE" value="25"/>
+		<!--VIP独享副本-->
+		<define name="NOTIFY_VIP_ONLY_DUNGEON" value="26"/>
+		<!--越买越便宜-->
+		<define name="NOTIFY_REWARD_EVERY_GIFT" value="27"/>
+		<!--全部-->
+		<define name="NOTIFY_ALL" value="28"/>
+		<!-- ================================================================================ -->
+		<!--玩法奖励通知ID-->
+		<!-- ================================================================================ -->
+		<!--活跃度-->
+		<define name="NOTIFY_REWARD_LIVENESS" value="0"/>
+		<!--投资理财-->
+		<define name="NOTIFY_REWARD_INVESTMENT" value="1"/>
+		<!--精彩活动-->
+		<define name="NOTIFY_REWARD_ACTIVITIES" value="2"/>
+		<!--微端奖励-->
+		<define name="NOTIFY_REWARD_MICRO_CLIENT" value="3"/>
+		<!--签到-->
+		<define name="NOTIFY_REWARD_SIGN" value="4"/>
+		<!--七日登录-->
+		<define name="NOTIFY_REWARD_7TH_LOGIN" value="5"/>
+		<!--在线奖励-->
+		<define name="NOTIFY_REWARD_ONLINE" value="6"/>
+		<!--勇者争霸-->
+		<define name="NOTIFY_REWARD_PLAYER_DOOR" value="7"/>
+		<!--工会暮光之战-->
+		<define name="NOTIFY_REWARD_GUILD_TWILIGHT_OPEN" value="8"/>
+		<!--工会城市争夺战-->
+		<define name="NOTIFY_REWARD_GUILD_CITY_OPEN" value="9"/>
+		<!--工会魔物讨伐战-->
+		<define name="NOTIFY_REWARD_GUILD_BOSS_OPEN" value="10"/>
+		<!--七日目标-->
+		<define name="NOTIFY_REWARD_7TH_GOAL" value="11"/>
+		<!--VIP奖励-->
+		<define name="NOTIFY_REWARD_VIP" value="12"/>
+		<!--每日充值-->
+		<define name="NOTIFY_REWARD_ACTIVITY_DAILY_RECHARGE" value="13"/>
+		<!--七夕节日-->
+		<define name="NOTIFY_REWARD_FESTIVAL" value="14"/>
+		<!--中秋节-->
+		<define name="NOTIFY_REWARD_AUTUMN" value="15"/>
+		<!--充值排行-->
+		<define name="NOTIFY_REWARD_RECHARGE_RANK" value="16"/>
+		<!--跨服战斗-->
+		<define name="NOTIFY_REWARD_MULTISERVER_BATTLE" value="17"/>
+		<!--全部-->
+		<define name="NOTIFY_REWARD_ALL" value="18"/>
+		
+		<define name="PLAYER_VIGOR_MAX" value="50"/>
+		<!-- ================================================================================ -->
+		<!--Define-->
+		<!-- ================================================================================ -->
+		<!--商城购买邮件ID-->
+		<define name="MAIL_TITLE_ID_MALL_BUY" value="301"/>
+		<!--商城赠送邮件ID-->
+		<define name="MAIL_TITLE_ID_MALL_GIVE" value="302"/>
+		<!--赠送VIP时效卡ID-->
+		<define name="MAIL_TITLE_ID_OFFER_VIP" value="303"/>
+		<!--活动邮件奖励ID-->
+		<define name="MAIL_TITLE_ID_BATTLE_POWER_RANKING_ACTIVITY" value="100"/>
+		<define name="MAIL_TITLE_ID_DAILY_RECHARGE_ACTIVITY" value="101"/>
+		<define name="MAIL_TITLE_ID_REWARD_COMPENSATION" value="102"/>
+		<define name="MAIL_TITLE_ID_CITY_SURVIVAL_REWARD" value="103"/>
+		<define name="MAIL_TITLE_ID_VOID_FIELD_CHESTS" value="104"/>
+		<define name="MAIL_TITLE_ID_VOID_FIELD_BOSS_TOPONE" value="105"/>
+		<define name="MAIL_TITLE_ID_VOID_FIELD_BOSS_TOPONE_GUILD" value="106"/>
+		<define name="MAIL_TITLE_ID_VOID_FIELD_BOSS_KILLER" value="107"/>
+		<!--离线战斗通知-->
+		<define name="MAIL_TITLE_ID_OFFLINE_BATTLE" value="201"/>
+		<!--离线战斗通知-->
+		<define name="MAIL_TITLE_ID_ASHURA_REWARD" value="202"/>
+		<!--每日投资理财的奖励-->
+		<define name="MAIL_TITLE_ID_DAY_INVESTED" value="204"/>
+		<!--技能ID-->
+		<define name="FOLLOW_PET_ATTACK" value="4101"/>
+		<define name="FOLLOW_PET_SKILL_BEGIN" value="4100"/>
+		<define name="FOLLOW_PET_SKILL_END" value="4199"/>
+		<define name="FASHION_SKILL_BEGIN" value="8100"/>
+		<define name="FASHION_SKILL_END" value="8199"/>
+		<define name="BASE_RATE_NUM" value="10000"/>
+		<define name="MILL_SECONDE" value="1000"/>
+		<define name="MOVE_FORSEE_TIME" value="250"/>
+		<!--剧情副本的标记长度-->
+		<define name="PLOT_DUNGEON_FLAG_LEN" value="64"/>
+		<define name="PLOT_DUNGEON_SCORE_LEN" value="256"/>
+		<!--护魂副本的标记长度-->
+		<define name="SOUL_DUNGEON_FLAG_LEN" value="1"/>
+		<!--第一个护魂副本的ID-->
+		<define name="FIRST_PROTECT_SOUL_DUNGEON_ID" value="5501"/>
+		<!--护魂副本个数-->
+		<define name="SOUL_DUNGEON_MAX_NUM" value="5"/>
+		<!--组队副本的标记长度-->
+		<define name="TEAM_DUNGEON_FLAG_LEN" value="64"/>
+		<!--副本标记的BIT长度-->
+		<define name="DUNGEON_FLAG_LEN" value="2"/>
+		<define name="DUNGEON_SCORE_LEN" value="4"/>
+		<!--是否免费使用的标记-->
+		<define name="B_USE__FREE_FLAG_LEN" value="64"/>
+		<define name="FOLLOW_PET_TYPE_MASK" value="100"/>
+		<!--副本类型-->
+		<define name="DUNGEON_CLASS_NONE_ID" value="0"/>
+		<define name="DUNGEON_CLASS_WORLD_ID" value="1"/>
+		<define name="DUNGEON_CLASS_PLOT_ID" value="2"/>
+		<define name="DUNGEON_CLASS_SOUL_ID" value="3"/>
+		<define name="DUNGEON_CLASS_DAILY_ID" value="4"/>
+		<!--常用主城地图ID,主城,领地,野外,pvp地图-->
+		<define name="CITY_MAIN_CITY_MAP" value="1001"/>
+		<define name="CITY_HOME_MAP" value="1002"/>
+		<define name="CITY_FIRST_MAP" value="1003"/>
+		<define name="DUNGEON_PVP_MAP" value="4001"/>
+		
+		<define name="ANSWER_TOPRANK_NUM" value="10"/>
+		<!-- BOSS 保存类型 -->
+		<define name="WORLDBOSS_SAVE_TYPE_ID" value="1"/>
+		<define name="GUILDBOSS_SAVE_TYPE_ID" value="2"/>
+		<define name="VOID_FIELD_BOSS_SAVE_TYPE_ID" value="3"/>
+		<define name="VOID_FIELD_SOLO_BOSS_SAVE_TYPE_ID" value="4"/>
+		<!-- 技能相关 -->
+		<define name="SKILL_SLOT_Q" value="1"/>
+		<define name="SKILL_SLOT_W" value="2"/>
+		<define name="SKILL_SLOT_E" value="3"/>
+		<define name="SKILL_SLOT_R" value="4"/>
+		<define name="SKILL_SLOT_ML" value="5"/>
+		<define name="SKILL_SLOT_MR" value="6"/>
+		<define name="SKILL_SLOT_WHOLE" value="6"/>
+
+		<define name="SOLDIER_TALENT_WHOLE" value="4"/>
+
+		<!--跟宠的主动技能-->
+		<define name="SKILL_FOLLOW_PET_INITIATIVE" value="200"/>
+		<!-- 订单充值状态 -->
+		<define name="PAY_STATE_INIT" value="1"/>
+		<define name="PAY_STATE_SUCCEED" value="2"/>
+		<!-- 充值类型 1 正式充值 2 游戏内充值 3 GMT审批魔石 4 平台测试接口-->
+		<define name="PAY_TYPE_KUNLUN" value="1"/>
+		<define name="PAY_TYPE_DONGYI" value="2"/>
+		<define name="PAY_TYPE_GMT_APPROVAl" value="3"/>
+		<define name="PAY_TYPE_API_TEST" value="4"/>
+		<!--订单交易状态-->
+		<define name="TRADE_STATE_INIT" value="1"/>
+		<define name="TRADE_STATE_PAY_SUCCEED" value="2"/>
+		<define name="TRADE_STATE_PAY_FAILED" value="3"/>
+		<define name="TRADE_STATE_DELIVER_BAG" value="4"/>
+		<define name="TRADE_STATE_DELIVER_MAIL" value="5"/>
+		<!--商城售卖标记-->
+		<!--售卖商品-->
+		<define name="MALL_NORMAL_SELL_TYPE" value="1"/>
+		<!--非卖商品-->
+		<define name="MALL_NOT_SELL_TYPE" value="2"/>
+		<!--限购商品-->
+		<define name="MALL_LIMIT_SELL_TYPE" value="3"/>
+		<!--VIP限购商品-->
+		<define name="VIP_LIMIT_SELL_TYPE" value="5"/>
+		<!--购买类型的标识-->
+		<!--绑定魔石购买-->
+		<define name="BIND_MONEY_SELL_TYPE" value="1"/>
+		<!--商城购买-->
+		<define name="MALL_SELL_TYPE" value="2"/>
+		<!--VIP限购购买-->
+		<define name="VIP_SELL_TYPE" value="3"/>
+		<!--商城商品购买所用的货币类型: 1: 是钻石 2: 金币-->
+		<define name="MONEY_TYPE_MONEY_POINT" value="1"/>
+		<define name="MONEY_TYPE_GOLD" value="2"/>
+		<!--商城里面的服务ID区间定义-->
+		<define name="MALL_SERVICE_ID_MIN_VALUE" value="25000"/>
+		<define name="MALL_SERVICE_ID_MAX_VALUE" value="29999"/>
+		<!--登陆模式-->
+		<define name="LOGIN_MODE_TEST" value="1"/>
+		<define name="LOGIN_MODE_AF" value="2"/>
+		<define name="LOGIN_MODE_KUNLUN" value="3"/>
+		<define name="LOGIN_MODE_KUNLUN_CDKEY" value="4"/>
+		<define name="LOGIN_MODE_360" value="5"/>
+		<define name="LOGIN_MODE_9377" value="6"/>
+		<define name="LOGIN_MODE_KUGOU" value="7"/>
+		<define name="LOGIN_MODE_TW" value="8"/>
+		<!--平台推送消息类型-->
+		<define name="PUSH_360_LEVEL" value="1"/>
+		<define name="PUSH_360_CHAT" value="2"/>
+		<define name="PUSH_KUGOU_CREATE_CHARACTER" value="3"/>
+		<define name="PUSH_TW_CHAT" value="4"/>
+		<!--触发器-->
+		<define name="TRIGGER_CHANGE_SCENE" value="1"/>
+		<define name="TRIGGER_TOUCH_STONE" value="2"/>
+		<define name="TRIGGER_ACTIVATE_MOVIE" value="3"/>
+		<define name="TRIGGER_JUMP_DUNGEON" value="4"/>
+		<define name="TRIGGER_REGULAR_EVENT" value="5"/>
+		<!--好友数-->
+		<define name="QUICK_ADD_FRIEND_COUNT" value="10"/>
+		<define name="MAX_FRIEND_COUNT" value="200"/>
+		<!--组队-->
+		<define name="PLAYER_PK_DUNGEON_ID" value="4100"/>
+		<define name="MAX_DUNGEON_TEAM_MEMBER" value="3"/>
+		<define name="MAX_WORLD_TEAM_MEMBER" value="3"/>
+		<define name="MAX_PK_TEAM_MEMBER" value="2"/>
+		<define name="TEAM_TYPE_DUNGEON" value="1"/>
+		<define name="TEAM_TYPE_PK" value="2"/>
+		<define name="TEAM_TYPE_WORLD" value="3"/>
+		<define name="TEAM_PAGE_SHOW_NUM" value="1000"/>
+		<define name="TEAM_FLAG_DISPLAY" value="1"/>
+		<define name="TEAM_FLAG_NOENTER" value="2"/>
+		<define name="TEAM_DUNGEON_EVNET_LEAVE" value="1"/>
+		<define name="TEAM_DUNGEON_EVNET_DEAD" value="2"/>
+		<define name="TEAM_DUNGEON_EVNET_BUYRELIVE" value="3"/>
+		<!--虚空幻境类型-->
+		<define name="VOID_FIELD_TYPE_NORMAL" value="0"/>
+		<define name="VOID_FIELD_TYPE_BOSS" value="1"/>
+		<define name="VOID_FIELD_TYPE_MOONLESS" value="2"/>
+		<define name="VOID_FIELD_TYPE_MAX" value="3"/>
+		<define name="VOID_FIELD_SOLO_TYPE_MAX" value="2"/>
+		<!--击败了XXX-->
+		<define name="VOID_FIELD_BATTLE_DEFEAT" value="1"/>
+		<!--自己被杀死了-->
+		<define name="VOID_FIELD_BATTLE_KILLED" value="2"/>
+		<!--护魂副本-->
+		<!--购买进入护魂的次数-->
+		<define name="BUY_INTO_SOUL_DUNGEON_NUM" value="1"/>
+		<!--护魂扫荡状态-->
+		<!--开始护魂扫荡-->
+		<define name="START_SOUL_RADIS" value="1"/>
+		<!--完成护魂扫荡-->
+		<define name="FINSHT_SOUL_RADIS" value="2"/>
+		<!--初始化的护魂扫荡-->
+		<define name="INIT_SOUL_RADIS" value="3"/>
+		<!--关卡中的类型-->
+		<define name="PAWN_TYPE_MONSTER" value="1"/>
+		<define name="PAWN_TYPE_NPC" value="2"/>
+		<!--#########################-->
+		<!--全服公告类型识别-->
+		<define name="MARQUEE_EQUIP_TYPE" value="1"/>
+		<define name="MARQUEE_ITEM_TYPE" value="2"/>
+		<define name="MARQUEE_RIDE_COLLECT_TYPE" value="3"/>
+		<define name="MARQUEE_PLAYERNAME_TYPE" value="4"/>
+		<define name="MARQUEE_FOLLOW_PET_TYPE" value="5"/>
+		<define name="MARQUEE_FACTION_TYPE" value="6"/>
+		<define name="MARQUEE_RIDE_TYPE" value="7"/>
+		<define name="MARQUEE_WING_TYPE" value="8"/>
+		<define name="MARQUEE_VOID_FIELD_TYPE" value="9"/>
+		<define name="MARQUEE_FASHION_TYPE" value="10"/>
+		<define name="MARQUEE_QUALITY_TYPE" value="11"/>
+		<define name="MARQUEE_VOID_FIELD_SOLO_TYPE" value="12"/>
+		<!--#########################-->
+		<!--全服公告类型id-->
+		<!--#########################-->
+		<!--解锁宠物-->
+		<define name="MARQUEE_OPEN_FOLLOW_PET" value="1"/>
+		<!--力量提升满级-->
+		<define name="MARQUEE_POPWER_FULL_LEVEL" value="2"/>
+		<define name="MARQUEE_SPRITE_FULL_LEVEL" value="4"/>
+		<define name="MARQUEE_AGILITY_FULL_LEVEL" value="3"/>
+		<define name="MARQUEE_PHYSIC_FULL_LEVEL" value="5"/>
+		<!--所有的属性填满了-->
+		<define name="MARQUEE_POPWER_PRO_ALL" value="6"/>
+		<!--在修罗场内已经达到1000人斩了！-->
+		<define name="MARQUEE_ASHURA_KILL" value="7"/>
+		<!--XXX对XXXX造成了最终一击！真是勇者的典范！-->
+		<define name="MARQUEE_LAST_KILL" value="8"/>
+		<!--超幸运！XXX在护卫中接到了史诗级别的任务！-->
+		<define name="MARQUEE_GUARD_MAX_QUALITY" value="9"/>
+		<!--XXX公会获得了暮光之战的胜利！-->
+		<define name="MARQUEE_GUILD_FIRST" value="10"/>
+		<!--才高八斗，竟然答对了所有的答题！-->
+		<define name="MARQUEE_ANSWER_ALL" value="11"/>
+		<!--boss已经被击败！XXXX给予boss造成了最后一击！-->
+		<define name="MARQUEE_GUILD_LAST_KILL" value="12"/>
+		<!--X公会的XXX在公会大转盘内转到了XXX！真是洪福天降！-->
+		<define name="MARQUEE_GUILD_MAX_QUALITY" value="13"/>
+		<!--XXX获得了勇者争霸的第X名，实在是太强了！-->
+		<define name="MARQUEE_OFFLINE_RANK" value="14"/>
+		<!--XXX已经击杀了黑骑士，他的速度真是无人能比！-->
+		<define name="MARQUEE_GUILD_MONSTER" value="15"/>
+		<!--XXX点满了所有青铜星空图，大家来祝贺他吧。-->
+		<define name="MARQUEE_BRONZE_HOROSCOPE" value="16"/>
+		<!--XXX点满了所有白银星空图，大家来祝贺他吧。-->
+		<define name="MARQUEE_SILVER_HOROSCOPE" value="17"/>
+		<!--XXX点满了所有黄金星空图，大家来祝贺他吧。-->
+		<define name="MARQUEE_GOLD_HOROSCOPE" value="18"/>
+		<!--收集坐骑品质发全服公告-->
+		<define name="MARQUEE_GET_QUALITY_RIDE" value="19"/>
+		<!--抓到了蓝色以上的坐骑-->
+		<define name="MARQUEE_GET_BLUE_RIDE" value="20"/>
+		<!--宝石暴击-->
+		<define name="MARQUEE_EQUIP_GEM_CRIT" value="21"/>
+		<!--合成20级宝石-->
+		<define name="MARQUEE_SYNTHESIS_GEM" value="22"/>
+		<!--升星升到80级-->
+		<define name="MARQUEE_EQUIP_LEVE_UP_STAR" value="23"/>
+		<!--生品升到紫金红-->
+		<define name="MARQUEE_EQUIP_LEVE_UP_QUALIYT" value="25"/>
+		<!--城市争夺战城市占领公告-->
+		<define name="MARQUEE_CITY_FIGHT_OCCUPY_CITY" value="26"/>
+		<!--城市争夺战城市占领公告-->
+		<define name="MARQUEE_WING_LEVE_UP" value="27"/>
+		<!--虚空幻境公告-->
+		<define name="MARQUEE_VOID_FIELD" value="29"/>
+		<!--化身公告-->
+		<define name="MARQUEE_FASHIONS" value="30"/>
+		<!--首冲奖励公告-->
+		<define name="MARQUEE_FIRST_RECHARGE" value="31"/>
+		<!--七天登录公告-->
+		<define name="MARQUEE_LOGIN_RECEIVE" value="32"/>
+		<!--投资理财公告-->
+		<define name="MARQUEE_INVWSTMENT" value="33"/>
+		<!--投资理财等级领取公告-->
+		<define name="MARQUEE_LEVEL_INVWSTMENT" value="34"/>
+		<!--累计充值公告-->
+		<define name="MARQUEE_ADD_RECHARGE" value="35"/>
+		<!--每日充值乐翻天1-1公告-->
+		<define name="MARQUEE_DAY_RECHARGE" value="36"/>
+		<!--签到奖励公告-->
+		<define name="MARQUEE_SIGN_2_DAY" value="37"/>
+		<!--签到奖励公告-->
+		<define name="MARQUEE_SIGN_7_DAY" value="38"/>
+		<!--签到奖励公告-->
+		<define name="MARQUEE_SIGN_28_DAY" value="39"/>
+		<!--VIP限购公告-->
+		<define name="MARQUEE_VIP_LIMITED_PURCHASING" value="40"/>
+		<!--珍兽boss已经被击败！XXXX给予珍兽boss造成了最后一击！-->
+		<define name="MARQUEE_VOID_BOSS_LAST_KILL" value="41"/>
+		<!--珍兽boss已经逃跑-->
+		<define name="MARQUEE_VOID_BOSS_ESCAPE" value="42"/>
+		<!--领取圣光 捐献称号 -->
+		<define name="MARQUEE_DONATE_TITLE" value="43"/>
+		<!--获得了特殊坐骑-->
+		<define name="MARQUEE_GET_SPECIAL_RIDE" value="60"/>
+		<!--获得了特殊跟宠提莫-->
+		<define name="MARQUEE_GET_SPECIAL_PET_TIMO" value="80"/>
+		<!--获得了化身技能-->
+		<define name="MARQUEE_GET_FASHION_SKILL" value="81"/>
+		<!--勇夺排行榜第一名-->
+		<define name="MARQUEE_RANK_BATTLE_POWER" value="101"/>
+		<define name="MARQUEE_RANK_HOROSCOPE" value="102"/>
+		<define name="MARQUEE_RANK_GAME_POINT" value="103"/>
+		<define name="MARQUEE_RANK_OFFLINE_BATTLE" value="104"/>
+		<define name="MARQUEE_RANK_ASHURA" value="105"/>
+		<define name="MARQUEE_RANK_GUILD" value="106"/>
+		<define name="MARQUEE_RANK_MONEY_POINT_PAY" value="107"/>
+		<define name="MARQUEE_RANK_MONEY_POINT_TRADE" value="108"/>
+		<define name="MARQUEE_RANK_FOLLOW_PET" value="109"/>
+		<define name="MARQUEE_RANK_RIDE_PET" value="110"/>
+		<!--怪物之门-->
+		<define name="MARQUEE_MONSTER_DOOR" value="200"/>
+		<!--两派PK-->
+		<define name="MARQUEE_FACTION_PK" value="301"/>
+		<!--VIP6 及以上发公告-->
+		<define name="MARQUEE_VIP" value="302"/>
+		<!--活动修罗场还有5分钟开始发公告-->
+		<define name="MARQUEE_ASHURA_START_ANNOUCE" value="303"/>
+		<!--充值积分抽奖获得公共物品-->
+		<define name="MARQUEE_PAY_POINT_LOTTERY" value="304"/>
+		<!-- 砸蛋公告-->
+		<define name="MARQUEE_EGG" value="305"/>
+		<!--#########################-->
+		<!--公告 上飘字提示-->
+		<!--#########################-->
+		<!--公会进入城市争夺战-->
+		<define name="MESSAGE_NTF_GUILD_ENTER_CITY_FIGHT" value="1"/>
+		<!--公会离开城市争夺战-->
+		<define name="MESSAGE_NTF_GUILD_LEAVE_CITY_FIGHT" value="2"/>
+		<!--玩家进入城市争夺战-->
+		<define name="MESSAGE_NTF_PLAYER_ENTER_CITY_FIGHT" value="3"/>
+		<!--玩家离开城市争夺战-->
+		<define name="MESSAGE_NTF_PLAYER_LEAVE_CITY_FIGHT" value="4"/>
+		<!--城市争夺战时间得分公告-->
+		<define name="MESSAGE_NTF_CITY_FIGHT_TIME_SCORE" value="5"/>
+		<!--玩家进入圣光生存战-->
+		<define name="MESSAGE_NTF_PLAYER_ENTER_CITY_SURVIVAL" value="6"/>
+		<!--玩家离开圣光生存战-->
+		<define name="MESSAGE_NTF_PLAYER_LEAVE_CITY_SURVIVAL" value="7"/>
+		<!--玩家在圣光生存战中阵亡-->
+		<define name="MESSAGE_NTF_PLAYER_DEAD_IN_CITY_SURVIVAL" value="8"/>
+		<!--xxx为yyyy夺得了一面旗帜-->
+		<define name="MESSAGE_NTF_CAPTURE_ONE_FLAG" value="9"/>
+		<!--XXX离开了旗帜争夺战-->
+		<define name="MESSAGE_NTF_PLAYER_LEAVE_CAPTURE_FLAG" value="10"/>
+		<!--xxx加入了战斗，yyyy的实力增强了！-->
+		<define name="MESSAGE_NTF_PLAYER_ENTER_CAPTURE_FLAG" value="11"/>
+		<!--YYYY夺得了所有4面旗帜，他们正在朝胜利迈进。-->
+		<define name="MESSAGE_NTF_CAPTURE_FOUR_FLAG" value="12"/>
+		<!--XXX杀死了YYY得到ZZZ积分-->
+		<define name="MESSAGE_NTF_CAPTURE_FLAG_KILL" value="13"/>
+		<!--#########################-->
+		<!--物品-->
+		<!--#########################-->
+		<!--无效包裹栏-->
+		<!--士兵列表初始数-->
+		<define name="SOLDIER_LIST_INITIAL_NUM" value="4"/>
+		<!--士兵列表人民币加数-->
+		<define name="SOLDIER_LIST_MONEY_NUM" value="3"/>
+		<!--士兵列表VIP加数-->
+		<define name="SOLDIER_LIST_VIP_NUM" value="2"/>
+		<define name="INVALID_GRID_POS" value="-1"/>
+		<!--包裹格-->
+		<define name="ITEM_BAG_MAX_GRID_NUM" value="160"/>
+		<!--仓库格-->
+		<define name="ITEM_STORE_MAX_GRID_NUM" value="160"/>
+		<!--物品-装备-->
+		<define name="ITEM_TYPE_EQUIP" value="1"/>
+		<!--物品-消耗品-->
+		<define name="ITEM_TYPE_CONSUME" value="2"/>
+		<!--物品-材料-->
+		<define name="ITEM_TYPE_MATERIAL" value="3"/>
+		<!--物品-石头-->
+		<define name="ITEM_TYPE_STONE" value="4"/>
+		<!--最大游戏币数-->
+		<define name="MAX_GAMEPOINT_NUM" value="2000000000"/>
+		<!--最大魔石数-->
+		<define name="MAX_MONEYPOINT_NUM" value="2000000000"/>
+		<!--最大绑定魔石数-->
+		<define name="MAX_BIND_MONEYPOINT_NUM" value="2000000000"/>
+		<!--最大精魂数-->
+		<define name="MAX_SOULPOINT_NUM" value="2000000000"/>
+		<!--最大荣誉数-->
+		<define name="MAX_HONORPOINT_NUM" value="2000000000"/>
+		<!--最大公会捐赠点-->
+		<define name="MAX_GUILDPOINT_NUM" value="2000000000"/>
+		<!--战魂-->
+		<define name="MAX_BATTLE_SOUL_POINT_NUM" value="2000000000"/>
+		<!--最大星魂-->
+		<define name="MAX_STAR_SOUL_POINT_NUM" value="2000000000"/>
+		<!--最大成长点-->
+		<define name="MAX_GROWTH_POINT_NUM" value="2000000000"/>
+		<!--最大公会积分-->
+		<define name="MAX_GUILD_SCORE_NUM" value="2000000000"/>
+		<!--最大货币数-->
+		<define name="MAX_CURRENCY_NUM" value="2000000000"/>
+		<!--聊天间隔时间-->
+		<define name="CHAT_INTERVAL_TIME" value="2"/>
+		<!--聊天阀值时间-->
+		<define name="CHAT_THRESHOLD_TIME" value="15"/>
+		<!--日常vip宝箱奖励-->
+		<define name="DAILY_VIP_TREASURE" value="7011"/>
+		<!--最大化身点-->
+		<define name="MAX_INCARNATION_NUM" value="2000000000"/>
+		<!--最大虚空宝箱-->
+		<define name="MAX_VOID_FIELD_CHESTS_NUM" value="2000000000"/>
+		<!--#########################-->
+		<!--商城购买原因-->
+		<!--#########################-->
+		<!--普通购买-->
+		<define name="BUY_REASON_NORMAL" value="1"/>
+		<!--自动购买-->
+		<define name="BUY_REASON_AUTO" value="2"/>
+		<!--#########################-->
+		<!--奖励原因-->
+		<!--#########################-->
+		<!--================================================================================-->
+		<define name="REWARD_REASON_UNKNOWN" value="0"/>
+		<define name="REWARD_REASON_GM" value="1"/>
+		<define name="REWARD_REASON_USE_ITEM" value="2"/>
+		<define name="REWARD_REASON_CLEAR_DUNGEON" value="3"/>
+		<define name="REWARD_REASON_COMPLETE_TASK" value="4"/>
+		<define name="REWARD_REASON_RACING" value="5"/>
+		<define name="REWARD_REASON_MINING" value="6"/>
+		<define name="REWARD_REASON_RIDE_PET" value="7"/>
+		<define name="REWARD_REASON_ASHURAN" value="8"/>
+		<define name="REWARD_REASON_WORLD_BOSS" value="9"/>
+		<define name="REWARD_REASON_ACHIVE" value="10"/>
+		<define name="REWARD_REASON_TRADE_ORDER" value="11"/>
+		<define name="REWARD_REASON_WING" value="12"/>
+		<define name="REWARD_REASON_RESURGENCE" value="13"/>
+		<define name="REWARD_REASON_ONLINE_REWARD" value="14"/>
+		<define name="REWARD_REASON_NPC_BUY" value="15"/>
+		<define name="REWARD_REASON_HONOR_BUY" value="16"/>
+		<define name="REWARD_REASON_GUILD_BUY" value="17"/>
+		<define name="REWARD_REASON_RAIDS_DUNGEON" value="18"/>
+		<define name="REWARD_REASON_DAY_INVESTMENT" value="19"/>
+		<define name="REWARD_REASON_LEVEL_INVESTMENT" value="20"/>
+		<define name="REWARD_REASON_GUILD_RAND_TURNTABLE" value="21"/>
+		<define name="REWARD_REASON_GUILD_MEMBER_TURNTABLE" value="22"/>
+		<define name="REWARD_REASON_GUILD_REWRAD_PERSONAL_WELFARE" value="23"/>
+		<define name="REWARD_REASON_GUILD_BUY_MEMBER_TURNTABLE" value="24"/>
+		<define name="REWARD_REASON_GUILD_REWARD_VIGOR" value="25"/>
+		<define name="REWARD_REASON_GUILD_BUY_GUILD_POINT" value="26"/>
+		<define name="REWARD_REASON_SUB_DUNGEON_RAIDS_TIME" value="27"/>
+		<define name="REWARD_REASON_RAIDS_SOUL_DUNGEON" value="28"/>
+		<!--组队副本通关-->
+		<define name="REWARD_REASON_CLEAR_TEAM_DUNGEON" value="29"/>
+		<!--提升宝石-->
+		<define name="REWARD_REASON_UPGRADE_JEWEL" value="30"/>
+		<define name="REWARD_REASON_SKILL" value="31"/>
+		<define name="REWARD_REASON_PASSIVE_SKILL" value="32"/>
+		<define name="REWARD_REASON_RAIDS_BABEL" value="33"/>
+		<define name="REWARD_REASON_FOLLOW_PET" value="34"/>
+		<define name="REWARD_REASON_HOROSCOPE" value="35"/>
+		<define name="REWARD_REASON_EQUIP_LEVEL_UP" value="36"/>
+		<define name="REWARD_REASON_RAIDS_MONSTER_DOOR" value="37"/>
+		<define name="REWARD_REASON_RESET_MONSTER_DOOR" value="38"/>
+		<define name="REWARD_REASON_GUILD_CRUSADE_MONSTER" value="39"/>
+		<define name="REWARD_REASON_EQUIP_START_LEVE" value="40"/>
+		<define name="REWARD_REASON_VIP_BUY" value="41"/>
+		<define name="REWARD_REASON_RIDE_ABSORB" value="42"/>
+		<define name="REWARD_REASON_ACTIVITY_REWARD" value="43"/>
+		<define name="REWARD_REASON_LEVEL_ACTIVITY" value="44"/>
+		<define name="REWARD_REASON_GUILD_BOSS_EXP" value="45"/>
+		<define name="REWARD_REASON_GOLDTREE_BUY_COUNT" value="46"/>
+		<define name="REWARD_REASON_TREASURY_BUY_COUNT" value="47"/>
+		<define name="REWARD_REASON_BATTLE_POWER_RANKING_ACTIVITY" value="48"/>
+		<define name="REWARD_REASON_EQUIP_START_CD" value="49"/>
+		<define name="REWARD_REASON_EQUIP_QUALITY" value="50"/>
+		<define name="REWARD_REASON_PLAYER_DOOR_BUY_CHALLENGE_COUNT" value="51"/>
+		<define name="REWARD_REASON_PLAYER_DOOR_KILL_CD" value="52"/>
+		<define name="REWARD_REASON_FIRST_TIME_RECHARGE_ACTIVITY" value="53"/>
+		<define name="REWARD_REASON_DAILY_RECHARGE_ACTIVITY" value="54"/>
+		<define name="REWARD_REASON_UPGRADE_WING_ACTIVITY" value="55"/>
+		<define name="REWARD_REASON_BABEL_RESET" value="56"/>
+		<define name="REWARD_REASON_ANSWER_DOUBLE_NUM" value="57"/>
+		<define name="REWARD_REASON_CREATE_GUILD" value="58"/>
+		<define name="REWARD_REASON_SIGN_MAKEUP" value="59"/>
+		<define name="REWARD_REASON_BUFF" value="60"/>
+		<define name="REWARD_REASON_MICRO_CLIENT_ACTIVITY" value="61"/>
+		<define name="REWARD_REASON_GIFT" value="62"/>
+		<define name="REWARD_REASON_TASK_DAILY_RESET" value="63"/>
+		<define name="REWARD_REASON_TASK_GUARD_BUY" value="64"/>
+		<define name="REWARD_REASON_CHAPTER_ALL_S" value="65"/>
+		<define name="REWARD_REASON_BIND_MONEY_POINT_BUY" value="66"/>
+		<define name="REWARD_REASON_TEAM_DUNGEON_TIMES" value="67"/>
+		<define name="REWARD_REASON_ANSWER" value="68"/>
+		<define name="REWARD_REASON_LIVENESS" value="69"/>
+		<define name="REWARD_REASON_SYNTHETIZE" value="70"/>
+		<!--单人答题秒cd-->
+		<define name="REWARD_REASON_SINGLE_ANSWER_CD_TIME" value="71"/>
+		<define name="REWARD_REASON_GAIN_BACK_RESOURCE" value="72"/>
+		<define name="REWARD_REASON_GAIN_BACK_RESOURCE_ALL" value="73"/>
+		<define name="REWARD_REASON_VIP_GIFT" value="74"/>
+		<define name="REWARD_REASON_MAIL_ATTACH" value="75"/>
+		<define name="REWARD_REASON_DISMANT_JEWEL" value="76"/>
+		<define name="REWARD_REASON_FOLLOW_PET_LEVEL_UP" value="77"/>
+		<define name="REWARD_REASON_FOLLOW_PET_SWALLOW" value="78"/>
+		<define name="REWARD_REASON_RIDE_NO_CATCH" value="79"/>
+		<define name="REWARD_REASON_SELL_ITEM" value="80"/>
+		<define name="REWARD_REASON_PLAYER_DOOR" value="81"/>
+		<define name="REWARD_REASON_TREASURY" value="82"/>
+		<!--城市争夺战-->
+		<define name="REWARD_REASON_CITY_FIGHT" value="83"/>
+		<!--圣光生存战-->
+		<define name="REWARD_REASON_CITY_SURVIVAL" value="84"/>
+		<!--护魂-->
+		<!--购买护魂次数-->
+		<define name="REWARD_REASON_PROTECT_SOUL_NUM" value="85"/>
+		<!--购买护魂副本减CD-->
+		<deinfe name="REWARD_REASON_PROTECT_SOUL_SUB_CD" value="86"/>
+		<!--护魂扫荡的购买次数-->
+		<define name="REWARD_REASON_SUB_PROTECT_SOUL_TIME" value="87"/>
+		<define name="REWARD_REASON_STONE_TURN_GAMEPOINT" value="88"/>
+		<define name="REWARD_REASON_GOLDTREE" value="89"/>
+		<define name="REWARD_REASON_THREASURY" value="90"/>
+		<!--时装-->
+		<define name="REWARD_REASON_FASHION" value="91"/>
+		<define name="REWARD_REASON_TD" value="92"/>
+		<!--宝石升级-->
+		<define name="REWARD_REASON_JEWEL_LEVEL_UP" value="93"/>
+		<!--宝石合成-->
+		<define name="REWARD_REASON_JEWEL_SYNTHETIZE" value="94"/>
+		<!--物品消耗-->
+		<define name="REWARD_REASON_CONSUME_USE_ITEM" value="95"/>
+		<!--工会捐献-->
+		<define name="REWARD_REASON_GUILD_DONATE" value="96"/>
+		<!--节日活动-->
+		<define name="REWARD_REASON_FESTIVAL" value="97"/>
+		<!--公会科技金币加成提升-->
+		<define name="REWARD_REASON_GUILD_ADD_PROMOTE" value="98"/>
+		<define name="REWARD_REASON_MONEY_FASHION_TREASURE" value="99"/>
+		<!-- 时装相关 -->
+		<!--化身点添熔炼-->
+		<define name="REWARD_REASON_FASHION_SMELT" value="100"/>
+		<define name="REWARD_REASON_INCARNATON_BUY" value="101"/>
+		<define name="REWARD_REASON_JUMPING_OFF_USE_SKILL" value="102"/>
+		<define name="REWARD_REASON_GUILD_RESET" value="103"/>
+		<!--圣剑升星-->
+		<define name="REWARD_REASON_SWORD_UPGRADE" value="104"/>
+		<!--圣剑升阶-->
+		<define name="REWARD_REASON_SWORD_ADVANCE" value="105"/>
+		<!--虚空幻境宝箱-->
+		<define name="REWARD_REASON_VOID_FIELD_CHESTS" value="106"/>
+		<!--虚空幻境杀怪掉落物品-->
+		<define name="REWARD_REASON_VOID_FIELD_DROP" value="107"/>
+		<!--单人答题答完奖励-->
+		<define name="REWARD_REASON_SINGLE_ANSWER_FINISH" value="108"/>
+		<!--收藏奖励-->
+		<define name="REWARD_REASON_SHORCUT_REWARD" value="109"/>
+		<!--欢迎界面奖励-->
+		<define name="REWARD_REASON_WELCOME_REWARD" value="110"/>
+		<!--拾取掉落物品-->
+		<define name="REWARD_REASON_PICK_DROP_OBJECT" value="111"/>
+		<!--阵法升级-->
+		<define name="REWARD_REASON_PET_FORMATION_UPGRADE" value="112"/>
+		<!--阵法解锁-->
+		<define name="REWARD_REASON_PET_FORMATION_LOCK" value="113"/>
+		<!--跨服战斗功勋值购买-->
+		<define name="REWARD_REASON_MULTISERVER_ITEM_BUY" value="114"/>
+		<!--投资计划投资-->
+		<define name="REWARD_REASON_INVESTMENT_PLAN" value="115"/>
+		<!--投资计划追加-->
+		<define name="REWARD_REASON_INVESTMENT_PLAN_ADDITIONAL" value="116"/>
+		<!--离线体力购买-->
+		<define name="REWARD_REASON_OFF_LINE_VIGOR_BUY" value="117"/>
+		<!--充值积分兑换-->
+		<define name="REWARD_REASON_PAY_POINT_LOTTERY_EXCHANGE" value="118"/>
+		<!--充值积分抽奖产生-->
+		<define name="REWARD_REASON_PAY_POINT_LOTTERY_OUTPUT" value="119"/>
+		<!--捐献-->
+		<define name="REWARD_DONATE" value="120"/>
+		<!--解锁背包格-->
+		<define name="REWARD_REASON_BAG_GRID_UNLOCK" value="121"/>
+		<!--VIP独享副本-->
+		<define name="REWARD_REASON_VIP_ONLY_DUNGEON" value="122"/>
+		<!--杀怪掉落-->
+		<define name="REWARD_REASON_KILL_MONSTER_DROP" value="123"/>
+		<!--fb点赞-->
+		<define name="REWARD_REASON_FACEBOOK_LIKE" value="124"/>
+		<!--改名卡使用-->
+		<define name="REWARD_REASON_RENAMED_CARD_ID" value="125"/>
+		<!--功能次数卡使用-->
+		<define name="REWARD_REASON_USE_FUNCTION_NUMBER_CARD" value="126"/>
+		<!--勇敢的心购买次数 -->
+		<define name="REWARD_REASON_BUY_BRAVE_HEART_COUNT" value="127"/>
+		<!--勇敢的心购买次数 -->
+		<define name="REWARD_REASON_EGG_REWARD" value="128"/>
+		<!--圣剑激活-->
+		<define name="REWARD_REASON_SWORD_ACTIVATE" value="129"/>
+		<!--圣剑解锁-->
+		<define name="REWARD_REASON_SWORD_UNLOCK" value="130"/>
+		<!-- 越买越便宜 -->
+		<define name="REWARD_REASON_BUY_CHEAP" value="131"/>
+		<!-- 每日化身 -->
+		<define name="REWARD_REASON_DAILY_DRAW_FASHION" value="132"/>
+		<define name="REWARD_REASON_DAILY_DRAW_FASHION_CONSUME" value="133"/>
+		
+		<!--#########################-->
+		<!--物品消耗原因-->
+		<!--#########################-->
+		
+		<!-- 物品出售 -->
+		<define name="REASON_ITEM_SUB_SELL" value="1"/>
+		<!-- 使用复活药水 -->
+		<define name="REASON_ITEM_SUB_ADD_LIFE" value="2"/>
+		
+		<!-- 技能融合 -->
+		<define name="REASON_ITEM_SUB_SKILL_FUSION" value="10"/>
+		<!-- 宝石融合 -->
+		<define name="REASON_ITEM_SUB_GEM_FUSION" value="11"/>		
+		
+		<!-- 宝石幻色 -->
+		<define name="REASON_ITEM_SUB_GEM_CHANGE_COLOR" value="20"/>		
+		<!-- 宝石打孔 -->
+		<define name="REASON_ITEM_SUB_GEM_ADD_HOLE" value="21"/>		
+		<!-- 宝石镶嵌 -->
+		<define name="REASON_ITEM_SUB_GEM_SOCKET" value="22"/>		
+		
+		<!-- 装备升品 -->
+		<define name="REASON_ITEM_SUB_EQUIP_QUAULITY_UP" value="30"/>		
+		<!-- 装备洗练 -->
+		<define name="REASON_ITEM_SUB_EQUIP_WASH_UP" value="31"/>		
+		<!-- 装备升星 -->
+		<define name="REASON_ITEM_SUB_EQUIP_STAR_UP" value="32"/>
+		<!-- 装备附魔 -->
+		<define name="REASON_ITEM_SUB_EQUIP_ENCHANT" value="33"/>
+		
+		<!-- 合成 -->
+		<define name="REASON_ITEM_SUB_ALCHEMY" value="40"/>
+		<!-- 分解 -->
+		<define name="REASON_ITEM_SUB_DEMPOSE" value="41"/>
+
+		<!-- 翅膀激活 -->
+		<define name="REASON_ITEM_SUB_WING_ACTIVATE" value="51"/>
+		<!-- 翅膀升阶 -->
+		<define name="REASON_ITEM_SUB_WING_ADVANCE" value="52"/>
+		
+		<!--#########################-->
+		<!--物品增加原因-->
+		<!--#########################-->
+		
+		<!-- 物品掉落 -->
+		<define name="REASON_ITEM_ADD_DROP" value="1"/>
+		<!-- GM命令 -->
+		<define name="REASON_ITEM_ADD_GM" value="2"/>		
+		<!-- 奖励 -->
+		<define name="REASON_ITEM_ADD_REWARD" value="3"/>		
+		
+		<!-- 宝石拆除 -->
+		<define name="REASON_ITEM_ADD_GEM_UNSOCKET" value="10"/>
+		
+		<!-- 合成 -->
+		<define name="REASON_ITEM_ADD_ALCHEMY" value="20"/>
+		<!-- 分解 -->
+		<define name="REASON_ITEM_ADD_DEMPOSE" value="21"/>		
+		
+		<!--================================================================================-->
+		<!--#########################-->
+		<!--奖励类型-->
+		<!--#########################-->
+		<define name="REWARD_FLAG_NORMAL" value="1"/>
+		<define name="REWARD_FLAG_VIP1" value="2"/>
+		<define name="REWARD_FLAG_VIP2" value="3"/>
+		<define name="REWARD_FLAG_VIP3" value="4"/>
+		<define name="REWARD_FLAG_CARD" value="5"/>
+		<define name="REWARD_FLAG_RANK1" value="6"/>
+		<define name="REWARD_FLAG_RANK2" value="7"/>
+		<!--#########################-->
+		<!--职业-->
+		<!--#########################-->
+		<!--性别男-->
+		<define name="SEX_MALE" value="1"/>
+		<!--性别女-->
+		<define name="SEX_FEMALE" value="2"/>
+		<!--战士-->
+		<define name="CAREER_WARRIOR" value="1"/>
+		<!--法师-->
+		<define name="CAREER_MAGE" value="2"/>
+		<!--弓手-->
+		<define name="CAREER_ARCHER" value="3"/>
+		<!--#########################-->
+		<!--场景ID-->
+		<!--#########################-->
+		<!--等待大厅-->
+		<define name="SCENE_WAITING_ROOM" value="127"/>
+		<!--#########################-->
+		<!--场景物件-->
+		<!--#########################-->
+		<define name="OBJ_SCENE" value="0"/>
+		<!--场景对象-->
+		<define name="OBJ_PLAYER" value="1"/>
+		<!--玩家角色-->
+		<define name="OBJ_MONSTER" value="2"/>
+		<!--怪物-->
+		<define name="OBJ_BOSS" value="3"/>
+		<!--BOSS-->
+		<!--NPC <define name="OBJ_NPC" value="4"/> -->
+		<define name="OBJ_PET" value="5"/>
+		<!--战斗宠物-->
+		<define name="OBJ_OFFLINE_PLAYER" value="6"/>
+		<!--离线玩家-->
+		<define name="OBJ_TOWER" value="7"/>
+		<!--塔-->
+		<define name="OBJ_TRIGGER" value="8"/>
+		<!--触发器-->
+		<define name="OBJ_CHECKPOINT" value="9"/>
+		<!--点-->
+		<define name="OBJ_SPAWN" value="10"/>
+		<!--出怪点-->
+		<define name="OBJ_PORT" value="11"/>
+		<!--传送门-->
+		<define name="OBJ_TOUCH" value="12"/>
+		<!--触摸点-->
+		<define name="OBJ_DROP_OBJECT" value="13"/>
+		<!--掉落物品-->
+		<define name="OBJ_SUM" value="14"/>
+		<!--总数-->
+		<!--#########################-->
+		<!--频道-->
+		<!--#########################-->
+		<!--综合频道-->
+		<define name="CHAT_CHANNEL_INTEGRATED" value="1"/>
+		<!--系统频道-->
+		<define name="CHAT_CHANNEL_SYSTEM" value="2"/>
+		<!--世界频道-->
+		<define name="CHAT_CHANNEL_WORLD" value="3"/>
+		<!--队伍频道-->
+		<define name="CHAT_CHANNEL_TEAM" value="4"/>
+		<!--私聊频道-->
+		<define name="CHAT_CHANNEL_PRIVATE" value="5"/>
+		<!--公会频道-->
+		<define name="CHAT_CHANNEL_GUILD" value="6"/>
+		<!--跑马灯-->
+		<define name="CHAT_CHANNEL_MARQUEE" value="7"/>
+		<!--应急频道-->
+		<define name="CHAT_CHANNEL_EMERGENCY" value="8"/>
+		<!--GM命令频道-->
+		<define name="CHAT_CHANNEL_GMCMD" value="9"/>
+		<!--调试频道-->
+		<define name="CHAT_CHANNEL_DEBUG" value="10"/>
+		<!--喇叭频道Horn-->
+		<define name="CHAT_CHANNEL_HORN" value="11"/>
+		<!--警示公告-->
+		<define name="CHAT_CHANNEL_PROCLAMATION" value="12"/>
+		<!--喇叭频道使用物品-->
+		<define name="CHAT_CHANNEL_HORN_ITEM" value="201"/>
+		<!--聊天最大长度-->
+		<define name="CHAT_MAX_LENGTH" value="1000"/>
+		<!--#########################-->
+		<!--防沉迷相关-->
+		<!--#########################-->
+		<!--防沉迷下线恢复时间-->
+		<define name="FCM_OFFLINE_5_HOUR" value="18000"/>
+		<!--防沉迷上线3小时-->
+		<define name="FCM_ONLINE_3_HOUR" value="10800"/>
+		<!--防沉迷上线5小时-->
+		<define name="FCM_ONLINE_5_HOUR" value="18000"/>
+		<!--防沉迷收益减半-->
+		<define name="FCM_HALF_GAIN_RATE" value="5000"/>
+		<!--防沉迷收益为零-->
+		<define name="FCM_ZERO_GAIN_RATE" value="0"/>
+		<!--#########################-->
+		<!--战斗相关-->
+		<!--#########################-->
+		<define name="GAIN_SOUL_TIME" value="1000"/>
+		<define name="DAMAGE_TYPE_NORMAL" value="1"/>
+		<define name="DAMAGE_TYPE_CRITICAL" value="2"/>
+		<define name="DAMAGE_TYPE_MISS" value="3"/>
+		<define name="DAMAGE_TYPE_BLOCK" value="4"/>
+		<define name="DAMAGE_TYPE_HEAL" value="5"/>
+		<define name="DAMAGE_TYPE_MANA" value="6"/>
+		<define name="DAMAGE_TYPE_IMMORTAL" value="7"/>
+		<define name="DAMAGE_TYPE_BUFF" value="8"/>
+		<define name="COMBO_KILL_CD" value="15000"/>
+		<!--#########################-->
+		<!--属性类型-->
+		<!--#########################-->
+		<!--游戏币-->
+		<define name="PROP_GAMEPOINT" value="1"/>
+		<!--精魂-->
+		<define name="PROP_SOULPOINT" value="2"/>
+		<!--经验-->
+		<define name="PROP_EXP" value="3"/>
+		<!--体力-->
+		<define name="PROP_VIGOR" value="4"/>
+		<!--生命-->
+		<define name="PROP_HP" value="5"/>
+		<!--魔法-->
+		<define name="PROP_MP" value="6"/>
+		<!--最大生命-->
+		<define name="PROP_MAXHP" value="7"/>
+		<!--最大魔法-->
+		<define name="PROP_MAXMP" value="8"/>
+		<!--攻击力-->
+		<define name="PROP_ATTACK" value="9"/>
+		<!--护甲-->
+		<define name="PROP_ARMOR" value="10"/>
+		<!--暴击-->
+		<define name="PROP_CRITICAL_ATTACK" value="11"/>
+		<!--命中-->
+		<define name="PROP_HIT_RATE" value="12"/>
+		<!--闪避-->
+		<define name="PROP_DODGE" value="13"/>
+		<!--攻击速度-->
+		<define name="PROP_ATTACK_PER_SEC" value="14"/>
+		<!--移动速度-->
+		<define name="PROP_MOVE_SPEED" value="15"/>
+		<!--伤害减免-->
+		<define name="PROP_DAMAGE_REDUCTION" value="16"/>
+		<!--魔法消耗-->
+		<define name="PROP_CONSUME_MP" value="17"/>
+		<!--力量-->
+		<define name="PROP_STRENGTH" value="19"/>
+		<!--精神-->
+		<define name="PROP_SPIRIT" value="20"/>
+		<!--敏捷-->
+		<define name="PROP_AGILITY" value="21"/>
+		<!--体质-->
+		<define name="PROP_CONSTITUTION" value="22"/>
+		<!--显示标记-->
+		<define name="PROP_SHOW_FLAG" value="24"/>
+		<!--队伍ID low-->
+		<define name="PROP_TEAM_ID_L" value="25"/>
+		<!--队伍ID high-->
+		<define name="PROP_TEAM_ID_H" value="26"/>
+		<!--成长点-->
+		<define name="PROP_GROWTH_POINT" value="27"/>
+		<!--物品-->
+		<define name="PROP_ITEM" value="28"/>
+		<!--力量比率-->
+		<define name="PROP_STRENGTH_MUL" value="29"/>
+		<!--智力比率-->
+		<define name="PROP_SPIRIT_MUL" value="30"/>
+		<!--敏捷比率-->
+		<define name="PROP_AGILITY_MUL" value="31"/>
+		<!--体质比率-->
+		<define name="PROP_CONSTITUTION_MUL" value="32"/>
+		<!--生命值恢复-->
+		<define name="PROP_HP_REC_RATE" value="33"/>
+		<!--魔法值恢复-->
+		<define name="PROP_MP_REC_RATE" value="34"/>
+		<!--反射伤害-->
+		<define name="PROP_REFLECT_DAMAGE" value="35"/>
+		<!--反射伤害倍率-->
+		<define name="PROP_REFLECT_DAMAGE_MUL" value="36"/>
+		<!--魔法流失-->
+		<define name="PROP_MP_LOSS_RATE" value="37"/>
+		<!--物理伤害免疫-->
+		<define name="PROP_SUB_PHYSICS_HURT" value="38"/>
+		<!--元素伤害免疫-->
+		<define name="PROP_SUB_MAGIC_HURT" value="39"/>
+		<!--跟宠-->
+		<define name="PROP_FOLLOW_PET" value="41"/>
+		<!--魔石-->
+		<define name="PROP_MONEYPOINT" value="45"/>
+		<!--骑宠-->
+		<define name="PROP_RIDE_PET" value="47"/>
+		<!--持装方式-->
+		<define name="PROP_EQUIP_ANIMATION" value="50"/>
+		<!--能被攻击-->
+		<define name="PROP_ATTACKABLE" value="51"/>
+		<!--职业-->
+		<define name="PROP_CAREER" value="52"/>
+		<!--角色等级-->
+		<define name="PROP_LEVEL" value="53"/>
+		<!--最大经验-->
+		<define name="PROP_MAX_EXP" value="55"/>
+		<!--战斗力-->
+		<define name="PROP_BATTLE_POWER" value="57"/>
+		<!--所在组-->
+		<define name="PROP_GROUP" value="58"/>
+		<!--赛季币-->
+		<define name="PROP_SEASON_POINT" value="61"/>
+		<!--翅膀ID-->
+		<define name="PROP_WING" value="62"/>
+		<!--荣誉-->
+		<define name="PROP_HONORPOINT" value="63"/>
+		<!--是否VIP-->
+		<define name="PROP_VIP" value="64"/>
+		<!--最大体力-->
+		<define name="PROP_MAX_VIGOR" value="65"/>
+		<!--体力购买次数-->
+		<define name="PROP_VIGOR_BUYTIMES" value="66"/>
+		<!--火抗-->
+		<define name="PROP_FIRE_DEFENCE" value="67"/>
+		<!--冰抗-->
+		<define name="PROP_ICE_DEFENCE" value="68"/>
+		<!--雷抗-->
+		<define name="PROP_THUNDER_DEFENCE" value="69"/>
+		<!--称号-->
+		<define name="PROP_TITLE" value="70"/>
+		<!--最大火焰抗性-->
+		<define name="PROP_MAX_FIRE_DEFENCE" value="71"/>
+		<!--最大冰霜抗性-->
+		<define name="PROP_MAX_ICE_DEFENCE" value="72"/>
+		<!--最大闪电抗性-->
+		<define name="PROP_MAX_LIGHTNING_DEFENCE" value="73"/>
+		<!--最大攻击格挡-->
+		<define name="PROP_MAX_ATTACK_BLOCK" value="74"/>
+		<!--最大法术格挡-->
+		<define name="PROP_MAX_MAGIC_BLOCK" value="75"/>
+		<!--开启训练栏位-->
+		<define name="PROP_RIDN_PET_TRAIN_FIELED" value="79"/>
+		<!--坐骑立即完成训练减cd-->
+		<define name="PROP_RIDN_PET_TRAIN_NOW" value="80"/>
+		<!--坐骑双倍吸收-->
+		<define name="PROP_RIDN_PET_ABSORB" value="81"/>
+		<!--跟宠双倍吸收-->
+		<define name="PROP_FOLLOW_PET_ABSORB" value="82"/>
+		<!--装备升星-->
+		<define name="PROP_EQUIP_START_LEVEL" value="83"/>
+		<!--刷出坐骑-->
+		<define name="PROP_RESURGENCE_CD" value="84"/>
+		<!--增加工会BOSS经验-->
+		<define name="PROP_MAX_RESURGENCE_CD" value="85"/>
+		<!--增加工会名称-->
+		<define name="PROP_GUILD_NAME" value="86"/>
+		<!--勇者争霸购买挑战次数-->
+		<define name="PROP_PLAYER_DOOR_BUY_CHALLENGE" value="87"/>
+		<!--勇者争霸秒CD-->
+		<define name="PROP_PLAYER_DOOR_KILL_CD" value="88"/>
+		<!--至尊魔宫重置-->
+		<define name="PROP_BABEL_RESET" value="89"/>
+		<!--答题双倍基本-->
+		<define name="PROP_ANSWER_DOUBLE_NUM" value="90"/>
+		<!--补签-->
+		<define name="PROP_SIGN_MAKEUP" value="91"/>
+		<!--系统体力-->
+		<define name="PROP_SYS_VIGOR" value="92"/>
+		<!--绑定魔石-->
+		<define name="PROP_BIND_MONEYPOINT" value="93"/>
+		<!--日常任务重置次数-->
+		<define name="PROP_TASK_DAILY_RESET" value="94"/>
+		<!--护卫任务购买次数-->
+		<define name="PROP_TASK_GUARD_BUY" value="95"/>
+		<!--减少总伤害-->
+		<define name="PROP_ALL_DAMAGE_SUB" value="96"/>
+		<!--暴击伤害加成(暴击加深)-->
+		<define name="PROP_CRITICAL_DAMAGE_ADDITION" value="97"/>
+		<!--击杀回复生命-->
+		<define name="PROP_KILL_HP_REC" value="98"/>
+		<!--击杀回复魔法-->
+		<define name="PROP_KILL_MP_REC" value="99"/>
+		<!--击杀回复生命倍率-->
+		<define name="PROP_KILL_HP_REC_MUL" value="100"/>
+		<!--击杀回复魔法倍率-->
+		<define name="PROP_KILL_MP_REC_MUL" value="101"/>
+		<!--工会魔石捐赠-->
+		<define name="PROP_GUILD_DONATE" value="102"/>
+		<!--工会使用魔石提升科技-->
+		<define name="PROP_GUILD_ADDITION_PROMOTE" value="103"/>
+		<!--投射伤害增加倍率-->
+		<define name="PROP_PROJECTILE_DAMAGE_MUL" value="105"/>
+		<!--近战伤害增加倍率-->
+		<define name="PROP_MELEE_DAMAGE_MUL" value="106"/>
+		<!--范围伤害增加倍率-->
+		<define name="PROP_AOE_DAMAGE_MUL" value="107"/>
+		<!--单手武器伤害增加倍率-->
+		<define name="PROP_ONE_HAND_DAMAGE_MUL" value="108"/>
+		<!--双手武器伤害增加倍率-->
+		<define name="PROP_TWO_HAND_DAMAGE_MUL" value="109"/>
+		<!--双持武器伤害增加倍率-->
+		<define name="PROP_DUAL_HAND_DAMAGE_MUL" value="110"/>
+		<!--弓箭武器伤害增加倍率-->
+		<define name="PROP_BOW_DAMAGE_MUL" value="111"/>
+		<!--持有盾牌时增加攻击格挡-->
+		<define name="PROP_SHIELD_ATTACK_BLOCK" value="112"/>
+		<!--双持近战武器时增加攻击格挡-->
+		<define name="PROP_DUAL_ATTACK_BLOCK" value="113"/>
+		<!--跳舞卡-->
+		<define name="PROP_DANCE_CARD" value="114"/>
+		<!--跳舞属性-->
+		<define name="PROP_DANCE" value="115"/>
+		<!--跟宠护魂升阶花费的魔石-->
+		<define name="PROP_FOLLOW_PET_SOUL_LEVE_STEPS" value="116"/>
+		<!--跟宠攻击属性-->
+		<define name="PROP_FOLLOW_PET_ATTACK" value="117"/>
+		<!--跟宠命中属性-->
+		<define name="PROP_FOLLOW_PET_HIT_RATE" value="118"/>
+		<!--跟宠暴击属性-->
+		<define name="PROP_FOLLOW_PET_CRIT" value="119"/>
+		<!--护魂副本扫荡次数-->
+		<define name="PROP_PROTECT_SOUL_NUM" value="120"/>
+		<!--护魂副本减CD时间-->
+		<define name="PROP_PROTECT_SOUL_SUB_TIME" value="121"/>
+		<!--点石成金的次数-->
+		<define name="PROP_STONE_TURN_GOLD_TIMES" value="122"/>
+		<!--个人轮盘次数重置-->
+		<define name="PROP_GUILD_MEMBER_TURNTABLE" value="123"/>
+		<!--至尊魔宫扫荡花费魔石-->
+		<define name="PROP_BABEL_RAIDS" value="124"/>
+		<!--化身点-->
+		<define name="PROP_INCARNATION_POINT" value="125"/>
+		<!--宠物阵法解锁-->
+		<define name="PROP_PET_FORMATION_UNLOCK" value="126"/>
+		<!--宝石提升-->
+		<define name="PROP_UPGRADE_JEWEL" value="130"/>
+		<!--宝石提升-->
+		<define name="PROP_GUILD_SCORE" value="131"/>
+		<!--使用随机宝箱-->
+		<define name="PROP_ITEM_PACKAGE" value="132"/>
+		<!--使用功能次数卡-->
+		<define name="PROP_FUNCTION_NUMBER" value="157"/>
+		<!--跟宠暴伤属性-->
+		<define name="PROP_FOLLOW_PET_CRIT_DAMAGE" value="170"/>
+		<!--跟宠每击附加物伤-->
+		<define name="PROP_FOLLOW_PET_HIT_ADD_PHYSICS" value="171"/>
+		<!--跟宠每击附加火伤-->
+		<define name="PROP_FOLLOW_PET_HIT_ADD_FIRE" value="172"/>
+		<!--跟宠每击附加冰伤-->
+		<define name="PROP_FOLLOW_PET_HIT_ADD_ICE" value="173"/>
+		<!--跟宠每击附加雷伤-->
+		<define name="PROP_FOLLOW_PET_HIT_ADD_THUNDER" value="174"/>
+		<!--双倍经验-->
+		<define name="PROP_DOUBLE_EXP" value="175"/>
+		<!--通过ID使用宝箱-->
+		<define name="PROP_USE_TREASURE_BOX_BY_ID" value="201"/>
+		<!--进入护魂副本的用魔石购买的次数-->
+		<define name="PROP_PROTECT_SOUL_TIMES" value="202"/>
+		<!--魔王金像魔石秒dc购买-->
+		<define name="PROP_GOLD_TREE_CD_TIMES" value="203"/>
+		<!--藏宝库秒cd的购买-->
+		<define name="PROP_TREASURY_CD_TIMES" value="204"/>
+		<!--通过位置使用宝箱-->
+		<define name="PROP_USE_TREASURE_BOX_BY_POS" value="205"/>
+		<!--背包格解锁-->
+		<define name="PROP_BAG_GRID_UNLOCK" value="206"/>
+		<!--升品石-->
+		<define name="PROP_QUALITY_STONE" value="246"/>
+		<!--单人答题秒cd-->
+		<define name="PROP_SINGLE_ANSWER_CD_TIME" value="247"/>
+		<!--花魔石挽回资源-->
+		<define name="PROP_GBACK_RESOURCE" value="248"/>
+		<!--花魔石抽宝箱-->
+		<define name="PROP_MONEY_FASHION_TREASURE" value="249"/>
+		<!--花魔石使用世界尽头技能-->
+		<define name="PROP_JUMPING_OFF_SKILL" value="250"/>
+		<!--花魔石购买离线体力-->
+		<define name="PROP_OFF_LINE_VIGOR" value="251"/>
+		<!--花魔魔石捐献-->
+		<define name="PROP_DONATE" value="252"/>
+		<!--段位积分-->
+		<define name="PROP_INTEGRAL_POINT" value="253"/>
+		<!--功勋值-->
+		<define name="PROP_EXPLOIT_POINT" value="254"/>
+		<!--联盟值-->
+		<define name="PROP_ALLIANCE_POINT" value="255"/>
+		<!--VIP独享副本-->
+		<define name="PROP_VIP_ONLY_DUNGEON" value="257"/>
+		<!--体验VIP-->
+		<define name="PROP_EXPERIENCE_VIP" value="258"/>
+		<!--化身技能-->
+		<define name="PROP_FASHION_SKILL_ID" value="259"/>
+		<!--所有技能CD重置-->
+		<define name="PROP_REFRESH_ALL_SKILL_CD" value="260"/>
+		<!-- 勇敢的心买次数 -->
+		<define name="PROP_BRAVE_HEART_COUNT" value="261"/>
+		<!-- 解锁圣剑 -->
+		<define name="PROP_SWORD_UNLOCK" value="262"/>
+		<!-- 圣剑 -->
+		<define name="PROP_SWORD" value="263"/>
+		<!-- 每日化身 -->
+		<define name="PROP_DAILY_FASHION" value="264"/>
+		<!-- 格挡 -->
+		<define name="PROP_BLOCK" value="265"/>
+		<!-- 法术格挡 -->
+		<define name="PROP_MAGIC_BLOCK" value="266"/>
+		<!-- 能量盾 -->
+		<define name="PROP_ENERGY_SHIELD" value="267"/>
+		<!-- 施法速度 -->
+		<define name="PROP_CAST_PER_SEC" value="268"/>
+		<!-- 最大能量盾 -->
+		<define name="PROP_MAX_ENERGY_SHIELD" value="269"/>
+		<!-- 最大生命值倍率 -->
+		<define name="PROP_MAXHP_MUL" value="270"/>
+		<!-- 最大魔法值倍率 -->
+		<define name="PROP_MAXMP_MUL" value="271"/>
+		<!-- 生命回复倍率 -->
+		<define name="PROP_HP_REC_RATE_MUL" value="272"/>
+		<!-- 魔法回复倍率 -->
+		<define name="PROP_MP_REC_RATE_MUL" value="273"/>
+		<!-- 护甲倍率 -->
+		<define name="PROP_ARMOR_MUL" value="274"/>
+		<!-- 闪避倍率 -->
+		<define name="PROP_DODGE_MUL" value="275"/>
+		<!-- 最大能量盾倍率 -->
+		<define name="PROP_MAX_ENERGY_SHIELD_MUL" value="276"/>
+		<!-- 命中倍率 -->
+		<define name="PROP_HIT_RATE_MUL" value="277"/>
+		<!-- 暴击倍率 -->
+		<define name="PROP_CRITICAL_ATTACK_MUL" value="278"/>
+		<!-- 暴击伤害倍率 -->
+		<define name="PROP_CRITICAL_DAMAGE_ADDITION_MUL" value="279"/>
+		<!-- 攻击速度倍率 -->
+		<define name="PROP_ATTACK_PER_SEC_MUL" value="280"/>
+		<!-- 施法速度倍率 -->
+		<define name="PROP_CAST_PER_SEC_MUL" value="281"/>
+		<!-- 移动速度倍率 -->
+		<define name="PROP_MOVE_SPEED_MUL" value="282"/>
+		<!-- 火焰抗性倍率 -->
+		<define name="PROP_FIRE_DEFENCE_MUL" value="283"/>
+		<!-- 冰霜抗性倍率 -->
+		<define name="PROP_ICE_DEFENCE_MUL" value="284"/>
+		<!-- 闪电抗性倍率 -->
+		<define name="PROP_THUNDER_DEFENCE_MUL" value="285"/>
+		<!-- 攻击格挡倍率 -->
+		<define name="PROP_BLOCK_MUL" value="286"/>
+		<!-- 法术格挡倍率 -->
+		<define name="PROP_MAGIC_BLOCK_MUL" value="287"/>
+		<!-- 物理伤害 -->
+		<define name="PROP_PHYSICS_DAMAGE" value="288"/>
+		<!-- 物理伤害倍率 -->
+		<define name="PROP_PHYSICS_DAMAGE_MUL" value="289"/>
+		<!-- 火焰伤害 -->
+		<define name="PROP_FIRE_DAMAGE" value="290"/>
+		<!-- 火焰伤害倍率 -->
+		<define name="PROP_FIRE_DAMAGE_MUL" value="291"/>
+		<!-- 冰霜伤害 -->
+		<define name="PROP_ICE_DAMAGE" value="292"/>
+		<!-- 冰霜伤害倍率 -->
+		<define name="PROP_ICE_DAMAGE_MUL" value="293"/>
+		<!-- 闪电伤害 -->
+		<define name="PROP_THUNDER_DAMAGE" value="294"/>
+		<!-- 闪电伤害倍率 -->
+		<define name="PROP_THUNDER_DAMAGE_MUL" value="295"/>
+		<!-- 毒素伤害 -->
+		<define name="PROP_POISON_DAMAGE" value="296"/>
+		<!-- 毒素伤害倍率 -->
+		<define name="PROP_POISON_DAMAGE_MUL" value="297"/>
+		<!-- 法术伤害倍率 -->
+		<define name="PROP_MAGIC_DAMAGE_MUL" value="298"/>
+		<!-- 元素抗性 -->
+		<define name="PROP_MAGIC_DEFENCE" value="299"/>
+		<!-- 装备的物理伤害增加 -->
+		<define name="PROP_EQUIP_PHYSICS_DAMAGE" value="300"/>
+		<!-- 装备的物理伤害增加倍率 -->
+		<define name="PROP_EQUIP_PHYSICS_DAMAGE_MUL" value="301"/>
+		<!-- 装备的护甲增加 -->
+		<define name="PROP_EQUIP_ARMOR" value="302"/>
+		<!-- 装备的护甲增加倍率 -->
+		<define name="PROP_EQUIP_ARMOR_MUL" value="303"/>
+		<!-- 装备的闪避增加 -->
+		<define name="PROP_EQUIP_EVASION" value="304"/>
+		<!-- 装备的闪避增加倍率 -->
+		<define name="PROP_EQUIP_EVASION_MUL" value="305"/>
+		<!-- 装备的能量盾增加 -->
+		<define name="PROP_EQUIP_ENERGY_SHIELD" value="306"/>
+		<!-- 装备的能量盾增加倍率 -->
+		<define name="PROP_EQUIP_ENERGY_SHIELD_MUL" value="307"/>
+		<!-- 装备的攻击速度倍率 -->
+		<define name="PROP_EQUIP_ATTACK_SPEED" value="308"/>
+		<!-- 装备的攻击格挡率增加 -->
+		<define name="PROP_EQUIP_ATTACK_BLOCK" value="309"/>
+		<!-- 装备的法术格挡率增加 -->
+		<define name="PROP_EQUIP_MAGIC_BLOCK" value="310"/>
+		<!-- 技能，攻击重复 -->
+		<define name="PROP_SKILL_ATTACK_REPEAT" value="400"/>
+		<!-- 技能，施法重复 -->
+		<define name="PROP_SKILL_CAST_REPEAT" value="401"/>
+		<!-- 技能，附加投射物 -->
+		<define name="PROP_SKILL_BULLET_ADD" value="402"/>
+		<!-- 技能，源自基础伤害的物理伤害 -->
+		<define name="PROP_SKILL_SOURCE_PHYSICS_DAMAGE" value="403"/>
+		<!-- 技能，源自基础伤害的火焰伤害 -->
+		<define name="PROP_SKILL_SOURCE_FIRE_DAMAGE" value="404"/>
+		<!-- 技能，源自基础伤害的冰霜伤害 -->
+		<define name="PROP_SKILL_SOURCE_ICE_DAMAGE" value="405"/>
+		<!-- 技能，源自基础伤害的闪电伤害 -->
+		<define name="PROP_SKILL_SOURCE_LIGHTNING_DAMAGE" value="406"/>
+		<!-- 技能，源自基础伤害的毒素伤害 -->
+		<define name="PROP_SKILL_SOURCE_POISON_DAMAGE" value="407"/>
+		<!-- 技能，承受伤害触发 -->
+		<define name="PROP_SKILL_HURT_TRIGGER" value="408"/>
+		<!-- 技能，总伤害减少 -->
+		<define name="PROP_SKILL_DAMAGE_SUB_MUL" value="409"/>
+		<!-- 技能，击退 -->
+		<define name="PROP_SKILL_KNOCK_BACK" value="410"/>
+		<!-- 技能，穿透 -->
+		<define name="PROP_SKILL_PIERCE" value="411"/>
+		<!-- 技能，近战击中获得耐力球 -->
+		<define name="PROP_SKILL_ENDURANCE_CHARGE" value="412"/>
+		<!-- 技能，攻击击中获得狂怒球 -->
+		<define name="PROP_SKILL_FRENZY_CHARGE" value="413"/>
+		<!-- 技能，暴击时获得暴击球 -->
+		<define name="PROP_SKILL_POWER_CHARGE" value="414"/>
+		<!-- 技能，流血 -->
+		<define name="PROP_SKILL_BLEED" value="415"/>
+		<!-- 技能，暴击时触发 -->
+		<define name="PROP_SKILL_CRITICAL_TRIGGER" value="416"/>
+		<!-- 技能，近战击中施放 -->
+		<define name="PROP_SKILL_MELEE_TRIGGER" value="417"/>
+		<!-- 技能，投射命中施放 -->
+		<define name="PROP_SKILL_PROJECTILE_TRIGGER" value="418"/>
+		<!-- buff，提升攻击速度、施法速度、移动速度 -->
+		<define name="PROP_BUFF_ALL_SPEED_MUL" value="501"/>
+		<!-- buff，每秒回复生命 -->
+		<define name="PROP_BUFF_RELIFE" value="502"/>
+		<!-- buff，反射伤害 -->
+		<define name="PROP_BUFF_REFLECT_DAMAGE" value="503"/>
+		<!-- buff，护甲闪避减少 -->
+		<define name="PROP_BUFF_ARMOR_EVSION_SUB" value="504"/>
+		
+		<!--#########################-->
+		<!--技能类型-->
+		<!--#########################-->
+		<!-- 攻击技能 -->
+		<define name="SKILL_TYPE_ATTACK" value="1"/>
+		<!-- 法术技能 -->
+		<define name="SKILL_TYPE_MAGIC" value="2"/>
+		<!--#########################-->
+		<!--技能特性-->
+		<!--#########################-->
+		<define name="SKILL_FEATURE_MELEE" value="1"/>
+		<define name="SKILL_FEATURE_BOW" value="2"/>
+		<define name="SKILL_FEATURE_ATTACK" value="4"/>
+		<define name="SKILL_FEATURE_SPELL" value="8"/>
+		<define name="SKILL_FEATURE_PROJECTILE" value="16"/>
+		<define name="SKILL_FEATURE_AOE" value="32"/>
+		<define name="SKILL_FEATURE_FIRE" value="64"/>
+		<define name="SKILL_FEATURE_ICE" value="128"/>
+		<define name="SKILL_FEATURE_LIGHTNING" value="256"/>
+		<define name="SKILL_FEATURE_POISON" value="512"/>
+		<define name="SKILL_FEATURE_AURA" value="1024"/>
+		<define name="SKILL_FEATURE_DURATION" value="2048"/>
+		<define name="SKILL_FEATURE_CURSE" value="4096"/>
+		<define name="SKILL_FEATURE_TRIGGER" value="8192"/>
+		
+		<!--#########################-->
+		<!--时装-->
+		<!--#########################-->
+		<!--购买时装-->
+		<define name="BUY_FASHION" value="1"/>
+		<!--组合-->
+		<define name="FASHION_COMPOSE" value="0"/>
+		<!--既能合成也能购买-->
+		<define name="FASHION_COMPOSE_BUY" value="3"/>
+		<!--#########################-->
+		<!--可招募跟宠物的物品类型-->
+		<define name="PROP_PET_MAX_LEVEL" value="80"/>
+		<!--力量果实id-->
+		<define name="PROP_POWER_FRUIT" value="219"/>
+		<!--敏捷果实id-->
+		<define name="PROP_AGILE_FRUIT" value="220"/>
+		<!--精神果实id-->
+		<define name="PROP_SPIRIT_FRUIT" value="221"/>
+		<!--体质果实id-->
+		<define name="PROP_PHYS_FRUIT" value="222"/>
+		<!--技能果实id-->
+		<define name="PROP_SKILL_FRUIT" value="223"/>
+		<!--使用物品添加装备-->
+		<define name="PROP_FASHION_ITME1" value="126"/>
+		<define name="PROP_FASHION_ITME2" value="127"/>
+		<!--初级自动喂养物品id-->
+		<define name="PROP_AUTOEAT_ORD" value="217"/>
+		<!--高级自动喂养物品id-->
+		<define name="PROP_AUTOEAT_SER" value="218"/>
+		<define name="PROP_GUESS_WIN" value="224"/>
+		<!--跟宠伤害技能-->
+		<define name="FOLLOW_PET_DAMAGE_SKILL" value="1"/>
+		<!--跟宠回血技能-->
+		<define name="FOLLOW_PET_HP_SKILL" value="2"/>
+		<!--跟宠战斗状态-->
+		<!--未出战-->
+		<define name="FOLLOW_PET_NOFIGHT" value="0"/>
+		<!--出战-->
+		<define name="FOLLOW_PET_FIGHT" value="1"/>
+		<!--探索状态-->
+		<define name="FOLLOW_PET_SEARCH" value="2"/>
+		<!--出阵-->
+		<define name="FOLLOW_PET_FORMATION" value="3"/>
+		<!--一键升级-->
+		<define name="PET_FORMATION_UPGRADE_TYPE" value="1"/>
+		<!--宠物 上 下 阵-->
+		<define name="PET_FORMATION_UP" value="1"/>
+		<define name="PET_FORMATION_DOWN" value="2"/>
+		<define name="PET_FORMATION_BRAVE" value="221"/>
+		<define name="PET_FORMATION_STRIKE" value="222"/>
+		<!--宠物阵锁状态-->
+		<define name="PET_FORMATION_STATE_LOCK" value="0"/>
+		<define name="PET_FORMATION_STATE_CAN_LOCK" value="1"/>
+		<define name="PET_FORMATION_STATE_UNLOCK" value="2"/>
+		<define name="PET_FORMATION_HAVE_PET" value="3"/>
+		<!--宠物阵可锁状态条件-->
+		<define name="PET_FORMATION_SPEND_TYPE_VIP" value="1"/>
+		<define name="PET_FORMATION_SPEND_TYPE_FORMATION_LEVEL" value="2"/>
+		<!--跟宠招募状态-->
+		<!--未解锁-->
+		<define name="FOLLOW_PET_UNLOCK" value="0"/>
+		<!--招募-->
+		<define name="FOLLOW_PET_RECRUIT" value="1"/>
+		<!--可招募-->
+		<define name="FOLLOW_PET_CANRECRUIT" value="2"/>
+		<!--激活跟宠玩家级别类型-->
+		<define name="ACTIVATION_LEVEL" value="1"/>
+		<!--激活跟宠任务类型-->
+		<define name="ACTIVATION_TASK" value="2"/>
+		<!--激活跟宠副本类型-->
+		<define name="ACTIVATION_DUGEON" value="3"/>
+		<!--激活跟宠物品类型-->
+		<define name="ACTIVATION_ITEM" value="4"/>
+		<!--激活跟宠称号类型-->
+		<define name="ACTIVATION_TITLE" value="5"/>
+		<!--激活跟宠黄金vip类型-->
+		<define name="ACTIVATION_VIP" value="6"/>
+		<!--激活跟宠的条件完成-->
+		<define name="FINISH_CONDITION" value="1"/>
+		<!--激活跟宠的条件没有完成-->
+		<define name="NO_FINISH_CONDITION" value="2"/>
+		<!--跟宠博弈状态-->
+		<define name="FOLLOW_PET_SHEARS" value="0"/>
+		<!--剪刀-->
+		<define name="FOLLOW_PET_STONE" value="1"/>
+		<!--石头-->
+		<define name="FOLLOW_PET_CLOSE" value="2"/>
+		<!--布-->
+		<define name="FOLLOW_PET_SCUESS" value="3"/>
+		<!--必胜-->
+		<!--跟宠博弈结果-->
+		<define name="FOLLOW_PET_WIN" value="0"/>
+		<!--胜利结果-->
+		<define name="FOLLOW_PET_LOSE" value="1"/>
+		<!--失败结果-->
+		<define name="FOLLOW_PET_DRAW" value="2"/>
+		<!--平局结果-->
+		<!--跟宠吞噬类型-->
+		<define name="FOLLOW_PET_SWALLOW_SENIOR" value="0"/>
+		<!--高级-->
+		<define name="FOLLOW_PET_SWALLOW_ORDINARY " value="1"/>
+		<!--普通-->
+		<!--跟宠探索类型-->
+		<define name="FOLLOW_PET_SEARCH_SENIOR" value="0"/>
+		<!--高级-->
+		<define name="FOLLOW_PET_SEARCH_ORDINARY " value="1"/>
+		<!--普通-->
+		<define name="FOLLOW_PET_SEARCH_NOTYPE " value="2"/>
+		<!--没有选择搜索类型-->
+		<define name="FOLLOW_PET_SEARCH_NOSCENE " value="60000"/>
+		<!--没有选择搜索场景-->
+		<!--跟宠锻炼类型-->
+		<define name="FOLLOW_PET_EXCTING_SENIOR" value="0"/>
+		<!--高级-->
+		<define name="FOLLOW_PET_EXCTING_ORDINARY " value="1"/>
+		<!--普通-->
+		<!--跟宠自动喂养状态-->
+		<define name="FOLLOW_PET_NO_AUOTOEAT" value="0"/>
+		<!--没有自动喂养-->
+		<define name="FOLLOW_PET_AUOTOEAT " value="1"/>
+		<!--自动喂养-->
+		<define name="FOLLOW_PET_HANDEAT " value="3"/>
+		<!--手动喂养-->
+		<!--跟宠锻炼解锁状态状态-->
+		<define name="FOLLOW_PET_EXEUNLOCK " value="1"/>
+		<!--未解锁-->
+		<define name="FOLLOW_PET_EXELOCK " value="2"/>
+		<!--解锁-->
+		<!--跟宠锻炼状态状态-->
+		<define name="FOLLOW_PET_EXECTING " value="1"/>
+		<!--锻炼中-->
+		<define name="FOLLOW_PET_NO_EXEC " value="2"/>
+		<!--未锻炼-->
+		<define name="FOLLOW_PET_FINISH_EXEC " value="3"/>
+		<!--护魂激活状态-->
+		<!--可激活-->
+		<define name="CAN_ACTIVATION " value="1"/>
+		<!--已经激活-->
+		<define name="ALREADY_ACTIVATION " value="2"/>
+		<!--免费进入护魂副本进入国美-->
+		<define name="FREE_INTO_SOUL" value="1"/>
+		<define name="FREE_NO_INTO_SOUL" value="2"/>
+		<!--完成锻炼-->
+		<!--跟宠随机经验-->
+		<!--激发潜力-->
+		<define name="FOLLOW_PET_RANOM_EXP " value="1"/>
+		<!--一键激发-->
+		<define name="FOLLOW_PET_ONCE_RANOM_EXP " value="2"/>
+		<!--跟宠升阶-->
+		<define name="FOLLOW_PET_UP_STEPS " value="3"/>
+		<!--宠物之星-->
+		<define name="FOLLOW_PET_ITEM_STAR" value="314"/>
+		<!--1级突破结晶石-->
+		<define name="FOLLOW_PET_STONE_LEVEL1" value="315"/>
+		<define name="FOLLOW_PET_STONE_LEVEL2" value="316"/>
+		<define name="FOLLOW_PET_STONE_LEVEL3" value="317"/>
+		<define name="FOLLOW_PET_STONE_LEVEL4" value="318"/>
+		<!--魂之碎片-->
+		<define name="FOLLOW_PET_SOUL_FRAGMENT" value="320"/>
+		<!--跟宠升阶不用人民币-->
+		<define name="FOLLOW_PET_USE_MONEY" value="1"/>
+		<!--跟宠升阶用人民币,用物品-->
+		<define name="FOLLOW_PET_USE_ITEM" value="0"/>
+		<!--用物品升阶使用物品的成功率-->
+		<define name="FOLLOW_PET_USE_ITEM_RANDOM" value="7500"/>
+		<!--突飞石id-->
+		<define name="FOLLOW_PET_ITEM_STONE" value="307"/>
+		<!--#########################-->
+		<!--指定物品id-->
+		<define name="ITEM_ID_ATTACK" value="204"/>
+		<define name="ITEM_ID_DEFENCE" value="205"/>
+		<define name="ITEM_ID_MOVESPEED" value="206"/>
+		<define name="ITEM_ID_HP" value="200"/>
+		<define name="ITEM_ID_MP" value="203"/>
+		<!--#########################-->
+		<!--骑宠状态-->
+		<!--免费提升-->
+		<define name="RIDE_PET_FREE_UP " value="1"/>
+		<!--道具提升-->
+		<define name="RIDE_PET_ITME_UP " value="2"/>
+		<!--魔石提升-->
+		<define name="RIDE_PET_STONE_UP " value="3"/>
+		<!--一键提升-->
+		<define name="RIDE_PET_ONCE_UP " value="4"/>
+		<!--骑宠提升的骑宠石-->
+		<define name="RIDE_PET_STONE_ID" value="227"/>
+		<!--玩家骑宠状态-->
+		<!--放生-->
+		<define name="RIDE_PET_FREE" value="1"/>
+		<!--骑乘坐-->
+		<define name="RIDE_PET_RIDE" value="2"/>
+		<!--休息中取下-->
+		<define name="RIDE_PET_REST" value="3"/>
+		<!--刻印中-->
+		<!--刻印中-->
+		<define name="RIDE_PET_MARK" value="4"/>
+		<!--骑宠没有在刻印中-->
+		<define name="RIDE_PET_NO_MARK" value="5"/>
+		<!--骑宠吸收的类型-->
+		<!--骑宠普通吸收-->
+		<define name="RIDE_PET_ORD" value="1"/>
+		<!--骑宠双倍吸收-->
+		<define name="RIDE_PET_DOUBLE" value="2"/>
+		<!--骑宠捕获类型-->
+		<!--高级捕获-->
+		<define name="RIDE_PET_SER" value="2"/>
+		<!--至尊捕获-->
+		<define name="RIDE_PET_SUPERME" value="3"/>
+		<!--玩家已经充值了多少人民币-->
+		<define name="PRO_RECHAREY" value="1"/>
+		<!--连续签到多少天-->
+		<define name="PRO_SIGN" value="2"/>
+		<!--登陆签到奖励5天-->
+		<define name="SIGN_REWARD_COUNT" value="5"/>
+		<!--连续登陆7天-->
+		<define name="SIGN_SEVEN_DAY" value="7"/>
+		<!--捕兽场随机分配的物品-->
+		<!--蜂蜜-->
+		<define name="HONEY" value="1"/>
+		<!--小虫-->
+		<define name="BUG" value="2"/>
+		<!--青草-->
+		<define name="GRASS" value="3"/>
+		<!--免费提升没有使用-->
+		<define name="RIDE_PET_FREE_NO" value="0"/>
+		<!--免费提升使用-->
+		<define name="RIDE_PET_FREE_USED" value="1"/>
+		<!--当前骑宠没有被捕获-->
+		<define name="RIDE_PET_NO_CAPTURE" value="1"/>
+		<!--当前骑宠已经被捕获-->
+		<define name="RIDE_PET_CAPTURE" value="2"/>
+		<!--兽耳id-->
+		<define name="BEASTEAR_ID" value="226"/>
+		<!--类型标识-->
+		<!--副本标识-->
+		<define name="DUNGEN_FLAG" value="1"/>
+		<!--任务标识-->
+		<define name="TASK_FLAG" value="2"/>
+		<!--使用了免费升级标识-->
+		<define name="USE_FREE" value="1"/>
+		<!--没有使用了免费升级标识-->
+		<define name="NO_FREE" value="0"/>
+		<!--该功能是否开启-->
+		<define name="OPEN" value="100"/>
+		<!--点击开启按钮开启-->
+		<define name="WAIT_OPEN" value="101"/>
+		<define name="NO_OPEN" value="0"/>
+		<!--坐骑系统开启-->
+		<define name="SISTEM_OPEN" value="1"/>
+		<!--骑宠训练状态-->
+		<!--骑宠未训练-->
+		<define name="ON_IDLE" value="6"/>
+		<!--骑宠在训练中-->
+		<define name="ON_TRAINING" value="7"/>
+		<!--坐骑的通用位的类型-->
+		<define name="RIDE_GENERAL_FIELEDS" value="4"/>
+		<!--#########################-->
+		<!--飞物体类型-->
+		<!--#########################-->
+		<define name="FLY_ITEM_TYPE_EQUIP_TO_BAG" value="1"/>
+		<define name="FLY_ITEM_TYPE_BAG_TO_EQUIP" value="2"/>
+		<define name="FLY_ITEM_TYPE_SKILL_TO_BAG" value="3"/>
+		<define name="FLY_ITEM_TYPE_BAG_TO_SKILL" value="4"/>
+		<!--#########################-->
+		<!--装备-->
+		<!--#########################-->
+		<!--装备最大品质-->
+		<define name="MAX_EQUIP_QUALITY" value="5"/>
+		<!--品质白-->
+		<define name="QUALITY_WHITE" value="0"/>
+		<!--品质绿-->
+		<define name="QUALITY_GREEN" value="1"/>
+		<!--品质蓝-->
+		<define name="QUALITY_BLUE" value="2"/>
+		<!--品质紫-->
+		<define name="QUALITY_PURPLE" value="3"/>
+		<!--品质金-->
+		<define name="QUALITY_GOLD" value="4"/>
+		<!--#########################-->
+		<!--装备位置-->
+		<!--#########################-->
+		<!--头-->
+		<define name="EQUIP_PART_HEAD" value="0"/>
+		<!--身-->
+		<define name="EQUIP_PART_BODY" value="1"/>
+		<!--肩-->
+		<define name="EQUIP_PART_SHOULDER" value="2"/>
+		<!--手-->
+		<define name="EQUIP_PART_HAND" value="3"/>
+		<!--脚-->
+		<define name="EQUIP_PART_FOOT" value="4"/>
+		<!--项-->
+		<define name="EQUIP_PART_NECK" value="5"/>
+		<!--左手指-->
+		<define name="EQUIP_PART_FINGER_L" value="6"/>
+		<!--右手指-->
+		<define name="EQUIP_PART_FINGER_R" value="7"/>
+		<!--左手-->
+		<define name="EQUIP_PART_HAND_L" value="8"/>
+		<!--右手-->
+		<define name="EQUIP_PART_HAND_R" value="9"/>
+		<!--全身-->
+		<define name="EQUIP_PART_WHOLE_BODY" value="10"/>
+		<!--#########################-->
+		<!--装备类型-->
+		<!--#########################-->
+		<!--头-->
+		<define name="EQUIP_TYPE_HEAD" value="1"/>
+		<!--身-->
+		<define name="EQUIP_TYPE_BODY" value="2"/>
+		<!--肩-->
+		<define name="EQUIP_TYPE_SHOULDER" value="3"/>
+		<!--手-->
+		<define name="EQUIP_TYPE_HAND" value="4"/>
+		<!--脚-->
+		<define name="EQUIP_TYPE_FOOT" value="5"/>
+		<!--项-->
+		<define name="EQUIP_TYPE_NECK" value="6"/>
+		<!--手指-->
+		<define name="EQUIP_TYPE_FINGER" value="7"/>
+		<!--双手-->
+		<define name="EQUIP_TYPE_TWO_HAND" value="8"/>
+		<!--单手-->
+		<define name="EQUIP_TYPE_ONE_HAND" value="9"/>
+		<!--副手-->
+		<define name="EQUIP_TYPE_DEPUTY_HAND" value="10"/>
+		<!--#########################-->
+		<!--装备操作-->
+		<!--#########################-->
+		<!--安装装备-->
+		<define name="EQUIP_OPT_INSTALL" value="1"/>
+		<!--卸载装备-->
+		<define name="EQUIP_OPT_UNINSTALL" value="2"/>
+		<!--交换装备-->
+		<define name="EQUIP_OPT_SWAP" value="3"/>
+		<!--5种持装方式(剑盾,双持,双手剑,双手杖,弓)-->
+		<define name="EQUIP_ANIMATION_JD" value="1"/>
+		<define name="EQUIP_ANIMATION_SC" value="2"/>
+		<define name="EQUIP_ANIMATION_SJ" value="3"/>
+		<define name="EQUIP_ANIMATION_SZ" value="4"/>
+		<define name="EQUIP_ANIMATION_GJ" value="5"/>
+		<!--#########################-->
+		<!--装备分类-->
+		<!--#########################-->
+		<!-- 头盔-->
+		<define name="EQUIP_SUB_TYPE_1" value="101"/>
+		<!-- 盔甲-->
+		<define name="EQUIP_SUB_TYPE_2" value="102"/>
+		<!-- 肩甲-->
+		<define name="EQUIP_SUB_TYPE_3" value="103"/>
+		<!-- 手套-->
+		<define name="EQUIP_SUB_TYPE_4" value="104"/>
+		<!-- 鞋子 -->
+		<define name="EQUIP_SUB_TYPE_5" value="105"/>
+		<!-- 项链-->
+		<define name="EQUIP_SUB_TYPE_6" value="106"/>
+		<!-- 戒指-->
+		<define name="EQUIP_SUB_TYPE_7" value="107"/>
+		<!-- 匕首 -->
+		<define name="EQUIP_SUB_TYPE_8" value="108"/>
+		<!-- 单手剑-->
+		<define name="EQUIP_SUB_TYPE_9" value="109"/>
+		<!-- 单手锤-->
+		<define name="EQUIP_SUB_TYPE_10" value="110"/>
+		<!-- 双手剑-->
+		<define name="EQUIP_SUB_TYPE_11" value="111"/>
+		<!-- 长杖-->
+		<define name="EQUIP_SUB_TYPE_12" value="112"/>
+		<!-- 弓 -->
+		<define name="EQUIP_SUB_TYPE_13" value="113"/>
+		<!-- 盾-->
+		<define name="EQUIP_SUB_TYPE_14" value="114"/>
+		<!--#########################-->
+		<!--装备宝石孔类型-->
+		<!--#########################-->
+		<define name="EQUIP_HOLE_MAX" value="4"/>
+		<define name="EQUIP_HOLE_TYPE_1" value="1"/>
+		<define name="EQUIP_HOLE_TYPE_2" value="2"/>
+		<define name="EQUIP_HOLE_TYPE_3" value="3"/>
+		<define name="EQUIP_HOLE_TYPE_4" value="4"/>
+		<!--#########################-->
+		<!--石头相关-->
+		<!--#########################-->
+		<!--技能石-->
+		<define name="STONE_SUB_TYPE_SKILL" value="401"/>
+		<!--符文石-->
+		<define name="STONE_SUB_TYPE_RUNE" value="402"/>
+		<!--属性宝石-->
+		<define name="STONE_SUB_TYPE_GEM" value="403"/>
+		<!--天赋石-->
+		<define name="STONE_SUB_TYPE_TALENT" value="404"/>
+		<!--#########################-->
+		<!--物品操作-->
+		<!--#########################-->
+		<define name="ITEM_EFFECT_GAMEPOINT" value="1"/>
+		<!--添加游戏币-->
+		<define name="ITEM_EFFECT_SOULPOINT" value="2"/>
+		<!--添加精魂-->
+		<define name="ITEM_EFFECT_EXP" value="3"/>
+		<!--添加经验-->
+		<define name="ITEM_EFFECT_HP" value="5"/>
+		<!--添加血量-->
+		<define name="ITEM_EFFECT_MP" value="6"/>
+		<!--添加魔法-->
+		
+		<!--#########################-->
+		<!--材料相关-->
+		<!--#########################-->
+		<!--矿石-->
+		<define name="MATERIAL_SUB_TYPE_MINERAL" value="301"/>
+		<!--布-->
+		<define name="MATERIAL_SUB_TYPE_CLOTH" value="302"/>
+		<!--种子-->
+		<define name="MATERIAL_SUB_TYPE_SEED" value="303"/>		
+		<!--幻色石-->
+		<define name="MATERIAL_SUB_TYPE_GEM_EVOLUTE" value="304"/>		
+		<!--打孔石-->
+		<define name="MATERIAL_SUB_TYPE_ADD_HOLE" value="305"/>		
+
+		<!--属性类-->
+		<define name="EFFECT_TYPE_PROP" value="1"/>
+		<!--包裹类-->
+		<define name="EFFECT_TYPE_PACKAGE" value="2"/>
+		<!--技能类-->
+		<define name="EFFECT_TYPE_SKILL" value="3"/>
+		<!--buff类-->
+		<define name="EFFECT_TYPE_BUFF" value="4"/>
+
+		<define name="ITEM_OPT_ADD" value="1"/><!--添加物品-->
+		<define name="ITEM_OPT_SUB" value="2"/><!--删除物品-->
+		<define name="ITEM_OPT_MOVE" value="3"/><!--移动物品-->
+		<define name="ITEM_OPT_SWAP" value="4"/><!--交换物品-->
+		<define name="ITEM_OPT_SELL" value="5"/><!--卖物品-->
+		<define name="ITEM_OPT_UPDATE" value="6"/><!--更新物品-->
+		<define name="ITEM_OPT_USE" value="7"/><!--更新物品-->
+
+		<define name="PLACE_BAG" value="1"/><!--背包-->
+		<define name="PLACE_ROLE_EQUIP" value="2"/><!--主角装备-->
+		<define name="PLACE_ROLE_SKILL" value="3"/><!--主角技能-->
+		<define name="PLACE_EQUIP_GEM" value="4"/><!--宝石-->
+		<define name="PLACE_SOLDIER_EQUIP" value="5"/><!--佣兵装备-->
+		<define name="PLACE_SOLDIER_SKILL" value="6"/><!--佣兵技能-->
+		<define name="PLACE_SOLDIER_TALENT" value="7"/><!--佣兵天赋-->
+		<define name="PLACE_STORE" value="8"/><!--仓库-->
+
+		<!-- ================================================================================ -->
+		<!--物品使用条件-->
+		<!-- ================================================================================ -->
+		<!--物品使用等级限制-->
+		<define name="ITEM_COND_LEVEL" value="1"/>
+		<!--物品使用游戏币限制-->
+		<define name="ITEM_COND_GAMEPOINT" value="2"/>
+		<!--物品使用精魂限制-->
+		<define name="ITEM_COND_SOULPOINT" value="3"/>
+		<!--物品使用魔石限制-->
+		<define name="ITEM_COND_MONEYPOINT" value="4"/>
+		<!--物品使用VIP等级限制-->
+		<define name="ITEM_COND_VIP" value="5"/>
+		<!--物品已使用次数限制-->
+		<define name="ITEM_COND_USED_TIME_WITH_TID" value="6"/>
+		<!--物品已使用次数限制-->
+		<define name="ITEM_COND_USED_TIME_WITH_TYPE" value="7"/>
+		<!--#########################-->
+		<!--角色单元属性-->
+		<!--#########################-->
+		<define name="DATA_LEN_1" value="1"/>
+		<define name="DATA_LEN_2" value="32"/>
+		<define name="PHYSICAL_RADIUS" value="50"/>
+		<define name="MAX_SEND_MOVE_NUM" value="200"/>
+		<!--账号名字长度-->
+		<define name="PLAYER_ACCOUNT_LEN" value="128"/>
+		<!--玩家名字长度-->
+		<define name="PLAYER_NAME_LEN" value="128"/>
+		<!--玩家TOKEN长度-->
+		<define name="PLAYER_TOKEN_LEN" value="1024"/>
+		<!--组队邮件条件最大长度-->
+		<define name="MAIL_RECEIVER_CONDITION_LEN" value="4096"/>
+		<!--公会名字长度-->
+		<define name="GUILD_NAME_LEN" value="128"/>
+		<!--公会公告长度-->
+		<define name="GUILD_BULLETIN_LEN" value="512"/>
+		<!--名字长度最大长度客户端用-->
+		<define name="NAME_MAX_LEN" value="16"/>
+		<!--名字的最大长度服务器用 服务器和客户端字符不同-->
+		<define name="SERVER_NAME_MAX_LEN" value="24"/>
+		<!--名字的最小长度-->
+		<define name="NAME_MIN_LEN" value="3"/>
+		<!--公会名字的最小长度-->
+		<define name="GUILD_NAME_MIN_LEN" value="4"/>
+		<!--公会职位-->
+		<define name="GUILD_OFFICE_CHAIRMAN" value="1"/>
+		<define name="GUILD_OFFICE_VICE_CHAIRMAN" value="2"/>
+		<define name="GUILD_OFFICE_ELITE" value="3"/>
+		<define name="GUILD_OFFICE_MEMBER" value="4"/>
+		<!--公会通知类型-->
+		<!--加入-->
+		<define name="GUILD_NOTICE_TYPE_ADD" value="1"/>
+		<!--退出-->
+		<define name="GUILD_NOTICE_TYPE_QUIT" value="2"/>
+		<!--开除-->
+		<define name="GUILD_NOTICE_TYPE_EXPEL" value="3"/>
+		<!--升职-->
+		<define name="GUILD_NOTICE_TYPE_PROMOTE" value="4"/>
+		<!--降职-->
+		<define name="GUILD_NOTICE_TYPE_DEMOTE" value="5"/>
+		<!--继承-->
+		<define name="GUILD_NOTICE_TYPE_INHERIT" value="6"/>
+		<!--解散-->
+		<define name="GUILD_NOTICE_TYPE_DISMISS" value="7"/>
+		<!--公会创建标识-->
+		<define name="GUILD_BOSS_CREATE_TIME_FLAG" value="1"/>
+		<!--公会死亡标识-->
+		<define name="GUILD_BOSS_DEAD_TIME_FLAG" value="2"/>
+		<!--已申请公会标识-->
+		<define name="GUILD_APPLY_FLAG" value="1"/>
+		<!--公会每页个数-->
+		<define name="GUILD_LIST_PAGE_COUNT" value="9"/>
+		<!--申请加入公会条目最大数-->
+		<define name="GUILD_APPLY_LIST_MAX_COUNT" value="50"/>
+		<!--自动申请-->
+		<define name="GUILD_AUTO_JOIN_FLAG" value="1"/>
+		<!--公会成员离线标记-->
+		<define name="GUILD_MEMBER_OFFLINE_FLAG" value="0"/>
+		<!--公会成员在线标记-->
+		<define name="GUILD_MEMBER_ONLINE_FLAG" value="1"/>
+		<!--公会转盘开始转的标记-->
+		<define name="GUILD_START_ROTATE_FLAG" value="1"/>
+		<!--公会转盘没有开始转的的标记-->
+		<define name="GUILD_NO_ROTATE_FLAG" value="0"/>
+		<!--公会令ID-->
+		<define name="GUILD_TOKEN_ID" value="202"/>
+		<!--公会加成-->
+		<!--勇者争霸荣誉点比例加成-->
+		<define name="GUILD_ADDITION_PLAYER_DOOR_HONORPOINT" value="0"/>
+		<!--魔王金像加成比例加成-->
+		<define name="GUILD_ADDITION_GOLD_TREE" value="1"/>
+		<!--藏宝库加成比例加成-->
+		<define name="GUILD_ADDITION_TREASURY" value="2"/>
+		<!--坐骑训练经验比例加成-->
+		<define name="GUILD_ADDITION_MOUNT_TRAIN_EXP" value="3"/>
+		<!--组队副本突破结晶数量增加-->
+		<define name="GUILD_ADDITION_TEAM_DUNGEON_SURMOUNT_RIME" value="4"/>
+		<!--组队副本战宠之星数量增加-->
+		<define name="GUILD_ADDITION_TEAM_DUNGEON_PET_STAR" value="5"/>
+		<!--怪物之门唤兽石数量增加-->
+		<define name="GUILD_ADDITION_MONSTER_DOOR_CALLRIDEPET_STONE" value="6"/>
+		<!--点石成金加成比例加成-->
+		<define name="GUILD_ADDITION_STONE_TURN_GOLD" value="7"/>
+		<!--单人问答精魂比例加成-->
+		<define name="GUILD_ADDITION_SINGLE_ANSWER_SOUL" value="8"/>
+		<!--加成总数-->
+		<define name="GUILD_ADDITION_SUM" value="9"/>
+		<!--VIP时效卡-->
+		<!--VIP月卡-->
+		<define name="VIP_CARD_1" value="1"/>
+		<!--VIP季卡-->
+		<define name="VIP_CARD_2" value="2"/>
+		<!--VIP半年卡-->
+		<define name="VIP_CARD_3" value="3"/>
+		<!--玩家VIP特权等级-->
+		<define name="VIP_0" value="0"/>
+		<define name="VIP_1" value="1"/>
+		<define name="VIP_2" value="2"/>
+		<define name="VIP_3" value="3"/>
+		<define name="VIP_4" value="4"/>
+		<define name="VIP_5" value="5"/>
+		<define name="VIP_6" value="6"/>
+		<define name="VIP_7" value="7"/>
+		<define name="VIP_8" value="8"/>
+		<define name="VIP_9" value="9"/>
+		<define name="VIP_10" value="10"/>
+		<!--VIP奖励福利是否领取-->
+		<!--vip奖励福利领取-->
+		<define name="VIP_GIFT_GET_REWARD" value="1"/>
+		<!--vip奖励福利没有领取-->
+		<define name="VIP_GIFT_NO_GET_REWARD" value="0"/>
+		<!--vip奖励福利的长度-->
+		<define name="VIP_GIFT_FlAG_LEN" value="10"/>
+		<!--玩家VIP特权id-->
+		<!--VIP每日奖励-->
+		<define name="VIP_PRIVILEGE_0" value="0"/>
+		<!--增加体力上限-->
+		<define name="VIP_PRIVILEGE_1" value="1"/>
+		<!--购买体力次数-->
+		<define name="VIP_PRIVILEGE_2" value="2"/>
+		<!--日常任务购买轮数-->
+		<define name="VIP_PRIVILEGE_3" value="3"/>
+		<!--护卫购买次数-->
+		<define name="VIP_PRIVILEGE_4" value="4"/>
+		<!--护卫立即完成-->
+		<define name="VIP_PRIVILEGE_5" value="5"/>
+		<!--日常奖励VIP宝箱-->
+		<define name="VIP_PRIVILEGE_6" value="6"/>
+		<!--怪物之门一键扫荡-->
+		<define name="VIP_PRIVILEGE_7" value="7"/>
+		<!--怪物之门自动挑战免CD-->
+		<define name="VIP_PRIVILEGE_8" value="8"/>
+		<!--怪物之门重置次数-->
+		<define name="VIP_PRIVILEGE_9" value="9"/>
+		<!--讨伐令可领委托上限-->
+		<define name="VIP_PRIVILEGE_10" value="10"/>
+		<!--签到VIP宝箱-->
+		<define name="VIP_PRIVILEGE_11" value="11"/>
+		<!--组队副本购买次数-->
+		<define name="VIP_PRIVILEGE_12" value="12"/>
+		<!--点石成金次数-->
+		<define name="VIP_PRIVILEGE_13" value="13"/>
+		<!--魔王金像次数-->
+		<define name="VIP_PRIVILEGE_14" value="14"/>
+		<!--藏宝库次数-->
+		<define name="VIP_PRIVILEGE_15" value="15"/>
+		<!--魔王金像免CD-->
+		<define name="VIP_PRIVILEGE_16" value="16"/>
+		<!--藏宝库免CD-->
+		<define name="VIP_PRIVILEGE_17" value="17"/>
+		<!--勇者争霸免CD-->
+		<define name="VIP_PRIVILEGE_18" value="18"/>
+		<!--勇者争霸购买次数-->
+		<define name="VIP_PRIVILEGE_19" value="19"/>
+		<!--剧情副本扫荡免CD-->
+		<define name="VIP_PRIVILEGE_20" value="20"/>
+		<!--坐骑训练位-->
+		<define name="VIP_PRIVILEGE_21" value="21"/>
+		<!--宠物护魂迷宫购买次数-->
+		<define name="VIP_PRIVILEGE_22" value="22"/>
+		<!--宠物护魂迷宫一键扫荡-->
+		<define name="VIP_PRIVILEGE_23" value="23"/>
+		<!--宠物护魂迷宫扫荡免CD-->
+		<define name="VIP_PRIVILEGE_24" value="24"/>
+		<!--至尊魔宫自动挑战免CD-->
+		<define name="VIP_PRIVILEGE_25" value="25"/>
+		<!--至尊魔宫重置次数-->
+		<define name="VIP_PRIVILEGE_26" value="26"/>
+		<!--公会转盘重置次数-->
+		<define name="VIP_PRIVILEGE_27" value="27"/>
+		<!--坐骑刻印槽鳞甲2-->
+		<define name="VIP_PRIVILEGE_28" value="28"/>
+		<!--坐骑刻印槽骏足2-->
+		<define name="VIP_PRIVILEGE_29" value="29"/>
+		<!--坐骑刻印槽丰羽2-->
+		<define name="VIP_PRIVILEGE_30" value="30"/>
+		<!--坐骑刻印槽通用1-->
+		<define name="VIP_PRIVILEGE_31" value="31"/>
+		<!--坐骑刻印槽通用2-->
+		<define name="VIP_PRIVILEGE_32" value="32"/>
+		<!--坐骑完美吸收-->
+		<define name="VIP_PRIVILEGE_33" value="33"/>
+		<!--翅膀一键进阶-->
+		<define name="VIP_PRIVILEGE_34" value="34"/>
+		<!--翅膀进阶暴击率-->
+		<define name="VIP_PRIVILEGE_35" value="35"/>
+		<!--星空图一键点星-->
+		<define name="VIP_PRIVILEGE_36" value="36"/>
+		<!--宠物激发暴击率-->
+		<define name="VIP_PRIVILEGE_37" value="37"/>
+		<!--装备一键升星-->
+		<define name="VIP_PRIVILEGE_38" value="38"/>
+		<!--装备升星免CD-->
+		<define name="VIP_PRIVILEGE_39" value="39"/>
+		<!--会跳Funk舞步-->
+		<define name="VIP_PRIVILEGE_40" value="40"/>
+		<!--舞步2-->
+		<define name="VIP_PRIVILEGE_41" value="41"/>
+		<!--舞步3-->
+		<define name="VIP_PRIVILEGE_42" value="42"/>
+		<!--舞步4-->
+		<define name="VIP_PRIVILEGE_43" value="43"/>
+		<!--坐骑训练模式-->
+		<define name="VIP_PRIVILEGE_44" value="44"/>
+		<!--开通坐骑训练V2模式-->
+		<define name="VIP_PRIVILEGE_45" value="45"/>
+		<!--开通坐骑训练V4模式-->
+		<define name="VIP_PRIVILEGE_46" value="46"/>
+		<!--开通坐骑训练V6模式-->
+		<define name="VIP_PRIVILEGE_47" value="47"/>
+		<!--补签次数-->
+		<define name="VIP_PRIVILEGE_48" value="48"/>
+		<!--好友上限-->
+		<define name="VIP_PRIVILEGE_49" value="49"/>
+		<!--剧情副本结算VIP翻牌-->
+		<define name="VIP_PRIVILEGE_50" value="50"/>
+		<!--答题购买双倍积分次数-->
+		<define name="VIP_PRIVILEGE_51" value="51"/>
+		<!--至尊魔宫一键挑战-->
+		<define name="VIP_PRIVILEGE_52" value="52"/>
+		<!--单人答题的次数-->
+		<define name="VIP_PRIVILEGE_53" value="53"/>
+		<!--一键用突飞石升一级-->
+		<define name="VIP_PRIVILEGE_54" value="54"/>
+		<!-- 进入僵尸生存副本次数-->
+		<define name="VIP_PRIVILEGE_55" value="55"/>
+		<!-- 圣剑一键进阶-->
+		<define name="VIP_PRIVILEGE_56" value="56"/>
+		<!--坐骑十连抽-->
+		<define name="VIP_PRIVILEGE_57" value="57"/>
+		<!--化身十连抽-->
+		<define name="VIP_PRIVILEGE_58" value="58"/>
+		<!--宠物列阵的一键升级-->
+		<define name="VIP_PRIVILEGE_59" value="59"/>
+		<!--化身50连抽-->
+		<define name="VIP_PRIVILEGE_60" value="60"/>
+		<!--化身100连抽-->
+		<define name="VIP_PRIVILEGE_61" value="61"/>
+		<!--护魂迷宫扫荡-->
+		<define name="VIP_PRIVILEGE_62" value="62"/>
+		<!--投资计划金币-->
+		<define name="VIP_PRIVILEGE_63" value="63"/>
+		<!--投资计划精魂-->
+		<define name="VIP_PRIVILEGE_64" value="64"/>
+		<!--投资计划翅膀-->
+		<define name="VIP_PRIVILEGE_65" value="65"/>
+		<!--投资计划宠物-->
+		<define name="VIP_PRIVILEGE_66" value="66"/>
+		<!--成长值-->
+		<define name="VIP_PRIVILEGE_999" value="999"/>
+		<!--最大vip等级-->
+		<define name="VIP_MAX_VIP_LEVEL" value="10"/>
+		<!--#########################-->
+		<!--公会活动标记-->
+		<!--#########################-->
+		<!--守护女神-->
+		<define name="GUILD_ACTIVITY_GUARD_GODDESS" value="1"/>
+		<!--试炼之地-->
+		<define name="GUILD_ACTIVITY_TRIAL_LAND" value="2"/>
+		<!--公会boss-->
+		<define name="GUILD_ACTIVITY_CRUSADE_BOSS" value="3"/>
+		<!--争夺boss-->
+		<define name="GUILD_ACTIVITY_TWILIGHT_WAR" value="4"/>
+		<!--公会宝库-->
+		<define name="GUILD_ACTIVITY_GUARD_TREASURY" value="5"/>
+		<!--胜者为王-->
+		<define name="GUILD_ACTIVITY_WINNER_KING" value="6"/>
+		<!--争夺据点-->
+		<define name="GUILD_ACTIVITY_CONTEST_STRONGHOLD" value="7"/>
+		<!--占山为王-->
+		<define name="GUILD_ACTIVITY_MOUNTAIN_KING" value="8"/>
+		<!--世界之巅-->
+		<define name="GUILD_ACTIVITY_TOP_OF_WORLD" value="9"/>
+		<!--植物场-->
+		<define name="GUILD_ACTIVITY_PLANT_FIELD" value="10"/>
+		<!--城市争夺战-->
+		<define name="GUILD_ACTIVITY_CITY_FIGHT" value="11"/>
+		<!--#########################-->
+		<!--暮光之战战表标记-->
+		<!--#########################-->
+		<define name="GUILD_TWAR_BATTLE_TYPE_ENTER" value="1"/>
+		<define name="GUILD_TWAR_BATTLE_TYPE_LEAVE" value="2"/>
+		<define name="GUILD_TWAR_BATTLE_TYPE_KILL" value="3"/>
+		<!--#########################-->
+		<!--任务-->
+		<!--#########################-->
+		<!--###########任务类型###############-->
+		<!--主线任务-->
+		<define name="TASK_TYPE_MAIN" value="1"/>
+		<!--支线任务-->
+		<define name="TASK_TYPE_BRANCH" value="2"/>
+		<!--日常任务-->
+		<define name="TASK_TYPE_DAILY" value="3"/>
+		<!--讨伐令任务-->
+		<define name="TASK_TYPE_CRUSADE" value="4"/>
+		<!--护卫任务-->
+		<define name="TASK_TYPE_GUARD" value="5"/>
+		<!--公会任务-->
+		<define name="TASK_TYPE_GUILD" value="6"/>
+		<!--成就任务-->
+		<define name="TASK_TYPE_ACHIVE" value="7"/>
+		<!--活动任务-->
+		<define name="TASK_TYPE_FESTIVAL" value="20"/>
+		<!--活动任务基础ID-->
+		<define name="TASK_FESTIVE_BASE_ID" value="500000"/>
+		<!--日常任务刷新时间(小时)-->
+		<define name="DAILY_TASK_FLUSH_TIME" value="0"/>
+		<!--前置条件 主线任务ID-->
+		<define name="TASK_PRECOND_MAIN_TASKID" value="1"/>
+		<!--前置条件 等级-->
+		<define name="TASK_PRECOND_LEVEL" value="2"/>
+		<!--前置条件 支线任务ID-->
+		<define name="TASK_PRECOND_BRANCH_TASKID" value="3"/>
+		<!--前置条件 低于等级-->
+		<define name="TASK_PRECOND_LESS_LEVEL" value="4"/>
+		<!--任务ID基模-->
+		<define name="TASK_ID_BASE_MOD" value="10000"/>
+		<!--主线任务模ID-->
+		<define name="TASK_MAIN_ID_MOD" value="1"/>
+		<!--支线任务模ID-->
+		<define name="TASK_BRANCH_ID_MOD" value="2"/>
+		
+		<define name="TASK_GUARD_ID_MOD" value="5"/>
+		<!---任务记录-->
+		<define name="MAX_BRANCH_TASK_NUM" value="6"/>
+		<define name="MAX_DAILY_TASK_LIST_NUM" value="5"/>
+		<define name="MAX_DAILY_TASK_NUM" value="10"/>
+		<define name="MAX_DAILY_TASK_RESET_NUM" value="1"/>
+		<define name="MAX_CRUSADE_CANTAKE_TASK_NUM" value="5"/>
+		<define name="MAX_CRUSADE_TASK_LIST_NUM" value="3"/>
+		<define name="MAX_CRUSADE_TASK_NUM" value="20"/>
+		<define name="MAX_GUARD_TASK_NUM" value="3"/>
+		<define name="MAX_GUARD_TASK_LIST" value="1"/>
+		<define name="GUARD_MAX_QUALITY_NUM" value="24"/>
+		<!--任务数量定义-->
+		<define name="TASK_BRANCH_TASK_FLAG_LEN" value="64"/>
+		<!--任务标记的长度-->
+		<!--任务目标-->
+		<define name="TASK_TARGET_1" value="1"/>
+		<define name="TASK_TARGET_3" value="3"/>
+		<define name="TASK_TARGET_4" value="4"/>
+		<define name="TASK_TARGET_6" value="6"/>
+		<define name="TASK_TARGET_7" value="7"/>
+		<define name="TASK_TARGET_8" value="8"/>
+		<define name="TASK_TARGET_9" value="9"/>
+		<define name="TASK_TARGET_10" value="10"/>
+		<define name="TASK_TARGET_11" value="11"/>
+		<define name="TASK_TARGET_12" value="12"/>
+		<define name="TASK_TARGET_13" value="13"/>
+		<define name="TASK_TARGET_14" value="14"/>
+		<define name="TASK_TARGET_15" value="15"/>
+		<define name="TASK_TARGET_17" value="17"/>
+		<define name="TASK_TARGET_20" value="20"/>
+		<define name="TASK_TARGET_23" value="23"/>
+		<define name="TASK_TARGET_24" value="24"/>
+		<define name="TASK_TARGET_25" value="25"/>
+		<define name="TASK_TARGET_26" value="26"/>
+		<define name="TASK_TARGET_27" value="27"/>
+		<define name="TASK_TARGET_28" value="28"/>
+		<define name="TASK_TARGET_29" value="29"/>
+		<define name="TASK_TARGET_30" value="30"/>
+		<define name="TASK_TARGET_31" value="31"/>
+		<define name="TASK_TARGET_32" value="32"/>
+		<define name="TASK_TARGET_33" value="33"/>
+		<define name="TASK_TARGET_34" value="34"/>
+		<define name="TASK_TARGET_36" value="36"/>
+		<define name="TASK_TARGET_37" value="37"/>
+		<define name="TASK_TARGET_38" value="38"/>
+		<define name="TASK_TARGET_39" value="39"/>
+		<define name="TASK_TARGET_41" value="41"/>
+		<define name="TASK_TARGET_42" value="42"/>
+		<define name="TASK_TARGET_43" value="43"/>
+		<define name="TASK_TARGET_44" value="44"/>
+		<define name="TASK_TARGET_45" value="45"/>
+		<define name="TASK_TARGET_46" value="46"/>
+		<define name="TASK_TARGET_47" value="47"/>
+		<define name="TASK_TARGET_48" value="48"/>
+		<define name="TASK_TARGET_49" value="49"/>
+		<define name="TASK_TARGET_50" value="50"/>
+		<define name="TASK_TARGET_51" value="51"/>
+		<define name="TASK_TARGET_52" value="52"/>
+		<define name="TASK_TARGET_53" value="53"/>
+		<define name="TASK_TARGET_54" value="54"/>
+		<define name="TASK_TARGET_55" value="55"/>
+		<define name="TASK_TARGET_56" value="56"/>
+		<define name="TASK_TARGET_57" value="57"/>
+		<define name="TASK_TARGET_58" value="58"/>
+		<define name="TASK_TARGET_59" value="59"/>
+		<define name="TASK_TARGET_61" value="61"/>
+		<define name="TASK_TARGET_62" value="62"/>
+		<define name="TASK_TARGET_63" value="63"/>
+		<define name="TASK_TARGET_64" value="64"/>
+		<define name="TASK_TARGET_65" value="65"/>
+		<define name="TASK_TARGET_66" value="66"/>
+		<define name="TASK_TARGET_69" value="69"/>
+		<define name="TASK_TARGET_70" value="70"/>
+		<define name="TASK_TARGET_71" value="71"/>
+		<define name="TASK_TARGET_72" value="72"/>
+		<define name="TASK_TARGET_73" value="73"/>
+		<define name="TASK_TARGET_74" value="74"/>
+		<define name="TASK_TARGET_75" value="75"/>
+		<define name="TASK_TARGET_76" value="76"/>
+		<define name="TASK_TARGET_77" value="77"/>
+		<define name="TASK_TARGET_78" value="78"/>
+		<define name="TASK_TARGET_79" value="79"/>
+		<define name="TASK_TARGET_80" value="80"/>
+		<define name="TASK_TARGET_81" value="81"/>
+		<define name="TASK_TARGET_82" value="82"/>
+		<define name="TASK_TARGET_83" value="83"/>
+		<define name="TASK_TARGET_85" value="85"/>
+		<define name="TASK_TARGET_86" value="86"/>
+		<define name="TASK_TARGET_87" value="87"/>
+		<define name="TASK_TARGET_88" value="88"/>
+		<define name="TASK_TARGET_89" value="89"/>
+		<define name="TASK_TARGET_90" value="90"/>
+		<define name="TASK_TARGET_91" value="91"/>
+		<define name="TASK_TARGET_92" value="92"/>
+		<define name="TASK_TARGET_93" value="93"/>
+		<define name="TASK_TARGET_94" value="94"/>
+		<define name="TASK_TARGET_95" value="95"/>
+		<define name="TASK_TARGET_96" value="96"/>
+		<define name="TASK_TARGET_97" value="97"/>
+		<define name="TASK_TARGET_98" value="98"/>
+		<define name="TASK_TARGET_99" value="99"/>
+		<define name="TASK_TARGET_100" value="100"/>
+		<define name="TASK_TARGET_101" value="101"/>
+		<define name="TASK_TARGET_102" value="102"/>
+		<define name="TASK_TARGET_103" value="103"/>
+		<define name="TASK_TARGET_104" value="104"/>
+		<define name="TASK_TARGET_105" value="105"/>
+		<define name="TASK_TARGET_106" value="106"/>
+		<define name="TASK_TARGET_107" value="107"/>
+		<define name="TASK_TARGET_108" value="108"/>
+		<define name="TASK_TARGET_109" value="109"/>
+		<define name="TASK_TARGET_110" value="110"/>
+		<define name="TASK_TARGET_111" value="111"/>
+		<define name="TASK_TARGET_112" value="112"/>
+		<define name="TASK_TARGET_113" value="113"/>
+		<define name="TASK_TARGET_114" value="114"/>
+		<define name="TASK_TARGET_115" value="115"/>
+		<define name="TASK_TARGET_116" value="116"/>
+		<define name="TASK_TARGET_117" value="117"/>
+		<define name="TASK_TARGET_118" value="118"/>
+		<define name="TASK_TARGET_119" value="119"/>
+		<define name="TASK_TARGET_120" value="120"/>
+		<define name="TASK_TARGET_121" value="121"/>
+		<define name="TASK_TARGET_122" value="122"/>
+		<define name="TASK_TARGET_123" value="123"/>
+		<define name="TASK_TARGET_124" value="124"/>
+		<define name="TASK_TARGET_125" value="125"/>
+		<define name="TASK_TARGET_126" value="126"/>
+		<define name="TASK_TARGET_127" value="127"/>
+		<define name="TASK_TARGET_128" value="128"/>
+		<define name="TASK_TARGET_129" value="129"/>
+		<define name="TASK_TARGET_130" value="130"/>
+		<define name="TASK_TARGET_131" value="131"/>
+		<define name="TASK_TARGET_132" value="132"/>
+		<!--任务状态-->
+		<!--默认新添加的任务，状态为可接-->
+		<define name="TASK_STATE_CANTAKE" value="1"/>
+		<!--已经完成的任务->回退到已接-->
+		<define name="TASK_STATE_HAVETAKE" value="2"/>
+		<!--已接->完成-->
+		<define name="TASK_STATE_COMPLETE" value="3"/>
+		<define name="TASK_STATE_REWARD" value="4"/>
+		<define name="TASK_STATE_FESTIVE_REWARD" value="5"/>
+		<!--任务npc条件显示-->
+		<define name="TASK_NPC_BL_SHOW" value="1"/>
+		<define name="TASK_NPC_GE_SHOW" value="2"/>
+		<!--任务使用物品-->
+		<!--升级石-->
+		<define name="TASK_UPGRADE_STONE" value="212"/>
+		<!--完成石-->
+		<define name="TASK_COMPLETE_STONE" value="213"/>
+		<!--刷新石-->
+		<define name="TASK_REFRESH_STONE" value="214"/>
+		<!--变更石-->
+		<define name="TASK_CHANGE_STONE" value="215"/>
+		<!--领取宝箱-->
+		<define name="TASK_DAILY_BOX_TEN" value="1"/>
+		<define name="TASK_DAILY_BOX_VIP" value="2"/>
+		<define name="TASK_CRUSADE_BOX_TWENTY" value="3"/>
+		<!--日常任务重置消耗魔石数量-->
+		<define name="TASK_DAILY_RESET_MONEY" value="100"/>
+		<!--护卫任务购买消耗魔石数量-->
+		<define name="TASK_GUARD_BUY_MONEY" value="150"/>
+		<!--特殊活动ID-->
+		<define name="FESTIVAL_7TH_LOGIN_GOAL_BEGIN_ID" value="1"/>
+		<define name="FESTIVAL_7TH_LOGIN_GOAL_END_ID" value="7"/>
+		<define name="FESTIVAL_FIRST_RECHARGE_ID" value="10"/>
+		<define name="FESTIVAL_BATTLE_POWER_RANKING_ID" value="11"/>
+		<define name="FESTIVAL_MICRO_CLIENT_ID" value="12"/>
+		<define name="FESTIVAL_VIP_LIMITED_PURCHASING_ID" value="13"/>
+		<define name="FESTIVAL_PAY_POINT_LOTTERY_ID" value="14"/>
+		<define name="FESTIVAL_INVESTMENT_PLAN_ID" value="15"/>
+		<define name="FESTIVAL_DONATE_ID" value="16"/>
+		<!-- 七夕活动 -->
+		<define name="FESTIVAL_FESTIVAL_ID" value="201"/>
+		<!-- 中秋节活动 -->
+		<define name="FESTIVAL_AUTUMN_ID" value="203"/>
+		<!-- 幸运草活动 -->
+		<define name="FESTIVAL_WHEEL_OF_FORTUNE_ID" value="301"/>
+		<!-- 虚空 -->
+		<define name="FESTIVAL_VOID_FIELD_BOSS_PARTICIPATE_ID" value="302"/>
+		<define name="FESTIVAL_VOID_FIELD_MOONLESS_PARTICIPATE_ID" value="303"/>
+		<define name="FESTIVAL_VOID_FIELD_BOSS_KILL_ID" value="304"/>
+		<!-- vip领域 -->
+		<define name="FESTIVAL_VIP_STATISTICS_ID" value="305"/>
+		<!-- 充值排行榜 -->
+		<define name="FESTIVAL_RECHARGE_RANK_ID" value="306"/>
+		<!-- 累计充值 -->
+		<define name="FESTIVAL_ADD_RECHARGE_ID" value="1025"/>
+		<!-- 每日充值活动开始id -->
+		<define name="FESTIVAL_DAILY_RECHARGE_BEGIN_ID" value="1003"/>
+		<!-- 每日充值活动结束id -->
+		<define name="FESTIVAL_DAILY_RECHARGE_END_ID" value="1009"/>
+		<!-- 化身宝藏 -->
+		<define name="FESTIVAL_FASHION_TREASURE_ID" value="400"/>
+		<!-- 化身碎片大爆发 -->
+		<define name="FESTIVAL_FASHION_SPLINTERS_ID" value="401"/>
+		<!-- 砸蛋活动 -->
+		<define name="FESTIVAL_ACTIVITY_EGG_ID" value="402"/>
+		<!-- 越买越便宜 -->
+		<define name="FESTIVAL_BUY_CHEAP_ID" value="403"/>
+		<!-- 每日化身 -->
+		<define name="FESTIVAL_DAILY_FASHION_ID" value="404"/>
+		<!-- 开服七天乐 -->
+		<define name="FESTIVAL_SEVEN_DAY_LEVEL_ID" value="501"/>
+		<define name="FESTIVAL_SEVEN_DAY_WING_ID" value="502"/>
+		<define name="FESTIVAL_SEVEN_DAY_PET_ID" value="503"/>
+		<define name="FESTIVAL_SEVEN_DAY_FASHION_ID" value="504"/>
+		<define name="FESTIVAL_SEVEN_DAY_BATTLE_ID" value="505"/>
+		<define name="FESTIVAL_SEVEN_DAY_OFFLINE_PLAYER_ID" value="506"/>
+		<define name="FESTIVAL_SEVEN_DAY_MOUNT_ID" value="507"/>
+		<!--#########################-->
+		<!--gm更新数据库数据的类型-->
+		<define name="GM_UPDATE_DB_FESTIVAL" value="1"/>
+		<define name="GM_UPDATE_DB_MALL" value="2"/>
+		<!--#########################-->
+		<!--#########################-->
+		<!--赛马-->
+		<!--#########################-->
+		<!--魔石消耗数量-->
+		<define name="RACING_MAX_COUNT" value="3"/>
+		<define name="RACING_ZERO" value="0"/>
+		<define name="RACING_FIVE" value="5"/>
+		<define name="RACING_TEN" value="10"/>
+		<define name="RACING_TWENTY" value="20"/>
+		<!--#########################-->
+		<!--宝库-->
+		<!--#########################-->
+		<!--每天最大进入次数-->
+		<define name="MAX_TREASURY_COUNT" value="3"/>
+		<!--#########################-->
+		<!--金像-->
+		<!--#########################-->
+		<!--每天最大进入次数-->
+		<define name="MAX_GOLDTREE_COUNT" value="3"/>
+		<define name="GOLDTREE_TESSERA" value="239"/>
+		<!--关卡评价-->
+		<define name="REGULAR_SCORE_S" value="4"/>
+		<define name="REGULAR_SCORE_A" value="3"/>
+		<define name="REGULAR_SCORE_B" value="2"/>
+		<define name="REGULAR_SCORE_C" value="1"/>
+		<define name="REGULAR_SCORE_F" value="0"/>
+		<!--没有副本评价-->
+		<define name="REGULAR_SCORE_EMPTY" value="100"/>
+		<!--#########################-->
+		<!--显示标记-->
+		<!--#########################-->
+		<!--可以对话-->
+		<define name="SHOW_FLAG_NEED_TALK" value="1"/>
+		<!--不可见-->
+		<define name="SHOW_FLAG_DISAPPEAR" value="2"/>
+		<!--离线战斗角色标记-->
+		<define name="BOF_REAL_PLAYER_FLAG" value="1"/>
+		<define name="BOF_HAVE_BATTLE_FLAG" value="2"/>
+		<define name="MAX_BOF_PLAYER_NUM" value="5"/>
+		<define name="BOF_POWER_SEGMENT_SCORE" value="1000"/>
+		<!--圣光城建筑标记-->
+		<define name="LCITY_FLAG_BEING_EMPTY" value="0"/>
+		<define name="LCITY_FLAG_BEING_PRODUCED" value="1"/>
+		<define name="LCITY_FLAG_BEING_BUILD" value="2"/>
+		<!--圣光城建筑类型-->
+		<define name="LCITY_BUILDING_KINDOM" value="1"/>
+		<define name="LCITY_BUILDING_BRAVESTATUE" value="2"/>
+		<define name="LCITY_BUILDING_CITYDEFENCE" value="3"/>
+		<define name="LCITY_BUILDING_ARMORY" value="4"/>
+		<define name="LCITY_BUILDING_AIRSHIP" value="5"/>
+		<define name="LCITY_BUILDING_LEFT_TOWER" value="6"/>
+		<define name="LCITY_BUILDING_RIGHT_TOWER" value="7"/>
+		<!--#########################-->
+		<!--邮件-->
+		<!--#########################-->
+		<!--最大邮件数-->
+		<define name="MAX_PLAYER_MAIL_NUM" value="100"/>
+		<define name="MAIL_DIRTY_FLAG" value="128"/>
+		<define name="MAX_MAIL_TITLE_LEN" value="128"/>
+		<define name="MAX_MAIL_CONTENT_LEN" value="2048"/>
+		<!--私人邮件-->
+		<define name="MAIL_TYPE_PLAYER" value="1"/>
+		<!--个人系统邮件-->
+		<define name="MAIL_TYPE_PLAYER_SYS" value="2"/>
+		<!--全服系统邮件-->
+		<define name="MAIL_TYPE_SYSTEM" value="3"/>
+		<!--公会邮件-->
+		<define name="MAIL_TYPE_GROUP" value="4"/>
+		<define name="MAIL_FLAG_NEW" value="0"/>
+		<!--查看邮件-->
+		<define name="MAIL_FLAG_READED" value="1"/>
+		<!--删除邮件-->
+		<define name="MAIL_FLAG_DELETED" value="2"/>
+		<!--领取附件-->
+		<define name="MAIL_ATTACH_FLAG_TAKE" value="1"/>
+		<define name="MAIL_GROUP_CREATE_PLAYER" value="1"/>
+		<define name="MAIL_GROUP_GUILD_MEMBER" value="2"/>
+		<define name="MAIL_EXPIRED_DAYS" value="30"/>
+		<!--#########################-->
+		<!--通知邮件-->
+		<!--世界BOSS-->
+		<define name="MAIL_MESSAGE_TYPE_WORLD_BOSS" value="1"/>
+		<!--修罗场-->
+		<define name="MAIL_MESSAGE_TYPE_ASHURA" value="2"/>
+		<!--勇者争霸-->
+		<define name="MAIL_MESSAGE_TYPE_OFFLINE_PK" value="3"/>
+		<!--VIP-->
+		<define name="MAIL_MESSAGE_TYPE_VIP" value="4"/>
+		<!--好友赠送-->
+		<define name="MAIL_MESSAGE_TYPE_FRIEND" value="5"/>
+		<!--魔物讨伐-->
+		<define name="MAIL_MESSAGE_TYPE_CRUSADE" value="6"/>
+		<!--暮光之战-->
+		<define name="MAIL_MESSAGE_TYPE_TWILIGHT_WAR" value="7"/>
+		<!--城市争夺-->
+		<define name="MAIL_MESSAGE_TYPE_CITY_FIGHT" value="8"/>
+		<!--系统维护-->
+		<define name="MAIL_MESSAGE_TYPE_SYSTEM_MAINTENANCE" value="9"/>
+		<!--圣光生存-->
+		<define name="MAIL_MESSAGE_TYPE_CITY_SURVIVAL" value="10"/>
+		<!--战力排行榜奖励-->
+		<define name="MAIL_MESSAGE_TYPE_BATTLE_POWER_RANKING" value="11"/>
+		<!--领取奖励时背包满了-->
+		<define name="MAIL_MESSAGE_TYPE_BAG_FULL" value="12"/>
+		<!--壕气冲天奖励-->
+		<define name="MAIL_MESSAGE_TYPE_DONATE" value="13"/>
+		<!--领取大乱斗奖励-->
+		<define name="MAIL_MESSAGE_TYPE_CHAOS_FACTION" value="14"/>
+		<!--领取赛季奖励-->
+		<define name="MAIL_MESSAGE_TYPE_SEASON_REWARD" value="15"/>
+		<!--#########################-->
+		<!--大冒险-->
+		<!--#########################-->
+		<define name="MAX_ADVENTURE_LIST_NUM" value="5"/>
+		<!--#########################-->
+		<!--点石成金-->
+		<!--一键点石成金-->
+		<define name="STONE_TURN_GOLD_ONCE" value="1"/>
+		<!--不用一点石成金-->
+		<define name="STONE_TURN_GOLD_NO_ONCE" value="0"/>
+		<!--#########################-->
+		<!--坐骑->
+		<!一坐骑一键升级用突飞石-->
+		<define name="RIDE_LEVE_UP_USE_ITEM_ONCE" value="1"/>
+		<!--坐骑不用一键升级-->
+		<define name="RIDE_LEVE_UP_USE_ITEM_NO_ONCE" value="0"/>
+		<!--采矿-->
+		<!--#########################-->
+		<!--普通采矿-->
+		<define name="MINING_TYPE_GENERAL" value="1"/>
+		<!--高级采矿-->
+		<define name="MINING_TYPE_ADVANCED" value="2"/>
+		<!--#########################-->
+		<!--翅膀相关-->
+		<!--#########################-->
+		<!--星羽-->
+		<!--没有解锁属性-->
+		<define name="LOCK" value="1"/>
+		<!--解锁-->
+		<define name="DEBLOCKING" value="2"/>
+		<!--普通进阶-->
+		<define name="ORD_ADVANCE" value="1"/>
+		<!--一键进阶-->
+		<define name="ONCE_ADVANCE" value="2"/>
+		<!--自动进阶-->
+		<define name="AUTO_ADVANCE" value="3"/>
+		<!--幻化卡-->
+		<define name="WING_CARD" value="228"/>
+		<!--星羽itemId-->
+		<define name="WING_FEATHER_STAR" value="225"/>
+		<!--星空图星魂id-->
+		<define name="HOROSEO_ITEM_STAR" value="326"/>
+		<!--升级-->
+		<define name="LEVE_UP" value="1"/>
+		<!--一键升级-->
+		<define name="ONCE_LEVE_UP" value="2"/>
+		<!--默认翅膀的星星的个数-->
+		<define name="WING_START_NUM" value="5"/>
+		<!--圣剑相关-->
+		<!-- ################################################################################ -->
+		<!--圣剑升星 itemId-->
+		<define name="SWORD_UPGRADE_ITEMID" value="708"/>
+		<!--圣剑升阶 itemId-->
+		<define name="SWORD_ADVANCE_ITEMID" value="709"/>
+		<!--普通升星-->
+		<define name="SWORD_ORD_UPGRADE" value="1"/>
+		<!--一键升星-->
+		<define name="SWORD_ONCE_UPGRADE" value="2"/>
+		<!--普通进阶-->
+		<define name="SWORD_ORD_ADVANCE" value="1"/>
+		<!--一键进阶-->
+		<define name="SWORD_NCE_ADVANCE" value="2"/>
+		<!--升阶-->
+		<define name="SWORD_LEVEL_STEP" value="0"/>
+		<!--升星-->
+		<define name="SWORD_LEVEL_UPGRADE" value="1"/>
+		<!--微端登陆,欢迎界面标识相关-->
+		<!-- ################################################################################ -->
+		<!--微端登陆-->
+		<define name="FLAG_MICRO_CLIENT" value="100"/>
+		<!--欢迎界面奖励领取界面-->
+		<define name="FLAG_WELCOME_REWARD" value="101"/>
+		<!-- ################################################################################ -->
+		<!--#########################-->
+		<!--活动ID-->
+		<!--#########################-->
+		<!--答题活动-->
+		<define name="ACTIVITY_TYPE_ANSWER_QUESTION" value="1"/>
+		<!--采矿活动-->
+		<define name="ACTIVITY_TYPE_MINING" value="2"/>
+		<!--世界BOSS活动-->
+		<define name="ACTIVITY_TYPE_WORLD_BOSS" value="3"/>
+		<!--两派PK-->
+		<define name="ACTIVITY_TYPE_FACTION_PK" value="4"/>
+		<!--守卫地宫-->
+		<define name="ACTIVITY_TYPE_TOWER_DEFENCE" value="5"/>
+		<!--修罗场-->
+		<define name="ACTIVITY_TYPE_ASHURA" value="6"/>
+		<!--定时触发-->
+		<define name="ACTIVITY_TYPE_TIMING_TRIGGER" value="7"/>
+		<!--城市争夺战-->
+		<define name="ACTIVITY_TYPE_CITY_FIGHT" value="8"/>
+		<!--暮光之战-->
+		<define name="ACTIVITY_TYPE_TWILIGHT_WAR" value="9"/>
+		<!--圣光生存战-->
+		<define name="ACTIVITY_TYPE_CITY_SURVIVAL" value="10"/>
+		<!--夺旗-->
+		<define name="ACTIVITY_TYPE_CAPTURE_FLAG" value="11"/>
+		<!--活动即将开启-->
+		<define name="ACTIVITY_STATUS_ABOUT_BEGIN" value="1"/>
+		<!--活动正在进行中-->
+		<define name="ACTIVITY_STATUS_UNDERWAY" value="2"/>
+		<!--活动状态-->
+		<define name="ACTIVITY_STATE_CLOSED" value="1"/>
+		<define name="ACTIVITY_STATE_START" value="2"/>
+		<!--玩家状态-->
+		<!--进入活动-->
+		<define name="ACTIVITY_INTO" value="1"/>
+		<!--离开活动-->
+		<define name="ACTIVITY_LEAVE" value="0"/>
+		<!--活动周期-->
+		<define name="PERIOD_DAY" value="1"/>
+		<define name="PERIOD_WEEK" value="2"/>
+		<define name="PERIOD_MONTH" value="3"/>
+		<!--定时触发类型-->
+		<define name="TIMING_TRIGGER_DAILY_REFRESH" value="1"/>
+		<define name="TIMING_TRIGGER_EIGHT_REFRESH" value="8"/>
+		<!--#########################-->
+		<!--奖励-->
+		<!--没有领取奖励-->
+		<define name="HAVE_NO_REWARD" value="0"/>
+		<!--领取了奖励-->
+		<define name="HAVE_REWARD" value="1"/>
+		<!--#########################-->
+		<!--成就-->
+		<!--成就结构体中reason_arg的状态-->
+		<define name="REASON_INIT" value="0"/>
+		<!--成就结构体中是否是第一次杀怪-->
+		<define name="REASON_FISRT" value="1"/>
+		<!--这个成就已经完成了-->
+		<define name="FINISH_ACHIVE" value="1"/>
+		<!--这个成就还没有完成-->
+		<define name="NO_FINISH_ACHIVE" value="0"/>
+		<!--称号成功-->
+		<define name="AHIVE_WIN" value="1"/>
+		<!--称号失败-->
+		<define name="AHIVE_LOSE" value="0"/>
+		<!--杀死第一只怪物 和achive.xml里面的type对应 本想用id,但id变动性比较大,用id-->
+		<define name="ACHIVE_1" value="20051"/>
+		<define name="ACHIVE_2" value="20052"/>
+		<!--至尊魔攻成就-->
+		<define name="ACHIVE_BATTLE" value="3"/>
+		<!--世界boss-->
+		<define name="ACHIVE_KILLBOSS" value="7"/>
+		<!--摇钱树boss-->
+		<define name="ACHIVE_MONEYTREE" value="8"/>
+		<!--宝库成就-->
+		<define name="ACHIVE_TREASURY" value="9"/>
+		<!--多人副本困难-->
+		<define name="ACHIVE_TEAM_DHARD" value="10"/>
+		<!--多人副本地狱-->
+		<define name="ACHIVE_TEAM_HELL" value="11"/>
+		<!--日常副本-->
+		<define name="ACHIVE_DAILY_DUNGE" value="12"/>
+		<!--天梯赛-->
+		<define name="ACHIVE_LANDER" value="13"/>
+		<!--讨伐令-->
+		<define name="ACHIVE_CRUSADE_ORDER_LOW" value="14"/>
+		<!--世界boss-->
+		<define name="ACHIVE_WORLD_BOSS" value="15"/>
+		<!--离线竞技-->
+		<define name="ACHIVE_OFF_LINE_PK" value="16"/>
+		<!--在线竞技-->
+		<define name="ACHIVE_ON_LINE_PK" value="17"/>
+		<!--修罗场任务-->
+		<define name="ACHIVE_ASHURA" value="18"/>
+		<!--宠物竞速-->
+		<define name="ACHIVE_HOSERUING" value="19"/>
+		<!--种地-->
+		<define name="ACHIVE_FARM_WORK" value="20"/>
+		<!--护卫任务-->
+		<define name="ACHIVE_GUARD" value="21"/>
+		<!--塔防-->
+		<define name="ACHIVE_TOWER" value="22"/>
+		<!--boss挑战-->
+		<define name="ACHIVE_BOSS_CHALLENGE" value="23"/>
+		<!--冒险-->
+		<define name="ACHIVE_ADVENTUER" value="24"/>
+		<!--采矿-->
+		<define name="ACHIVE_MINIG" value="25"/>
+		<!--答题-->
+		<define name="ACHIVE_ANSWERING" value="26"/>
+		<!--表示所有参与者-->
+		<define name="ACHIVE_REASON_ALL" value="100"/>
+		<!--表示一个人通关-->
+		<define name="ACHIVE_REASON_ONE" value="101"/>
+		<!--表示进行过某个事件-->
+		<define name="ACHIVE_REASON_ONCE" value="102"/>
+		<!--表示第一名-->
+		<define name="ACHIVE_REASON_FIRST" value="1"/>
+		<!--表示最后一名-->
+		<define name="ACHIVE_REASON_LAST" value="10"/>
+		<!--表示获胜,或者杀死-->
+		<define name="ACHIVE_REASON_WIN" value="1001"/>
+		<!--表示失败或被杀-->
+		<define name="ACHIVE_REASON_LOSE" value="1002"/>
+		<!--#########################-->
+		<!--讨伐令的品质类型，分成五种-->
+		<!--普通-->
+		<define name="TASK_TYPE_ORDIARY" value="1"/>
+		<!--称号-->
+		<!--称号类型-->
+		<!--活动称号-->
+		<define name="ACTIVITY_TITLE" value="1"/>
+		<!--普通称号-->
+		<define name="ORDINARY_TITLE" value="2"/>
+		<!--成就称号-->
+		<define name="ACHIVE_TITLE" value="3"/>
+		<!--称号的最大个数-->
+		<define name="TITLE_MAX_NUM" value="3"/>
+		<!--是否装备上称号-->
+		<!--装备上称号-->
+		<define name="HAVE_TITLE" value="1"/>
+		<!--没有装备上称号-->
+		<define name="HAVE_NO_TITLE" value="0"/>
+		<!--杀死-->
+		<define name="KILL_FLAG" value="1"/>
+		<!--被杀-->
+		<define name="DEAD_FLAG" value="2"/>
+		<!--表示所有玩家-->
+		<define name="ALL_PLAYER_REASON" value="100"/>
+		<!--#########################-->
+		<!-- 称号类型 -->
+		<!--世界boss-->
+		<define name="WORLD_BOSS_TITLE" value="1"/>
+		<define name="ANSWING_TITLE" value="2"/>
+		<!--离线竞技称号-->
+		<define name="OFF_LINE_TITLE" value="3"/>
+		<!--修罗场击杀称号-->
+		<define name="ASHURA_TITLE" value="4"/>
+		<!--宠物-->
+		<define name="FOLLOW_TITLE" value="11"/>
+		<!--任务称号-->
+		<define name="TASK_TITLE" value="10"/>
+		<!--魔物讨伐战-->
+		<define name="TOWER_LIGHT_TITLE" value="5"/>
+		<define name="GUID_BOSS_TITLE" value="6"/>
+		<!--暮光之战-->
+		<!--使用物品称号-->
+		<define name="USEITEM_TITLE" value="7"/>
+		<!--宠物竞技-->
+		<define name="HOSERUNING_TITLE" value="12"/>
+		<!--VIP称号-->
+		<define name="VIP_TITLE" value="13"/>
+		<!--公会排行称号-->
+		<define name="GUILD_RANK_TITLE" value="14"/>
+		<!--战斗力排行称号-->
+		<define name="BATTLE_RANK_TITLE" value="15"/>
+		<!--星空图排行称号-->
+		<define name="HOROSCOPE_RANK_TITLE" value="16"/>
+		<!--修罗场排行称号-->
+		<define name="ASHURA_RANK_TITLE" value="17"/>
+		<!--领取vip4称号-->
+		<define name="GET_VIP_REWARD_TITLE" value="18"/>
+		<!--翅膀排行称号-->
+		<define name="WING_RANK_TITLE" value="19"/>
+		<!--宠物排行称号-->
+		<define name="PET_RANK_TITLE" value="20"/>
+		<!--坐骑排行称号-->
+		<define name="RIDE_RANK_TITLE" value="21"/>
+		<!-- 点赞称号 -->
+		<define name="FB_LIKE_TITLE" value="22"/>
+		<!-- ################################################################################ -->
+		<!-- 排行榜每页记录数 -->
+		<define name="RANKING_PAGE_LINE_NUM" value="10"/>
+		<!-- 排行榜类型 -->
+		<!-- 所有排行榜的第一名 -->
+		<define name="RANKING_TYPE_ALL_FIRST" value="100"/>
+		<!-- 战斗力排行榜 -->
+		<define name="RANKING_TYPE_BATTLE_POWER" value="1"/>
+		<define name="RANKING_TYPE_HOROSCOPE" value="2"/>
+		<!-- 游戏币排行榜 -->
+		<define name="RANKING_TYPE_GAME_POINT" value="3"/>
+		<define name="RANKING_TYPE_OFFLINE_BATTLE" value="4"/>
+		<define name="RANKING_TYPE_ASHURA" value="5"/>
+		<!-- 工会排行榜 -->
+		<define name="RANKING_TYPE_GUILD" value="6"/>
+		<define name="RANKING_TYPE_MONEY_POINT_PAY" value="7"/>
+		<define name="RANKING_TYPE_MONEY_POINT_TRADE" value="8"/>
+		<define name="RANKING_TYPE_FOLLOW_PET" value="9"/>
+		<define name="RANKING_TYPE_RIDE_PET" value="10"/>
+		<!-- 玩家等级排行 -->
+		<define name="RANKING_TYPE_PLAYER_LEVEL" value="11"/>
+		<define name="RANKING_TYPE_TITLE_OFF_LINE_RANK" value="12"/>
+		<define name="RANKING_TYPE_OLD_OFFLINE_BATTLE" value="13"/>
+		<define name="RANKING_TYPE_BATTLEHALL" value="14"/>
+		<define name="RANKING_TYPE_WING" value="15"/>
+		<define name="RANKING_TYPE_FASHION" value="16"/>
+		<define name="RANKING_TYPE_DAILY_REFRESH" value="1003"/>
+		<!-- 剧情副本得分排行 -->
+		<define name="RANKING_TYPE_PLOT_DUNGON_SCORE" value="17"/>
+		<!-- 成就个数排行 -->
+		<define name="RANKING_TYPE_ACHIVE_COUNT" value="18"/>
+		<!-- 功能维护时间 -->
+		<define name="MAINTAIN_TYPE_DEL_EXPIRED_MAIL" value="1"/>
+		<define name="MAINTAIN_TYPE_DEL_EXPIRED_DAILY_RECHARGE" value="2"/>
+		<!-- 排行榜数据请求原因 -->
+		<define name="RANKING_SEASON_PLAYER_DOOR_INFO" value="1"/>
+		<define name="RANKING_TITLE_OFF_LINE_RANK_INFO" value="2"/>
+		<define name="RANKING_SEASON_OLD_OFF_LINE_RANK_INFO" value="3"/>
+		<define name="RANKING_TITLE_RANK_INFO" value="4"/>
+		<!-- ################################################################################ -->
+		<!-- 复活 -->
+		<define name="RESURGENCE_TYPE_DIRECT" value="1"/>
+		<define name="RESURGENCE_TYPE_ITEM" value="2"/>
+		<!-- 复活纹章 -->
+		<define name="RESURGENCE_ITEM" value="238"/>
+		<!-- 死亡后续行为 -->
+		<!-- 回城 -->
+		<define name="DEAD_ACTION_GOHOME" value="0"/>
+		<!-- 无消耗复活 -->
+		<define name="DEAD_ACTION_DIRECT_RESURGENCE" value="1"/>
+		<!-- 复活纹章复活 -->
+		<define name="DEAD_ACTION_ITEM_RESURGENCE" value="2"/>
+		<!-- ################################################################################ -->
+		<!-- 被动技能类型 -->
+		<define name="PASSIVE_SKILL_TYPE_FIRE_DEFENCE" value="1"/>
+		<define name="PASSIVE_SKILL_TYPE_ICE_DEFENCE" value="2"/>
+		<define name="PASSIVE_SKILL_TYPE_THUNDER_DEFENCE" value="3"/>
+		<define name="PASSIVE_SKILL_TYPE_FIRE_UP" value="4"/>
+		<define name="PASSIVE_SKILL_TYPE_ICE_UP" value="5"/>
+		<define name="PASSIVE_SKILL_TYPE_THUNDER_UP" value="6"/>
+		<define name="PASSIVE_SKILL_TYPE_Q_CD" value="7"/>
+		<define name="PASSIVE_SKILL_TYPE_W_CD" value="8"/>
+		<define name="PASSIVE_SKILL_TYPE_E_CD" value="9"/>
+		<define name="PASSIVE_SKILL_TYPE_R_CD" value="10"/>
+		<define name="PASSIVE_SKILL_TYPE_HP_CD" value="11"/>
+		<define name="PASSIVE_SKILL_TYPE_MP_CD" value="12"/>
+		<define name="PASSIVE_SKILL_TYPE_MAX_HP" value="13"/>
+		<define name="PASSIVE_SKILL_TYPE_ADD_HP" value="14"/>
+		<define name="PASSIVE_SKILL_TYPE_RES_HP" value="15"/>
+		<define name="PASSIVE_SKILL_TYPE_MAX_MP" value="16"/>
+		<define name="PASSIVE_SKILL_TYPE_ADD_MP" value="17"/>
+		<define name="PASSIVE_SKILL_TYPE_RES_MP" value="18"/>
+		<define name="PASSIVE_SKILL_TYPE_CONTROL_RED" value="19"/>
+		<define name="PASSIVE_SKILL_TYPE_VAMPIRE" value="20"/>
+		<define name="PASSIVE_SKILL_TYPE_MEDICINE_VAL" value="21"/>
+		<define name="PASSIVE_SKILL_TYPE_MEDICINE_CD" value="22"/>
+		<!-- ################################################################################ -->
+		<!-- 自动战斗设置类型 -->
+		<define name="AUTO_FIGHT_SETTING_ENUM_HP" value="1"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_HP_ORDER" value="2"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_MP" value="3"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_MP_ORDER" value="4"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_SKILLS" value="5"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_REVIVAL" value="6"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_FIGHT" value="7"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_USE_ATTACK_DRUG" value="8"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_USE_DEFENCE_DRUG" value="9"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_USE_SPEED_DRUG" value="10"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_BUY_ATTACK_DRUG" value="11"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_BUY_DEFENCE_DRUG" value="12"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_BUY_SPEED_DRUG" value="13"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_BUY_HP_DRUG" value="14"/>
+		<define name="AUTO_FIGHT_SETTING_ENUM_AUTO_BUY_MP_DRUG" value="15"/>
+		<!-- ################################################################################ -->
+		<!-- 战斗模式 -->
+		<!--和平模式-->
+		<define name="FIGHT_MODE_PEACE" value="1"/>
+		<!--除恶模式-->
+		<define name="FIGHT_MODE_KILLEVIL" value="2"/>
+		<!--公会模式-->
+		<define name="FIGHT_MODE_GUILD" value="3"/>
+		<!--屠杀模式-->
+		<define name="FIGHT_MODE_MASSACRE" value="4"/>
+		<!--仇人记录的攻击状态-->
+		<define name="ENEMY_RECORD_STATE_ATTACK" value="1"/>
+		<!--仇人记录的击杀状态-->
+		<define name="ENEMY_RECORD_STATE_KILLED" value="2"/>
+		<!-- ################################################################################ -->
+		<!-- 系统ID -->
+		<define name="SYSTEM_VERSION_ID_MALL" value="1"/>
+		<!-- ################################################################################ -->
+		<!-- 系统设置类型 -->
+		<define name="SYSTEM_SETTING_ENUM_VOLUME" value="1"/>
+		<define name="SYSTEM_SETTING_ENUM_SE_VOLUME" value="2"/>
+		<define name="SYSTEM_SETTING_ENUM_SHOW_PLAYER" value="3"/>
+		<define name="SYSTEM_SETTING_ENUM_SHOW_PET" value="4"/>
+		<define name="SYSTEM_SETTING_ENUM_SHOW_SHADOW" value="5"/>
+		<define name="SYSTEM_SETTING_ENUM_SHOW_PARTICLE" value="6"/>
+		<define name="SYSTEM_SETTING_ENUM_MIPMAP" value="7"/>
+		<define name="SYSTEM_SETTING_ENUM_VARIABILITY" value="8"/>
+		<define name="SYSTEM_SETTING_ENUM_RIDE_PET" value="9"/>
+		<define name="SYSTEM_SETTING_ENUM_ILLUMINATION" value="10"/>
+		<define name="SYSTEM_SETTING_ENUM_LIGHT" value="11"/>
+		<define name="SYSTEM_SETTING_ENUM_EFFECT_LEVEL" value="12"/>
+		<define name="SYSTEM_SETTING_ENUM_FOG" value="13"/>
+		<define name="SYSTEM_SETTING_ENUM_FRAME" value="14"/>
+		<!--高级，中级，低级-->
+		<define name="SYSTEM_SETTING_STATE_HIGH" value="97"/>
+		<define name="SYSTEM_SETTING_STATE_MIDDLE" value="98"/>
+		<define name="SYSTEM_SETTING_STATE_LOW" value="99"/>
+		<!--像素设置-->
+		<define name="SYSTEM_SETTING_ENUM_VARIABILITY_FULL_SCREEN" value="13"/>
+		<define name="SYSTEM_SETTING_ENUM_VARIABILITY_HIGHT" value="14"/>
+		<define name="SYSTEM_SETTING_ENUM_VARIABILITY_MIDDLE" value="15"/>
+		<define name="SYSTEM_SETTING_ENUM_VARIABILITY_LOW" value="16"/>
+		<!-- ################################################################################ -->
+		<!-- 自动购买设置类型 -->
+		<!--自动购买突飞石-->
+		<define name="AUTOBUY_SETTING_ENUM_BOOM_STONE" value="0"/>
+		<!--自动购买升品石-->
+		<define name="AUTOBUY_SETTING_ENUM_QUALITY_STONE" value="1"/>
+		<!--自动购买力量果实-->
+		<define name="AUTOBUY_SETTING_ENUM_POWER_FRUIT" value="2"/>
+		<!--自动购买敏捷果实-->
+		<define name="AUTOBUY_SETTING_ENUM_AGILE_FRUIT" value="3"/>
+		<!--自动购买精神果实-->
+		<define name="AUTOBUY_SETTING_ENUM_SPIRIT_FRUIT" value="4"/>
+		<!--自动购买体质果实-->
+		<define name="AUTOBUY_SETTING_ENUM_PHYS_FRUIT" value="5"/>
+		<!--自动购买星羽-->
+		<define name="AUTOBUY_SETTING_ENUM_STAR_FEATHER" value="6"/>
+		<!--自动购买贡献点-->
+		<define name="AUTOBUY_SETTING_ENUM_GUILD_POINT" value="7"/>
+		<!--自动购买体力-->
+		<define name="AUTOBUY_SETTING_ENUM_VIGOR" value="8"/>
+		<!--自动购买提升石-->
+		<define name="AUTOBUY_SETTING_ENUM_UPGRADE_STONE" value="9"/>
+		<!--自动购买完成石-->
+		<define name="AUTOBUY_SETTING_ENUM_COMPLETE_STONE" value="10"/>
+		<!--自动购买变更石-->
+		<define name="AUTOBUY_SETTING_ENUM_CHANGE_STONE" value="11"/>
+		<!--自动购买刷新石-->
+		<define name="AUTOBUY_SETTING_ENUM_REFRESH_STONE" value="12"/>
+		<!--勇者争霸购买挑战次数-->
+		<define name="AUTOBUY_SETTING_ENUM_PLAYER_DOOR_CHALLENGE" value="13"/>
+		<!--勇者争霸秒cd-->
+		<define name="AUTOBUY_SETTING_ENUM_PLAYER_DOOR_KILL_CD" value="14"/>
+		<!--怪物之门重置-->
+		<define name="AUTOBUY_SETTING_ENUM_MONSTER_DOOR_RESET" value="15"/>
+		<!--至尊魔宫重置-->
+		<define name="AUTOBUY_SETTING_ENUM_BABEL_RESET" value="16"/>
+		<!--补签-->
+		<define name="AUTOBUY_SETTING_ENUM_SIGN_MAKEUP" value="17"/>
+		<!--宝库秒cd-->
+		<define name="AUTOBUY_SETTING_ENUM_TREASURE_KILL_CD" value="18"/>
+		<!--金像秒cd-->
+		<define name="AUTOBUY_SETTING_ENUM_EARNINGCOINS_KILl_CD" value="19"/>
+		<!--自动购买唤兽石-->
+		<define name="AUTOBUY_SETTING_ENUM_CALLRIDEPET_STONE" value="20"/>
+		<!--装备升星秒cd-->
+		<define name="AUTOBUY_SETTING_ENUM_EQUIP_UPSTAR_KILL_CD" value="21"/>
+		<!--装备购买升星石-->
+		<define name="AUTOBUY_SETTING_ENUM_EQUIP_UPSTAR_STONE" value="22"/>
+		<!--宝库购买挑战次数-->
+		<define name="AUTOBUY_SETTING_ENUM_TREASURE_COUNT" value="23"/>
+		<!--金像购买挑战次数-->
+		<define name="AUTOBUY_SETTING_ENUM_EARNINGCOINS_COUNT" value="24"/>
+		<!--自动购买工会boss经验-->
+		<define name="AUTOBUY_SETTING_ENUM_GUILD_BOSS_EXP" value="25"/>
+		<!--自动购买复活纹章-->
+		<define name="AUTOBUY_SETTING_ENUM_REVIVAL_ITEM" value="26"/>
+		<!--怪物之门自动挑战秒CD-->
+		<define name="AUTOBUY_SETTING_ENUM_MONSTER_DOOR_AUTO_KILL_CD" value="27"/>
+		<!--装备合成自动购买-->
+		<define name="AUTOBUY_SETTING_ENUM_EQUIP_JEWEL_COMPOSE" value="28"/>
+		<!--装备镶嵌购买魔法锤-->
+		<define name="AUTOBUY_SETTING_ENUM_EQUIP_INLAY_PERFORATION" value="29"/>
+		<!--购买宠物之星-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_STAR" value="30"/>
+		<!--购买1级突破结晶-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_SURMOUNT_RIME_1" value="31"/>
+		<!--购买2级突破结晶-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_SURMOUNT_RIME_2" value="32"/>
+		<!--购买3级突破结晶-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_SURMOUNT_RIME_3" value="33"/>
+		<!--购买4级突破结晶-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_SURMOUNT_RIME_4" value="34"/>
+		<!--购买魂之碎片-->
+		<define name="AUTOBUY_SETTING_ENUM_PET_SOUL_CHIP" value="35"/>
+		<!--购买星魂-->
+		<define name="AUTOBUY_SETTING_ENUM_STAR_SOUL" value="36"/>
+		<!--购买护魂迷宫进入次数-->
+		<define name="AUTOBUY_SETTING_ENUM_PROTECT_SOUL_BUY_TIMES" value="37"/>
+		<!--购买答题双倍积分-->
+		<define name="AUTOBUY_SETTING_ENUM_ANSWER_DOUBLE_BUY" value="38"/>
+		<!--被动技能升级购买-->
+		<define name="AUTOBUY_SETTING_ENUM_PASSIV_SKILL_BUY" value="39"/>
+		<!--翅膀买星羽-->
+		<define name="AUTOBUY_SETTING_ENUM_WING_FEATHER_BUY" value="40"/>
+		<!--一键自动购买突飞石-->
+		<define name="AUTOBUY_SETTING_ENUM_AKEY_BOOM_STONE" value="41"/>
+		<!--点金十次-->
+		<define name="AUTOBUY_SETTING_ENUM_AKEY_MIDASTOUCH" value="42"/>
+		<!--购买喇叭-->
+		<define name="AUTOBUY_SETTING_ENUM_AKEY_HORN" value="43"/>
+		<!--圣剑购买-->
+		<define name="AUTOBUY_SWORD_URGRADE" value="44"/>
+		<!--圣剑购买-->
+		<define name="AUTOBUY_SWORD_ADVANCE" value="45"/>
+		<!--工会任务-->
+		<define name="AUTOBUY_GUILD_TASK_REFRESH" value="46"/>
+		<!--复活自动使用复活纹章 -->
+		<define name="AUTOBUY_GUILD_USE_RESURGENCE" value="47"/>
+		<!--复活自动购买复活纹章 -->
+		<define name="AUTOBUY_GUILD_BUY_RESURGENCE" value="48"/>
+		<!--自动购买蓝药 -->
+		<define name="AUTOBUY_SETTING_ENUM_BUY_BLUE" value="49"/>
+		<!--自动购买红药 -->
+		<define name="AUTOBUY_SETTING_ENUM_BUY_RED" value="50"/>
+		<!--设置进入地图类型请求 -->
+		<define name="AUTOBUY_SETTING_ENUM_AUTO_VOIDFIELD_TYPE" value="51"/>
+		<!--原地复活 -->
+		<define name="AUTOBUY_SETTING_ENUM_CURRENT_RESUREGECE" value="52"/>
+		<!--阵型自动购买-->
+		<define name="AUTOBUY_PETFORMATION" value="53"/>
+		<!--自动购买宝藏卡-->
+		<define name="AUTOBUY_SETTING_ENUM_TREASURE_CARD" value="54"/>
+		<!--总量 注意：总量一定是上限值，增加自动购买项的时候需要增加总量-->
+		<define name="AUTOBUY_SETTING_ENUM_SUM" value="55"/>
+		<!-- ################################################################################ -->
+		<!-- 玩家设置类型 -->
+		<define name="PLAYER_SETTING_ENUM_HP" value="1"/>
+		<define name="PLAYER_SETTING_ENUM_MP" value="2"/>
+		<!-- ################################################################################ -->
+		<!-- 虚空幻境挂机设置类型 -->
+		<!--自动使用复活纹章-->
+		<define name="VOID_FIELD_SETTING_ENUM_USE_REVIVAL" value="2"/>
+		<!--自动购买复活纹章-->
+		<define name="VOID_FIELD_SETTING_ENUM_BUY_REVIVAL" value="3"/>
+		<!--原地复活-->
+		<define name="VOID_FIELD_SETTING_ENUM_CURRENT_REVIVAL" value="4"/>
+		<!--断线重连-->
+		<define name="VOID_FIELD_SETTING_ENUM_RECONNECT_ON_LOSS" value="5"/>
+		<!-- ################################################################################ -->
+		<!-- BUFF物品冷却 -->
+		<define name="BUFF_ITEM_CD" value="2999"/>
+		<!-- 下坐骑 -->
+		<define name="BUFF_RIDE_REST" value="10002"/>
+		<!-- ################################################################################ -->
+		<!--特殊活动id定义-->
+		<define name="SPECIAL_ACTIVITY_FIRST_TIME_RECHARGE" value="0"/>
+		<define name="SPECIAL_ACTIVITY_PLAYER_LEVEL" value="1"/>
+		<define name="SPECIAL_ACTIVITY_BATTLE_POWER_RANKING" value="2"/>
+		<define name="SPECIAL_ACTIVITY_DAILY_RECHARGE" value="3"/>
+		<define name="SPECIAL_ACTIVITY_UPGRADE_WING" value="4"/>
+		<define name="SPECIAL_ACTIVITY_MICRO_CLIENT" value="5"/>
+		<!-- ################################################################################ -->
+		<!--充值类型id定义-->
+		<define name="RECHARGE_ID_TOTAL_RECHARGE" value="1"/>
+		<define name="RECHARGE_ID_DAILY_RECHARGE" value="2"/>
+		<!--每日充值的最大条目数-->
+		<define name="MAX_RECHARGE_DAILY_COUNT" value="14"/>
+		<!-- ################################################################################ -->
+		<!--奖励状态定义定义-->
+		<define name="NO_REWARD" value="0"/>
+		<define name="ACCEPTED_REWARD" value="1"/>
+		<define name="CAN_ACCEPT_REWARD" value="2"/>
+		<!-- ################################################################################ -->
+		<!--在线奖励的相关定义-->
+		<!--成长奖励-->
+		<define name="ONLINE_GROW_REWARD" value="1"/>
+		<!--在线奖励-->
+		<define name="ONLINE_FIXED_REWARD" value="2"/>
+		<!-- ################################################################################ -->
+		<!--迷宫(走格子)格子类型定义-->
+		<!--空格-->
+		<define name="MAZE_GRID_EMPTY" value="0"/>
+		<!--终点-->
+		<define name="MAZE_GRID_EXIT" value="1"/>
+		<!--随机事件-->
+		<define name="MAZE_GRID_EVENT" value="2"/>
+		<!--宝箱-->
+		<define name="MAZE_GRID_TREASURE_BOX" value="3"/>
+		<!--障碍-->
+		<define name="MAZE_GRID_BARRIER" value="4"/>
+		<!--奖励行动力-->
+		<define name="MAZE_GRID_REWARD_ENERGY" value="5"/>
+		<!--战斗-->
+		<define name="MAZE_GRID_FIGHT" value="6"/>
+		<!-- ################################################################################ -->
+		<!--公式ID定义-->
+		<!--计算攻击力-->
+		<define name="FORMULA_ID_CALC_PLAYER_ATTACK" value="10"/>
+		<!--计算防御力-->
+		<define name="FORMULA_ID_CALC_PLAYER_DEFENCE" value="11"/>
+		<!--计算暴击率-->
+		<define name="FORMULA_ID_CALC_PLAYER_CRITICAL_ATTACK" value="12"/>
+		<!--计算暴击加深-->
+		<define name="FORMULA_ID_CALC_PLAYER_CRITICAL_DAMAGE_ADDITION" value="13"/>
+		<!--计算命中-->
+		<define name="FORMULA_ID_CALC_PLAYER_HIT_RATE" value="14"/>
+		<!--计算闪避-->
+		<define name="FORMULA_ID_CALC_PLAYER_DODGE" value="15"/>
+		<!--计算HP-->
+		<define name="FORMULA_ID_CALC_PLAYER_MAXHP" value="16"/>
+		<!--计算MP-->
+		<define name="FORMULA_ID_CALC_PLAYER_MAXMP" value="17"/>
+		<!--计算装备升星秒cd价格-->
+		<define name="FORMULA_ID_CALC_FINISH_STAR_CD_PRICE" value="48"/>
+		<!--计算跟宠属性-->
+		<define name="FORMULA_ID_FOLLOW_PRO" value="49"/>
+		<!--计算翅膀升级所需经验-->
+		<define name="FORMULA_ID_CALC_WING_EXP" value="50"/>
+		<!--计算副本得分-->
+		<define name="FORMULA_ID_CALC_DUNGEON_POINT" value="51"/>
+		<!--计算暴击伤害加成率-->
+		<define name="FORMULA_ID_CALC_CRITICAL_DAMAGE_ADDITION_PERCENT" value="52"/>
+		<!--计算暴击率-->
+		<define name="FORMULA_ID_CALC_CRITICAL_ATTACK_PERCENT" value="53"/>
+		<!--计算闪避率-->
+		<define name="FORMULA_ID_CALC_DODGE_PERCENT" value="54"/>
+		<!--计算暴击率减少-->
+		<define name="FORMULA_ID_CALC_CRITICAL_ATTACK_REDUCTION_PERCENT" value="55"/>
+		<!--计算暴击伤害减少率-->
+		<define name="FORMULA_ID_CALC_CRITICAL_DAMAGE_REDUCTION_PERCENT" value="56"/>
+		<!--计算吸血-->
+		<define name="FORMULA_ID_CALC_VAMPIRE" value="57"/>
+		<!--计算抗吸血-->
+		<define name="FORMULA_ID_CALC_VAMPIRE_DEFENCE" value="58"/>
+		<!--计算控制减少-->
+		<define name="FORMULA_ID_CALC_CONTROL_REDUCTION" value="59"/>
+		<!--计算圣光生存战杀怪金钱奖励-->
+		<define name="FORMULA_ID_CALC_CITY_SURVIVAL_REWARD_MONEY" value="60"/>
+		<!--计算圣光生存战杀怪精魂奖励-->
+		<define name="FORMULA_ID_CALC_CITY_SURVIVAL_REWARD_SOUL" value="61"/>
+		<!--计算点石成金-->
+		<define name="FORMULA_ID_CALC_STONE_TURN_GOLD" value="70"/>
+		<!--计算-->
+		<define name="FORMULA_ID_CALC_RESET_TURNTABLE_COST" value="71"/>
+		<!--计算世界Boss奖励-->
+		<define name="FORMULA_ID_CALC_WORLD_BOSS_REWARD" value="72"/>
+		<!--计算圣剑升星经验-->
+		<define name="FORMULA_ID_CALC_SWORD_EXP" value="73"/>
+		<!--计算复活倒计时-->
+		<define name="FORMULA_ID_CALC_REVIVAL_TIME" value="74"/>
+		<!-- ================================================================================ -->
+		<!--LOG定义-->
+		<!--LOG最大长度-->
+		<define name="LOG_STR_MAX_LEN" value="256"/>
+		<!--客户端log-->
+		<define name="LOG_CLIENT_UDP" value="1"/>
+		<define name="LOG_CLIENT_TCP" value="2"/>
+		<!--登录log-->
+		<define name="LOG_LOGIN" value="3"/>
+		<!--磨石消费log-->
+		<define name="LOG_TRADE" value="4"/>
+		<!--任务log-->
+		<define name="LOG_TASK" value="5"/>
+		<!--游戏币消费log-->
+		<define name="LOG_GAMEPOINT" value="6"/>
+		<!--绑定魔石log-->
+		<define name="LOG_BINDMONEYPOINT" value="7"/>
+		<!--活动log-->
+		<define name="LOG_ACTIVITY" value="8"/>
+		<!--副本log-->
+		<define name="LOG_DUNGEON" value="9"/>
+		<!--玩家状态log-->
+		<define name="LOG_PLAYER_STATE" value="10"/>
+		<!--精魂log-->
+		<define name="LOG_SOUL_POINT" value="11"/>
+		<!--物品log-->
+		<define name="LOG_ITEM" value="12"/>
+		<!--玩家行为log-->
+		<define name="LOG_BEHAVIOR" value="13"/>
+		<!--魔石充值log-->
+		<define name="LOG_PAY" value="14"/>
+		<!--经验获得log-->
+		<define name="LOG_EXP" value="15"/>
+		<!--服务行为-->
+		<define name="LOG_SERVICE" value="16"/>
+		<!--创建角色-->
+		<define name="LOG_CREATE_PLAYER" value="17"/>
+		<!--PCU-->
+		<define name="LOG_PCU" value="18"/>
+		<!--调试-->
+		<define name="LOG_DEBUG" value="19"/>
+		<!--玩法系统-->
+		<define name="LOG_PlAY_SYSTEM" value="20"/>
+		<!--公会日志-->
+		<define name="LOG_GUILD" value="21"/>
+		<!--财产日志-->
+		<define name="LOG_WEALTH" value="22"/>
+		<!--日志参数定义-->
+		<define name="ITEM_SUB" value="1"/>
+		<define name="ITEM_ADD" value="0"/>
+		<define name="ITEM_DISCARD" value="2"/>
+		<define name="SOUL_POINT_SUB" value="1"/>
+		<define name="SOUL_POINT_ADD" value="0"/>
+		<!--日志副本的状态-->
+		<define name="DUNGEON_STATE_INTO" value="1"/>
+		<define name="DUNGEON_STATE_LEVE" value="0"/>
+		<!-- ================================================================================ -->
+		<!-- ############### 战斗底层用(100 - 200) ################# -->
+		<!--命中计算-->
+		<define name="FORMULA_ID_CALC_HIT_RATE" value="101"/>
+		<!--普攻计算-->
+		<define name="FORMULA_ID_CALC_NORMAL_ATTACK" value="103"/>
+		<!--技能攻击计算-->
+		<define name="FORMULA_ID_CALC_SKILL_ATTACK" value="104"/>
+		<!--暴击率计算-->
+		<define name="FORMULA_ID_CALC_CRI_ATT_PRO" value="105"/>
+		<!--暴击伤害计算-->
+		<define name="FORMULA_ID_CALC_CRI_ATT_DAM" value="106"/>
+		<!--吸血率计算-->
+		<define name="FORMULA_ID_CALC_VAMPIRE_PRO" value="107"/>
+		<!--吸血计算-->
+		<define name="FORMULA_ID_CALC_VAMPIRE_NUM" value="108"/>
+		<!--战斗力计算-->
+		<define name="FORMULA_ID_CALC_BATTLE_POWER" value="109"/>
+		<!--技能tips伤害计算-->
+		<define name="FORMULA_ID_CALC_TIPS_DAMAGE" value="110"/>
+		<!--物理伤害计算-->
+		<define name="FORMULA_ID_CALC_PHYSICS_ATTACK" value="111"/>
+		<!--魔法伤害计算-->
+		<define name="FORMULA_ID_CALC_MAGIC_ATTACK" value="112"/>
+		<!--公会boss的hp的计算-->
+		<define name="FORMULA_ID_GUILD_BOSS_HP" value="201"/>
+		<!--公会boss的攻击力的的计算-->
+		<define name="FORMULA_ID_GUILD_BOSS_ATTACK" value="202"/>
+		<!--公会boss的防御力的的计算-->
+		<define name="FORMULA_ID_GUILD_BOSS_DEFENCE" value="203"/>
+		<!--世界boss的hp的计算-->
+		<define name="FORMULA_ID_WORLD_BOSS_HP" value="204"/>
+		<!--世界boss的攻击力的的计算-->
+		<define name="FORMULA_ID_WORLD_BOSS_ATTACK" value="205"/>
+		<!--世界boss的防御力的的计算-->
+		<define name="FORMULA_ID_WORLD_BOSS_DEFENCE" value="206"/>
+		<!--根据战斗力计算pvp的削减百分比-->
+		<define name="FORMULA_ID_PVP_CUT_DOWN_PER" value="207"/>
+		<!--虚空跨服boss的hp的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_BOSS_HP" value="208"/>
+		<!--虚空跨服boss的攻击力的的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_BOSS_ATTACK" value="209"/>
+		<!--虚空跨服boss的防御力的的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_BOSS_DEFENCE" value="210"/>
+		<!--虚空单服boss的hp的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_SOLO_BOSS_HP" value="211"/>
+		<!--虚空单服boss的攻击力的的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_SOLO_BOSS_ATTACK" value="212"/>
+		<!--虚空单服boss的防御力的的计算-->
+		<define name="FORMULA_ID_VOID_FIELD_SOLO_BOSS_DEFENCE" value="213"/>
+		<!-- ################################################################################ -->
+		<!--跳舞相关-->
+		<!-- ################################################################################ -->
+		<define name="DANCE_TYPE_NONE" value="0"/>
+		<define name="DANCE_TYPE_1" value="1"/>
+		<define name="DANCE_TYPE_2" value="2"/>
+		<define name="DANCE_TYPE_3" value="3"/>
+		<!-- ################################################################################ -->
+		<!--修罗场相关-->
+		<!-- ################################################################################ -->
+		<define name="ASHURA_RANK_TYPE_KILL" value="1"/>
+		<define name="ASHURA_RANK_TYPE_DEAD" value="2"/>
+		<!-- ################################################################################ -->
+		<!--守卫地宫相关-->
+		<!-- ################################################################################ -->
+		<!--守卫地宫进入-->
+		<define name="TD_ENTER" value="1"/>
+		<!--守卫地宫离开-->
+		<define name="TD_LEAVE" value="2"/>
+		<!-- ################################################################################ -->
+		<!--世界BOSS相关-->
+		<define name="WORLD_BOSS_MAP" value="5201"/>
+		<!-- ################################################################################ -->
+		<!--圣剑争辉-->
+		<define name="GROUP_PK_MAP" value="8001"/>
+		<!--红队-->
+		<define name="FACTION_PK_RED" value="5"/>
+		<!--兰队-->
+		<define name="FACTION_PK_BLUE" value="4"/>
+		<!--杀人信息-->
+		<define name="FACTION_PK_TYPE_KILL" value="1"/>
+		<!--连杀评价-->
+		<define name="FACTION_PK_TYPE_COMBO" value="2"/>
+		<!--阻止连杀-->
+		<define name="FACTION_PK_TYPE_STOP_COMBO" value="3"/>
+		<!--给的积分-->
+		<define name="FACTION_PK_TYPE_TIME" value="4"/>
+		<!--准备时间-->
+		<define name="FACTION_PK_READY_TIME" value="180000"/>
+		<!-- ################################################################################ -->
+		<!--城市争夺战未占领标记-->
+		<define name="CITY_FIGHT_FLAG_UNOCCUPY" value="1"/>
+		<!--城市争夺战占领标记-->
+		<define name="CITY_FIGHT_FLAG_OCCUPY" value="2"/>
+		<!--城市争夺战战斗标记-->
+		<define name="CITY_FIGHT_FLAG_COMBAT" value="3"/>
+		<!-- ################################################################################ -->
+		<!--夺旗-->
+		<!-- ################################################################################ -->
+		<!--请求离线玩家数据原因-->
+		<define name="OFF_PLAYER_REASON_DEFAULT" value="0"/>
+		<define name="OFF_PLAYER_REASON_RANK" value="1"/>
+		<define name="OFF_PLAYER_REASON_SHOW" value="2"/>
+		<!-- ################################################################################ -->
+		<!--资源挽回状态-->
+		<define name="BACK_RESOURCE_STATE_UNCLAIMED" value="0"/>
+		<define name="BACK_RESOURCE_STATE_CLAIMED" value="1"/>
+		<define name="BACK_RESOURCE_STATE_NO_OPEN" value="2"/>
+		<!--用什么挽回资源-->
+		<define name="BACK_RESOURCE_USE_GAMEPOINT" value="0"/>
+		<define name="BACK_RESOURCE_USE_MONEYPOINT" value="1"/>
+		<!-- ================================================================================ -->
+		<!--未到饭点时间-->
+		<define name="NOT_MEAL_TIME" value="7500"/>
+		<!--饭点体力已领取-->
+		<define name="GOT_MEAL_VIGOR" value="7501"/>
+		<!--饭点体力领取成功-->
+		<define name="GET_MEAL_VIGOR_SUCCESS" value="7502"/>
+		<!-- ################################################################################ -->
+		<!-- ################################################################################ -->
+		<!--僵尸生存战-->
+		<!--是否解锁了僵尸生存副本-->
+		<!--解锁-->
+		<define name="CORPSESURVIVAL_UNLOCK" value="1"/>
+		<!--没有解锁-->
+		<define name="CORPSESURVIVAL_LOCK" value="0"/>
+		<!--副本难度-->
+		<define name="CORPSESURVIVAL_STATE_SIMPLE" value="1"/>
+		<define name="CORPSESURVIVAL_STATE_ORDINARY" value="2"/>
+		<define name="CORPSESURVIVAL_STATE_DIFFICULT" value="3"/>
+		<!-- ################################################################################ -->
+		<!--化身宝藏-->
+		<!--化身宝藏标记长度-->
+		<define name="TREASURE_BRONZE_LEN" value="8"/>
+		<!--第一次青铜宝箱-->
+		<define name="TREASURE_BRONZE_FIRST" value="4"/>
+		<!--第一次黄金宝箱-->
+		<define name="TREASURE_GOLD_FIRST" value="5"/>
+		<!--青铜宝箱-->
+		<define name="TREASURE_BRONZE" value="2"/>
+		<!--十次青铜宝箱-->
+		<define name="TREASURE_BRONZE_TEN" value="3"/>
+		<!--青铜宝箱-->
+		<define name="TREASURE_GOLD" value="4"/>
+		<!--十次黄金宝箱-->
+		<define name="TREASURE_GOLD_TEN" value="5"/>
+		<!--铂金宝箱-->
+		<define name="TREASURE_PLATINUM_GOLD" value="6"/>
+		<!--至尊宝箱-->
+		<define name="TREASURE_EXTREME_GOLD" value="7"/>
+		<!--熔炼类型 普通熔炼-->
+		<define name="FASHION_SMELT_NONE" value="1"/>
+		<!--熔炼类型 一键-->
+		<define name="FASHION_SMELT_ALL" value="2"/>
+		<!--连携类型 化身-->
+		<define name="JOINT_TYPE_FASHION" value="1"/>
+		<!--连携类型 宠物-->
+		<define name="JOINT_TYPE_PET" value="2"/>
+		<!--时装激活条件类型 签到-->
+		<define name="FASHION_ACTIVATE_TYPE_SIGNIN" value="1"/>
+		<!--时装激活条件类型 连登-->
+		<define name="FASHION_ACTIVATE_TYPE_LANDING" value="2"/>
+		<!--时装激活条件类型 VIP-->
+		<define name="FASHION_ACTIVATE_TYPE_VIP" value="3"/>
+		<!--时装激活条件类型 角色等级-->
+		<define name="FASHION_ACTIVATE_TYPE_LEVEL" value="4"/>
+		<!--化身技能开启判断 化身id-->
+		<define name="FASHION_SKILL_OPEN_TYPE_ID" value="1"/>
+		<!--化身技能开启判断 化身数量-->
+		<define name="FASHION_SKILL_OPEN_TYPE_NUM" value="2"/>
+		<!--化身技能开启判断 化身等级-->
+		<define name="FASHION_SKILL_OPEN_TYPE_LEVEL" value="3"/>
+		<!--化身技能开启判断 化身星级-->
+		<define name="FASHION_SKILL_OPEN_TYPE_STAR" value="4"/>
+		<!-- ################################################################################ -->
+		<!--勇敢的心副本类型-->
+		<define name="BH_TYPE_NORMAL" value="0"/>
+		<define name="BH_TYPE_NIGHTMARE" value="1"/>
+		<define name="BH_TYPE_HELL" value="2"/>
+		<define name="BH_TYPE_SUM" value="3"/>
+		<!--勇敢的心层数最大值-->
+		<define name="BH_STAGE_MAX" value="9"/>
+		<!--勇敢的心次数卡id-->
+		<define name="BRAVE_HEART_CARD_ID" value="261"/>
+		<!-- ################################################################################ -->
+		<!--保卫萝卜-->
+		<!-- ################################################################################ -->
+		<!--抽奖卡包类型-->
+		<!--化身宝藏-->
+		<define name="PACKAGE_TYPE_INCARNATION" value="1"/>
+		<!--物品随机-->
+		<define name="PACKAGE_TYPE_ITEM_REWARD" value="2"/>
+		<!--充值积分抽奖-->
+		<define name="PACKAGE_TYPE_PAY_POINT_LOTTERY" value="3"/>
+		<!-- ################################################################################ -->
+		<!-- 跨服匹配战斗 -->
+		<define name="MULTISERVER_BATTLE_APPLY_ONE" value="1"/>
+		<define name="MULTISERVER_BATTLE_APPLY_THREE" value="3"/>
+		<!--请求状态-->
+		<define name="MULTISERVER_BATTLE_APPLY_ENTER" value="1"/>
+		<define name="MULTISERVER_BATTLE_APPLY_TIME_OUT" value="2"/>
+		<!-- ################################################################################ -->
+		<!-- 跨服组队战斗 -->
+		<define name="DUNGEON_CROSS_TEAM_ID" value="5031"/>
+		<!--请求退出类型-->
+		<define name="MULTISERVER_BATTLE_APPLY_QUIT" value="3"/>
+		<!--1v1的最大人数-->
+		<define name="MULTISERVER_BATTLE_APPLY_ONE_NUM" value="2"/>
+		<!--跨服匹配限制次数-->
+		<define name="MULTISERVER_BATTLE_MATCH_NUM" value="3"/>
+		<!-- ################################################################################ -->
+		<!--野外boss玩家在线-->
+		<define name="WORLD_MAP_ONLINE_LINE" value="1"/>
+		<define name="WORLD_MAP_OFFLINE_LINE" value="0"/>
+		<!--野外boss副本id-->
+		<define name="WORLD_MAP_START_DUGEON_ID" value="1004"/>
+		<define name="WORLD_MAP_END_DUGEON_ID" value="1009"/>
+		<!--一次性奖励类型-->
+		<!--游戏收藏-->
+		<define name="SHORCUT_TYPE_SHORCUT" value="1"/>
+		<!--vip体验-->
+		<define name="SHORCUT_TYPE_TASTE_VIP" value="2"/>
+		<!--fb点赞功能-->
+		<define name="SHORCUT_TYPE_LIKE" value="3"/>
+		<!-- ################################################################################ -->
+		<!-- 投资理财 -->
+		<!-- 类型 -->
+		<define name="INVESTMENT_PLAN_GAMEPOINT" value="1"/>
+		<define name="INVESTMENT_PLAN_SOULPOINT" value="2"/>
+		<define name="INVESTMENT_PLAN_WING" value="3"/>
+		<define name="INVESTMENT_PLAN_PET" value="4"/>
+		<!-- ################################################################################ -->
+		<!--游戏动态设置-->
+		<!--游戏主城单频道最大人数-->
+		<define name="GAME_SETTING_TYPE_CHANNEL_NUM" value="1"/>
+		<!--开服时间-->
+		<define name="GAME_SETTING_TYPE_SERVER_OPEN_TIME" value="3"/>
+		<!--世界BOSS频道人数-->
+		<define name="GAME_SETTING_TYPE_WORLD_BOSS_MAX_PLAYER" value="4"/>
+		<!--圣剑争锋频道人数-->
+		<define name="GAME_SETTING_TYPE_FACTION_PK_MAX_PLAYER" value="8"/>
+		<!--修罗场频道人数-->
+		<define name="GAME_SETTING_TYPE_ASHURA_MAX_PLAYER" value="9"/>
+		<!--世界频道等级-->
+		<define name="GAME_SETTING_TYPE_CHAT_WORLD_LEVEL" value="10"/>
+		<!--组队频道等级-->
+		<define name="GAME_SETTING_TYPE_CHAT_TEAM_LEVEL" value="11"/>
+		<!--私聊频道等级-->
+		<define name="GAME_SETTING_TYPE_CHAT_PRIVATE_LEVEL" value="12"/>
+		<!--喇叭频道等级-->
+		<define name="GAME_SETTING_TYPE_CHAT_HORN_LEVEL" value="13"/>
+		<!--公会频道等级-->
+		<define name="GAME_SETTING_TYPE_CHAT_GUILD_LEVEL" value="14"/>
+		<!--游戏屏幕大小设置-->
+		<define name="GAME_SETTING_TYPE_SCREEN_PARAMETER" value="15"/>
+		<!--画面质量的高中低-->
+		<define name="GAME_SETTING_TYPE_QUALITY_STATE" value="16"/>
+		<!--VIP限购时间设置-->
+		<define name="GAME_SETTING_TYPE_VIP_LIMITED_PURCHASING_TIME" value="17"/>
+		<!--跨服进入次数设置-->
+		<define name="GAME_SETTING_TYPE_MULTISERVER_ENTER_NUM" value="18"/>
+		<!--跨服次日领奖次数-->
+		<define name="GAME_SETTING_TYPE_MULTISERVER_YESTERDAY_NUM" value="19"/>
+		<!--跨服次日3V3领奖次数-->
+		<define name="GAME_SETTING_TYPE_MULTISERVER_YESTERDAY_3V3_NUM" value="20"/>
+		<!--轮盘-->
+		<define name="GAME_SETTING_TYPE_TURNTABLE" value="24"/>
+		<!--投资计划-->
+		<define name="GAME_SETTING_TYPE_INVESTMENT_PLAN" value="25"/>
+		<!--vip领域-->
+		<define name="GAME_SETTING_TYPE_VIP_STATISTICS_PLAN" value="26"/>
+		<!--vip领域-->
+		<define name="GAME_SETTING_TYPE_DONATE" value="27"/>
+		<!--虚空MULTI-->
+		<define name="GAME_SETTING_TYPE_VOID_FIELD_MULTI" value="33"/>
+		<!--虚空SOLO-->
+		<define name="GAME_SETTING_TYPE_VOID_FIELD_SOLO" value="34"/>
+		<!--越买越便宜-->
+		<define name="GAME_SETTING_TYPE_BUY_CHEAP" value="35"/>
+		<!-- 每日化身 -->
+		<define name="GAME_SETTING_TYPE_DAILY_DRAW_FASHION" value="36"/>
+		<!-- ################################################################################ -->
+		<!--屏幕分辨率 13表示全屏, 14分辨率为1500*800 15分辨率为1300*700,16分辨率为1200*600 -->
+		<define name="GAME_SCREEN_PARAMETER_1" value="13"/>
+		<define name="GAME_SCREEN_PARAMETER_2" value="14"/>
+		<define name="GAME_SCREEN_PARAMETER_3" value="15"/>
+		<define name="GAME_SCREEN_PARAMETER_4" value="16"/>
+		<!-- ################################################################################ -->
+		<!--杀人战报-->
+		<define name="CHAOS_BATTLE_INFO_TYPE_KILL" value="1"/>
+		<!--连杀战报-->
+		<define name="CHAOS_BATTLE_INFO_TYPE_COMBO" value="2"/>
+		<!--阻止连杀战报-->
+		<define name="CHAOS_BATTLE_INFO_TYPE_STOP_COMBO" value="3"/>
+		<!--魄罗杀魄罗-->
+		<define name="CHAOS_KILL_INFO_TYPE_PORO_KILL_PORO" value="1"/>
+		<!--魄罗杀塔-->
+		<define name="CHAOS_KILL_INFO_TYPE_PORO_KILL_TOWER" value="2"/>
+		<!--魄罗杀玩家-->
+		<define name="CHAOS_KILL_INFO_TYPE_PORO_KILL_PLAYER" value="3"/>
+		<!--玩家杀塔-->
+		<define name="CHAOS_KILL_INFO_TYPE_PLAYER_KILL_TOWER" value="4"/>
+		<!--玩家杀魄罗-->
+		<define name="CHAOS_KILL_INFO_TYPE_PLAYER_KILL_PORO" value="5"/>
+		<!--塔杀魄罗-->
+		<define name="CHAOS_KILL_INFO_TYPE_TOWER_KILL_PORO" value="6"/>
+		<!--塔杀玩家-->
+		<define name="CHAOS_KILL_INFO_TYPE_TOWER_KILL_PLAYER" value="7"/>
+		<!--召唤魄罗-->
+		<define name="CHAOS_KILL_INFO_TYPE_PORO_SUMMON" value="8"/>
+		<!--玩家离开-->
+		<define name="CHAOS_PLAYER_STATE_OUT" value="1"/>
+		<!--玩家进入-->
+		<define name="CHAOS_PLAYER_STATE_IN" value="2"/>
+		<!-- ################################################################################ -->
+		<!--充值排行-->
+		<define name="TOP_UP_RANK_QUERY_TOTAL_RECHARGE_LINE" value="1000"/>
+		<!--充值排行更新间隔，毫秒值，10分钟-->
+		<define name="TOP_UP_RANK_QUERY_UPDATE_INTERVAL" value="600000"/>
+		<!--充值排行奖励-->
+		<define name="TOP_UP_RANK_1ST_BEGIN" value="1"/>
+		<define name="TOP_UP_RANK_1ST_END" value="1"/>
+		<define name="TOP_UP_RANK_2ND_BEGIN" value="2"/>
+		<define name="TOP_UP_RANK_2ND_END" value="5"/>
+		<define name="TOP_UP_RANK_3RD_BEGIN" value="6"/>
+		<define name="TOP_UP_RANK_3RD_END" value="20"/>
+		<!-- ################################################################################ -->
+		<!-- 离线事件系统 -->
+		<!-- 单笔充值 -->
+		<define name="OFF_EVENT_RECHARGE_BEGIN" value="1000000"/>
+		<define name="OFF_EVENT_CHAOS_REWARD" value="1000001"/>
+		<define name="OFF_EVENT_RECHARGE_ONE" value="1040103"/>
+		<define name="OFF_EVENT_RECHARGE_END" value="1009999"/>
+		<!-- 单笔充值无限奖励 -->
+		<define name="OFF_EVENT_SINGLE_RECHARGE_COINS" value="1040111"/>
+		<!-- ################################################################################ -->
+		<!--玩家基础-->
+		<define name="MSG_PLAYER_BASE_BEGIN" value="1100"/>
+		<define name="MSG_PLAYER_BASE_END" value="1199"/>
+		<!--切换地图-->
+		<define name="MSG_CHANGE_MAP_BEGIN" value="1200"/>
+		<define name="MSG_CHANGE_MAP_END" value="1299"/>
+		<!--护魂副本-->
+		<define name="MSG_PROTECT_SOUL_BEIGN" value="1280"/>
+		<define name="MSG_PROTECT_SOUL_END" value="1299"/>
+		<!--技能消息-->
+		<define name="MSG_SKILL_BEGIN" value="1300"/>
+		<define name="MSG_SKILL_END" value="1399"/>
+		<!--战斗消息-->
+		<define name="MSG_BATTLE_BEGIN" value="1400"/>
+		<define name="MSG_BATTLE_END" value="1499"/>
+		<!--物品消息-->
+		<define name="MSG_ITEM_BEGIN" value="1500"/>
+		<define name="MSG_ITEM_END" value="1599"/>
+		<!--装备消息-->
+		<define name="MSG_EQUIP_BEGIN" value="1600"/>
+		<define name="MSG_EQUIP_END" value="1699"/>
+		<!--任务消息-->
+		<define name="MSG_TASK_BEGIN" value="1700"/>
+		<define name="MSG_TASK_END" value="1799"/>
+		<!--触发器消息-->
+		<define name="MSG_TRIGGER_BEGIN" value="1800"/>
+		<define name="MSG_TRIGGER_END" value="1899"/>
+		<!--奖励池消息-->
+		<define name="MSG_RANDOM_PACKAGE_BEGIN" value="1900"/>
+		<define name="MSG_RANDOM_PACKAGE_END" value="1999"/>
+		<!--排行消息-->
+		<define name="MSG_RANK_BEGIN" value="2000"/>
+		<define name="MSG_RANK_END" value="2099"/>
+		<!--VIP消息-->
+		<define name="MSG_VIP_BEGIN" value="2100"/>
+		<define name="MSG_VIP_END" value="2199"/>
+		<!--星空图消息-->
+		<define name="MSG_HOROSCOPE_BEGIN" value="2200"/>
+		<define name="MSG_HOROSCOPE_END" value="2299"/>
+		<!--好友系统消息-->
+		<define name="MSG_FRIEND_BEGIN" value="2300"/>
+		<define name="MSG_FRIEND_END" value="2399"/>
+		<!--聊天消息-->
+		<define name="MSG_CHAT_BEGIN" value="2400"/>
+		<define name="MSG_CHAT_END" value="2499"/>
+		<!--跨服组队消息-->
+		<define name="MSG_SALE_BEGIN" value="2500"/>
+		<define name="MSG_SALE_END" value="2599"/>
+		<!--修罗场消息-->
+		<define name="MSG_ASHURA_BEGIN" value="2600"/>
+		<define name="MSG_ASHURA_END" value="2699"/>
+		<!--通天塔消息2700-2799-->
+		<!--组队消息-->
+		<define name="MSG_TEAM_BEGIN" value="2800"/>
+		<define name="MSG_TEAM_END" value="2899"/>
+		<!--邮件消息-->
+		<define name="MSG_MAIL_BEGIN" value="2900"/>
+		<define name="MSG_MAIL_END" value="2999"/>
+		<!--答题消息-->
+		<define name="MSG_ANSWER_QUESTION_BEGIN" value="3000"/>
+		<define name="MSG_ANSWER_QUESTION_END" value="3099"/>
+		<!--公会消息-->
+		<define name="MSG_GUILD_BEGIN" value="3100"/>
+		<define name="MSG_GUILD_END" value="3199"/>
+		<!--签到消息-->
+		<define name="MSG_SIGN_BEGIN" value="3200"/>
+		<define name="MSG_SIGN_END" value="3299"/>
+		<!--世界BOSS消息-->
+		<define name="MSG_WORLD_BOSS_BEGIN" value="3300"/>
+		<define name="MSG_WORLD_BOSS_END" value="3399"/>
+		<!--赛马消息(已删除)-->
+		<define name="MSG_RACING_BEGIN" value="3400"/>
+		<define name="MSG_RACING_END" value="3499"/>
+		<!--采矿消息(已删除)-->
+		<define name="MSG_MINING_BEGIN" value="3500"/>
+		<define name="MSG_MINING_END" value="3599"/>
+		<!--活动消息-->
+		<define name="MSG_ACTIVITY_BEGIN" value="3600"/>
+		<define name="MSG_ACTIVITY_END" value="3699"/>
+		<!--宝库消息-->
+		<define name="MSG_TREASURY_BEGIN" value="3700"/>
+		<define name="MSG_TREASURY_END" value="3799"/>
+		<!--大冒险消息-->
+		<define name="MSG_ADVENTURE_BEGIN" value="3800"/>
+		<define name="MSG_ADVENTURE_END" value="3899"/>
+		<!--翅膀消息-->
+		<define name="MSG_WING_BEGIN" value="3900"/>
+		<define name="MSG_WING_END" value="3999"/>
+		<!--在线奖励消息-->
+		<define name="MSG_ONLINE_REWARD_BEGIN" value="4000"/>
+		<define name="MSG_ONLINE_REWARD_END" value="4099"/>
+		<!--成就消息-->
+		<define name="MSG_ACHIVE_BEGIN" value="4100"/>
+		<define name="MSG_ACHIVE_END" value="4199"/>
+		<!--商城消息-->
+		<define name="MSG_MALL_BEGIN" value="4200"/>
+		<define name="MSG_MALL_END" value="4299"/>
+		<!--排行榜消息-->
+		<define name="MSG_RANKING_LIST_BEGIN" value="4300"/>
+		<define name="MSG_RANKING_LIST_END" value="4399"/>
+		<!--称号消息-->
+		<define name="MSG_TITLE_BEGIN" value="4400"/>
+		<define name="MSG_TITLE_END" value="4499"/>
+		<!--防沉迷消息-->
+		<define name="MSG_FCM_BEGIN" value="4500"/>
+		<define name="MSG_FCM_END" value="4599"/>
+		<!--激活码消息-->
+		<define name="MSG_ACTIVATION_CODE_BEGIN" value="4600"/>
+		<define name="MSG_ACTIVATION_CODE_END" value="4699"/>
+		<!--交易消息-->
+		<define name="MSG_TRADE_ORDER_BEGIN" value="4700"/>
+		<define name="MSG_TRADE_ORDER_END" value="4799"/>
+		<!--充值消息-->
+		<define name="MSG_PAY_ORDER_BEGIN" value="4800"/>
+		<define name="MSG_PAY_ORDER_END" value="4899"/>
+		<!--坐骑消息-->
+		<define name="MSG_RIDE_PET_BEGIN" value="5000"/>
+		<define name="MSG_RIDE_PET_END" value="5049"/>
+		<!--跟宠消息-->
+		<define name="MSG_PET_BEGIN" value="5050"/>
+		<define name="MSG_PET_END" value="5099"/>
+		<!--金像消息-->
+		<define name="MSG_GOLDTREE_BEGIN" value="5100"/>
+		<define name="MSG_GOLDTREE_END" value="5199"/>
+		<!--复活消息-->
+		<define name="MSG_PLAYER_RESURGENCE_BEGIN" value="5200"/>
+		<define name="MSG_PLAYER_RESURGENCE_END" value="5299"/>
+		<!--日常投资消息-->
+		<define name="MSG_DAY_INVESTMENT_BEGIN" value="5300"/>
+		<define name="MSG_DAY_INVESTMENT_END" value="5399"/>
+		<!--被动技能消息-->
+		<define name="MSG_PASSIVE_SKILL_BEGIN" value="5400"/>
+		<define name="MSG_PASSIVE_SKILL_END" value="5499"/>
+		<!--设置消息-->
+		<define name="MSG_SETTING_BEGIN" value="5500"/>
+		<define name="MSG_SETTING_END" value="5599"/>
+		<!--等级投资消息-->
+		<define name="MSG_LEVEL_INVESTMENT_BEGIN" value="5600"/>
+		<define name="MSG_LEVEL_INVESTMENT_END" value="5699"/>
+		<!--投资管理器-->
+		<define name="MSG_INVESTMENT_MANAGER_BEGIN" value="5700"/>
+		<define name="MSG_INVESTMENT_MANAGER_END" value="5799"/>
+		<!--等级活动相关消息-->
+		<define name="MSG_LEVEL_ACTIVITY_MANAGER_BEGIN" value="5800"/>
+		<define name="MSG_LEVEL_ACTIVITY_MANAGER_END" value="5899"/>
+		<!--特殊活动相关消息-->
+		<define name="MSG_SPECIAL_ACTIVITY_MANAGER_BEGIN" value="5900"/>
+		<define name="MSG_SPECIAL_ACTIVITY_MANAGER_END" value="5999"/>
+		<!--跳舞相关消息-->
+		<define name="MSG_DANCE_BEGIN" value="6000"/>
+		<define name="MSG_DANCE_END" value="6099"/>
+		<!--两派PK-->
+		<define name="MSG_FACTION_BEGIN" value="6100"/>
+		<define name="MSG_FACTION_END" value="6199"/>
+		<!--活跃度相关消息-->
+		<define name="MSG_LIVENESS_BEGIN" value="6200"/>
+		<define name="MSG_LIVENESS_END" value="6299"/>
+		<!--守卫地宫相关消息-->
+		<define name="MSG_TD_BEGIN" value="6300"/>
+		<define name="MSG_TD_END" value="6399"/>
+		<!--定时触发器相关消息-->
+		<define name="MSG_TIMING_TRIGGER_BEGIN" value="6400"/>
+		<define name="MSG_TIMING_TRIGGER_END" value="6499"/>
+		<!--城市争夺战相关消息-->
+		<define name="MSG_CITY_FIGHT_BEGIN" value="6500"/>
+		<define name="MSG_CITY_FIGHT_END" value="6599"/>
+		<!--玩法信息相关消息-->
+		<define name="MSG_GAME_NOTIFY_BEGIN" value="6600"/>
+		<define name="MSG_GAME_NOTIFY_END" value="6699"/>
+		<!--战斗力对比-->
+		<define name="MSG_CONTRAST_BEGIN" value="6700"/>
+		<define name="MSG_CONTRAST_END" value="6799"/>
+		<!--圣光生存战相关消息-->
+		<define name="MSG_CITY_SURVIVAL_BEGIN" value="6800"/>
+		<define name="MSG_CITY_SURVIVAL_END" value="6899"/>
+		<!--开旗相关消息-->
+		<define name="MSG_TOUCH_BEGIN" value="6900"/>
+		<define name="MSG_TOUCH_END" value="6999"/>
+		<!--点石成金-->
+		<define name="MSG_STONE_TURN_GOLD_BEGIN" value="7000"/>
+		<define name="MSG_STONE_TURN_GOLD_END" value="7099"/>
+		<!--单人答题-->
+		<define name="MSG_SINGLE_ANSWER_BEGIN" value="7100"/>
+		<define name="MSG_SINGLE_ANSWER_END" value="7199"/>
+		<!--资源挽回-->
+		<define name="MSG_GAIN_BACK_RESOURCE_BEGIN" value="7400"/>
+		<define name="MSG_GAIN_BACK_RESOURCE_END" value="7499"/>
+		<!--体力相关-->
+		<define name="MSG_VIGOR_BEGIN" value="7500"/>
+		<define name="MSG_VIGOR_END" value="7599"/>
+		<!--时装消息-->
+		<define name="MSG_FASHION_BEGIN" value="7600"/>
+		<define name="MSG_FASHION_END" value="7699"/>
+		<!--跨服组队消息-->
+		<define name="MSG_CROSS_TEAM_BEGIN" value="7700"/>
+		<define name="MSG_CROSS_TEAM_END" value="7799"/>
+		<!--保卫萝卜消息-->
+		<define name="MSG_JUMPING_OFF_BEGIN" value="8000"/>
+		<define name="MSG_JUMPING_OFF_END" value="8099"/>
+		<!--善恶消息-->
+		<define name="MSG_ENEMY_BEGIN" value="8100"/>
+		<define name="MSG_ENEMY_END" value="8199"/>
+		<!--虚空幻境-->
+		<define name="MSG_VOID_FIELD_BEGIN" value="8200"/>
+		<define name="MSG_VOID_FIELD_END" value="8249"/>
+		<!--虚空幻境SOLO-->
+		<define name="MSG_VOID_FIELD_SOLO_BEGIN" value="8250"/>
+		<define name="MSG_VOID_FIELD_SOLO_END" value="8299"/>
+		<!--勇敢的心-->
+		<define name="MSG_BH_BEGIN" value="8300"/>
+		<define name="MSG_BH_END" value="8399"/>
+		<!--圣剑系统-->
+		<define name="MSG_SWORD_BEGIN" value="8400"/>
+		<define name="MSG_SWORD_END" value="8499"/>
+		<!--僵尸生存-->
+		<define name="MSG_ZOMBIE_BEGIN" value="8500"/>
+		<define name="MSG_ZOMBIE_END" value="8599"/>
+		<!--片头引子-->
+		<define name="MSG_TEASER_BEGIN" value="8600"/>
+		<define name="MSG_TEASER_END" value="8699"/>
+		<!--服务器全局设置相关-->
+		<define name="MSG_GLOBAL_SETTING_BEGIN" value="8800"/>
+		<define name="MSG_GLOBAL_SETTING_END" value="8899"/>
+		<!--聊天警示公告相关-->
+		<define name="MSG_PROCLAMATION_BEGIN" value="8900"/>
+		<define name="MSG_PROCLAMATION_END" value="8999"/>
+		<!--游戏收藏相关-->
+		<define name="MSG_SHORCUT_BEGIN" value="9000"/>
+		<define name="MSG_SHORCUT_END" value="9099"/>
+		<!--游戏动态设置相关-->
+		<define name="MSG_GAME_SETTING_BEGIN" value="9100"/>
+		<define name="MSG_GAME_SETTING_END" value="9199"/>
+		<!--跨服组队战斗-->
+		<define name="MSG_MULTISERVER_BATTLE_BEGIN" value="9200"/>
+		<define name="MSG_MULTISERVER_BATTLE_END" value="9299"/>
+		<!--野外Boss-->
+		<define name="MSG_FIELD_BOSS_BEGIN" value="9300"/>
+		<define name="MSG_FIELD_BOSS_END" value="9399"/>
+		<!--投资计划-->
+		<define name="MSG_INVESTMENT_PLAN_BEGIN" value="9400"/>
+		<define name="MSG_INVESTMENT_PLAN_END" value="9499"/>
+		<!--充值积分抽奖-->
+		<define name="MSG_PAY_POINT_LOTTERY_BEGIN" value="9500"/>
+		<define name="MSG_PAY_POINT_LOTTERY_END" value="9599"/>
+		<!--离线事件-->
+		<define name="MSG_OFFLINE_EVENT_BEGIN" value="9600"/>
+		<define name="MSG_OFFLINE_EVENT_END" value="9699"/>
+		<!--捐献-->
+		<define name="MSG_DONATE_BEGIN" value="9700"/>
+		<define name="MSG_DONATE_END" value="9799"/>
+		<!--vip领域-->
+		<define name="MSG_VIP_STATISTICS_BEGIN" value="9800"/>
+		<define name="MSG_VIP_STATISTICS_END" value="9899"/>
+		<!--大乱斗-->
+		<define name="MSG_CHAOS_BEGIN" value="9900"/>
+		<define name="MSG_CHAOS_END" value="9999"/>
+		<!--充值排行-->
+		<define name="MSG_TOP_UP_RANK_BEGIN" value="10000"/>
+		<define name="MSG_TOP_UP_RANK_END" value="10099"/>
+		<!--VIP独享副本-->
+		<define name="MSG_VIP_ONLY_DUNGEON_BEGIN" value="10100"/>
+		<define name="MSG_VIP_ONLY_DUNGEON_END" value="10199"/>
+		<!-- 砸金蛋 -->
+		<define name="MSG_EGG_BEGIN" value="10200"/>
+		<define name="MSG_EGG_END" value="10299"/>
+		<!--越买越便宜-->
+		<define name="MSG_BUY_CHEAP_BEGIN" value="10300"/>
+		<define name="MSG_BUY_CHEAP_END" value="10399"/>
+		<!--每日化身-->
+		<define name="MSG_DAILY_FASHION_BEGIN" value="10400"/>
+		<define name="MSG_DAILY_FASHION_END" value="10499"/>
+		<!--个性头像-->
+		<define name="MSG_HEAD_PORTRAIT_BEGIN" value="10500"/>
+		<define name="MSG_HEAD_PORTRAIT_END" value="10599"/>
+		<!--技能强化-->
+		<define name="MSG_SKILL_STRENGTHEN_BEGIN" value="10600"/>
+		<define name="MSG_SKILL_STRENGTHEN_END" value="10699"/>
+		<!--领地相关-->
+		<define name="MSG_ALCHEMY_BEGIN" value="10800"/>
+		<define name="MSG_ALCHEMY_END" value="10899"/>
+		<!--分解相关-->
+		<define name="MSG_DECOMPOSE_BEGIN" value="10900"/>
+		<define name="MSG_DECOMPOSE_END" value="10999"/>
+		
+		<!-- ################################################################################ -->
+		<!--礼品卡ID 从最低位到最高位-->
+		<define name="GAME_ACTIVE_CODE" value="0"/>
+		<define name="NOVICE_GIFT_CODE" value="1"/>
+		<!--#########################-->
+		<!--HTTP 返回参数名定义-->
+		<!--#########################-->
+		<!--返回状态-->
+		<define name="HTTP_PARAM_STATUS" value="status"/>
+		<!--返回消息-->
+		<define name="HTTP_PARAM_MSG" value="msg"/>
+		<!--返回内容-->
+		<define name="HTTP_PARAM_CONTENT" value="content"/>
+		<!--返回错误码-->
+		<define name="HTTP_PARAM_ERRORCODE" value="errorcode"/>
+		<!--#########################-->
+		<!--次数卡类型-->
+		<!--#########################-->
+		<!--至尊魔宫 重置次数-->
+		<define name="FUNCTION_CARD_BABEL" value="100"/>
+		<!--怪物之门 重置次数-->
+		<define name="FUNCTION_CARD_MONSTER_DOOR" value="101"/>
+		<!--护魂迷宫 自然挑战次数-->
+		<define name="FUNCTION_CARD_PROTECTSOUL_NATURAL" value="102"/>
+		<!--护魂迷宫 极寒挑战次数-->
+		<define name="FUNCTION_CARD_PROTECTSOUL_ARCTIC" value="103"/>
+		<!--护魂迷宫 飓风挑战次数-->
+		<define name="FUNCTION_CARD_PROTECTSOUL_HURRICANE" value="104"/>
+		<!--护魂迷宫 炙热挑战次数-->
+		<define name="FUNCTION_CARD_PROTECTSOUL_HOT" value="105"/>
+		<!--护卫 挑战次数-->
+		<define name="FUNCTION_CARD_PROTECT" value="106"/>
+		<!--保卫萝卜 挑战次数-->
+		<define name="FUNCTION_CARD_PROTECT_RADISH" value="107"/>
+		<!--勇者争霸 挑战次数-->
+		<define name="FUNCTION_CARD_PLAYER_DOOR" value="108"/>
+		<!--勇敢的心 挑战次数-->
+		<define name="FUNCTION_CARD_BRAVE_HEART" value="109"/>
+		<!--#########################-->
+		<!--砸金蛋-->
+		<!--#########################-->
+		<!--普通蛋-->
+		<define name="EGG_TYPE_NORMAL" value="1"/>
+		<!--银蛋-->
+		<define name="EGG_TYPE_SILVER" value="2"/>
+		<!--金蛋-->
+		<define name="EGG_TYPE_GLOD" value="3"/>
+		<!-- 一键砸蛋 -->
+		<define name="EGG_ONE_KEY_GET" value="999"/>
+	</defines>
+</coder>

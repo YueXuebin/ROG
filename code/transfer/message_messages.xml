@@ -1,0 +1,2068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<coder name="MessageEncoder" version="1">
+	<messages>
+		<!-- 协议号段 -->
+		<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+		<!-- | 0900 ~~ 0999 |  服务器内部协议                                                   | -->
+		<!-- | 1000 ~~ 1099 |  登陆协议                                                         | -->
+		<!-- | 1100 ~~ 1199 |  角色信息                                                         | -->
+		<!-- | 1200 ~~ 1299 |  切换地图                                                         | -->
+		<!-- | 1300 ~~ 1399 |  技能系统                                                         | -->
+		<!-- | 1400 ~~ 1499 |  战斗相关                                                         | -->
+		<!-- | 1500 ~~ 1599 |  道具相关                                                         | -->
+		<!-- | 1600 ~~ 1699 |  强化相关                                                         | -->
+		<!-- | 1700 ~~ 1799 |  任务相关                                                         | -->
+		<!-- | 1800 ~~ 1899 |  触发器相关                                                       | -->
+		<!-- | 1900 ~~ 1999 |  奖励池相关                                                       | -->
+		<!-- | 2000 ~~ 2099 |  离线战斗相关                                                     | -->
+		<!-- | 2100 ~~ 2199 |  VIP相关                                                       	| -->
+		<!-- | 2200 ~~ 2299 |  星空图相关                                                       | -->
+		<!-- | 2300 ~~ 2399 |  好友相关                                                         | -->
+		<!-- | 2400 ~~ 2499 |  聊天相关                                                         | -->
+		<!-- | 2500 ~~ 2599 |  未使用                                                           | -->
+		<!-- | 2600 ~~ 2699 |  修罗场相关                                                       | -->
+		<!-- | 2700 ~~ 2799 |  通天塔(至尊魔宫)相关                                             | -->
+		<!-- | 2800 ~~ 2899 |  单服组队                                                         | -->
+		<!-- | 2900 ~~ 2999 |  邮件相关                                                         | -->
+		<!-- | 3000 ~~ 3099 |  答题相关                                                         | -->
+		<!-- | 3100 ~~ 3199 |  公会相关                                                         | -->
+		<!-- | 3200 ~~ 3299 |  签到                                                             | -->
+		<!-- | 3300 ~~ 3399 |  世界BOSS相关                                                     | -->
+		<!-- | 3400 ~~ 3499 |  赛马相关                                                         | -->
+		<!-- | 3500 ~~ 3599 |  采矿相关                                                         | -->
+		<!-- | 3600 ~~ 3699 |  活动消息                                                         | -->
+		<!-- | 3700 ~~ 3799 |  大冒险相关                                                       | -->
+		<!-- | 3900 ~~ 3999 |  翅膀相关                                                         | -->
+		<!-- | 4000 ~~ 4099 |  在线奖励相关                                                     | -->
+		<!-- | 4100 ~~ 4199 |  成就                                                             | -->
+		<!-- | 4200 ~~ 4299 |  商城相关                                                         | -->
+		<!-- | 4300 ~~ 4399 |  排行榜相关                                                       | -->
+		<!-- | 4400 ~~ 4499 |  称号相关                                                         | -->
+		<!-- | 4500 ~~ 4599 |  防沉迷相关                                                       | -->
+		<!-- | 4600 ~~ 4699 |  激活码相关                                                       | -->
+		<!-- | 4700 ~~ 4799 |  交易相关                                                         | -->
+		<!-- | 5000 ~~ 5099 |  宠物                                                           	| -->
+		<!-- | 5100 ~~ 5199 |  宝库                                                           	| -->
+		<!-- | 5200 ~~ 5299 |  复活相关                                                         | -->
+		<!-- | 5300 ~~ 5399 |  日常投资                                                         | -->
+		<!-- | 5400 ~~ 5499 |  被动技能                                                         | -->
+		<!-- | 5500 ~~ 5599 |  设置                                                            	| -->
+		<!-- | 5600 ~~ 5699 |  等级投资                                                         | -->
+		<!-- | 5700 ~~ 5799 |  投资管理器                                                       | -->
+		<!-- | 5800 ~~ 5899 |  等级活动相关                                                     | -->
+		<!-- | 5900 ~~ 5999 |  特殊活动相关                                                     | -->
+		<!-- | 6000 ~~ 6099 |  跳舞相关                                                         | -->
+		<!-- | 6200 ~~ 6299 |  活跃度相关                                                       | -->
+		<!-- | 6300 ~~ 6399 |  守卫地宫                                                         | -->
+		<!-- | 6400 ~~ 6499 |  定时触发器                                                       | -->
+		<!-- | 6500 ~~ 6599 |  城市争夺战                                                       | -->
+		<!-- | 6600 ~~ 6699 |  玩法信息                                                         | -->
+		<!-- | 6800 ~~ 6899 |  圣光生存战                                                       | -->
+		<!-- | 6900 ~~ 6999 |  开旗相关                                                         | -->
+		<!-- | 7000 ~~ 7099 |  点石成金                                                         | -->
+		<!-- | 7100 ~~ 7199 |  单人答题                                                         | -->
+		<!-- | 7200 ~~ 7299 |  活动任务                                                         | -->
+		<!-- | 7300 ~~ 7399 |  充值                                                           	| -->
+		<!-- | 7400 ~~ 7499 |  资源挽回                                                         | -->
+		<!-- | 7500 ~~ 7599 |  体力相关                                                         | -->
+		<!-- | 7600 ~~ 7699 |  时装相关                                                        	| -->
+		<!-- | 7700 ~~ 7799 |  跨服组队                                                         | -->
+		<!-- | 7800 ~~ 7899 |  僵尸生存                                                         | -->
+		<!-- | 8000 ~~ 8099 |  世界尽头                                                         | -->
+		<!-- | 8100 ~~ 8199 |  善恶规则                                                         | -->
+		<!-- | 8200 ~~ 8249 |  虚空幻境                                                         | -->
+		<!-- | 8250 ~~ 8299 |  虚空幻境SOLO                                                     | -->
+		<!-- | 8300 ~~ 8399 |  勇敢的心                                                         | -->
+		<!-- | 8400 ~~ 8499 |  圣剑系统                                                         | -->
+		<!-- | 8500 ~~ 8599 |  僵尸生存                                                         | -->
+		<!-- | 8600 ~~ 8699 |  片头引子                                                         | -->
+		<!-- | 8700 ~~ 8799 |  360平台消息                                                      | -->
+		<!-- | 8800 ~~ 8899 |  服务器全局设置相关												| -->
+		<!-- | 8900 ~~ 8999 |  聊天警示公告                                             	  	| -->
+		<!-- | 9000 ~~ 9099 |  游戏收藏                                             	  		| -->
+		<!-- | 9100 ~~ 9199 |  游戏动态设置                                             	    | -->
+		<!-- | 9200 ~~ 9299 |  跨服组队战斗                                             	 	| -->
+		<!-- | 9300 ~~ 9399 |  野外大地图boss                                             	 	| -->
+		<!-- | 9400 ~~ 9499 |  投资计划		                                            	 	| -->
+		<!-- | 9500 ~~ 9599 |  充值积分抽奖                                            	 		| -->
+		<!-- | 9700 ~~ 9799 |  捐献魔石                                            	 			| -->
+		<!-- | 9800 ~~ 9899 |  VIP领域                                            	 			| -->
+		<!-- | 9900 ~~ 9999 |  大乱斗		                                             	 	| -->
+		<!-- |10000 ~~ 10099|  充值排行榜                                                       | -->
+		<!-- |10100 ~~ 10199|  VIP独享副本                                                      | -->
+		<!-- |10200 ~~ 10299|  砸金蛋                                                      		| -->
+		<!-- |10300 ~~ 10399|  越买越便宜                                                      	| -->
+		<!-- |10400 ~~ 10499|  每日化身                                                      	| -->
+		<!-- |10500 ~~ 10599|  个性头像                                                      	| -->
+		<!-- |10600 ~~ 10699|  技能强化相关                                                     | -->
+		<!-- |10700 ~~ 10799|  仓库相关                                                         | -->
+		<!-- |10800 ~~ 10899|  领地相关                                                         | -->
+		<!-- |10900 ~~ 10999|  分解相关                                                         | -->
+		<!-- |11000 ~~ 11099|  佣兵相关                                                         | -->
+		<!--================================================================================-->
+		<!-- 测试协议-->
+		<!--================================================================================-->
+		<message name="MSG_TEST1" id="90000" type="TEST_DTAT1" dir="cs"/>
+		<message name="MSG_TEST2" id="90001" type="TEST_DTAT2" dir="cs"/>
+		<message name="MSG_TEST3" id="90002" type="TEST_DTAT3" dir="sc"/>
+		<message name="MSG_ECHO_REQ" id="90003" type="TEST_ECHO" dir="cs"/>
+		<message name="MSG_ECHO_ACK" id="90004" type="TEST_ECHO" dir="sc"/>
+		<!--================================================================================-->
+		<!-- 服务器协议-->
+		<!--================================================================================-->
+		<message name="MSG_SERVER_INFO_REQ" id="900" type="SERVER_INFO_REQ" dir="ss"/>
+		<message name="MSG_SERVER_INFO_ACK" id="901" type="SERVER_INFO_ACK" dir="ss"/>
+		<message name="MSG_SERVER_ACTIVE_REQ" id="902" type="SERVER_ACTIVE_REQ" dir="ss"/>
+		<message name="MSG_SERVER_ACTIVE_ACK" id="903" type="SERVER_ACTIVE_ACK" dir="ss"/>
+		<message name="MSG_SERVER_LIST_REQ" id="904" type="SERVER_LIST_REQ" dir="ss"/>
+		<message name="MSG_SERVER_LIST_ACK" id="905" type="SERVER_LIST_ACK" dir="ss"/>
+		<message name="MSG_SERVER_GATEID_REQ" id="906" type="NONE" dir="ss"/>
+		<message name="MSG_SERVER_GATEID_ACK" id="907" type="SERVER_GATEID_ACK" dir="ss"/>
+		<message name="MSG_SERVER_ALL_READY" id="908" type="NONE" dir="ss"/>
+		<message name="MSG_SERVER_DUNGEON_LIST_NTF" id="910" type="SERVER_DUNGEON_LIST_NTF" dir="ss"/>
+		<message name="MSG_MONITOR_INFO_REQ" id="950" type="MONITOR_INFO_REQ" dir="ss"/>
+		<message name="MSG_MONITOR_INFO_ACK" id="951" type="MONITOR_INFO_ACK" dir="ss"/>
+		<message name="MSG_MONITOR_DUNGEON_INFO_REQ" id="952" type="NONE" dir="ss"/>
+		<message name="MSG_MONITOR_DUNGEON_INFO_ACK" id="953" type="MONITOR_DUNGEON_INFO_ACK" dir="ss"/>
+		<message name="MSG_CROSS_SERVER_ADD" id="954" type="SERVER_INFO" dir="ss"/>
+		<message name="MSG_CROSS_SERVER_REMOVE" id="955" type="SERVER_INFO" dir="ss"/>
+		<message name="MSG_CROSS_SERVER_LIST_REQ" id="956" type="NONE" dir="ss"/>
+		<message name="MSG_CROSS_SERVER_LIST_ACK" id="957" type="SERVER_LIST_ACK" dir="ss"/>
+		<message name="MSG_GAMESERVER_SEAL_REQ" id="958" type="NONE" dir="ss"/>
+		<message name="MSG_GAMESERVER_SEAL_ACK" id="959" type="NONE" dir="ss"/>
+		<!--================================================================================-->
+		<!-- 游戏逻辑协议-->
+		<!--================================================================================-->
+		<!-- 登陆协议 -->
+		<!--================================================================================-->
+		<!--设置加密密匙-->
+		<message name="MSG_ENCRYPT_CONNECT_REQ" id="1000" type="NONE" dir="cs"/>
+		<message name="MSG_ENCRYPT_PUBLIC_KEY_NTF" id="1001" type="ENCRYPT_TOKEN" dir="sc"/>
+		<message name="MSG_ENCRYPT_PRIVATE_KEY_NTF" id="1002" type="ENCRYPT_TOKEN" dir="cs"/>
+		<!--请求登陆协议-->
+		<message name="MSG_LOGIN_GAME_REQ" id="1010" type="LOGIN_GAME_REQ" dir="cs"/>
+		<message name="MSG_LOGIN_GAME_ACK" id="1011" type="LOGIN_GAME_ACK" dir="sc"/>
+		<!-- 离开游戏 -->
+		<message name="MSG_LOGOUT_GAME" id="1012" type="LOGOUT_GAME" dir="ss"/>
+		<!-- 踢出游戏 -->
+		<message name="MSG_KICKOUT_GAME" id="1013" type="KICKOUT_GAME" dir="ss"/>
+		<!-- GS要求踢出游戏 -->
+		<message name="MSG_GS_KICKOUT_GAME" id="1014" type="KICKOUT_GAME" dir="ss"/>
+		<!-- 查询角色 -->
+		<message name="MSG_ASK_PLAYER_REQ" id="1015" type="NONE" dir="cs"/>
+		<message name="MSG_ASK_PLAYER_ACK" id="1016" type="ASK_PLAYER_LIST" dir="sc"/>
+		<!-- 创建角色 -->
+		<message name="MSG_CREATE_PLAYER_REQ" id="1017" type="CREATE_PLAYER_REQ" dir="cs"/>
+		<message name="MSG_CREATE_PLAYER_ACK" id="1018" type="ERROR_CODE" dir="sc"/>
+		<message name="MSG_IS_CREATE_PLAYER_NAME_REQ" id="1019" type="IS_CREATE_PLAYER_NAME_REQ" dir="cs"/>
+		<message name="MSG_IS_CREATE_PLAYER_NAME_ACK" id="1020" type="ERROR_CODE" dir="sc"/>
+		<!--选择角色开始游戏协议-->
+		<message name="MSG_LOAD_PLAYER_REQ" id="1021" type="LOAD_PLAYER_REQ" dir="cs"/>
+		<message name="MSG_LOAD_PLAYER_ACK" id="1022" type="ERROR_CODE" dir="sc"/>
+		<!-- 设置Gate上的PlayerID -->
+		<message name="MSG_SET_PLAYER_ID_REQ" id="1023" type="SET_PLAYER_ID_REQ" dir="ss"/>
+		<message name="MSG_SET_PLAYER_ID_ACK" id="1024" type="SET_PLAYER_ID_ACK" dir="ss"/>
+		<!-- 设置Gate上的GameID -->
+		<message name="MSG_SET_GAMESVR_ID_REQ" id="1025" type="SET_GAMESVR_ID_REQ" dir="ss"/>
+		<message name="MSG_SET_GAMESVR_ID_ACK" id="1026" type="SET_GAMESVR_ID_ACK" dir="ss"/>
+		<!-- 服务器关闭的通知 -->
+		<message name="MSG_GATESVR_CLOSE_NTF" id="1027" type="GATESVR_CLOSE_NTF" dir="sc"/>
+		<!-- 帧同步协议 -->
+		<message name="MSG_SYNC_FRAME_NTF" id="1028" type="SYNC_FRAME_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 角色信息 -->
+		<!--================================================================================-->
+		<!-- 角色进入信息 -->
+		<message name="MSG_PLAYER_INFO" id="1101" type="PLAYER_INFO" dir="sc"/>
+		<message name="MSG_PLAYER_ENTER_GAME" id="1102" type="NONE" dir="sc"/>
+		<!-- 角色属性变更 -->
+		<message name="MSG_PLAYER_PROP_LIST" id="1111" type="PROPERTY_LIST_NTF" dir="sc"/>
+		<!-- 更改角色名字请求 -->
+		<message name="MSG_CHANGE_PLAYER_NAME_REQ" id="1120" type="CHANGE_PLAYER_NAME_REQ" dir="cs"/>
+		<!-- 更改角色名字应答 -->
+		<message name="MSG_CHANGE_PLAYER_NAME_ACK" id="1121" type="CHANGE_PLAYER_NAME_ACK" dir="sc"/>
+		<!-- 设置进入地图类型请求 -->
+		<message name="MSG_SET_MAP_TYPE_REQ" id="1122" type="SET_MAP_TYPE_REQ" dir="cs"/>
+		<!--设置当前位置原地复活请求-->
+		<message name="MSG_SET_CURRENT_RESUREGECE_REQ" id="1123" type="SET_CURRENT_RESUREGECE_REQ" dir="cs"/>
+		<!--检查角色名合法-->
+		<message name="MSG_IS_UPDATE_PLAYER_NAME_REQ" id="1124" type="IS_CREATE_PLAYER_NAME_REQ" dir="cs"/>
+		<!--检查角色名合法回应-->
+		<message name="MSG_IS_UPDATE_PLAYER_NAME_ACK" id="1125" type="ERROR_CODE" dir="sc"/>
+		<!-- 角色基本信息 -->
+		<message name="MSG_DELIVER_PLAYER_INFO_REQ" id="1130" type="DELIVER_PLAYER_INFO_REQ" dir="ss"/>
+		<message name="MSG_DELIVER_PLAYER_INFO_ACK" id="1131" type="PLAYER_BASE_INFO_ACK" dir="ss"/>
+		<!-- 投递角色基本信息 -->
+		<message name="MSG_WRITEBACK_PLAYER_INFO_REQ" id="1140" type="WRITEBACK_PLAYER_INFO_REQ" dir="ss"/>
+		<message name="MSG_WRITEBACK_PLAYER_INFO_ACK" id="1141" type="PLAYER_BASE_INFO_ACK" dir="ss"/>
+		<message name="MSG_AUTO_SAVE_PLAYER_INFO_REQ" id="1142" type="WRITEBACK_PLAYER_INFO_REQ" dir="ss"/>
+		<!--请求更新体力值-->
+		<message name="MSG_REFRESH_VIGOR_REQ" id="1145" type="NONE" dir="cs"/>
+		<message name="MSG_REFRESH_VIGOR_ACK" id="1146" type="REFRESH_VIGOR_ACK" dir="sc"/>
+		<message name="MSG_BUY_VIGOR_REQ" id="1147" type="NONE" dir="cs"/>
+		<!--设置角色职业-->
+		<message name="MSG_CAREER_SET_REQ" id="1148" type="CAREER_DATA" dir="cs"/>
+		<!--设置引导进度-->
+		<message name="MSG_GUIDE_INFO_SET_REQ" id="1149" type="GUIDE_INFO" dir="cs"/>
+		<!--设置功能开启-->
+		<message name="MSG_OPEN_SYSTEM_SET_REQ" id="1162" type="OPEN_SYSTEM_INFO" dir="cs"/>
+		<!--写服务器LOG-->
+		<message name="MSG_PLAYER_LOG_REQ" id="1158" type="PLAYER_LOG_REQ" dir="cs"/>
+		<!--消费LOG-->
+		<message name="MSG_BEHAVIOR_LOG_REQ" id="1159" type="BEHAVIOR_LOG_REQ" dir="ss"/>
+		<!--动艺LOG-->
+		<message name="MSG_LOG_REQ" id="1165" type="LOG_REQ" dir="cs"/>
+		<!--玩家属性信息更新-->
+		<message name="MSG_MEMBER_PROP_NTF" id="1164" type="MEMBER_PROP_NTF" dir="ss"/>
+		<!--欢迎界面请求背包奖励-->
+		<message name="MSG_WELCOME_ASK_BAG_REWARD_REQ" id="1166" type="WELCOME_DATA" dir="cs"/>
+		<!--微端下载过的标识发生改变-->
+		<message name="MSG_DO_CHANGE_ACK" id="1167" type="DO_CHANGE_ACK" dir="sc"/>
+		<!-- 同步服务器时间 -->
+		<message name="MSG_SERVER_TIME_SYN_REQ" id="1196" type="SERVER_TIME" dir="cs"/>
+		<message name="MSG_SERVER_TIME_SYN_ACK" id="1197" type="SERVER_TIME" dir="sc"/>
+		<!-- 错误消息 -->
+		<message name="MSG_ERROR_CODE" id="1199" type="ERROR_CODE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!--切换地图 1200 ~~ 1299-->
+		<!--================================================================================-->
+		<!--进入地图-->
+		<message name="MSG_ENTER_DUNGEON_REQ" id="1200" type="ENTER_DUNGEON_REQ" dir="ss"/>
+		<!--退出地图-->
+		<message name="MSG_EXIT_DUNGEON_REQ" id="1202" type="NONE" dir="ss"/>
+		<!--队伍事件消息-->
+		<message name="MSG_DUNGEON_EVENT_NTF" id="1205" type="DUNGEON_EVENT_NTF" dir="sc"/>
+		<!--通知副本开启信息-->
+		<message name="MSG_OPEN_DUNGEON_NTF" id="1213" type="OPEN_DUNGEON_INFO" dir="sc"/>
+		<!--通知副本记录-->
+		<message name="MSG_DUNGEON_RECORD_NTF" id="1214" type="DUNGEON_RECORD" dir="sc"/>
+		<!-- 战斗单位出现和消失 -->
+		<message name="MSG_BATTLEUNIT_APPEAR_LIST" id="1231" type="BATTLEUNIT_APPEAR_LIST" dir="sc"/>
+		<message name="MSG_BATTLEUNIT_DISAPPEAR" id="1233" type="BATTLEUNIT_DISAPPEAR" dir="sc"/>
+		<!-- 逻辑单位出现和消失 -->
+		<message name="MSG_SCENEOBJECT_APPEAR_LIST" id="1235" type="SCENEOBJECT_APPEAR_LIST" dir="sc"/>
+		<message name="MSG_SCENEOBJECT_DISAPPEAR" id="1237" type="SCENEOBJECT_DISAPPEAR" dir="sc"/>
+		<!--通知捡起了掉落物品-->
+		<message name="MSG_NOTIFY_PICK_DROP_OJBECT" id="1236" type="NOTIFY_PICK_DROP_OJBECT_REQ" dir="cs"/>
+		<!-- 游戏开始 -->
+		<message name="MSG_GAME_START_REQ" id="1238" type="GAME_START" dir="cs"/>
+		<message name="MSG_GAME_LOCK_NTF" id="1239" type="GAME_LOCK" dir="sc"/>
+		<!-- 玩家移动 -->
+		<message name="MSG_MOVE_REQ" id="1244" type="CREATURE_MOVE" dir="cs"/>
+		<message name="MSG_MOVE_ACK" id="1245" type="MOVE_ACK" dir="sc"/>
+		<message name="MSG_CREATURE_MOVE_LIST" id="1247" type="CREATURE_MOVE_LIST" dir="sc"/>
+		<message name="MSG_JUMP_NTF" id="1248" type="JUMP_NTF" dir="sc"/>
+		<message name="MSG_BOUNCE_NTF" id="1249" type="BOUNCE_NTF" dir="sc"/>
+		<message name="MSG_JUMP_REQ" id="1250" type="CREATURE_MOVE" dir="cs"/>
+		<!-- 切换副本 -->
+		<message name="MSG_CHANGE_DUNGEON_REQ" id="1251" type="CHANGE_DUNGEON_REQ" dir="cs"/>
+		<message name="MSG_CHANGE_DUNGEON_ACK" id="1252" type="CHANGE_DUNGEON_ACK" dir="sc"/>
+		<message name="MSG_CLEAR_DUNGEON_NTF" id="1253" type="CLEAR_DUNGEON_NTF" dir="sc"/>
+		<message name="MSG_RETURN_CITY_REQ" id="1254" type="NONE" dir="cs"/>
+		<!-- 地图关卡 -->
+		<message name="MSG_CLEAR_SCENE_NTF" id="1255" type="CLEAR_SCENE_NTF" dir="sc"/>
+		<!--保存副本分数-->
+		<message name="MSG_SAVE_DUNGEON_SCORE_INFO" id="1256" type="DUNGEON_SCORE_INFO" dir="ss"/>
+		<!--副本准备时间通知-->
+		<message name="MSG_DUNGEON_READY_COUNTDOWN_NTF" id="1257" type="DUNGEON_READY_COUNTDOWN" dir="sc"/>
+		<!--副本分数信息请求-->
+		<message name="MSG_DUNGEON_SCORE_INFO_REQ" id="1258" type="NONE" dir="cs"/>
+		<message name="MSG_GS_DUNGEON_SCORE_INFO_REQ" id="1259" type="CROSS_TEAM_DUNGEON_SCORE_INFO_REQ" dir="cs"/>
+		<!--副本分数信息应答-->
+		<message name="MSG_DUNGEON_SCORE_INFO_ACK" id="1260" type="DUNGEON_SCORE_INFO_LIST" dir="sc"/>
+		<!-- 切换地图和频道 -->
+		<message name="MSG_CHANGE_SCENE_REQ" id="1262" type="CHANGE_SCENE_REQ" dir="cs"/>
+		<message name="MSG_CHANGE_SCENE_ACK" id="1263" type="CHANGE_SCENE_ACK" dir="sc"/>
+		<message name="MSG_SCENE_INFO_REQ" id="1266" type="SCENE_INFO_REQ" dir="cs"/>
+		<message name="MSG_SCENE_INFO_ACK" id="1267" type="SCENE_INFO_ACK" dir="sc"/>
+		<!-- 玩家跳地图 -->
+		<message name="MSG_JUMP_DUNGEON_REQ" id="1268" type="CHANGE_DUNGEON_REQ" dir="cs"/>
+		<!-- 副本通关条件 -->
+		<message name="MSG_DUNGEON_CONDITION_REQ" id="1270" type="NONE" dir="cs"/>
+		<message name="MSG_DUNGEON_CONDITION_NTF" id="1271" type="DUNGEON_CONDITION_NTF" dir="sc"/>
+
+		<!-- 副本运行时间 -->
+		<message name="MSG_DUNGEON_RUN_TIME_INFO_REQ" id="1292" type="ERROR_CODE" dir="cs"/>
+		<message name="MSG_DUNGEON_RUN_TIME_INFO_ACK" id="1293" type="DUNGEON_RUN_ACK" dir="sc"/>
+		
+		<!-- 关卡内怪物ID -->
+		<message name="MSG_DUNGEON_MONSTER_ID_INFO" id="1295" type="DUNGEON_MOSTER_ID_LIST" dir="sc" />
+
+		<!--================================================================================-->
+		<!-- 技能系统 1300~1399 -->
+		<!--================================================================================-->
+		<!--使用技能-->
+		<message name="MSG_USE_SKILL_REQ" id="1300" type="USE_SKILL_REQ" dir="cs"/>
+		<message name="MSG_USE_SKILL_NTF" id="1301" type="USE_SKILL_NTF" dir="sc"/>
+		<message name="MSG_SKILL_LAUNCH_NTF" id="1302" type="SKILL_LAUNCH_NTF" dir="sc"/>
+		<message name="MSG_SKILL_BULLET_END_NTF" id="1303" type="SKILL_BULLET_NTF" dir="sc"/>
+		<message name="MSG_SKILL_HIT_NTF" id="1304" type="SKILL_HIT_NTF" dir="sc"/>
+		<message name="MSG_SKILL_STRIKE_NTF" id="1305" type="SKILL_STRIKE_NTF" dir="sc"/>
+		<message name="MSG_SKILL_END_NTF" id="1306" type="SKILL_END_NTF" dir="sc"/>
+		<message name="MSG_BATTLE_PET_NTF" id="1309" type="BATTLE_PET_NTF" dir="sc"/>
+		<message name="MSG_USE_BASE_SKILL_REQ" id="1310" type="USE_SKILL_REQ" dir="cs"/>
+		<message name="MSG_MAKE_SKILL_CD_NTF" id="1312" type="USE_SKILL_NTF" dir="sc"/>
+		<!--技能系统-->
+		<message name="MSG_SKILL_COMPONENT_INFO_REQ" id="1340" type="NONE" dir="cs"/>
+		<message name="MSG_SKILL_COMPONENT_INFO_ACK" id="1341" type="SKILL_COMPONENT_INFO" dir="sc"/>
+		<message name="MSG_FINAL_SKILL_INFO_NTF" id="1344" type="FINAL_SKILL_INFO_LIST" dir="sc"/>
+
+		<message name="MSG_SOLDIER_SKILL_COMPONENT_INFO_ACK" id="1350" type="SKILL_COMPONENT_INFO" dir="sc"/>
+		<message name="MSG_SOLDIER_FINAL_SKILL_INFO_NTF" id="1351" type="FINAL_SKILL_INFO_LIST" dir="sc"/>
+		<!--================================================================================-->
+		<!-- 修罗场相关 -->
+		<!--================================================================================-->
+		<!-- 获得buff -->
+		<message name="MSG_BUFF_NTF" id="1355" type="BUFF_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 战斗相关 -->
+		<!--================================================================================-->
+		<!-- 受到伤害 -->
+		<message name="MSG_TAKE_DAMAGE_NTF" id="1401" type="TAKE_DAMAGE_NTF" dir="sc"/>
+		<message name="MSG_TAKE_HEAL_NTF" id="1403" type="TAKE_HEAL_NTF" dir="sc"/>
+		<message name="MSG_TAKE_MANA_NTF" id="1404" type="TAKE_HEAL_NTF" dir="sc"/>
+		<message name="MSG_DEAD_NTF" id="1405" type="DEAD_NTF" dir="sc"/>
+		<message name="MSG_RELIVE_NTF" id="1406" type="RELIVE_NTF" dir="sc"/>
+		<!-- 连杀通知 -->
+		<message name="MSG_COMBO_KILL_NTF" id="1408" type="COMBO_KILL_NTF" dir="sc"/>
+		<!-- 副本伤害排名 -->
+		<message name="MSG_DAMAGE_RANK_NTF" id="1409" type="DAMAGE_RANK_NTF" dir="sc"/>
+		<!-- 对象状态 -->
+		<message name="MSG_STATE_NTF" id="1410" type="STATE_NTF" dir="sc"/>
+		<!-- 属性改变 -->
+		<message name="MSG_PROPERTY_LIST_NTF" id="1411" type="PROPERTY_LIST_NTF" dir="sc"/>
+		<!-- 战斗状态改变 -->
+		<message name="MSG_BATTLE_STATE_NTF" id="1412" type="BATTLE_STATE_NTF" dir="sc"/>
+		<!-- 客户端请求查看AI -->
+		<message name="MSG_AI_DEBUG_REQ" id="1420" type="AI_DEBUG_REQ" dir="cs"/>
+		<!-- 服务端AI查看信息 -->
+		<message name="MSG_AI_DEBUG_ACK" id="1421" type="AI_DEBUG_ACK" dir="sc"/>
+		<!-- 拾取掉落物品 -->
+		<message name="MSG_PICK_DROP_OBJECT_NTF" id="1422" type="PICK_DROP_OBJECT_NTF" dir="sc"/>
+		<!-- 掉落金币 -->
+		<message name="MSG_OBJECT_DROP_GOLD_NTF" id="1423" type="OBJECT_DROP_GOLD_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 道具相关 1500 ~~ 1599 -->
+		<!--================================================================================-->
+		<!-- 请求物品 -->
+		<message name="MSG_BAG_INFO_REQ" id="1500" type="NONE" dir="cs"/>
+		<message name="MSG_BAG_INFO_ACK" id="1501" type="ITEM_INFO" dir="sc"/>
+		<!-- 操作物品 -->
+		<message name="MSG_OPT_ITEM_REQ" id="1502" type="OPT_ITEM_REQ" dir="cs"/>
+		<message name="MSG_OPT_ITEM_INFO_NTF" id="1503" type="OPT_ITEM_INFO_NTF" dir="sc"/>
+
+
+		<!-- 消耗物品CD通知 -->
+		<message name="MSG_CONSUME_CD_NTF" id="1504" type="CONSUME_CD_INFO" dir="sc"/>
+
+		<!-- 物品整理 -->
+		<message name="MSG_BAG_SORT_REQ" id="1505" type="NONE" dir="cs"/>
+		<!-- 操作物品返回 -->
+		<message name="MSG_OPT_ITEM_ACK" id="1506" type="OPT_ITEM_ACK" dir="sc"/>
+
+		<!-- 装备更新 -->
+		<message name="MSG_UPDATE_EQUIP_INFO_NTF" id="1510" type="UPDATE_EQUIP_INFO_NTF" dir="sc"/>
+		<!-- 合成宝石 -->
+		<message name="MSG_SYNTHETIZE_JEWEL_REQ" id="1520" type="SYNTHETIZE_JEWEL_REQ" dir="cs"/>
+		<message name="MSG_SYNTHETIZE_JEWEL_ACK" id="1521" type="SYNTHETIZE_JEWEL_ACK" dir="sc"/>
+		<!-- 宝石升级 -->
+		<message name="MSG_UPGRADE_JEWEL_REQ" id="1522" type="UPGRADE_JEWEL_REQ" dir="cs"/>
+		<message name="MSG_UPGRADE_JEWEL_ACK" id="1523" type="UPGRADE_JEWEL_ACK" dir="sc"/>
+		<!-- 设置药水 -->
+		<message name="MSG_POTION_SET_REQ" id="1525" type="POTION_INFO" dir="cs"/>
+		<message name="MSG_POTION_SET_ACK" id="1526" type="POTION_INFO" dir="sc"/>
+		<!-- 金币购买 -->
+		<message name="MSG_NPC_BUY_REQ" id="1530" type="NPC_BUY_REQ" dir="cs"/>
+		<message name="MSG_NPC_BUY_ACK" id="1531" type="NPC_BUY_ACK" dir="sc"/>
+		<!-- 荣誉购买 -->
+		<message name="MSG_HONOR_BUY_REQ" id="1540" type="HONOR_BUY_REQ" dir="cs"/>
+		<!-- 绑定魔石购买 -->
+		<message name="MSG_BIND_MONEY_POINT_BUY_REQ" id="1550" type="BIND_MONEY_POINT_BUY_REQ" dir="cs"/>
+
+		
+		
+		<!--================================================================================-->
+		<!-- 宝石相关 -->
+		<!--================================================================================-->
+		<!--宝石镶嵌-->
+		<message name="MSG_GEM_SOCKET_REQ" id="1560" type="GEM_SOCKET_REQ" dir="cs"/>
+		<message name="MSG_GEM_SOCKET_ACK" id="1561" type="GEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--宝石拆除-->
+		<message name="MSG_GEM_UNSOCKET_REQ" id="1562" type="GEM_UNSOCKET_REQ" dir="cs"/>
+		<message name="MSG_GEM_UNSOCKET_ACK" id="1563" type="GEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--宝石融合-->
+		<message name="MSG_GEM_FUSE_REQ" id="1564" type="GEM_FUSE_REQ" dir="cs"/>
+		<message name="MSG_GEM_FUSE_ACK" id="1565" type="GEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--宝石幻色-->
+		<message name="MSG_GEM_EVOLUTE_REQ" id="1566" type="GEM_EVOLUTE_REQ" dir="cs"/>
+		<message name="MSG_GEM_EVOLUTE_ACK" id="1567" type="GEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--宝石打孔-->
+		<message name="MSG_GEM_ADD_HOLE_REQ" id="1558" type="GEM_ADD_HOLE_REQ" dir="cs"/>
+		<message name="MSG_GEM_ADD_HOLE_ACK" id="1559" type="GEM_STRENGTHEN_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 强化相关 -->
+		<!--================================================================================-->
+		
+		<!--装备升品请求-->
+		<message name="MSG_EQUIP_QUALITY_UP_REQ" id="1650" type="ITEM_EQUIP" dir="cs"/>
+		<!--装备升品响应-->
+		<message name="MSG_EQUIP_QUALITY_UP_ACK" id="1651" type="ITEM_STRENGTHEN_ACK" dir="sc"/>
+
+		<!--装备洗练请求-->
+		<message name="MSG_EQUIP_WASH_UP_REQ" id="1652" type="EQUIP_WASH_UP_REQ" dir="cs"/>
+		<!--装备洗练响应-->
+		<message name="MSG_EQUIP_WASH_UP_ACK" id="1653" type="ITEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--装备洗练保留原数值请求-->
+		<message name="MSG_EQUIP_WASH_UP_USE_OLD_REQ" id="1654" type="ITEM_EQUIP" dir="cs"/>
+		<!--装备洗练保留原数值响应-->
+		<message name="MSG_EQUIP_WASH_UP_USE_OLD_ACK" id="1655" type="ITEM_STRENGTHEN_ACK" dir="sc"/>
+		<!--装备洗练确认替换请求-->
+		<message name="MSG_EQUIP_WASH_UP_USE_NEW_REQ" id="1656" type="ITEM_EQUIP" dir="cs"/>
+		<!--装备洗练确认替换响应-->
+		<message name="MSG_EQUIP_WASH_UP_USE_NEW_ACK" id="1657" type="ITEM_STRENGTHEN_ACK" dir="sc"/>
+		
+		<!--装备升星请求-->
+		<message name="MSG_EQUIP_STAR_UP_REQ" id="1658" type="EQUIP_STAR_UP_REQ" dir="cs"/>
+		<!--装备升星响应-->
+		<message name="MSG_EQUIP_STAR_UP_ACK" id="1659" type="ITEM_STRENGTHEN_ACK" dir="sc"/>	
+
+		<!--装备附魔请求-->
+		<message name="MSG_EQUIP_ENCHANT_REQ" id="1660" type="EQUIP_ENCHANT_REQ" dir="cs"/>
+		<!--装备附魔响应-->
+		<message name="MSG_EQUIP_ENCHNAT_ACK" id="1661" type="ITEM_STRENGTHEN_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 任务相关 -->
+		<!--================================================================================-->
+		<!--更新任务状态-->
+		<message name="MSG_TASK_UPDATE_NTF" id="1701" type="TASK_UPDATE_INFO" dir="sc"/>
+		<!--更改任务列表-->
+		<message name="MSG_TASK_CHANGE_NTF" id="1703" type="TASK_CHANGE_INFO" dir="sc"/>
+		<!--刷新任务时间请求-->
+		<message name="MSG_TASK_REFRESH_TIME_REQ" id="1704" type="NONE" dir="cs"/>
+		<!--刷新任务时间应答-->
+		<message name="MSG_TASK_REFRESH_ACK" id="1705" type="TASK_REFRESH_ACK" dir="sc"/>
+		<!--任务信息应答-->
+		<message name="MSG_TASK_INFO_NTF" id="1706" type="TASK_INFO" dir="sc"/>
+		<!--接任务-->
+		<message name="MSG_TAKE_TASK_REQ" id="1708" type="TAKE_TASK_REQ" dir="cs"/>
+		<!--任务对话-->
+		<message name="MSG_TASK_TALK_NPC" id="1710" type="TASK_TALK_NPC" dir="cs"/>
+		<!--任务微端登陆-->
+		<message name="MSG_TASK_MICRO_CLIENT" id="1712" type="NONE" dir="cs"/>
+		<!--任务条地图-->
+		<message name="MSG_TASK_CHANGE_DUNGEON_REQ" id="1714" type="TASK_CHANGE_DUNGEON_REQ" dir="cs"/>
+		<!--任务奖励请求-->
+		<message name="MSG_TASK_REWARD_REQ" id="1720" type="TASK_REWARD_REQ" dir="cs"/>
+		<!--任务奖励应答-->
+		<message name="MSG_TASK_REWARD_ACK" id="1721" type="TASK_REWARD_ACK" dir="sc"/>
+		<!--提高日常任务品质-->
+		<message name="MSG_TASK_QUALITY_REQ" id="1722" type="TASK_QUALITY_REQ" dir="cs"/>
+		<!--立即完成任务-->
+		<message name="MSG_TASK_COMPLETE_REQ" id="1723" type="TASK_COMPLETE_REQ" dir="cs"/>
+		<!--任务物品应答-->
+		<message name="MSG_TASK_ITEM_ACK" id="1724" type="TASK_ITEM_ACK" dir="sc"/>
+		<!--刷新讨伐任务-->
+		<message name="MSG_TASK_CRUSADE_REFRESH_REQ" id="1725" type="NONE" dir="cs"/>
+		<!--放弃讨伐任务-->
+		<message name="MSG_TASK_CRUSADE_GIVEUP_REQ" id="1752" type="TASK_REQ" dir="cs"/>
+		<!--领取宝箱-->
+		<message name="MSG_TASK_RECEIVE_BOX_REQ" id="1726" type="TASK_RECEIVE_BOX_REQ" dir="cs"/>
+		<!--领取宝箱应答-->
+		<message name="MSG_TASK_RECEIVE_BOX_ACK" id="1727" type="TASK_RECEIVE_BOX_ACK" dir="sc"/>
+		<!--刷新护卫任务-->
+		<message name="MSG_TASK_GUARD_REFRESH_REQ" id="1728" type="NONE" dir="cs"/>
+		<!--请求节日任务奖励-->
+		<message name="MSG_TASK_FESTIVAL_REWARD_REQ" id="1730" type="TASK_FESTIVAL_REWARD_REQ" dir="cs"/>
+		<message name="MSG_TASK_FESTIVAL_REWARD_ACK" id="1731" type="TASK_FESTIVAL_REWARD_ACK" dir="sc"/>
+		<!--日常任务重置请求-->
+		<message name="MSG_TASK_DAILY_RESET_REQ" id="1742" type="NONE" dir="cs"/>
+		<!--日常任务重置应答-->
+		<message name="MSG_TASK_DAILY_RESET_ACK" id="1743" type="DAILY_RESET_ACK" dir="sc"/>
+		<!--护卫任务次数购买请求-->
+		<message name="MSG_TASK_GUARD_BUY_REQ" id="1744" type="NONE" dir="cs"/>
+		<!--护卫任务次数购买应答-->
+		<message name="MSG_TASK_GUARD_BUY_ACK" id="1745" type="TASK_GUARD_BUY_ACK" dir="sc"/>
+		<!--公会任务刷新请求-->
+		<message name="MSG_TASK_GUILD_RESET_REQ" id="1746" type="NONE" dir="cs"/>
+		<!--公会任务刷新应答-->
+		<message name="MSG_TASK_GUILD_RESET_ACK" id="1747" type="TASK_GUILD_RESET_ACK" dir="sc"/>
+		<!--公会任务领取宝箱奖励-->
+		<message name="MSG_TASK_GUILD_BOX_REWARD_REQ" id="1748" type="TASK_GUILD_BOX_REWARD_REQ" dir="cs"/>
+		<!--微端任务请求-->
+		<message name="MSG_TASK_MICRO_CLIENT_STATE_REQ" id="1749" type="ERROR_CODE" dir="cs"/>
+		<!--活动任务列表请求&应答-->
+		<message name="MSG_TASK_FESTIVAL_TMPL_LIST_REQ" id="1750" type="NONE" dir="cs"/>
+		<message name="MSG_TASK_FESTIVAL_TMPL_LIST_ACK" id="1751" type="TASK_FESTIVAL_TEMPLATE_LIST" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 触发器相关 -->
+		<!--================================================================================-->
+		<!-- 触发触发器 -->
+		<message name="MSG_TRIGGER_ACTIVATE_REQ" id="1802" type="TRIGGER_ACTIVATE_REQ" dir="cs"/>
+		<message name="MSG_TRIGGER_ACTIVATE_ACK" id="1803" type="TRIGGER_ACTIVATE_ACK" dir="sc"/>
+		<message name="MSG_TRIGGER_STATE_NTF" id="1804" type="TRIGGER_STATE_NTF" dir="sc"/>
+		<!--通知任务NPC取消头上的符号-->
+		<message name="MSG_NOTIFY_TRIGGER_FLAG" id="1811" type="NOTIFY_OBJ_FLAG_LIST" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 奖励池相关 -->
+		<!--================================================================================-->
+		<message name="MSG_SERVER_PACKAGE_RECORD_LOAD_REQ" id="1900" type="NONE" dir="ss"/>
+		<message name="MSG_SERVER_PACKAGE_RECORD_LOAD" id="1901" type="RANDOM_PACKAGE_RECORD_INFO" dir="ss"/>
+		<message name="MSG_SERVER_PACKAGE_RECORD_FILL" id="1902" type="RANDOM_PACKAGE_RECORD_INFO" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 排行战斗相关 -->
+		<!--================================================================================-->
+		<!--请求怪物之门信息,Boss列表-->
+		<message name="MSG_MONSTER_DOOR_INFO_REQ" id="2000" type="NONE" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_INFO_ACK" id="2001" type="MONSTER_DOOR_INFO" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_SELECT_REQ" id="2002" type="MONSTER_DOOR_SELECT" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_RESET_REQ" id="2004" type="NONE" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_RESET_ACK" id="2005" type="MONSTER_DOOR_INFO" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_RAID_REQ" id="2006" type="NONE" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_RAID_ACK" id="2007" type="MONSTER_DOOR_RAID_ACK" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_END_NTF" id="2009" type="MONSTER_DOOR_END" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_AUTO_REQ" id="2010" type="MONSTER_DOOR_AUTO_REQ" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_AUTO_ACK" id="2011" type="MONSTER_DOOR_AUTO_ACK" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_KILL_CD_REQ" id="2012" type="NONE" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_KILL_CD_ACK" id="2013" type="MONSTER_DOOR_KILL_CD_ACK" dir="sc"/>
+		<message name="MSG_MONSTER_DOOR_CD_OVER_REQ" id="2014" type="NONE" dir="cs"/>
+		<message name="MSG_MONSTER_DOOR_CD_OVER_ACK" id="2015" type="MONSTER_DOOR_CD_OVER_ACK" dir="sc"/>
+		<!--请求角斗之门信息,角色列表-->
+		<message name="MSG_PLAYER_DOOR_INFO_REQ" id="2025" type="PLAYER_DOOR_INFO_REQ" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_INFO_ACK" id="2026" type="PLAYER_DOOR_ALL_INFO" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_SELECT_REQ" id="2027" type="PLAYER_DOOR_SELECT" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_END_NTF" id="2029" type="PLAYER_DOOR_END" dir="sc"/>
+		<message name="MSG_OFFLINE_PLAYER_INFO_REQ" id="2031" type="OFFLINE_PLAYER_INFO_REQ" dir="ss"/>
+		<message name="MSG_OFFLINE_PLAYER_BYNAME_REQ" id="2032" type="OFFLINE_PLAYER_BYNAME_REQ" dir="ss"/>
+		<message name="MSG_OFFLINE_PLAYER_INFO_ACK" id="2033" type="OFFLINE_PLAYER_ACK" dir="ss"/>
+		<message name="MSG_OFFLINE_PLAYER_CLIENT_REQ" id="2034" type="OFFLINE_PLAYER_REQ" dir="cs"/>
+		<message name="MSG_OFFLINE_PLAYER_CLIENT_ACK" id="2035" type="OFFLINE_PLAYER_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_REWARD_REQ" id="2041" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_REWARD_ACK" id="2042" type="PLAYER_DOOR_REWARD_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_REPORT_NTF" id="2043" type="PLAYER_DOOR_REPORT" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_RESET_CHALLENGE_COUNT_REQ" id="2045" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_RESET_CHALLENGE_COUNT_ACK" id="2046" type="PLAYER_DOOR_RESET_CHALLENGE_COUNT_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_ADD_CHALLENGE_COUNT_REQ" id="2047" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_ADD_CHALLENGE_COUNT_ACK" id="2048" type="PLAYER_DOOR_ADD_CHALLENGE_COUNT_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_KILL_CD_REQ" id="2049" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_KILL_CD_ACK" id="2050" type="PLAYER_DOOR_KILL_CD_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_CD_OVER_REQ" id="2051" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_CD_OVER_ACK" id="2052" type="PLAYER_DOOR_CD_OVER_ACK" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_REWARD_INFO_REQ" id="2053" type="NONE" dir="cs"/>
+		<message name="MSG_PLAYER_DOOR_REWARD_INFO_ACK" id="2054" type="PLAYER_DOOR_REWARD_INFO" dir="sc"/>
+		<message name="MSG_PLAYER_DOOR_MY_OLD_RANK_NTF" id="2056" type="MY_OLD_RANK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- VIP相关 -->
+		<!--================================================================================-->
+		<!--VIP购买请求-->
+		<message name="MSG_VIP_BUY_REQ" id="2150" type="VIP_BUY_REQ" dir="cs"/>
+		<!--VIP购买应答-->
+		<message name="MSG_VIP_BUY_ACK" id="2151" type="VIP_INFO" dir="sc"/>
+		<!--VIP刷新请求-->
+		<message name="MSG_VIP_REFRESH_REQ" id="2152" type="NONE" dir="cs"/>
+		<!--VIP刷新应答-->
+		<message name="MSG_VIP_REFRESH_ACK" id="2153" type="VIP_INFO" dir="sc"/>
+		<!--VIP礼包领取请求-->
+		<message name="MSG_VIP_REWARD_REQ" id="2154" type="NONE" dir="cs"/>
+		<!--VIP礼包领取应答-->
+		<message name="MSG_VIP_REWARD_ACK" id="2155" type="VIP_INFO" dir="sc"/>
+		<!--VIP福利领取-->
+		<message name="MSG_VIP_GIFT_REQ" id="2156" type="VIP_GIFT_REQ" dir="cs"/>
+		<message name="MSG_VIP_GIFT_ACK" id="2157" type="VIP_GIFT_ACK" dir="sc"/>
+		<!--VIP初始化-->
+		<message name="MSG_VIP_INIT_REQ" id="2158" type="NONE" dir="cs"/>
+		<message name="MSG_VIP_INIT_ACK" id="2159" type="VIP_INFO" dir="sc"/>
+		<!--体验VIP-->
+		<message name="MSG_EXPERIENCE_VIP_RECEIVE_REQ" id="2160" type="NONE" dir="cs" />
+		<message name="MSG_EXPERIENCE_VIP_EXPIRE_REQ" id="2161" type="NONE" dir="cs" />
+		<message name="MSG_EXPERIENCE_VIP_END_REQ" id="2162" type="NONE" dir="cs" />
+		<message name="MSG_EXPERIENCE_VIP_STATE_REQ" id="2163" type="NONE" dir="cs" />
+		<message name="MSG_EXPERIENCE_VIP_STATE_ACK" id="2164" type="VIP_INFO" dir="sc" />
+		
+		<!--================================================================================-->
+		<!-- 星空图相关 -->
+		<!--================================================================================-->
+		<!--星空图升级请求-->
+		<message name="MSG_HOROSCOPE_INFO_REQ" id="2200" type="NONE" dir="cs"/>
+		<message name="MSG_HOROSCOPE_INFO_ACK" id="2201" type="HOROSCOPE_INFO" dir="sc"/>
+		<message name="MSG_HOROSCOPE_LEVELUP_REQ" id="2202" type="NONE" dir="cs"/>
+		<message name="MSG_HOROSCOPE_LEVELUP_ACK" id="2203" type="HOROSCOPE_LEVELUP_ACK" dir="sc"/>
+		<message name="MSG_HOROSCOPE_LEVELUP_CMPL_REQ" id="2204" type="NONE" dir="cs"/>
+		<message name="MSG_HOROSCOPE_LEVELUP_CMPL_ACK" id="2205" type="HOROSCOPE_LEVELUP_CMPL_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 好友相关 -->
+		<!--================================================================================-->
+		<message name="MSG_FRIEND_INFO_REQ" id="2300" type="NONE" dir="cs"/>
+		<message name="MSG_FRIEND_INFO_NTF" id="2301" type="FRIEND_LIST" dir="sc"/>
+		<!-- 添加好友 -->
+		<message name="MSG_FRIEND_ADD_REQ" id="2302" type="FRIEND_ADD_REQ" dir="cs"/>
+		<message name="MSG_FRIEND_ADD_ACK" id="2303" type="FRIEND_ADD_ACK" dir="sc"/>
+		<!-- B玩家同意加好友 -->
+		<message name="MSG_FRIEND_ADD_ANS" id="2304" type="FRIEND_ADD_ACK" dir="cs"/>
+		<!-- 把添加好友请求发给B玩家 -->
+		<message name="MSG_FRIEND_ADD_CFM" id="2305" type="FRIEND_ADD_REQ" dir="sc"/>
+		<!-- 删除好友请求 -->
+		<message name="MSG_FRIEND_DEL_REQ" id="2306" type="FRIEND_DEL_REQ" dir="cs"/>
+		<!-- 删除好友回复 -->
+		<message name="MSG_FRIEND_DEL_ACK" id="2307" type="FRIEND_DEL_ACK" dir="sc"/>
+		<!--快速加好友请求-->
+		<message name="MSG_FRIEND_QUICK_ADD_REQ" id="2310" type="FRIEND_QUICK_ADD_REQ" dir="cs"/>
+		<!--快速加好友回复-->
+		<message name="MSG_FRIEND_QUICK_ADD_ACK" id="2311" type="FRIEND_LIST" dir="sc"/>
+		<!--好友列表通知-->
+		
+		<!--================================================================================-->
+		<!-- 聊天相关 -->
+		<!--================================================================================-->
+		<message name="MSG_CHAT_REQ" id="2400" type="CHAT_MSG" dir="cs"/>
+		<message name="MSG_CHAT_ACK" id="2401" type="CHAT_MSG" dir="sc"/>
+		<message name="MSG_MODIFY_CHAT" id="2402" type="CHAT_MSG" dir="cs"/>
+		<!--全服公告 跑马灯-->
+		<message name="MSG_SERVER_MARQUEE" id="2403" type="SERVER_MARQUEE" dir="sc"/>
+		<!--公告 上飘字提示 只能活动上用-->
+		<message name="MSG_MESSAGE_NTF" id="2404" type="MESSAGE_NTF" dir="sc"/>
+		<!--公告请求-->
+		<message name="MSG_MARQUEE_REQ" id="2406" type="MARQUEE" dir="cs"/>
+		<message name="MSG_MARQUEE_NTF" id="2407" type="MARQUEE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 2500段未使用 -->
+		<!--================================================================================-->
+		
+		<!--================================================================================-->
+		<!-- 修罗场相关 -->
+		<!--================================================================================-->
+		<message name="MSG_ASHURA_INFO_NTF" id="2600" type="ASHURA_INFO" dir="sc"/>
+		<message name="MSG_ASHURA_GET_AWARD_REQ" id="2601" type="ASHURA_GET_AWARD_REQ" dir="cs"/>
+		<message name="MSG_ASHURA_BATTLE_ACK" id="2602" type="ASHURA_BATTLE_ACK" dir="sc"/>
+		<message name="MSG_ASHURA_RANK_ACK" id="2603" type="ASHURA_RANK_ACK" dir="sc"/>
+		<message name="MSG_ASHURA_START_NTF" id="2604" type="ASHURA_START_NTF" dir="ss"/>
+		<message name="MSG_ASHURA_END_NTF" id="2605" type="ASHURA_END_NTF" dir="ss"/>
+		<message name="MSG_ASHURA_END_ACK" id="2606" type="ASHURA_END_ACK" dir="sc"/>
+		<message name="MSG_ASHURA_MARQUEE_NTF" id="2607" type="ASHURA_MARQUEE_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 通天塔相关 -->
+		<!--================================================================================-->
+		<message name="MSG_BABEL_INFO_REQ" id="2700" type="NONE" dir="cs"/>
+		<message name="MSG_BABEL_INFO_ACK" id="2701" type="BABEL_INFO" dir="sc"/>
+		<message name="MSG_BABEL_START_REQ" id="2702" type="BABEL_START_REQ" dir="cs"/>
+		<message name="MSG_BABEL_START_ACK" id="2703" type="BABEL_START_ACK" dir="sc"/>
+		<message name="MSG_BABEL_RESET_REQ" id="2704" type="NONE" dir="cs"/>
+		<message name="MSG_BABEL_RESET_ACK" id="2705" type="BABEL_RESET_ACK" dir="sc"/>
+		<message name="MSG_BABEL_RAIDS_REQ" id="2706" type="NONE" dir="cs"/>
+		<message name="MSG_BABEL_RAIDS_ACK" id="2707" type="BABEL_RAIDS_ACK" dir="sc"/>
+		<message name="MSG_BABEL_INFO_NTF" id="2709" type="BABEL_INFO" dir="sc"/>
+		<message name="MSG_BABEL_OPEN_NTF" id="2710" type="BABEL_OPEN_NTF" dir="sc"/>
+		<message name="MSG_BABEL_END_NTF" id="2711" type="BABEL_END" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 单服组队相关 2800 ~~ 2899 -->
+		<!--================================================================================-->
+		<!--我的队伍信息请求-->
+		<message name="MSG_TEAM_INFO_REQ" id="2800" type="NONE" dir="cs"/>
+		<!--我的队伍信息应答-->
+		<message name="MSG_TEAM_INFO_NTF" id="2801" type="TEAM_INFO" dir="sc"/>
+		<!--创建队伍请求-->
+		<message name="MSG_CREATE_TEAM_REQ" id="2802" type="TEAM_CREATE_REQ" dir="cs"/>
+		<!--创建队伍应答-->
+		<message name="MSG_CREATE_TEAM_ACK" id="2803" type="ERROR_CODE" dir="sc"/>
+		<!--销毁队伍请求-->
+		<message name="MSG_DESTORY_TEAM_REQ" id="2804" type="NONE" dir="cs"/>
+		<!--销毁队伍应答-->
+		<message name="MSG_DESTORY_TEAM_ACK" id="2805" type="ERROR_CODE" dir="sc"/>
+		<!--更新队员信息-->
+		<message name="MSG_TEAM_MEMBER_UPDATE_INFO" id="2824" type="TEAM_MEMBER" dir="ss"/>
+		<!--重置角色状态-->
+		<message name="MSG_TEAM_MEMBER_RESET_STATE" id="2825" type="NONE" dir="ss"/>
+		<!--快速加入队伍请求-->
+		<message name="MSG_TEAM_QUICK_JOIN_REQ" id="2826" type="TEAM_JOIN" dir="cs"/>
+		<message name="MSG_TEAM_QUICK_JOIN_ACK" id="2827" type="TEAM_JOIN" dir="sc"/>
+		<!--离开队伍通知-->
+		<message name="MSG_TEAM_MEMBER_DEL_REQ" id="2830" type="TEAM_MEMBER_DEL_REQ" dir="cs"/>
+		<message name="MSG_TEAM_MEMBER_DEL_ACK" id="2831" type="TEAM_MEMBER_DEL_ACK" dir="sc"/>
+		<!--队伍列表信息-->
+		<message name="MSG_TEAM_SHOW_LIST_REQ" id="2840" type="TEAM_SHOW_LIST_REQ" dir="cs"/>
+		<message name="MSG_TEAM_SHOW_LIST_ACK" id="2841" type="TEAM_SHOW_LIST_ACK" dir="sc"/>
+		<!--请求飞到队友身边-->
+		<message name="MSG_TEAM_FLY_REQ" id="2850" type="TEAM_FLY_REQ" dir="cs"/>
+		<!--队友进入离开副本通知-->
+		<message name="MSG_TEAM_MEMBER_ENTER_NTF" id="2870" type="TEAM_MEMBER_ENTER_NTF" dir="sc"/>
+		<message name="MSG_TEAM_MEMBER_LEAVE_NTF" id="2871" type="TEAM_MEMBER_LEAVE_NTF" dir="sc"/>
+		<!--================================================================================-->
+		<!-- 邮件相关 -->
+		<!--================================================================================-->
+		<!--邮件信息请求-->
+		<message name="MSG_MAIL_INFO_REQ" id="2900" type="NONE" dir="cs"/>
+		<!--系统邮件信息-->
+		<message name="MSG_MAIL_INFO_ACK" id="2901" type="MAIL_SYSTEM_INFO" dir="sc"/>
+		<!--通知邮件信息-->
+		<message name="MSG_MAIL_INFO_NTF" id="2903" type="MAIL_INFO" dir="sc"/>
+		<!--邮件操作请求-->
+		<message name="MSG_MAIL_OPT_REQ" id="2904" type="MAIL_OPT_REQ" dir="cs"/>
+		<!--邮件获取附件请求-->
+		<message name="MSG_MAIL_GET_ATTACH_REQ" id="2906" type="MAIL_GET_ATTACH" dir="cs"/>
+		<!--邮件获取附件应答-->
+		<message name="MSG_MAIL_GET_ATTACH_ACK" id="2907" type="MAIL_GET_ATTACH" dir="sc"/>
+		<!--邮件发送请求-->
+		<message name="MSG_MAIL_SEND_REQ" id="2910" type="MAIL_SEND_REQ" dir="cs"/>
+		<message name="MSG_MAIL_SEND_ACK" id="2911" type="ERROR_CODE" dir="sc"/>
+		<!--删除过期邮件通知-->
+		<message name="MSG_MAIL_DEL_EXPIRED_MAIL_NTF" id="2920" type="MAIL_DEL_EXPIRED_MAIL_NTF" dir="sc"/>
+		<!--发系统开启邮件-->
+		<message name="MSG_MAIL_OPEN_SYSTEM_REQ" id="2921" type="ERROR_CODE" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 答题系统相关 -->
+		<!--================================================================================-->
+		<!--接收客户端准备答题请求-->
+		<message name="MSG_ANSWER_READY_REQ" id="3000" type="NONE" dir="cs"/>
+		<!--答题准备-->
+		<message name="MSG_ANSWER_READY_ACK" id="3001" type="ANSWER_READY_ACK" dir="sc"/>
+		<!--接收客户端回答问题-->
+		<message name="MSG_ANSWER_QUESTION_CMF" id="3002" type="ANSWER_QUESTION_CMF" dir="cs"/>
+		<!--发送题目给客户端-->
+		<message name="MSG_ANSWER_QUESTION_NTF" id="3003" type="ANSWER_QUESTION_NTF" dir="sc"/>
+		<!--发送客户端显示结果-->
+		<message name="MSG_ANSWER_RESULT_NTF" id="3005" type="ANSWER_RESULT_NTF" dir="sc"/>
+		<!--接收客户端双倍积分请求-->
+		<message name="MSG_DOUBLE_SCORE_REQ" id="3006" type="DOUBLE_SCORE_REQ" dir="cs"/>
+		<!--接收客户端双倍积分应答-->
+		<message name="MSG_DOUBLE_SCORE_ACK" id="3007" type="DOUBLE_SCORE_ACK" dir="sc"/>
+		<!--接收客户端购买双倍请求-->
+		<message name="MSG_BUY_DOUBLE_REQ" id="3008" type="NONE" dir="cs"/>
+		<!--发送积分信息给CenterServer-->
+		<message name="MSG_ANSWER_SCORE_SAVE_NTF" id="3009" type="ANSWER_SCORE_SAVE" dir="ss"/>
+		<!--答题刷新排行通知-->
+		<message name="MSG_ANSWER_GEN_RANK_NTF" id="3011" type="ANSWER_GEN_RANK_NTF" dir="ss"/>
+		<!--TOP排行信息请求-->
+		<message name="MSG_ANSWER_TOPRANK_REQ" id="3012" type="NONE" dir="cs"/>
+		<!--TOP排行信息应答-->
+		<message name="MSG_ANSWER_TOPRANK_ACK" id="3013" type="ANSWER_TOPRANK_INFO" dir="sc"/>
+		<!--个人排行请求-->
+		<message name="MSG_ANSWER_PLAYER_RANK_REQ" id="3014" type="NONE" dir="cs"/>
+		<!--个人排行应答-->
+		<message name="MSG_ANSWER_PLAYER_RANK_ACK" id="3015" type="ANSWER_PLAYER_RANK" dir="sc"/>
+		<!--个人奖励请求-->
+		<message name="MSG_ANSWER_REWARD_REQ" id="3016" type="NONE" dir="cs"/>
+		<!--个人奖励应答-->
+		<message name="MSG_ANSWER_REWARD_ACK" id="3017" type="ANSWER_PLAYER_RANK" dir="sc"/>
+		<!--答题结束通知-->
+		<message name="MSG_ANSWER_END_NTF" id="3021" type="ANSWER_END_NTF" dir="sc"/>
+		<!--答题退出-->
+		<message name="MSG_ANSWER_EXIT_NTF" id="3022" type="NONE" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 公会相关 -->
+		<!--================================================================================-->
+		<!--公会信息请求-->
+		<message name="MSG_GUILD_INFO_REQ" id="3100" type="NONE" dir="cs"/>
+		<!--公会信息-->
+		<message name="MSG_GUILD_INFO_NTF" id="3101" type="GUILD_INFO" dir="sc"/>
+		<!--公会列表请求-->
+		<message name="MSG_GUILD_LIST_REQ" id="3102" type="GUILD_LIST_REQ" dir="cs"/>
+		<!--公会列表应答-->
+		<message name="MSG_GUILD_LIST_ACK" id="3103" type="GUILD_LIST_ACK" dir="sc"/>
+		<!--公会申请列表请求-->
+		<message name="MSG_GUILD_APPLY_LIST_REQ" id="3104" type="NONE" dir="cs"/>
+		<!--公会申请列表应答-->
+		<message name="MSG_GUILD_APPLY_LIST_ACK" id="3105" type="GUILD_APPLY_LIST" dir="sc"/>
+		<!--申请加入公会通知-->
+		<message name="MSG_APPLY_INFO_NTF" id="3107" type="NONE" dir="sc"/>
+		<!--个人公会ID通知-->
+		<message name="MSG_GUILD_ID_NTF" id="3109" type="GUILD_ID_NTF" dir="sc"/>
+		<!--创建公会请求-->
+		<message name="MSG_CREATE_GUILD_REQ" id="3110" type="CREATE_GUILD_REQ" dir="cs"/>
+		<message name="MSG_CREATE_GUILD_ACK" id="3111" type="NONE" dir="ss"/>
+		<!--销毁公会请求-->
+		<message name="MSG_DESTROY_GUILD_REQ" id="3112" type="NONE" dir="cs"/>
+		<!--查看公会信息请求-->
+		<message name="MSG_VIEW_GUILD_INFO_REQ" id="3114" type="VIEW_GUILD_INFO_REQ" dir="cs"/>
+		<!--公会信息应答-->
+		<message name="MSG_VIEW_GUILD_INFO_ACK" id="3115" type="GUILD_INFO" dir="sc"/>
+		<!--邀请加入公会请求-->
+		<message name="MSG_INVITE_JOIN_GUILD_REQ" id="3120" type="INVITE_JOIN_GUILD_REQ" dir="cs"/>
+		<message name="MSG_INVITE_JOIN_GUILD_ANS" id="3122" type="INVITE_JOIN_GUILD_ACK" dir="cs"/>
+		<message name="MSG_INVITE_JOIN_GUILD_CFM" id="3123" type="INVITE_JOIN_GUILD_REQ" dir="sc"/>
+		<!--申请加入公会请求-->
+		<message name="MSG_APPLY_JOIN_GUILD_REQ" id="3124" type="APPLY_JOIN_GUILD_REQ" dir="cs"/>
+		<!--申请加入公会请求返回-->
+		<message name="MSG_APPLY_JOIN_GUILD_REQ_ACK" id="3125" type="ERROR_CODE" dir="sc"/>
+		<message name="MSG_APPLY_JOIN_GUILD_ANS" id="3126" type="APPLY_JOIN_GUILD_ACK" dir="cs"/>
+		<!--删除公会成员-->
+		<message name="MSG_GUILD_MEMBER_DEL_REQ" id="3130" type="GUILD_MEMBER_DEL_REQ" dir="cs"/>
+		<!--申请设置会员职位-->
+		<message name="MSG_GUILD_SET_OFFICE_REQ" id="3132" type="GUILD_SET_OFFICE_REQ" dir="cs"/>
+		<!--申请设置自动加入标记-->
+		<message name="MSG_GUILD_SET_FLAG_REQ" id="3134" type="GUILD_SET_FLAG_REQ" dir="cs"/>
+		<!--公会继承公会请求-->
+		<message name="MSG_GUILD_INHERIT_ATEVENT_REQ" id="3135" type="NONE" dir="cs"/>
+		<!--公会升级捐献请求-->
+		<message name="MSG_GUILD_DONATE_REQ" id="3140" type="GUILD_DONATE_REQ" dir="cs"/>
+		<message name="MSG_GUILD_DONATE_ACK" id="3141" type="GUILD_DONATE_ACK" dir="ss"/>
+		<!--设置公会公告板-->
+		<message name="MSG_GUILD_SET_BULLETIN_REQ" id="3142" type="GUILD_SET_BULLETIN_REQ" dir="cs"/>
+		<!--通知公会捐献点增加 变更累积数-->
+		<message name="MSG_GUILD_ADD_GUILDPOINT_NTF" id="3143" type="GUILD_ADD_GUILDPOINT_NTF" dir="ss"/>
+		<!--公会商店购买请求 -->
+		<message name="MSG_GUILD_BUY_REQ" id="3144" type="GUILD_BUY_REQ" dir="cs"/>
+		<!--公会商店购买贡献-->
+		<message name="MSG_GUILD_BUY_GUILDPOINT_REQ" id="3146" type="NONE" dir="cs"/>
+		<!--公会购买个人轮盘次数-->
+		<message name="MSG_GUILD_BUY_MEMBER_TURNTABLE_REQ" id="3148" type="NONE" dir="cs"/>
+		<!--公会奖励信息请求-->
+		<message name="MSG_GUILD_WELFARE_INFO_REQ" id="3150" type="NONE" dir="cs"/>
+		<!--公会奖励信息应答-->
+		<message name="MSG_GUILD_WELFARE_INFO_ACK" id="3251" type="GUILD_WELFARE_INFO" dir="sc"/>
+		<!--公会随机轮盘开始信息 -->
+		<message name="MSG_GUILD_RAND_TURNTABLE_REQ" id="3152" type="NONE" dir="cs"/>
+		<message name="MSG_GUILD_RAND_TURNTABLE_ACK" id="3153" type="TURNTABLE_ACK" dir="sc"/>
+		<!--公会随机轮盘完成信息 -->
+		<!--message name="MSG_GUILD_RAND_TURNTABLE_RESULT_REQ" id="3154" type="NONE" dir="cs"/-->
+		<message name="MSG_GUILD_RAND_TURNTABLE_RESULT_ACK" id="3155" type="ERROR_CODE" dir="sc"/>
+		<!--公会个人开始轮盘信息 -->
+		<message name="MSG_GUILD_MEMBER_TURNTABLE_REQ" id="3156" type="NONE" dir="cs"/>
+		<message name="MSG_GUILD_MEMBER_TURNTABLE_ACK" id="3157" type="TURNTABLE_ACK" dir="sc"/>
+		<!--公会个人完成轮盘信息 -->
+		<!--message name="MSG_GUILD_MEMBER_TURNTABLE_RESULT_REQ" id="3158" type="NONE" dir="cs"/-->
+		<message name="MSG_GUILD_MEMBER_TURNTABLE_RESULT_ACK" id="3159" type="ERROR_CODE" dir="sc"/>
+		<!--公会个人获得奖励-->
+		<message name="MSG_GUILD_REWARD_PERSONAL_WELFARE" id="3160" type="NONE" dir="cs"/>
+		<!--公会加成提升 -->
+		<message name="MSG_GUILD_ADDITION_PROMOTE_REQ" id="3162" type="GUILD_ADDITION_PROMOTE_REQ" dir="cs"/>
+		<message name="MSG_GUILD_ADDITION_PROMOTE_ACK" id="3163" type="GUILD_ADDITION_PROMOTE_ACK" dir="sc"/>
+		<!--公会加成提升异步处理-->
+		<message name="MSG_GUILD_ADDITION_PROMOTE_TO_CENTER" id="3164" type="GUILD_ADDITION_PROMOTE_TO_CENTER" dir="ss"/>
+		<message name="MSG_GUILD_ADDITION_PROMOTE_TO_GAME" id="3165" type="GUILD_ADDITION_PROMOTE_TO_GAME" dir="ss"/>
+		<!--公会科技个人信息请求-->
+		<message name="MSG_GUILD_SCIENCE_PLAYER_INFO_REQ" id="3166" type="NONE" dir="cs"/>
+		<!--公会科技个人信息应答-->
+		<message name="MSG_GUILD_SCIENCE_PLAYER_INFO_ACK" id="3167" type="GUILD_PLAYER_SCIENCE_INFO" dir="sc"/>
+		<!--公会科技公共信息通知-->
+		<message name="MSG_GUILD_SCIENCE_INFO_NTF" id="3168" type="GUILD_SCIENCE_INFO" dir="sc"/>
+		<!--公会BOSS升级请求-->
+		<message name="MSG_GUILD_BOSS_LEVELUP_REQ" id="3170" type="NONE" dir="cs"/>
+		<!--公会BOSS倒计时请求-->
+		<message name="MSG_GUILD_BOSS_COUNTDOWN_REQ" id="3172" type="NONE" dir="cs"/>
+		<!--公会BOSS倒计时应答-->
+		<message name="MSG_GUILD_BOSS_COUNTDOWN_ACK" id="3173" type="GUILD_BOSS_COUNTDOWN" dir="sc"/>
+		<!--公会BOSS设置时间-->
+		<message name="MSG_GUILD_BOSS_SET_TIME_REQ" id="3174" type="GUILD_BOSS_SET_TIME_REQ" dir="cs"/>
+		<!--公会BOSS退出请求-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_END_NTF" id="3178" type="GUILD_CRUSADE_BOSS_END_NTF" dir="sc"/>
+		<!--公会BOSS退出请求-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_TIME_SAVE" id="3179" type="GUILD_CRUSADE_BOSS_TIME" dir="ss"/>
+		<!--公会BOSS伤害排名-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_DAMAGE_NTF" id="3180" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!--公会BOSS战保存-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_RANK_SAVE" id="3181" type="GUILD_DAMAGE_RANK_LIST" dir="ss"/>
+		<!--公会BOSS排行请求-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_RANK_REQ" id="3182" type="NONE" dir="cs"/>
+		<!--公会BOSS排行应答-->
+		<message name="MSG_GUILD_CRUSADE_BOSS_RANK_ACK" id="3183" type="GUILD_DAMAGE_RANK_LIST" dir="sc"/>
+		<!--公会暮光之战伤害排名-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_DAMAGE_NTF" id="3188" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!--公会暮光之战保存-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_RANK_SAVE" id="3189" type="GUILD_DAMAGE_RANK_LIST" dir="ss"/>
+		<!--公会暮光之城排行请求-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_RANK_REQ" id="3190" type="NONE" dir="cs"/>
+		<!--公会暮光之城排行应答-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_RANK_ACK" id="3191" type="GUILD_DAMAGE_RANK_LIST" dir="sc"/>
+		<!--公会暮光之战战斗信息-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_BATTLEFIELD_NTF" id="3193" type="GUILD_TWILIGHT_WAR_BATTLEFIELD_NTF" dir="sc"/>
+		<!--公会暮光之战退出请求-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_END_NTF" id="3195" type="GUILD_TWILIGHT_WAR_END_NTF" dir="sc"/>
+		<!--公会暮光之战开始-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_OPEN_NTF" id="3197" type="NONE" dir="ss"/>
+		<!--公会暮光之战结束-->
+		<message name="MSG_GUILD_TWILIGHT_WAR_CLOSE_NTF" id="3198" type="NONE" dir="ss"/>
+		<!--公会通知-->
+		<message name="MSG_GUILD_NOTICE_ACK" id="3199" type="GUILD_NOTICE_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 签到相关 -->
+		<!--================================================================================-->
+		<!--签到请求-->
+		<message name="MSG_SIGN_REQ" id="3200" type="NONE" dir="cs"/>
+		<!--签到应答-->
+		<message name="MSG_SIGN_ACK" id="3201" type="SIGN_ACK" dir="sc"/>
+		<!--签到信息请求-->
+		<message name="MSG_SIGN_INFO_REQ" id="3208" type="NONE" dir="cs"/>
+		<!--签到信息应答-->
+		<message name="MSG_SIGN_INFO_ACK" id="3209" type="SIGN_INFO" dir="sc"/>
+
+		
+		<!--================================================================================-->
+		<!-- 世界BOSS相关 -->
+		<!--================================================================================-->
+		<!-- 世界BOSS开始 -->
+		<message name="MSG_WORLD_BOSS_START_NTF" id="3300" type="WORLD_BOSS_START_NTF" dir="ss"/>
+		<!-- 世界BOSS结束 -->
+		<message name="MSG_WORLD_BOSS_END_NTF" id="3301" type="WORLD_BOSS_END_NTF" dir="ss"/>
+		<!-- 伤害排名 -->
+		<message name="MSG_WORLD_BOSS_DAMAGE_LIST_NTF" id="3310" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!-- 玩家的伤害 -->
+		<message name="MSG_WORLD_BOSS_DAMAGE_NTF" id="3311" type="WORLD_BOSS_DAMAGE_INFO" dir="sc"/>
+		<!-- 世界BOSS结算 -->
+		<message name="MSG_WORLD_BOSS_CLEAR_NTF" id="3312" type="WORLD_BOSS_CLEAR_NTF" dir="sc"/>
+		<!-- 世界Boss击杀通知 -->
+		<message name="MSG_WORLD_BOSS_KILL_INFO_NTF" id="3313" type="WORLD_BOSS_KILL_INFO_NTF" dir="sc"/>
+		<!-- 世界Boss信息加载请求 -->
+		<message name="MSG_WORLD_BOSS_INFO_LOAD_REQ" id="3314" type="NONE" dir="ss"/>
+		<!-- 世界Boss信息加载 -->
+		<message name="MSG_WORLD_BOSS_INFO_LOAD" id="3315" type="WORLD_BOSS_INFO_LIST" dir="ss"/>
+		<!-- 世界Boss信息 -->
+		<message name="MSG_WORLD_BOSS_INFO_FILL" id="3316" type="WORLD_BOSS_INFO_LIST" dir="ss"/>
+		<!-- 世界BOSS准备时间 -->
+		<!--message name="MSG_WORLD_BOSS_READY_NTF" id="3317" type="WORLD_BOSS_READY_NTF" dir="sc"-->
+		
+		<!--================================================================================-->
+		<!-- 赛马系统相关 -->
+		<!--================================================================================-->
+		<!--赛马刷新请求-->
+		<message name="MSG_RACING_REFRESH_REQ" id="3400" type="NONE" dir="cs"/>
+		<!--赛马刷新应答-->
+		<message name="MSG_RACING_REFRESH_ACK" id="3401" type="RACING_INFO" dir="sc"/>
+		<!--赛马参加请求-->
+		<message name="MSG_RACING_ENTER_REQ" id="3402" type="RACING_ENTER_REQ" dir="cs"/>
+		<!--赛马参加应答-->
+		<message name="MSG_RACING_ENTER_ACK" id="3403" type="RACING_ENTER_ACK" dir="sc"/>
+		<!--领取奖励-->
+		
+		<!--================================================================================-->
+		<!-- 采矿系统相关 -->
+		<!--================================================================================-->
+		<!--采矿请求-->
+		<message name="MSG_MINING_REQ" id="3500" type="MINING_REQ" dir="cs"/>
+		<!--采矿应答-->
+		<message name="MSG_MINING_ACK" id="3501" type="MINING_INFO" dir="sc"/>
+		<!--采矿停止请求-->
+		<message name="MSG_MINING_STOP_REQ" id="3502" type="NONE" dir="cs"/>
+		<!--采矿停止应答-->
+		<message name="MSG_MINING_STOP_ACK" id="3503" type="ERROR_CODE" dir="sc"/>
+		<!--采矿立即完成请求-->
+		<message name="MSG_MINING_COMPLETE_REQ" id="3504" type="NONE" dir="cs"/>
+		<!--采矿立即完成应答-->
+		<message name="MSG_MINING_COMPLETE_ACK" id="3505" type="ERROR_CODE" dir="sc"/>
+		<!--刷新采矿信息请求-->
+		<message name="MSG_MINING_REFRESH_REQ" id="3506" type="NONE" dir="cs"/>
+		<!--刷新采矿信息应答-->
+		<message name="MSG_MINING_REFRESH_ACK" id="3507" type="MINING_INFO" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 活动系统相关 -->
+		<!--================================================================================-->
+		<!--活动是否开启-->
+		<!--<message name="MSG_ACTIVITY_IS_OPEN" id="3600" type="ACTIVITY_OPEN" dir="sc"/>-->
+		<message name="MSG_ACTIVITY_LIST_REQ" id="3601" type="NONE" dir="cs"/>
+		<message name="MSG_ACTIVITY_LIST_NTF" id="3602" type="ACTIVITY_LIST" dir="sc"/>
+		<!--<message name="MSG_ACTIVITY_INFO_REQ" id="3603" type="NONE" dir="cs"/>-->
+		<message name="MSG_ACTIVITY_ADD_REQ" id="3604" type="ACTIVITY_INFO" dir="ss"/>
+		<message name="MSG_ACTIVITY_UPDATE_REQ" id="3605" type="ACTIVITY_INFO" dir="ss"/>
+		<message name="MSG_ACTIVITY_DELETE_REQ" id="3606" type="ACTIVITY_INFO" dir="ss"/>
+		<!--修罗场公告通知-->
+		<message name="MSG_ASHURA_START_ANNOUNCE" id="3607" type="NONE" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 宝库系统相关 -->
+		<!--================================================================================-->
+		<!--宝库请求-->
+		<message name="MSG_TREASURY_INFO_REQ" id="3700" type="NONE" dir="cs"/>
+		<message name="MSG_TREASURY_INFO_ACK" id="3701" type="TREASURY_INFO" dir="sc"/>
+		<message name="MSG_TREASURY_END_ACK" id="3702" type="TREASURY_END_NTF" dir="sc"/>
+		<!--宝库时时战斗信息-->
+		<message name="MSG_TREASURY_INFO_NTF" id="3703" type="TREASURY_INFO_NTF" dir="sc"/>
+		<!--宝库秒CD-->
+		<message name="MSG_TREASURY_CD_REQ" id="3704" type="NONE" dir="cs"/>
+		<!--宝库购买次数请求-->
+		<message name="MSG_TREASURY_BUY_REQ" id="3705" type="NONE" dir="cs"/>
+		<!--宝库购买次数应答-->
+		<message name="MSG_TREASURY_BUY_ACK" id="3706" type="TREASURY_BUY_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 大冒险相关 -->
+		<!--================================================================================-->
+		<message name="MSG_ADVENTURE_INFO_REQ" id="3800" type="NONE" dir="cs"/>
+		<message name="MSG_ADVENTURE_INFO_NTF" id="3801" type="ADVENTURE_INFO" dir="sc"/>
+		<message name="MSG_ADVENTURE_JOIN_REQ" id="3802" type="ADVENTURE_JOIN_REQ" dir="cs"/>
+		<message name="MSG_ADVENTURE_CMPL_REQ" id="3804" type="NONE" dir="cs"/>
+		<message name="MSG_ADVENTURER_LIST_REQ" id="3806" type="NONE" dir="cs"/>
+		<message name="MSG_ADVENTURER_LIST_ACK" id="3807" type="ADVENTURER_INFO_LIST" dir="sc"/>
+		<message name="MSG_ADVENTURE_ROB_REQ" id="3810" type="ADVENTURE_ROB_REQ" dir="cs"/>
+		<message name="MSG_ADVENTURE_ROB_ACK" id="3811" type="ADVENTURE_ROB_ACK" dir="sc"/>
+		<message name="MSG_ADVENTURE_ADD_REQ" id="3820" type="ADVENTURE_ADD_REQ" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 翅膀相关 -->
+		<!--================================================================================-->
+		<!--翅膀信息请求-->
+		<message name="MSG_WING_INFO_REQ" id="3900" type="NONE" dir="cs"/>
+		<!--翅膀信息应答-->
+		<message name="MSG_WING_INFO_ACK" id="3901" type="WING_INFO" dir="sc"/>
+		<!--升阶请求-->
+		<message name="MSG_WING_ADVANCE_REQ" id="3902" type="WING_ADVANCE_REQ" dir="cs"/>
+		<!--升阶应答-->
+		<message name="MSG_WING_ADVANCE_ACK" id="3903" type="WING_ADVANCE_ACK" dir="sc"/>
+		<!--穿戴翅膀请求-->
+		<message name="MSG_WING_TRANSMOGRIFICATION_REQ" id="3904" type="WING_TRANSMOGRIFICATION_REQ" dir="cs"/>
+		<!--穿戴翅膀应答-->
+		<message name="MSG_WING_TRANSMOGRIFICATION_ACK" id="3905" type="WING_TRANSMOGRIFICATION_ACK" dir="sc"/>
+		<!--激活请求-->
+		<message name="MSG_WING_ACTIVATE_REQ" id="3906" type="WING_ACTIVATE_REQ" dir="cs"/>
+		<!--激活应答-->
+		<message name="MSG_WING_ACTIVATE_ACK" id="3907" type="WING_INFO" dir="sc"/>
+		<!--翅膀属性通知-->
+		<message name="MSG_WING_PRO_NTF" id="3909" type="PROPERTY_LIST_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 在线奖励相关 -->
+		<!--================================================================================-->
+		<!--获得在线奖励-->
+		<message name="MSG_ONLINE_REWARD_REQ" id="4000" type="ONLINE_REWARD_REQ" dir="cs"/>
+		<message name="MSG_ONLINE_REWARD_ACK" id="4001" type="ONLINE_REWARD_ACK" dir="sc"/>
+		<message name="MSG_GROW_LEVEL_GIFT_REQ" id="4002" type="GROW_LEVEL_GIFT_REQ" dir="cs"/>
+		<message name="MSG_GROW_LEVEL_GIFT_ACK" id="4003" type="GROW_LEVEL_GIFT_ACK" dir="sc"/>
+		<message name="MSG_BESTOW_REWARD_REQ" id="4004" type="BESTOW_REWARD_REQ" dir="cs"/>
+		<message name="MSG_BESTOW_REWARD_ACK" id="4005" type="BESTOW_REWARD_ACK" dir="sc"/>
+		<message name="MSG_ONLINE_REWARD_INFO_REQ" id="4006" type="NONE" dir="cs"/>
+		<message name="MSG_ONLINE_REWARD_INFO_ACK" id="4007" type="ONLINE_REWARD_INFO_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 成就相关 -->
+		<!--================================================================================-->
+		<message name="MSG_INST_ACHIVE_REQ" id="4100" type="NONE" dir="cs"/>
+		<message name="MSG_INST_ACHIVE_ACK" id="4101" type="ACHIVE_STATE_LIST" dir="sc"/>
+		<!--发送达成消息或领取物品后的成就信息 -->
+		<message name="MSG_ACHIVE_INFO_ACK" id="4102" type="ACHIVE_INFO" dir="sc"/>
+		<!--领取物品-->
+		<message name="MSG_ACHIVE_GETOBJ_REQ" id="4103" type="ACHIVE_INFO" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 商城相关 -->
+		<!--================================================================================-->
+		<!-- 重新从数据库加载商城数据 -->
+		<message name="MSG_RELOAD_MALL_INFO" id="4200" type="NONE" dir="ss"/>
+		<!-- 同步商城商品数据 -->
+		<message name="MSG_MALL_INFO_NOTIFY" id="4201" type="MALL_LIST" dir="ss"/>
+		<!-- 请求商城商品列表信息 -->
+		<message name="MSG_MALL_INFO_REQ" id="4210" type="NONE" dir="cs"/>
+		<!-- 应答商城商品列表信息 -->
+		<message name="MSG_MALL_INFO_ACK" id="4211" type="MALL_LIST" dir="sc"/>
+		<!-- 查询单个商品信息请求 -->
+		<message name="MSG_MALL_PRODUCT_REQ" id="4212" type="MALL_PRODUCT_REQ" dir="cs"/>
+		<!-- 查询单个商品信息应答 -->
+		<message name="MSG_MALL_PRODUCT_ACK" id="4213" type="MALL_PRODUCT_ACK" dir="sc"/>
+		<!-- 限购数据 -->
+		<message name="MSG_RESTRICTION_LIST_ACK" id="4215" type="RESTRICTION_LIST" dir="sc"/>
+		<!-- 购买请求 -->
+		<message name="MSG_MALL_BUY_REQ" id="4220" type="MALL_BUY_REQ" dir="cs"/>
+		<!-- 购买应答 -->
+		<message name="MSG_MALL_BUY_ACK" id="4221" type="MALL_BUY_ACK" dir="ss"/>
+		<!-- 购买通知 -->
+		<message name="MSG_MALL_BUY_NTF" id="4223" type="ERROR_CODE" dir="sc"/>
+		<!--限购信息的申请和返回 -->
+		<message name="MSG_LIMIT_BUY_REQ" id="4224" type="NONE" dir="cs"/>
+		<message name="MSG_LIMIT_BUY_INFO" id="4225" type="LIMIT_BUY_INFO_ACK" dir="sc"/>
+		<message name="MSG_LIMIT_BUY_INFO_CLEAR_REQ" id="4226" type="NONE" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 排行榜相关 -->
+		<!--================================================================================-->
+		<!-- 刷新排行榜信息 -->
+		<message name="MSG_RANKING_REFRESH_REQ" id="4302" type="RANKING_REFRESH_REQ" dir="ss"/>
+		<!-- GM刷新排行榜信息 -->
+		<message name="MSG_GMRANKING_REFRESH_REQ" id="4303" type="RANKING_REFRESH_REQ" dir="ss"/>
+		<!-- 排名信息请求 -->
+		<message name="MSG_RANKING_RANK_REQ" id="4304" type="RANKING_RANK_REQ" dir="ss"/>
+		<!-- 排名信息应答 -->
+		<message name="MSG_RANKING_RANK_ACK" id="4305" type="RANKING_RANK_ACK" dir="ss"/>
+		<!-- 玩家id请求 -->
+		<message name="MSG_RANKING_PLAYER_ID_REQ" id="4306" type="RANKING_PLAYER_ID_REQ" dir="ss"/>
+		<!-- 玩家id应答 -->
+		<message name="MSG_RANKING_PLAYER_ID_ACK" id="4307" type="RANKING_PLAYER_ID_ACK" dir="ss"/>
+		<!-- 切换两个玩家名次请求 -->
+		<message name="MSG_RANKING_CHANGE_REQ" id="4308" type="RANKING_CHANGE_REQ" dir="ss"/>
+		<!-- 切换两个玩家名次应答 -->
+		<message name="MSG_RANKING_CHANGE_ACK" id="4309" type="RANKING_CHANGE_ACK" dir="ss"/>
+		<!-- 排行榜单页信息请求 -->
+		<message name="MSG_RANKING_INFO_REQ" id="4310" type="RANKING_INFO_REQ" dir="cs"/>
+		<!-- 排行榜单页信息请求CenterServer -->
+		<message name="MSG_RANKING_INFO_NTF" id="4311" type="RANKING_PLAYER_ID_REQ" dir="ss"/>
+		<!-- 排行榜信息应答 -->
+		<message name="MSG_RANKING_INFO_ACK" id="4312" type="RANKING_ACK" dir="sc"/>
+		<!-- 排行榜存档事件 -->
+		<message name="MSG_RANKING_SAVED_NTF" id="4313" type="NONE" dir="ss"/>
+		<!-- 排行榜每日刷新结束通知 -->
+		<message name="MSG_RANKING_DAILY_REFRESH" id="4314" type="NONE" dir="ss"/>
+		<!-- 排行榜勇者争霸第一名变更 -->
+		<message name="MSG_RANKING_OFFLINE_FIRST_CHANGE" id="4315" type="NONE" dir="ss"/>
+		<!-- Top榜排名信息通知 -->
+		<message name="MSG_RANKING_TOP_RANK_NTF" id="4316" type="RANKING_TOP_RANK_NTF" dir="ss"/>
+		<!-- 每小时榜排名刷新信息通知 -->
+		<message name="MSG_RANKING_HOURS_FRESH_RANK_NTF" id="4317" type="NONE" dir="ss"/>
+		<!-- 充值排行创建信息 -->
+		<message name="MSG_RANKING_TOP_UP_RANK_QUERY_CREATE_REQ" id="4318" type="TOP_UP_RANK_QUERY_CREATE_REQ" dir="ss" />
+		<!-- 充值排行创建应答 -->
+		<message name="MSG_RANKING_TOP_UP_RANK_QUERY_ACK" id="4319" type="TOP_UP_RANK_INFO_ACK" dir="ss" />
+		
+		<!--================================================================================-->
+		<!-- 称号相关 -->
+		<!--================================================================================-->
+		<message name="MSG_INST_TITLE_REQ" id="4400" type="NONE" dir="cs"/>
+		<message name="MSG_INST_TITLE_ACK" id="4401" type="TITLE_STATE_LIST" dir="sc"/>
+		<!--发送获得称号，跟新称号，MSG_INST_TITLE_ACK-->
+		<!--装备称号-->
+		<message name="MSG_EQUIP_REQ" id="4402" type="EQUIP_TITLE" dir="cs"/>
+		<!--请求更新称号-->
+		<message name="MSG_UPDATE_TITLE" id="4403" type="NONE" dir="cs"/>
+		<!--别人看到其他玩家的称号-->
+		<message name="MSG_PLAYER_TITLE_NTF" id="4404" type="PLAYER_TITLE_LIST" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 防沉迷相关 -->
+		<!--================================================================================-->
+		<!-- 防沉迷信息请求 -->
+		<message name="MSG_FCM_INFO_REQ" id="4500" type="NONE" dir="cs"/>
+		<!-- 防沉迷信息应答 -->
+		<message name="MSG_FCM_INFO_ACK" id="4501" type="FCM_INFO" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 激活码相关 -->
+		<!--================================================================================-->
+		<message name="MSG_ACTIVECODE_USE_REQ" id="4600" type="ACTIVATION_CODE" dir="cs"/>
+		<message name="MSG_ACTIVECODE_USE_ACK" id="4601" type="ACTIVECODE_USE_ACK" dir="ss"/>
+		<message name="MSG_ACTIVECODE_USE_NTF" id="4602" type="ACTIVECODE_USE_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 交易订单相关 -->
+		<!--================================================================================-->
+		<message name="MSG_TRADE_ORDER_REQ" id="4700" type="TRADE_ORDER_INFO" dir="cs"/>
+		<message name="MSG_TRADE_ORDER_ACK" id="4701" type="TRADE_ORDER_INFO" dir="ss"/>
+		<message name="MSG_TRADE_ORDER_STATE_NTF" id="4703" type="TRADE_ORDER_STATE_NTF" dir="ss"/>
+		<message name="MSG_TRADE_ORDER_GROWTH_POINT" id="4705" type="TRADE_ORDER_GROWTH_POINT" dir="ss"/>
+		<!-- 充值订单相关 -->
+		<message name="MSG_PAY_ORDER_REQ" id="4800" type="PAY_ORDER_INFO" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!--坐骑信息-->
+		<!--================================================================================-->
+		<message name="MSG_RIDE_PET_LIST_NTF" id="5000" type="RIDE_PET_LIST" dir="sc"/>
+		<message name="MSG_INIT_RIDE_PET_REQ" id="5001" type="NONE" dir="cs"/>
+		<message name="MSG_INIT_RIDE_PET_ACK" id="5002" type="INIT_RIDE_PET_ACK" dir="sc"/>
+		<!--升级请求-->
+		<message name="MSG_RIDE_PET_LEVELUP_REQ" id="5003" type="RIDE_PET_LEVELUP_REQ" dir="cs"/>
+		<message name="MSG_RIDE_PET_LEVELUP_ACK" id="5004" type="RIDE_PET_LEVELUP_ACK" dir="sc"/>
+		<!--骑宠放生或骑乘请求-->
+		<message name="MSG_RIDE_PET_RIDEORFREE_REQ" id="5005" type="RIDE_PET_RIDEORFREE_REQ" dir="cs"/>
+		<!--骑宠开启栅栏请求-->
+		<message name="MSG_RIDE_PET_OPENfILED_REQ" id="5006" type="RIDE_PET_OPENFILED_REQ" dir="cs"/>
+		<message name="MSG_RIDE_PET_OPENfILED_ACK" id="5007" type="RIDE_PET_OPENFILED_ACK" dir="sc"/>
+		<!--骑宠刻印请求-->
+		<message name="MSG_RIDE_PET_MARK_REQ" id="5009" type="RIDE_PET_MARK_REQ" dir="cs"/>
+		<message name="MSG_RIDE_PET_MARK_ACK" id="5010" type="RIDE_PET_MARK_ACK" dir="sc"/>
+		<!--骑宠更新图鉴-->
+		<message name="MSG_RIDE_PET_ATLAS_ACK" id="5011" type="RIDE_ALTAS_ACK" dir="sc"/>
+		<!--骑宠训练请求-->
+		<!--开启训练栏位的问题-->
+		<message name="MSG_RIDE_PET_TRAIN_POS_REQ" id="5012" type="TRAIN_POST_REQ" dir="cs"/>
+		<!--使用升级石训练请求-->
+		<message name="MSG_RIDE_PET_STONE_TRAIN_REQ" id="5013" type="STONE_TRAIN_REQ" dir="cs"/>
+		<!--完成训练请求-->
+		<message name="MSG_RIDE_PET_END_TRAIN_REQ" id="5014" type="RIDE_TRAIN_REQ" dir="cs"/>
+		<!--立即完成训练请求-->
+		<message name="MSG_RIDE_PET_RIGHT_NOW_TRAIN_REQ" id="5015" type="NOW_TRAIN_REQ" dir="cs"/>
+		<!--骑宠训练的返回-->
+		<message name="MSG_RIDE_PET_TRAIN_INIT_LIST" id="5016" type="RIDE_PET_TRAIN_LIST" dir="sc"/>
+		<!--完成骑宠的训练-->
+		<message name="MSG_RIDE_PET_TRAIN_END_ACK" id="5017" type="END_TRAIN_ACK" dir="sc"/>
+		<!--设置骑宠模式开始训练-->
+		<message name="MSG_RIDE_PET_SET_MODELS_REQ" id="5018" type="RIDE_PET_SET_MODELS_REQ" dir="cs"/>
+		<!--设置训练的骑宠-->
+		<!--message name="MSG_RIDE_PET_SET_TARIN_REQ" id="5092" type="SET_PET_TRAIN_REQ" dir="cs"-->
+		<!--骑宠吸收请求-->
+		<message name="MSG_RIDE_PET_ABSORB_REQ" id="5019" type="RIDE_PET_ABSORB_REQ" dir="cs"/>
+		<!--刷出骑宠物请求-->
+		<message name="MSG_RIDE_PET_UPDATE_REQ" id="5020" type="RIDE_PET_UPDATE_REQ" dir="cs"/>
+		<message name="MSG_RIDE_PET_UPDATE_ACK" id="5021" type="RIDE_PET_UPDATE_ACK" dir="sc"/>
+		<!--骑宠捕获请求-->
+		<message name="MSG_RIDE_PET_CAPTURE_REQ" id="5022" type="SET_RIDE_PET_REQ" dir="cs"/>
+		<!--骑宠赠送礼物请求-->
+		<message name="MSG_RIDE_PET_SENDGIF_REQ" id="5023" type="SET_RIDE_PET_REQ" dir="cs"/>
+		<message name="MSG_RIDE_PET_SENDGIF_ACK" id="5024" type="RIDE_PET_SENDGIF_ACK" dir="sc"/>
+		<!--骑宠刻印清除请求-->
+		<message name="MSG_RIDE_PET_CLEAR_MARK_REQ" id="5025" type="NONE" dir="cs"/>
+
+		<!--================================================================================-->
+		<!-- 宠物相关 -->
+		<!--================================================================================-->
+		<!-- 佣兵 -->
+		<message name="MSG_SOLDIER_ENABLE_REQ" id="5050" type="SOLDIER_ENABLE_REQ" dir="cs"/>
+		<message name="MSG_SOLDIER_ENABLE_ACK" id="5051" type="SOLDIER_ENABLE_ACK" dir="sc"/>
+		<message name="MSG_SOLDIER_RESURGENCE_NTF" id="5052" type="SOLDIER_RESURGENCE_INFO" dir="sc"/>
+
+		<!--================================================================================-->
+		<!-- 金像系统相关 -->
+		<!--================================================================================-->
+		<!--金像请求-->
+		<message name="MSG_GOLDTREE_INFO_REQ" id="5100" type="NONE" dir="cs"/>
+		<message name="MSG_GOLDTREE_INFO_ACK" id="5101" type="GOLDTREE_INFO" dir="sc"/>
+		<message name="MSG_GOLDTREE_END_ACK" id="5102" type="GOLDTREE_END_NTF" dir="sc"/>
+		<!--金像实时战斗信息-->
+		<message name="MSG_GOLDTREE_INFO_NTF" id="5103" type="GOLDTREE_INFO_NTF" dir="sc"/>
+		<!--金像秒CD-->
+		<message name="MSG_GOLDTREE_CD_REQ" id="5104" type="NONE" dir="cs"/>
+		<!--金像购买次数请求-->
+		<message name="MSG_GOLDTREE_BUY_REQ" id="5105" type="NONE" dir="cs"/>
+		<!--金像购买次数应答-->
+		<message name="MSG_GOLDTREE_BUY_ACK" id="5106" type="GOLDTREE_BUY_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 复活相关 -->
+		<!--================================================================================-->
+		<!-- 玩家死亡 -->
+		<message name="MSG_PLAYER_DEAD" id="5200" type="REGULAR_PLAYER_DEAD" dir="sc"/>
+		<!-- 玩家死亡是否复活 -->
+		<message name="MSG_PLAYER_RESURGENCE" id="5201" type="RESURGENCE_TYPE" dir="cs"/>
+		<!-- 玩家复活通知 -->
+		<message name="MSG_SEND_RESURGENCE" id="5202" type="SEND_RESURGENCE" dir="sc"/>
+		<!-- 玩家复活和通知死亡 -->
+		<message name="MSG_RESURGENCE_AND_SEND_DEAD" id="5203" type="RESURGENCE_AND_SEND_DEAD" dir="sc"/>
+		<!-- 玩家死亡但有可用命数 -->
+		<message name="MSG_PLAYER_DEAD_CAN_RELIVE" id="5204" type="NONE" dir="sc"/>
+		<!-- 增加副本复活机会 -->
+		<message name="MSG_DUNGEON_ADD_LIFE_COUNT_REQ" id="5206" type="DUNGEON_LIFE_COUNT" dir="cs" />
+		
+		<!--================================================================================-->
+		<!-- 日常投资相关 -->
+		<!--================================================================================-->
+		<!--日常投资请求-->
+		<message name="MSG_DAY_INVESTMENT_REQ" id="5300" type="NONE" dir="cs"/>
+		<!--日常投资应答-->
+		<message name="MSG_DAY_INVESTMENT_ACK" id="5301" type="DAY_INVESTMENT_ACK" dir="sc"/>
+		<!--领取日常投资奖励请求-->
+		<message name="MSG_DAY_INVESTMENT_ACCEPT_REWARD_REQ" id="5302" type="DAY_INVESTMENT_ACCEPT_REWARD_REQ" dir="cs"/>
+		<!--领取日常投资奖励应答-->
+		<message name="MSG_DAY_INVESTMENT_ACCEPT_REWARD_ACK" id="5303" type="DAY_INVESTMENT_ACCEPT_REWARD_ACK" dir="sc"/>
+		<!--日常投资信息请求-->
+		<message name="MSG_DAY_INVESTMENT_INFO_REQ" id="5304" type="NONE" dir="cs"/>
+		<!--日常投资信息应答-->
+		<message name="MSG_DAY_INVESTMENT_INFO_ACK" id="5305" type="DAY_INVESTMENT_INFO_ACK" dir="sc"/>
+		<!--存档日常投资信息请求-->
+		<message name="MSG_SAVE_DAY_INVESTMENT_INFO_REQ" id="5306" type="SAVE_DAY_INVESTMENT_INFO_REQ" dir="ss"/>
+		<!--存档日常投资信息应答-->
+		<message name="MSG_SAVE_DAY_INVESTMENT_INFO_ACK" id="5307" type="SAVE_DAY_INVESTMENT_INFO_ACK" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 被动技能相关 -->
+		<!--================================================================================-->
+		<!-- 被动技能信息请求 -->
+		<message name="MSG_PASSIVE_SKILL_INFO_REQ" id="5401" type="NONE" dir="cs"/>
+		<!-- 被动技能信息应答 -->
+		<message name="MSG_PASSIVE_SKILL_INFO_ACK" id="5402" type="PASSIVE_SKILL_LIST" dir="sc"/>
+		<!-- 被动技能开启请求 -->
+		<message name="MSG_PASSIVE_SKILL_OPEN_REQ" id="5403" type="SKILL_ID" dir="cs"/>
+		<!-- 被动技能开启应答 -->
+		<message name="MSG_PASSIVE_SKILL_OPEN_ACK" id="5404" type="ERROR_CODE" dir="sc"/>
+		<!-- 被动技能升级请求 -->
+		<message name="MSG_PASSIVE_SKILL_UP_REQ" id="5405" type="SKILL_ID" dir="cs"/>
+		<!-- 被动技能升级应答 -->
+		<message name="MSG_PASSIVE_SKILL_UP_ACK" id="5406" type="ERROR_CODE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 设置相关 -->
+		<!--================================================================================-->
+		<!-- 自动战斗设置信息请求 -->
+		<message name="MSG_AUTO_FIGHT_SETTING_INFO_REQ" id="5500" type="NONE" dir="cs"/>
+		<!-- 自动战斗设置信息应答 -->
+		<message name="MSG_AUTO_FIGHT_SETTING_INFO_ACK" id="5501" type="AUTO_FIGHT_SETTING_INFO" dir="sc"/>
+		<!-- 自动战斗改变设置请求 -->
+		<message name="MSG_AUTO_FIGHT_SETTING_CHANGE_REQ" id="5502" type="AUTO_FIGHT_SETTING_CHANGE_REQ" dir="cs"/>
+		<!-- 自动战斗重置设置请求 -->
+		<message name="MSG_AUTO_FIGHT_SETTING_RESET_REQ" id="5504" type="NONE" dir="cs"/>
+		<!-- 系统设置信息请求 -->
+		<message name="MSG_SYSTEM_SETTING_INFO_REQ" id="5530" type="NONE" dir="cs"/>
+		<!-- 系统设置信息应答 -->
+		<message name="MSG_SYSTEM_SETTING_INFO_ACK" id="5531" type="SYSTEM_SETTING_INFO" dir="sc"/>
+		<!-- 系统设置改变设置请求 -->
+		<message name="MSG_SYSTEM_SETTING_CHANGE_REQ" id="5532" type="SYSTEM_SETTING_CHANGE_REQ" dir="cs"/>
+		<!-- 系统设置重置设置请求 -->
+		<message name="MSG_SYSTEM_SETTING_RESET_REQ" id="5534" type="NONE" dir="cs"/>
+		<!-- 玩家设置信息请求 -->
+		<message name="MSG_PLAYER_SETTING_INFO_REQ" id="5560" type="NONE" dir="cs"/>
+		<!-- 玩家设置信息应答 -->
+		<message name="MSG_PLAYER_SETTING_INFO_ACK" id="5561" type="PLAYER_SETTING_INFO" dir="sc"/>
+		<!-- 玩家设置改变设置请求 -->
+		<message name="MSG_PLAYER_SETTING_CHANGE_REQ" id="5562" type="PLAYER_SETTING_CHANGE_REQ" dir="cs"/>
+		<!-- 自动购买设置信息请求 -->
+		<message name="MSG_AUTOBUY_SETTING_INFO_REQ" id="5570" type="NONE" dir="cs"/>
+		<!-- 自动购买设置信息应答 -->
+		<message name="MSG_AUTOBUY_SETTING_INFO_ACK" id="5571" type="AUTOBUY_SETTING_INFO" dir="sc"/>
+		<!-- 自动购买设置改变设置请求 -->
+		<message name="MSG_AUTOBUY_SETTING_CHANGE_REQ" id="5572" type="AUTOBUY_SETTING_CHANGE_REQ" dir="cs"/>
+		<!-- 自动购买重置设置请求 -->
+		<message name="MSG_AUTOBUY_SETTING_RESET_REQ" id="5574" type="NONE" dir="cs"/>
+		<!-- 自动购买重置设置应答 -->
+		<message name="MSG_AUTOBUY_SETTING_RESET_ACK" id="5575" type="AUTOBUY_SETTING_INFO" dir="sc"/>
+		<!-- 虚空幻境挂机设置信息请求 -->
+		<message name="MSG_VOID_FIELD_SETTING_INFO_REQ" id="5580" type="NONE" dir="cs"/>
+		<!-- 虚空幻境挂机设置信息应答 -->
+		<message name="MSG_VOID_FIELD_SETTING_INFO_ACK" id="5581" type="VOID_FIELD_SETTING_INFO" dir="sc"/>
+		<!-- 虚空幻境挂机改变设置请求 -->
+		<message name="MSG_VOID_FIELD_SETTING_CHANGE_REQ" id="5582" type="VOID_FIELD_SETTING_CHANGE_REQ" dir="cs"/>
+		<!-- 虚空幻境挂机重置设置请求 -->
+		<message name="MSG_VOID_FIELD_SETTING_RESET_REQ" id="5583" type="NONE" dir="cs"/>
+		<!-- 虚空幻境挂机重置设置应答 -->
+		<message name="MSG_VOID_FIELD_SETTING_RESET_ACK" id="5584" type="VOID_FIELD_SETTING_INFO" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 等级投资相关 -->
+		<!--================================================================================-->
+		<!--等级投资请求-->
+		<message name="MSG_LEVEL_INVESTMENT_REQ" id="5600" type="LEVEL_INVESTMENT_REQ" dir="cs"/>
+		<!--等级投资应答-->
+		<message name="MSG_LEVEL_INVESTMENT_ACK" id="5601" type="LEVEL_INVESTMENT_ACK" dir="sc"/>
+		<!--领取等级投资奖励请求-->
+		<message name="MSG_LEVEL_INVESTMENT_ACCEPT_REWARD_REQ" id="5602" type="LEVEL_INVESTMENT_ACCEPT_REWARD_REQ" dir="cs"/>
+		<!--领取等级投资奖励应答-->
+		<message name="MSG_LEVEL_INVESTMENT_ACCEPT_REWARD_ACK" id="5603" type="LEVEL_INVESTMENT_ACCEPT_REWARD_ACK" dir="sc"/>
+		<!--等级投资信息请求-->
+		<message name="MSG_LEVEL_INVESTMENT_INFO_REQ" id="5604" type="NONE" dir="cs"/>
+		<!--等级投资信息应答-->
+		<message name="MSG_LEVEL_INVESTMENT_INFO_ACK" id="5605" type="LEVEL_INVESTMENT_INFO_ACK" dir="sc"/>
+		<!--存档等级投资信息请求-->
+		<message name="MSG_SAVE_LEVEL_INVESTMENT_INFO_REQ" id="5606" type="SAVE_LEVEL_INVESTMENT_INFO_REQ" dir="ss"/>
+		<!--存档等级投资信息应答-->
+		<message name="MSG_SAVE_LEVEL_INVESTMENT_INFO_ACK" id="5607" type="SAVE_LEVEL_INVESTMENT_INFO_ACK" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 投资管理器相关 -->
+		<!--================================================================================-->
+		<!--获取投资操作请求-->
+		<message name="MSG_INVESTMENT_OPERATION_REQ" id="5700" type="INVESTMENT_OPERATION_REQ" dir="cs"/>
+		<!--获取投资操作应答-->
+		<message name="MSG_INVESTMENT_OPERATION_ACK" id="5701" type="INVESTMENT_OPERATION_ACK" dir="sc"/>
+		<!--投资操作通告-->
+		<message name="MSG_INVESTMENT_OPERATION_NTF" id="5702" type="INVESTMENT_OPERATION_NTF" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 等级活动相关 -->
+		<!--================================================================================-->
+		<!--存档等级活动信息请求-->
+		<message name="MSG_SAVE_LEVEL_ACTIVITY_INFO_REQ" id="5804" type="SAVE_LEVEL_ACTIVITY_INFO_REQ" dir="ss"/>
+		<!--存档等级活动信息应答-->
+		<message name="MSG_SAVE_LEVEL_ACTIVITY_INFO_ACK" id="5805" type="SAVE_LEVEL_ACTIVITY_INFO_ACK" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 特殊活动系统相关 -->
+		<!--================================================================================-->
+		<!--特殊活动战力排行榜通告-->
+		<message name="MSG_SPECIAL_ACTIVITY_BATTLE_POWER_ACTIVITY_REQ" id="5900" type="SPECIAL_ACTIVITY_BATTLE_POWER_ACTIVITY_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_BATTLE_POWER_ACTIVITY_ACK" id="5901" type="SPECIAL_ACTIVITY_BATTLE_POWER_ACTIVITY_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_BATTLE_POWER_RANKING_REQ" id="5902" type="NONE" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_BATTLE_POWER_RANKING_ACK" id="5903" type="SPECIAL_ACTIVITY_BATTLE_POWER_RANKING_ACK" dir="ss"/>
+		<message name="MSG_FIRST_TIME_RECHARGE_INFO_REQ" id="5904" type="NONE" dir="cs"/>
+		<message name="MSG_FIRST_TIME_RECHARGE_INFO_ACK" id="5905" type="FIRST_TIME_RECHARGE_INFO" dir="sc"/>
+		<message name="MSG_FIRST_TIME_RECHARGE_ACCEPT_REWARD_REQ" id="5906" type="NONE" dir="cs"/>
+		<message name="MSG_FIRST_TIME_RECHARGE_ACCEPT_REWARD_ACK" id="5907" type="FIRST_TIME_RECHARGE_ACCEPT_REWARD_ACK" dir="sc"/>
+		<message name="MSG_SPECIAL_ACTIVITY_SAVE_INFO_REQ" id="5908" type="SPECIAL_ACTIVITY_STORE_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_SAVE_INFO_ACK" id="5909" type="SPECIAL_ACTIVITY_STORE_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_LOAD_INFO_REQ" id="5910" type="SPECIAL_ACTIVITY_STORE_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_LOAD_INFO_ACK" id="5911" type="SPECIAL_ACTIVITY_STORE_INFO" dir="ss"/>
+		<message name="MSG_SPECIAL_ACTIVITY_INFO_REQ" id="5912" type="SPECIAL_ACTIVITY_INFO_REQ" dir="cs"/>
+		<message name="MSG_SPECIAL_ACTIVITY_INFO_ACK" id="5913" type="SPECIAL_ACTIVITY_INFO_ACK" dir="sc"/>
+		<message name="MSG_SPECIAL_ACTIVITY_ACCEPT_REWARD_REQ" id="5914" type="SPECIAL_ACTIVITY_ACCEPT_REWARD_REQ" dir="cs"/>
+		<message name="MSG_SPECIAL_ACTIVITY_ACCEPT_REWARD_ACK" id="5915" type="SPECIAL_ACTIVITY_ACCEPT_REWARD_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 两派PK活动相关 -->
+		<!--================================================================================-->
+		<message name="MSG_FACTION_PK_REQ" id="6100" type="NONE" dir="cs"/>
+		<message name="MSG_FACTION_PK_ACK" id="6101" type="FACTION_PK_ACK" dir="sc"/>
+		<message name="MSG_FACTION_PK_RANK_NTF" id="6102" type="FACTION_PK_RANK_NTF" dir="sc"/>
+		<message name="MSG_FACTION_PK_END_ACK" id="6103" type="FACTION_PK_END_ACK" dir="sc"/>
+		<message name="MSG_FACTION_PK_START_NTF" id="6104" type="FACTION_PK_START_NTF" dir="ss"/>
+		<message name="MSG_FACTION_PK_END_NTF" id="6105" type="NONE" dir="ss"/>
+		<message name="MSG_FACTION_PK_SCORE_NTF" id="6106" type="FACTION_PK_SCORE_NTF" dir="sc"/>
+		<message name="MSG_FACTION_PK_BATTLE_NTF" id="6107" type="FACTION_PK_BATTLE_NTF" dir="sc"/>
+		<message name="MSG_FACTION_PK_ADD_SCORE" id="6108" type="FACTION_PK_ADD_SCORE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 活跃度相关 -->
+		<!--================================================================================-->
+		<!--活跃度信息请求-->
+		<message name="MSG_LIVENESS_INFO_REQ" id="6200" type="NONE" dir="cs"/>
+		<!--活跃度信息应答-->
+		<message name="MSG_LIVENESS_INFO_ACK" id="6201" type="LIVENESS_INFO" dir="sc"/>
+		<!--领取活跃度奖励请求-->
+		<message name="MSG_LIVENESS_ACCEPT_REWARD_REQ" id="6202" type="LIVENESS_ACCEPT_REWARD_REQ" dir="cs"/>
+		<!--领取活跃度奖励应答-->
+		<message name="MSG_LIVENESS_ACCEPT_REWARD_ACK" id="6203" type="LIVENESS_ACCEPT_REWARD_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 守卫地宫 -->
+		<!--================================================================================-->
+		<!--当前波信息-->
+		<message name="MSG_TD_CURRENT_WAVE_INFO_NTF" id="6301" type="CURRENT_WAVE_INFO" dir="sc"/>
+		<!--排行信息-->
+		<message name="MSG_TD_RANK_INFO_NTF" id="6302" type="TD_RANK_NTF" dir="sc"/>
+		<!--玩家进入游戏-->
+		<message name="MSG_TD_PLAYER_ENTER_NTF" id="6303" type="TD_PLAYER_ENTER_NTF" dir="sc"/>
+		<!--奖励-->
+		<message name="MSG_TD_REWARDS_NTF" id="6304" type="REWARD_TABLE" dir="sc"/>
+		<!--进入地宫请求-->
+		<message name="MSG_TD_ENTER_REQ" id="6305" type="NONE" dir="cs"/>
+		<!--进入地宫请求-->
+		<message name="MSG_TD_ENTER_ACK" id="6306" type="TD_ENTER_ACK" dir="sc"/>
+		<!--地宫信息请求-->
+		<message name="MSG_TD_INFO_REQ" id="6307" type="NONE" dir="cs"/>
+		<!--地宫信息应答-->
+		<message name="MSG_TD_INFO_ACK" id="6308" type="DUNGEON_TIMES_INFO" dir="sc"/>
+		<!--地宫跑掉怪物信息-->
+		<message name="MSG_TD_ENTER_TRIGGER_NTF" id="6309" type="TD_ENTER_TRIGGER_NTF" dir="sc"/>
+		<!--地宫开始-->
+		<message name="MSG_TD_START_NTF" id="6310" type="TD_START_NTF" dir="ss"/>
+		<!--地宫结束-->
+		<message name="MSG_TD_END_NTF" id="6311" type="NONE" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 定时触发相关 -->
+		<!--================================================================================-->
+		<!-- 定时触发开始 -->
+		<message name="MSG_TIMING_TRIGGER_START_NTF" id="6400" type="TIMING_TRIGGER_START_NTF" dir="ss"/>
+		<!-- 定时触发结束 -->
+		<message name="MSG_TIMING_TRIGGER_END_NTF" id="6401" type="TIMING_TRIGGER_END_NTF" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 城市争夺战相关 -->
+		<!--================================================================================-->
+		<!--城市争夺战开始(ts广播)-->
+		<message name="MSG_CITY_FIGHT_START_NTF" id="6500" type="NONE" dir="ss"/>
+		<!--城市争夺战结束(ts广播)-->
+		<message name="MSG_CITY_FIGHT_END_NTF" id="6501" type="NONE" dir="ss"/>
+		<!--城市争夺战信息请求-->
+		<message name="MSG_CITY_FIGHT_INFO_REQ" id="6502" type="NONE" dir="cs"/>
+		<!--城市争夺战信息应答-->
+		<message name="MSG_CITY_FIGHT_INFO_ACK" id="6503" type="CITY_FIGHT_ALL_CITY_INFO" dir="sc"/>
+		<!--城市争夺战进入请求-->
+		<message name="MSG_CITY_FIGHT_ENTER_REQ" id="6504" type="CITY_FIGHT_ENTER_REQ" dir="cs"/>
+		<!--城市争夺战进入应答-->
+		<message name="MSG_CITY_FIGHT_ENTER_ACK" id="6505" type="CITY_FIGHT_ENTER_ACK" dir="sc"/>
+		<!--城市争夺战公会伤害排行-->
+		<message name="MSG_CITY_FIGHT_GUILD_DAMAGE_NTF" id="6506" type="GUILD_DAMAGE_RANK_LIST" dir="sc"/>
+		<!-- 城市争夺战城市占领广播 -->
+		<message name="MSG_CITY_FIGHT_CITY_OCCUPY_NTF" id="6507" type="CITY_FIGHT_CITY_OCCUPY_NTF" dir="sc"/>
+		<!--城市争夺战领取奖励请求-->
+		<message name="MSG_CITY_FIGHT_REWARD_REQ" id="6508" type="CITY_FIGHT_REWARD_REQ" dir="cs"/>
+		<!--城市争夺战领取奖励应答-->
+		<message name="MSG_CITY_FIGHT_REWARD_ACK" id="6509" type="CITY_FIGHT_REWARD_ACK" dir="sc"/>
+		<!--城市争夺战信息广播请求-->
+		<message name="MSG_CITY_FIGHT_INFO_NTF_REQ" id="6512" type="NONE" dir="ss"/>
+		<!--城市争夺战信息广播应答-->
+		<message name="MSG_CITY_FIGHT_INFO_NTF_ACK" id="6513" type="CITY_FIGHT_INFO_NTF" dir="ss"/>
+		<!--城市争夺战信息广播-->
+		<message name="MSG_CITY_FIGHT_INFO_NTF" id="6514" type="CITY_FIGHT_INFO_NTF" dir="ss"/>
+		<!--城市争夺战真正开始(活动gs广播)-->
+		<message name="MSG_CITY_FIGHT_REALLY_START_NTF" id="6515" type="NONE" dir="sc"/>
+		<!--城市争夺战真正结束(活动gs广播)-->
+		<message name="MSG_CITY_FIGHT_REALLY_END_NTF" id="6516" type="NONE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 玩法信息相关 -->
+		<!--================================================================================-->
+		<!-- 请求玩法信息数据 -->
+		<message name="MSG_GAMEPLAY_TIMES_NOTIFY_REQ" id="6601" type="GAMEPLAY_TIMES_NOTIFY_REQ" dir="cs"/>
+		<!-- 玩法信息数据 -->
+		<message name="MSG_GAMEPLAY_TIMES_NOTIFY_ACK" id="6602" type="GAMEPLAY_TIMES_NOTIFY_LIST" dir="sc"/>
+		<!-- 奖励信息数据 -->
+		<message name="MSG_GAME_NOTIFY_REWARD_NTF" id="6604" type="GAMEPLAY_TIMES_NOTIFY" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 对比数据 -->
+		<!--================================================================================-->
+		<!-- 请求对比数据 -->
+		<message name="MSG_CONTRAST_REQ" id="6701" type="GAME_CONTRAST_REQ" dir="cs"/>
+		<!-- 对比数据 -->
+		<message name="MSG_CONTRAST_ACK" id="6702" type="GAME_CONTRASTS" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 圣光生存战相关 -->
+		<!--================================================================================-->
+		<!--圣光生存战开始(ts广播)-->
+		<message name="MSG_CITY_SURVIVAL_START_NTF" id="6800" type="NONE" dir="ss"/>
+		<!--圣光生存战结束(ts广播)-->
+		<message name="MSG_CITY_SURVIVAL_END_NTF" id="6801" type="NONE" dir="ss"/>
+		<!--圣光生存战真正开始(活动gs广播)-->
+		<message name="MSG_CITY_SURVIVAL_REALLY_START_NTF" id="6802" type="NONE" dir="sc"/>
+		<!--圣光生存战真正结束(活动gs广播)-->
+		<message name="MSG_CITY_SURVIVAL_REALLY_END_NTF" id="6803" type="NONE" dir="sc"/>
+		<!--圣光生存战信息请求-->
+		<message name="MSG_CITY_SURVIVAL_INFO_REQ" id="6804" type="NONE" dir="cs"/>
+		<!--圣光生存战信息应答-->
+		<message name="MSG_CITY_SURVIVAL_INFO_ACK" id="6805" type="CITY_SURVIVAL_INFO" dir="sc"/>
+		<!--圣光生存战进入请求-->
+		<message name="MSG_CITY_SURVIVAL_ENTER_REQ" id="6806" type="NONE" dir="cs"/>
+		<!--圣光生存战进入应答-->
+		<message name="MSG_CITY_SURVIVAL_ENTER_ACK" id="6807" type="ERROR_CODE" dir="sc"/>
+		<!--圣光生存战排行广播-->
+		<message name="MSG_CITY_SURVIVAL_RANK_NTF" id="6808" type="CITY_SURVIVAL_RANK_NTF" dir="sc"/>
+		<!--圣光生存战波信息广播-->
+		<message name="MSG_CITY_SURVIVAL_WAVE_NTF" id="6809" type="CITY_SURVIVAL_WAVE_INFO" dir="sc"/>
+		<!--圣光生存战奖励-->
+		<message name="MSG_CITY_SURVIVAL_REWARDS_NTF" id="6810" type="CITY_SURVIVAL_REWARDS_NTF" dir="sc"/>
+		<!--圣光生存战信息广播(活动gs广播)-->
+		<message name="MSG_CITY_SURVIVAL_INFO_NTF" id="6811" type="CITY_SURVIVAL_INFO_NTF" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 开旗相关 -->
+		<!--================================================================================-->
+		<!--开旗请求-->
+		<message name="MSG_TOUCH_START_REQ" id="6900" type="TOUCH_START_REQ" dir="cs"/>
+		<!--开旗应答-->
+		<message name="MSG_TOUCH_START_ACK" id="6901" type="TOUCH_START_ACK" dir="sc"/>
+		<!--开旗打断-->
+		<message name="MSG_TOUCH_BREAK_NTF" id="6902" type="TOUCH_BREAK_NTF" dir="sc"/>
+		<!--开旗成功-->
+		<message name="MSG_TOUCH_END_NTF" id="6903" type="TOUCH_END_NTF" dir="sc"/>
+		<!--夺旗活动开始-->
+		<message name="MSG_CAPTURE_FLAG_START_NTF" id="6904" type="CAPTURE_FLAG_START_NTF" dir="ss"/>
+		<!--夺旗活动结束-->
+		<message name="MSG_CAPTURE_FLAG_END_NTF" id="6905" type="NONE" dir="ss"/>
+		<!--夺旗排行榜-->
+		<message name="MSG_CAPTURE_FLAG_RANK_NTF" id="6906" type="CAPTURE_FLAG_RANK_LIST" dir="sc"/>
+		<!--夺旗团队积分-->
+		<message name="MSG_CAPTURE_FLAG_GROUP_SOCRE_NTF" id="6907" type="CAPTURE_FLAG_GROUP_SCORE" dir="sc"/>
+		<!--夺旗关卡结束-->
+		<message name="MSG_CAPTURE_FLAG_END_ACK" id="6911" type="CAPTURE_FLAG_END_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!--点石成金-->
+		<!--================================================================================-->
+		<!--点石成金-->
+		<message name="MSG_STONE_TURN_GOLD_REQ" id="7000" type="STONE_TURN_GOLD" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!--单人答题-->
+		<!--================================================================================-->
+		<message name="MSG_SINGLE_ANSWER_NTF" id="7100" type="NONE" dir="cs"/>
+		<message name="MSG_SINGLE_ANSWER_ACK" id="7101" type="SINGLE_ANSWER_INI_ACK" dir="sc"/>
+		<message name="MSG_SINGLE_ANSWER_QUESTION_REQ" id="7102" type="NONE" dir="cs"/>
+		<message name="MSG_SINGLE_ANSWER_QUESTION_ACK" id="7103" type="SINGLE_QUESTION_ACK" dir="sc"/>
+		<message name="MSG_SINGLE_ANSWER_RESULT_REQ" id="7104" type="SINGLE_RESLUT_REQ" dir="cs"/>
+		<message name="MSG_SINGLE_ANSWER_RESULT_ACK" id="7105" type="SINGLE_ANSWER_RESULT_ACK" dir="sc"/>
+		<message name="MSG_SINGLE_ANSWER_REWARD_ACK" id="7107" type="SINGLE_ANSWER_INI_ACK" dir="sc"/>
+		<!--单人秒cd时间-->
+		<message name="MSG_SINGLE_ANSWER_CD_TIME_REQ" id="7110" type="NONE" dir="cs"/>
+		<message name="MSG_SINGLE_ANSWER_CD_TIME_ACK" id="7111" type="SINGLE_ANSWER_CD_TIME_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!--充值-->
+		<!--================================================================================-->
+		<message name="MSG_PLAYER_RECHARGE_INFO_NTF" id="7300" type="PLAYER_RECHARGE_INFO" dir="ss"/>
+		
+		<!--饭点领体力-->
+		<message name="MSG_GET_MEAL_VIGOR_REQ" id="7501" type="NONE" dir="cs"/>
+		<message name="MSG_GET_MEAL_VIGOR_ACK" id="7502" type="GET_MEAL_VIGOR_ACK" dir="sc"/>
+		<!--离线体力-->
+		<message name="MSG_OFF_LINE_VIGOR_REQ" id="7503" type="NONE" dir="cs"/>
+		<message name="MSG_OFF_LINE_VIGOR_ACK" id="7504" type="OFF_LINE_VIGOR_ACK" dir="sc"/>
+		<message name="MSG_GET_OFF_LINE_VIGOR_REQ" id="7505" type="GET_OFF_LINE_VIGOR_REQ" dir="cs"/>
+		<message name="MSG_GET_OFF_LINE_VIGOR_ACK" id="7506" type="GET_OFF_LINE_VIGOR_ACK" dir="sc"/>
+		
+		<!--===============================================================================-->
+		<!-- 化身 -->
+		<!--================================================================================-->
+		<!--时装信息-->
+		<message name="MSG_SET_FASHION_REQ" id="7601" type="SET_FASHION_REQ" dir="cs"/>
+		<message name="MSG_SET_FASHION_ACK" id="7602" type="SET_FASHION_ACK" dir="sc"/>
+		<message name="MSG_FASHION_LIST_NTF" id="7603" type="FASHION_LIST" dir="sc"/>
+		<!--时装图鉴-->
+		<message name="MSG_FASHION_ATLAS_REQ" id="7604" type="NONE" dir="cs"/>
+		<!--时装合成-->
+		<message name="MSG_FASHION_COMPOSE_REQ" id="7606" type="FASHION_COMPOSE_REQ" dir="cs"/>
+		<message name="MSG_FASHION_COMPOSE_ACK" id="7607" type="FASHION_COMPOSE_ACK" dir="sc"/>
+		<!--激活时装 -->
+		<message name="MSG_FASHION_ACTIVATE_REQ" id="7610" type="FASHION_ACTIVATE_REQ" dir="cs"/>
+		<message name="MSG_FASHION_ACTIVATE_ACK" id="7611" type="ERROR_CODE" dir="sc"/>
+		<!--时装升级 -->
+		<message name="MSG_FASHION_LEVEL_UP_REQ" id="7612" type="FASHION_ACTIVATE_REQ" dir="cs"/>
+		<message name="MSG_FASHION_LEVEL_UP_ACK" id="7613" type="ERROR_CODE" dir="sc"/>
+		<!--时装宝藏抽卡 -->
+		<message name="MSG_FASHION_GET_TREASURE_REQ" id="7614" type="FASHION_GET_TREASURE_REQ" dir="cs"/>
+		<message name="MSG_FASHION_GET_TREASURE_ACK" id="7615" type="FASHION_GET_TREASURE_ACK" dir="sc"/>
+		<!--时装碎片熔炼卡 -->
+		<message name="MSG_FASHION_SMELT_REQ" id="7616" type="FASHION_SMELT_REQ" dir="cs"/>
+		<message name="MSG_FASHION_SMELT_ACK" id="7617" type="FASHION_SMELT_ACK" dir="sc"/>
+		<!--化身点购买请求 -->
+		<message name="MSG_INCARNATION_BUY_REQ" id="7618" type="INCARNATION_BUY_REQ" dir="cs"/>
+		<message name="MSG_INCARNATION_BUY_ACK" id="7619" type="ERROR_CODE" dir="sc"/>
+		<!--序章时装-->
+		<message name="MSG_TEASER_FASHION_NTF" id="7621" type="TEASER_FASHION_NTF" dir="sc"/>
+		<!--化身技能设置-->
+		<message name="MSG_FASHION_SKILL_REQ" id="7623" type="SET_FASHION_REQ" dir="cs"/>
+		<!--化身技能设置-->
+		<message name="MSG_FASHION_SKILL_NTF" id="7624" type="ERROR_CODE" dir="sc"/>
+		<!--化身技能信息-->
+		<message name="MSG_FASHION_SKILL_INFO_REQ" id="7625" type="ERROR_CODE" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 跨服组队相关                                                                  -->
+		<!--================================================================================-->
+		<!--队伍列表信息-->
+		<message name="MSG_CROSS_TEAM_SHOW_LIST_REQ" id="7700" type="CROSS_TEAM_SHOW_LIST_REQ" dir="cs"/>
+		<message name="MSG_CROSS_TEAM_SHOW_LIST_ACK" id="7701" type="CROSS_TEAM_SHOW_LIST_ACK" dir="sc"/>
+		<!--队伍信息请求-->
+		<message name="MSG_CROSS_TEAM_INFO_REQ" id="7702" type="CROSS_TEAM_INFO_REQ" dir="cs"/>
+		<!--队伍信息通知-->
+		<message name="MSG_CROSS_TEAM_INFO_NTF" id="7703" type="CROSS_TEAM_INFO" dir="sc"/>
+		<!--创建队伍请求-->
+		<message name="MSG_CROSS_CREATE_TEAM_REQ" id="7704" type="CROSS_TEAM_CREATE_REQ" dir="cs"/>
+		<!--创建队伍应答-->
+		<message name="MSG_CROSS_CREATE_TEAM_ACK" id="7705" type="ERROR_CODE" dir="sc"/>
+		<!--销毁队伍请求-->
+		<message name="MSG_CROSS_DESTORY_TEAM_REQ" id="7706" type="CROSS_TEAM_INFO_REQ" dir="cs"/>
+		<!--销毁队伍应答-->
+		<message name="MSG_CROSS_DESTORY_TEAM_ACK" id="7707" type="ERROR_CODE" dir="sc"/>
+		<!--离开队伍通知-->
+		<message name="MSG_CROSS_TEAM_MEMBER_DEL_REQ" id="7710" type="CROSS_TEAM_MEMBER_DEL_REQ" dir="cs"/>
+		<message name="MSG_CROSS_TEAM_MEMBER_DEL_ACK" id="7711" type="CROSS_TEAM_MEMBER_DEL_ACK" dir="sc"/>
+		<!--快速加入队伍请求-->
+		<message name="MSG_CROSS_TEAM_QUICK_JOIN_REQ" id="7712" type="CROSS_TEAM_QUICK_JOIN_REQ" dir="cs"/>
+		<!--队友加入确认-->
+		<message name="MSG_CROSS_TEAM_MEMBER_ADD_ANS" id="7713" type="CROSS_TEAM_MEMBER_ADD_ACK" dir="cs"/>
+		<!--队友加入应答-->
+		<message name="MSG_CROSS_TEAM_MEMBER_ADD_ACK" id="7714" type="CROSS_TEAM_MEMBER_ADD_ACK" dir="sc"/>
+		<!--成员准备请求-->
+		<message name="MSG_CROSS_TEAM_MEMBER_READY_REQ" id="7715" type="CROSS_TEAM_MEMBER_READY_NTF" dir="cs"/>
+		<!--成员准备应答-->
+		<message name="MSG_CROSS_TEAM_MEMBER_READY_ACK" id="7716" type="CROSS_TEAM_MEMBER_READY_NTF" dir="sc"/>
+		<!--队伍标记操作-->
+		<message name="MSG_CROSS_TEAM_FLAG_SET_REQ" id="7717" type="TEAM_FLAG_SET_REQ" dir="cs"/>
+		<!--队伍进入副本请求-->
+		<message name="MSG_CROSS_TEAM_ENTER_DUNGEON" id="7720" type="NONE" dir="cs"/>
+		<!--队伍进入副本通知-->
+		<message name="MSG_CROSS_TEAM_NOTIFY_DUNGEON" id="7721" type="CHANGE_DUNGEON_REQ" dir="sc"/>
+		<!--购买进入组队副本次数-->
+		<message name="MSG_CROSS_TEAM_BUY_DUNGEON_TIMES_REQ" id="7730" type="NONE" dir="cs"/>
+		<!--队伍副本结算消息-->
+		<message name="MSG_CROSS_TEAM_DUNGEON_DAMAGE_LIST" id="7740" type="TEAM_DUNGEON_DAMAGE_LIST" dir="sc"/>
+		<!--队伍副本结算消息-->
+		<message name="MSG_CROSS_TEAM_DUNGEON_END_NTF" id="7741" type="TEAM_DUNGEON_END_NTF" dir="sc"/>
+		<!--副本分数信息请求-->
+		<message name="MSG_CROSS_TEAM_DUNGEON_SCORE_INFO_REQ" id="7751" type="CROSS_TEAM_DUNGEON_SCORE_INFO_REQ" dir="cs"/>
+		<!--副本分数信息应答-->
+		<message name="MSG_CROSS_TEAM_DUNGEON_SCORE_INFO_ACK" id="7752" type="CROSS_TEAM_DUNGEON_SCORE_INFO_LIST" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 保卫萝卜 8000-8099                                                                  	-->
+		<!--================================================================================-->
+
+		
+		<!--================================================================================-->
+		<!-- 善恶规则 8100-8199                                                             -->
+		<!--================================================================================-->
+		<message name="MSG_CREATURE_EVIL_LIST_NTF" id="8101" type="CREATURE_EVIL_LIST" dir="sc"/>
+		<message name="MSG_FIGHT_MODE_REQ" id="8102" type="FIGHT_MODE_REQ" dir="cs"/>
+		<message name="MSG_FIGHT_MODE_ACK" id="8103" type="FIGHT_MODE_ACK" dir="sc"/>
+		<message name="MSG_EMEMY_INFO_NTF" id="8105" type="ENEMY_INFO" dir="sc"/>
+		<message name="MSG_EMEMY_UPDATE_NTF" id="8107" type="ENEMY_INFO" dir="sc"/>
+		<message name="MSG_ENEMY_ATTACKER_NTF" id="8109" type="ENEMY_ATTACKER_INFO" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 虚空幻境 8200-8299                                                             -->
+		<!--================================================================================-->
+		<!--虚空幻境频道信息请求-->
+		<message name="MSG_VOID_FIELD_CHANNEL_INFO_REQ" id="8200" type="VOID_FIELD_CHANNEL_INFO_REQ" dir="cs"/>
+		<!--虚空幻境频道信息应答-->
+		<message name="MSG_VOID_FIELD_CHANNEL_INFO_ACK" id="8201" type="VOID_FIELD_CHANNEL_INFO_ACK" dir="sc"/>
+		<!--虚空幻境规则类型通知-->
+		<message name="MSG_VOID_FIELD_REGULAR_TYPE_NTF" id="8203" type="VOID_FIELD_REGULAR_TYPE_NTF" dir="sc"/>
+		<!--虚空宝箱数量-->
+		<message name="MSG_VOID_FIELD_CHESTS_NUM_NTF" id="8205" type="VOID_FIELD_CHESTS_NUM" dir="sc"/>
+		<!--虚空幻境超出攻击范围-->
+		<message name="MSG_VOID_FIELD_OVER_RANGE_NTF" id="8207" type="NONE" dir="sc"/>
+		<!--虚空幻境BOSS伤害排名-->
+		<message name="MSG_VOID_FIELD_BOSS_DAMAGE_NTF" id="8211" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!--虚空幻境个人信息-->
+		<message name="MSG_VOID_FIELD_PERSONAL_INFO_NTF" id="8213" type="VOID_FIELD_PERSONAL_INFO_NTF" dir="sc"/>
+		<!--虚空幻境月黑奖励宝箱通知-->
+		<message name="MSG_VOID_FIELD_REWARD_BOX_NTF" id="8214" type="NONE" dir="sc"/>
+		<!--虚空幻境设置挂机点位置请求-->
+		<message name="MSG_VOID_FIELD_SET_HOOK_POS_REQ" id="8216" type="VOID_FIELD_SET_HOOK_POS_REQ" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 虚空幻境SOLO                                                                       -->
+		<!--================================================================================-->
+		<!--虚空幻境频道信息请求-->
+		<message name="MSG_VOID_FIELD_SOLO_CHANNEL_INFO_REQ" id="8250" type="VOID_FIELD_CHANNEL_INFO_REQ" dir="cs"/>
+		<!--虚空幻境频道信息应答-->
+		<message name="MSG_VOID_FIELD_SOLO_CHANNEL_INFO_ACK" id="8251" type="VOID_FIELD_CHANNEL_INFO_ACK" dir="sc"/>
+		<!--虚空幻境规则类型通知-->
+		<message name="MSG_VOID_FIELD_SOLO_REGULAR_TYPE_NTF" id="8253" type="VOID_FIELD_REGULAR_TYPE_NTF" dir="sc"/>
+		<!--虚空宝箱数量-->
+		<message name="MSG_VOID_FIELD_SOLO_CHESTS_NUM_NTF" id="8255" type="VOID_FIELD_CHESTS_NUM" dir="sc"/>
+		<!--虚空幻境超出攻击范围-->
+		<message name="MSG_VOID_FIELD_SOLO_OVER_RANGE_NTF" id="8257" type="NONE" dir="sc"/>
+		<!--虚空幻境BOSS伤害排名-->
+		<message name="MSG_VOID_FIELD_SOLO_BOSS_DAMAGE_NTF" id="8261" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!--虚空幻境个人信息-->
+		<message name="MSG_VOID_FIELD_SOLO_PERSONAL_INFO_NTF" id="8263" type="VOID_FIELD_PERSONAL_INFO_NTF" dir="sc"/>
+		<!--虚空幻境设置挂机点位置请求-->
+		<message name="MSG_VOID_FIELD_SOLO_SET_HOOK_POS_REQ" id="8266" type="VOID_FIELD_SET_HOOK_POS_REQ" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 勇敢的心                                                                  	    -->
+		<!--================================================================================-->
+		<message name="MSG_BH_INFO_NTF" id="8301" type="BH_INFO" dir="sc"/>
+		<message name="MSG_BH_INFO_REQ" id="8302" type="NONE" dir="cs"/>
+		<message name="MSG_BH_INFO_ACK" id="8303" type="BH_INFO" dir="sc"/>
+		<message name="MSG_BH_SELECT_TYPE_REQ" id="8304" type="BH_SELECT_TYPE_REQ" dir="cs"/>
+		<message name="MSG_BH_SELECT_TYPE_ACK" id="8305" type="BH_SELECT_TYPE_ACK" dir="sc"/>
+		<message name="MSG_BH_START_REQ" id="8306" type="BH_START_REQ" dir="cs"/>
+		<message name="MSG_BH_START_ACK" id="8307" type="BH_START_ACK" dir="sc"/>
+		<message name="MSG_BH_REDEEM_REQ" id="8308" type="BH_REDEEM_REQ" dir="cs"/>
+		<message name="MSG_BH_REDEEM_ACK" id="8309" type="BH_REDEEM_ACK" dir="sc"/>
+		<message name="MSG_BH_END_NTF" id="8311" type="BH_END" dir="sc"/>
+		<message name="MSG_BH_REWARD_REQ" id="8312" type="BH_REWARD_REQ" dir="cs"/>
+		<message name="MSG_BH_REWARD_ACK" id="8313" type="BH_REWARD_ACK" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 圣剑相关 -->
+		<!--================================================================================-->
+		<!--圣剑信息请求-->
+		<message name="MSG_SWORD_INFO_REQ" id="8400" type="NONE" dir="cs"/>
+		<!--圣剑信息应答-->
+		<message name="MSG_SWORD_INFO_ACK" id="8401" type="SWORD_NEW_INFO" dir="sc"/>
+		<!--升星请求-->
+		<message name="MSG_SWORD_UPGRADE_REQ" id="8402" type="SWORD_UPGRADE_REQ" dir="cs"/>
+		<!--升星应答-->
+		<message name="MSG_SWORD_UPGRADE_ACK" id="8403" type="SWORD_UPGRADE_ACK" dir="sc"/>
+		<!--升阶请求-->
+		<message name="MSG_SWORD_ADVANCE_REQ" id="8404" type="SWORD_ADVANCE_REQ" dir="cs"/>
+		<!--升阶应答-->
+		<message name="MSG_SWORD_ADVANCE_ACK" id="8405" type="SWORD_ADVANCE_ACK" dir="sc"/>
+		<!--激活请求-->
+		<message name="MSG_SWORD_ACTIVATE_REQ" id="8406" type="SWORD_ACTIVATE_REQ" dir="cs"/>
+		<!--激活应答-->
+		<message name="MSG_SWORD_ACTIVATE_ACK" id="8407" type="SWORD_ACTIVATE_ACK" dir="sc"/>
+		<!--解锁请求-->
+		<message name="MSG_SWORD_LOCK_REQ" id="8408" type="SWORD_LOCK_REQ" dir="cs"/>
+		<!--解锁应答-->
+		<message name="MSG_SWORD_LOCK_ACK" id="8409" type="SWORD_LOCK_ACK" dir="sc"/>
+		<!--装备请求-->
+		<message name="MSG_SWORD_EQUIP_REQ" id="8410" type="SWORD_EQUIP_REQ" dir="cs"/>
+		<!--装备应答-->
+		<message name="MSG_SWORD_EQUIP_ACK" id="8411" type="SWORD_EQUIP_ACK" dir="sc"/>
+		<!--================================================================================-->
+		<!-- 僵尸生存相关                                                                   -->
+		<!--================================================================================-->
+		<!-- 僵尸副本结算消息-->
+		<message name="MSG_ZOMBIE_OPEN_CHEST_REQ" id="8500" type="NONE" dir="cs"/>
+		<!-- 僵尸副本信息请求-->
+		<message name="MSG_ZOMBIE_WAR_INFO_REQ" id="8501" type="NONE" dir="cs"/>
+		<!-- 僵尸副本信息返回-->
+		<message name="MSG_ZOMBIE_WAR_INFO_ACK" id="8502" type="ZOMBIE_WAR_INFO" dir="sc"/>
+		<!-- 僵尸副本更新-->
+		<message name="MSG_ZOMBIE_WAR_UPDATE_NTF" id="8503" type="ZOMBIE_WAR_UPDATE" dir="sc"/>
+		<!-- 僵尸副结束消息-->
+		<message name="MSG_ZOMBIE_WAR_EXIT" id="8504" type="ZOMBIE_WAR_END" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 片头引子                                                                  	    -->
+		<!--================================================================================-->
+		<message name="MSG_TEASER_END_NTF" id="8601" type="TEASER_END" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 360平台消息                                                                  	-->
+		<!--================================================================================-->
+		<message name="MSG_PUSH_360_NTF" id="8700" type="PUSH_360_NTF" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 服务器全局设置相关 -->
+		<!--================================================================================-->
+		<!-- 全局设置请求更新-->
+		<message name="MSG_GLOBAL_SETTING_INFO_LOAD_REQ" id="8800" type="NONE" dir="ss"/>
+		<!-- 全局设置更新-->
+		<message name="MSG_GLOBAL_SETTING_INFO_LOAD" id="8801" type="GLOBAL_CONFIG_BAG" dir="ss"/>
+		<!-- 全局设置更改通知-->
+		<message name="MSG_GLOBAL_SETTING_INFO_FILL" id="8802" type="GLOBAL_CONFIG_BAG" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 服务器公告相关 -->
+		<!--================================================================================-->
+		<!-- 全局通知公告修改-->
+		<message name="MSG_GLOBAL_SETTING_PROCLAMATION_NTF" id="8803" type="GLOBAL_PROCLAMATION_BAG" dir="sc"/>
+		<!-- 公告信息请求-->
+		<message name="MSG_GLOBAL_SETTING_PROCLAMATION_REQ" id="8804" type="NONE" dir="ss"/>
+		<!-- 公告信息回应-->
+		<message name="MSG_GLOBAL_SETTING_PROCLAMATION_ACK" id="8805" type="GLOBAL_PROCLAMATION_BAG" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 聊天警示公告相关 -->
+		<!--================================================================================-->
+		<!-- 公告信息player请求-->
+		<message name="MSG_PLAYER_PROCLAMATION_REQ" id="8900" type="NONE" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 游戏收藏 -->
+		<!--================================================================================-->
+		<!-- 游戏收藏奖励请求-->
+		<message name="MSG_PLAYER_SHORCUT_REQ" id="9000" type="NONE" dir="cs"/>
+		<!-- 游戏收藏奖励请求会有-->
+		<message name="MSG_PLAYER_SHORCUT_ACK" id="9001" type="SHORCUT_BAG" dir="sc"/>
+		<!-- vip体验卡请求-->
+		<message name="MSG_PLAYER_TASTE_VIP_REQ" id="9002" type="NONE" dir="cs"/>
+		<!-- vip体验卡回应-->
+		<message name="MSG_PLAYER_TASTE_VIP_ACK" id="9003" type="SHORCUT_BAG" dir="sc"/>
+		<!-- fb点赞请求-->
+		<message name="MSG_PLAYER_LIKE_REQ" id="9004" type="NONE" dir="ss"/>
+		<!-- 每日化身免费时间请求-->
+		<message name="MSG_PLAYER_DAILY_FASHION_REQ" id="9005" type="NONE" dir="cs"/>
+		<!-- 每日化身免费时间请求-->
+		<message name="MSG_PLAYER_DAILY_FASHION_ACK" id="9006" type="SHORCUT_BAG" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 游戏动态设置 -->
+		<!--================================================================================-->
+		<message name="MSG_GMT_ASK_REQ" id="9100" type="GMT_MSG" dir="ss"/>
+		<message name="MSG_GMT_ASK_ACK" id="9101" type="GMT_MSG_SET_GAME_LIST" dir="ss"/>
+		<message name="MSG_GMT_SET_REQ" id="9102" type="GMT_MSG" dir="ss"/>
+		<message name="MSG_GMT_SET_ACK" id="9103" type="GMT_MSG" dir="ss"/>
+		<message name="MSG_GAME_SETTING_LIST_ACK" id="9104" type="GAME_SETTING_LIST" dir="sc"/>
+		<message name="MSG_GAME_GMT_UPDATE_ACK" id="9105" type="NONE" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 跨服组队战斗 -->
+		<!--================================================================================-->
+		<!-- 跨服组队报名申请 -->
+		<message name="MSG_MULTISERVER_BATTLE_APPLY_REQ" id="9201" type="MULTISERVER_BATTLE_APPLY_REQ" dir="cs"/>
+		<!-- 跨服组队报名回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_APPLY_ACK" id="9202" type="MULTISERVER_BATTLE_APPLY_ACK" dir="sc"/>
+		<!-- 跨服组队退出申请 -->
+		<message name="MSG_MULTISERVER_BATTLE_QUIT_REQ" id="9203" type="MULTISERVER_BATTLE_APPLY_REQ" dir="cs"/>
+		<!-- 跨服组队退出回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_QUIT_ACK" id="9204" type="MULTISERVER_BATTLE_APPLY_ACK" dir="sc"/>
+		<!-- 跨服组队报名开始通知 -->
+		<message name="MSG_MULTISERVER_BATTLE_APPLY_NTF" id="9205" type="MULTISERVER_BATTLE_APPLY_ACK" dir="sc"/>
+		<!-- 跨服组队信息请求 -->
+		<message name="MSG_MULTISERVER_BATTLE_INFO_REQ" id="9206" type="NONE" dir="cs"/>
+		<!-- 跨服组队信息回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_INFO_ACK" id="9207" type="MULTISERVER_BATTLE_INFO_ACK" dir="sc"/>
+		<!-- 跨服组队信息回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_PK_END_ACK" id="9208" type="MULTISERVER_BATTLE_PK_END_ACK" dir="sc"/>
+		<!-- 跨服组队时间等待回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_WAIT_ACK" id="9209" type="ERROR_CODE" dir="sc"/>
+		<!-- 跨服组队时间等待奖励请求 -->
+		<message name="MSG_MULTISERVER_BATTLE_WAIT_REQ" id="9210" type="MULTISERVER_BATTLE_WAIT_ACK" dir="cs"/>
+		<!-- 功勋领取请求 -->
+		<message name="MSG_MULTISERVER_BATTLE_EXPLOIT_REQ" id="9211" type="NONE" dir="cs"/>
+		<!-- 功勋领取请求回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_EXPLOIT_ACK" id="9212" type="ERROR_CODE" dir="sc"/>
+		<!-- 功勋领取请求 -->
+		<message name="MSG_MULTISERVER_BATTLE_EXPLOIT_BUY_REQ" id="9213" type="INCARNATION_BUY_REQ" dir="cs"/>
+		<!-- 功勋领取请求回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_EXPLOIT_BUY_ACK" id="9214" type="ERROR_CODE" dir="sc"/>
+		
+		<!--联盟购买 -->
+		<message name="MSG_MULTISERVER_BATTLE_BUY_REQ_ALLIANCE" id="9215" type="INCARNATION_BUY_REQ" dir="cs"/> 
+		<!--联盟购买返回 -->
+		<message name="MSG_MULTISERVER_BATTLE_BUY_ACK_ALLIANCE" id="9216" type="ERROR_CODE" dir="sc"/>
+		<!--赛季购买 -->
+		<message name="MSG_MULTISERVER_BATTLE_BUY_REQ_SEASON" id="9217" type="INCARNATION_BUY_REQ" dir="cs"/> 
+		<!--赛季购买返回 -->
+		<message name="MSG_MULTISERVER_BATTLE_BUY_ACK_SEASON" id="9218" type="ERROR_CODE" dir="sc"/>
+		<!-- 新赛季通知 -->
+		<message name="MSG_MULTISERVER_BATTLE_SEASON_NTF" id="9219" type="MULTISERVER_BATTLE_SEASON_NTF" dir="ss"/>
+		<!-- 跨服排位信息 -->
+		<message name="MSG_MULTISERVER_BATTLE_ABOUT_RANK_NTF" id="9220" type="MULTISERVER_BATTLE_ABOUT_RANK_NTF" dir="sc"/>
+		
+		<!-- 联盟值领取请求 -->
+		<message name="MSG_MULTISERVER_BATTLE_ALLIANCE_REQ" id="9221" type="NONE" dir="cs" />
+		<!-- 联盟值领取请求回应 -->
+		<message name="MSG_MULTISERVER_BATTLE_ALLIANCE_ACK" id="9222" type="ERROR_CODE" dir="sc" />
+		
+		<!--================================================================================-->
+		<!-- 野外Boss相关                                                 					-->
+		<!--================================================================================-->
+		<!--野外Boss信息请求-->
+		<message name="MSG_FIELD_BOSS_INFO_REQ" id="9301" type="FIELD_BOSS_INFO_REQ" dir="cs"/>
+		<!--野外Boss信息应答-->
+		<message name="MSG_FIELD_BOSS_INFO_ACK" id="9302" type="FIELD_BOSS_INFO_ACK" dir="sc"/>
+		<!--野外Boss通知玩家捡取的时间到达，其他玩家也能捡-->
+		<message name="MSG_FIELD_BOSS_UPDATE_DROP_STATE_ACK" id="9303" type="FIELD_BOSS_UPDATE_DROP_STATE_ACK" dir="sc"/>
+		<!--野外Boss的玩家是否下线-->
+		<message name="MSG_FIELD_BOSS_PLAYER_IS_OFFLINE_REQ" id="9304" type="FIELD_BOSS_PLAYER_IS_OFFLINE_REQ" dir="ss"/>
+		<message name="MSG_FIELD_BOSS_PLAYER_IS_OFFLINE_ACK" id="9305" type="FIELD_BOSS_PLAYER_IS_OFFLINE_ACK" dir="ss"/>
+		<!--玩家离开场景-->
+		<message name="MSG_FIELD_BOSS_PLAYER_LEAVE" id="9306" type="NONE" dir="sc"/>
+		<!--野外Boss伤害排名-->
+		<message name="MSG_FIELD_BOSS_DAMAGE_NTF" id="9307" type="WORLD_BOSS_DAMAGE_LIST" dir="sc"/>
+		<!--野外boss自动战斗挂机点请求-->
+		<message name="MSG_FIELD_BOSS_SET_HOOK_POS_REQ" id="9308" type="FIELD_BOSS_SET_HOOK_POS_REQ" dir="cs"/>
+		<!--野外boss个人信息-->
+		<message name="MSG_FIELD_BOSS_PERSONAL_INFO_NTF" id="9309" type="VOID_FIELD_PERSONAL_INFO_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 投资计划相关                                                 					-->
+		<!--================================================================================-->
+		<!-- 投资计划信息请求 -->
+		<message name="MSG_INVESTMENT_PLAN_INFO_REQ" id="9401" type="NONE" dir="cs"/>
+		<!-- 投资计划信息应答 -->
+		<message name="MSG_INVESTMENT_PLAN_INFO_ACK" id="9402" type="INVESTMENT_PLAN_INFO" dir="sc"/>
+		<!-- 投资计划投资请求 -->
+		<message name="MSG_INVESTMENT_PLAN_INVESTMENT_REQ" id="9403" type="INVESTMENT_PLAN_INVESTMENT_REQ" dir="cs"/>
+		<!-- 投资计划投资应答 -->
+		<message name="MSG_INVESTMENT_PLAN_INVESTMENT_ACK" id="9404" type="INVESTMENT_PLAN_INVESTMENT_ACK" dir="sc"/>
+		<!-- 投资计划追加请求 -->
+		<message name="MSG_INVESTMENT_PLAN_ADDITIONAL_REQ" id="9405" type="INVESTMENT_PLAN_ADDITIONAL_REQ" dir="cs"/>
+		<!-- 投资计划追加应答 -->
+		<message name="MSG_INVESTMENT_PLAN_ADDITIONAL_ACK" id="9406" type="INVESTMENT_PLAN_ADDITIONAL_ACK" dir="sc"/>
+		<!-- 投资计划领奖请求 -->
+		<message name="MSG_INVESTMENT_PLAN_REWARD_REQ" id="9407" type="INVESTMENT_PLAN_REWARD_REQ" dir="cs"/>
+		<!-- 投资计划领奖应答 -->
+		<message name="MSG_INVESTMENT_PLAN_REWARD_ACK" id="9408" type="INVESTMENT_PLAN_REWARD_ACK" dir="sc"/>
+		<!-- 投资计划一键领取 -->
+		<message name="MSG_INVESTMENT_PLAN_REWARD_ALL_REQ" id="9409" type="NONE" dir="cs"/>
+		
+		<!--================================================================================-->
+		<!-- 充值积分信息                                               				    -->
+		<!--================================================================================-->
+		<!--充值积分信息请求-->
+		<message name="MSG_PAY_POINT_INFO_REQ" id="9501" type="NONE" dir="cs" />
+		<message name="MSG_PAY_POINT_INFO_ACK" id="9502" type="PAY_POINT_LOTTERY_INFO_ACK" dir="sc" />
+		<message name="MSG_GET_PAY_POINT_LOTTERY_COST_ITEM_REQ" id="9503" type="NONE" dir="cs" />
+		<message name="MSG_PAY_POINT_LOTTERY_ONCE_START_REQ" id="9504" type="NONE" dir="cs" />
+		<message name="MSG_PAY_POINT_LOTTERY_ALL_START_REQ" id="9505" type="NONE" dir="cs" />
+		<message name="MSG_PAY_POINT_LOTTERY_OUTPUT_ACK" id="9506" type="PAY_POINT_LOTTERY_OUTPUT_ACK" dir="sc" />
+		<message name="MSG_GET_PAY_POINT_LOTTERY_OUTPU_REQ" id="9507" type="NONE" dir="cs" />
+		<message name="MSG_PAY_POINT_LOTTERY_EXCHANGE_ITEM_REQ" id="9508" type="PAY_POINT_LOTTERY_EXCHANGE_ITEM_REQ" dir="cs" />
+		<message name="MSG_PAY_POINT_LOTTERY_NTF" id="9509" type="PAY_POINT_LOTTERY_NTF" dir="sc" />
+		
+		<!--================================================================================-->
+		<!-- 离线事件系统                                                  					-->
+		<!--================================================================================-->
+		<message name="MSG_OFFLINE_EVENT_NTF" id="9601" type="OFFLINE_EVENT_LIST" dir="ss"/>
+		<message name="MSG_OFFLINE_EVENT_SEND" id="9602" type="OFFLINE_EVENT_INFO" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!--捐献系统                                                  						-->
+		<!--================================================================================-->
+		<message name="MSG_DONATE_INFO_REQ" id="9701" type="NONE" dir="cs"/>
+		<message name="MSG_DONATE_INFO_ACK" id="9702" type="DONATE_INFO" dir="sc"/>
+		<message name="MSG_DONATE_PUT_REQ" id="9703" type="DONATE_PUT" dir="cs"/>
+		<message name="MSG_DONATE_PUT_ACK" id="9704" type="ERROR_CODE" dir="sc"/>
+		<message name="MSG_DONATE_RECEIVE_REQ" id="9705" type="NONE" dir="cs"/>
+		<message name="MSG_DONATE_RECEIVE_ACK" id="9706" type="ERROR_CODE" dir="sc"/>
+		<message name="MSG_DONATE_ADD_BINDMONEY_NTF" id="9707" type="DONATE_ADD_BINDMONEY_NTF" dir="ss"/>
+		<message name="MSG_DONATE_ALL_BINDMONEY_NTF" id="9708" type="DONATE_ALL_BINDMONEY_NTF" dir="sc"/>
+		<message name="MSG_DONATE_REWARD_MONEYPOINT" id="9710" type="DONATE_REWARD_MONEYPOINT" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- VIP领域	                                                  					-->
+		<!--================================================================================-->
+		<message name="MSG_VIP_STATISTICS_PLAYER_VIP" id="9806" type="VIP_STATISTICS_PLAYER_VIP" dir="ss"/>
+		<message name="MSG_VIP_STATISTICS_INFO" id="9807" type="VIP_STATISTICS_INFO" dir="ss"/>
+		
+		<!--================================================================================-->
+		<!-- 大乱斗相关                                                                 		-->
+		<!--================================================================================-->
+		<message name="MSG_CHAOS_KILL_NUM_NTF" id="9901" type="CHAOS_KILL_NUM_NTF" dir="sc"/>
+		<message name="MSG_CHAOS_SCORE_RANK_NTF" id="9902" type="CHAOS_SCORE_RANK_NTF" dir="sc"/>
+		<message name="MSG_CHAOS_END_NTF" id="9903" type="CHAOS_END_NTF" dir="sc"/>
+		<message name="MSG_CHAOS_TEAM_MEMBER_NTF" id="9904" type="CHAOS_TEAM_LIST" dir="sc"/>
+		<message name="MSG_CHAOS_BATTLE_INFO_NTF" id="9907" type="CHAOS_BATTLE_INFO_NTF" dir="sc"/>
+		<message name="MSG_CHAOS_KILL_INFO_NTF" id="9909" type="CHAOS_KILL_INFO_NTF" dir="sc"/>
+		<message name="MSG_CHAOS_PLAYER_INOUT_NTF" id="9911" type="CHAOS_PLAYER_INOUT_NTF" dir="sc"/>
+		
+		<!--================================================================================-->
+		<!-- 充值排行                                               				    	-->
+		<!--================================================================================-->
+		<message name="MSG_TOP_UP_RANK_INFO_REQ" id="10001" type="SERVER_TIME" dir="cs" />
+		<message name="MSG_TOP_UP_RANK_INFO_ACK" id="10002" type="TOP_UP_RANK_INFO_ACK" dir="sc" />
+		
+		<!--================================================================================-->
+		<!-- VIP独享副本                                                                    -->
+		<!--================================================================================-->
+		<message name="MSG_VIP_ONLY_DUNGEON_INFO_REQ" id="10101" type="NONE" dir="cs" />
+		<message name="MSG_VIP_ONLY_DUNGEON_INFO_ACK" id="10102" type="VIP_ONLY_DUNGEON_INFO_ACK" dir="sc" />
+		<message name="MSG_VIP_ONLY_DUNGEON_ENTER_REQ" id="10103" type="NONE" dir="cs" />
+		<message name="MSG_VIP_ONLY_DUNGEON_END_ACK" id="10104" type="VIP_ONLY_DUNGEON_END_ACK" dir="sc" />
+		
+		<!--================================================================================-->
+		<!-- 砸金蛋                                                                    		-->
+		<!--================================================================================-->
+		<message name="MSG_EGG_INFO_REQ" id="10200" type="NONE" dir="cs" /> 
+		<message name="MSG_EGG_INFO_ACK" id="10201" type="EGG_ACTIVITY_INFO" dir="sc" />
+		<message name="MSG_EGG_SMASH_REQ" id="10202" type="ERROR_CODE" dir="cs" />
+		<message name="MSG_EGG_SMASH_ACK" id="10203" type="FASHION_GET_TREASURE_ACK" dir="sc" />
+		
+		
+		<!--==================================================================================-->
+		<!-- 越买越便宜                                                                       -->
+		<!--==================================================================================-->
+		<message name="MSG_BUY_CHEAP_INFO_REQ" id="10301" type="NONE" dir="cs"/>
+		<message name="MSG_BUY_CHEAP_INFO_ACK" id="10302" type="BUY_CHEAP_INFO" dir="sc"/>
+		<message name="MSG_BUY_CHEAP_BUY_REQ" id="10303" type="BUY_CHEAP_BUY_REQ" dir="cs"/>
+		<message name="MSG_BUY_CHEAP_BUY_ACK" id="10304" type="BUY_CHEAP_BUY_ACK" dir="sc"/>
+		<message name="MSG_BUY_CHEAP_REWARD_REQ" id="10305" type="NONE" dir="cs"/>
+		<message name="MSG_BUY_CHEAP_REWARD_ACK" id="10306" type="BUY_CHEAP_REWARD_ACK" dir="sc"/>
+		
+		<!--==================================================================================-->
+		<!-- 每日化身                                                                         -->
+		<!--==================================================================================-->
+		<message name="MSG_DAILY_FASHION_DB_INFO_REQ" id="10400" type="NONE" dir="ss"/>
+		<message name="MSG_DAILY_FASHION_DB_INFO_ACK" id="10401" type="DAILY_DRAW_FASHION_INFO" dir="ss"/>
+		
+		<message name="MSG_DAILY_FASHION_INFO_REQ" id="10402" type="NONE" dir="cs"/>
+		<message name="MSG_DAILY_FASHION_INFO_ACK" id="10403" type="DAILY_DRAW_FASHION_INFO" dir="sc"/>
+		
+		<message name="MSG_DAILY_FASHION_DRAW_REQ" id="10404" type="FASHION_GET_TREASURE_REQ" dir="cs"/>
+		<message name="MSG_DAILY_FASHION_DRAW_ACK" id="10405" type="FASHION_GET_TREASURE_ACK" dir="sc"/>
+		
+		<!--==================================================================================-->
+		<!-- 个性头像                                                                         -->
+		<!--==================================================================================-->
+		<message name="MSG_HEAD_PORTRAIT_INFO_REQ" id="10500" type="ERROR_CODE" dir="cs"/>
+		<message name="MSG_HEAD_PORTRAIT_INFO_ACK" id="10501" type="ERROR_CODE" dir="sc"/>
+		<message name="MSG_HEAD_PORTRAIT_INIT_REQ" id="10502" type="NONE" dir="cs"/>
+		<message name="MSG_HEAD_PORTRAIT_INIT_ACK" id="10503" type="HEAD_PORTRAIT_INFO" dir="sc"/>
+		
+		<!--==================================================================================-->
+		<!-- 技能强化相关                                                                     -->
+		<!--==================================================================================-->
+		<message name="MSG_SKILL_STRENGTHEN_INFO_REQ" id="10600" type="SKILL_STRENGTHEN_STONE" dir="cs"/>
+		<message name="MSG_SKILL_STRENGTHEN_INFO_ACK" id="10601" type="ERROR_CODE" dir="sc"/>
+		
+		<!--==================================================================================-->
+		<!-- 仓库相关                                                                     	  -->
+		<!--==================================================================================-->
+		<!-- 请求仓库物品 -->
+		<message name="MSG_STORE_INFO_REQ" id="10700" type="NONE" dir="cs"/>
+		<message name="MSG_STORE_INFO_ACK" id="10701" type="ITEM_INFO" dir="sc"/>
+		<!-- 物品整理 -->
+		<message name="MSG_STORE_SORT_REQ" id="10702" type="NONE" dir="cs"/>
+		<!-- 操作物品 -->
+		<!--<message name="MSG_OPT_ITEM_REQ" id="1502" type="OPT_ITEM_REQ" dir="cs"/>-->
+		<!--<message name="MSG_OPT_ITEM_INFO_NTF" id="1503" type="OPT_ITEM_INFO_NTF" dir="sc"/>-->
+		
+		<!--==================================================================================-->
+		<!-- 领地相关                                                                     	  -->
+		<!--==================================================================================-->		
+		<!-- 制作物品 -->
+		<message name="MSG_ALCHEMY_MAKE_INFO_REQ" id="10800" type="ALCHEMY_MAKE_ITEM" dir="cs"/>
+		<message name="MSG_ALCHEMY_MAKE_INFO_ACK" id="10801" type="ALCHEMY_MAKE_INFO_ACK" dir="sc"/>
+
+		<message name="MSG_DECOMPOSE_ITEM_REQ" id="10900" type="DECOMPOSE_INFO_REQ" dir="cs"/>
+		<message name="MSG_DECOMPOSE_ITEM_ACK" id="10901" type="DECOMPOSE_INFO_ACK" dir="sc"/>
+	</messages>
+</coder>

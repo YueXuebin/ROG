@@ -1,0 +1,87 @@
+{% autoescape None %}
+#include "message_encoder.h"
+#include "net_packet.h"
+#include "transfer.h"
+
+
+{% for t in xml.types.findAll('type') %}
+tag{{ t['name'] }}& tag{{ t['name'] }}::operator=(const tag{{ t['name'] }}& c)
+{   
+    {% for i in t.findAll(['item','array']) %}
+    {{ i['name'] }} = c.{{ i['name'] }};
+    {% end %}
+    return *this;
+}
+void tag{{ t['name'] }}::Clear()
+{
+    {% for i in t.findAll(['item']) %}
+    {{ type_item_clear(i['type'], i['name']) }}
+    {% end %}
+
+    {% for i in t.findAll(['array']) %}
+    {{ i['name'] }}.clear();
+    {% end %}
+}
+{% end %}
+
+// encode & decode function map
+C{{ xml.coder['name'] }}* C{{ xml.coder['name'] }}::m_instance = 0;
+int32 C{{ xml.coder['name'] }}::m_reference = 0;
+
+C{{ xml.coder['name'] }}::C{{ xml.coder['name'] }}()
+{
+    {% for m in xml.messages.findAll('message') %}
+    m_EncodeFuncMap[{{ m['name'] }}] = Encode{{ m['name'] }};
+    m_DecodeFuncMap[{{ m['name'] }}] = Decode{{ m['name'] }};
+    {% end %}
+}
+
+C{{ xml.coder['name'] }}::~C{{ xml.coder['name'] }}()
+{
+}
+
+int C{{ xml.coder['name'] }}::Encode(uint64 playerID, uint32 sessionID, uint32 msgID, void* data, Net_Packet* packet)
+{
+    if(!data || !packet)
+        return -1;
+    EnFuncC{{ xml.coder['name'] }} pfnEncode = FindEncodeFunc(msgID);
+    if(NULL == pfnEncode)
+        return -1;
+    pfnEncode(playerID, data, packet);
+    return 0;
+}
+
+int C{{ xml.coder['name'] }}::Decode(uint32 sessionID, Net_Packet* packet, TransferProxy* tranfser)
+{
+    packet->read_uint16();
+    uint32 dataLen = packet->read_uint32();
+    uint64 playerID = packet->read_uint64();
+    uint32 msgID = packet->read_uint32();
+
+    DeFuncC{{ xml.coder['name'] }} pfnDecode = FindDecodeFunc(msgID);
+    if(NULL == pfnDecode)
+        return -1;
+
+    pfnDecode(playerID, sessionID, packet, (void*)tranfser, USERDATA_TYPE_TRANSFER);
+
+    return 0;
+}
+
+EnFuncC{{ xml.coder['name'] }} C{{ xml.coder['name'] }}::FindEncodeFunc(uint32 msgID)
+{
+    std::map<uint32, EnFuncC{{ xml.coder['name'] }}>::iterator it = m_EncodeFuncMap.find(msgID);
+    if(it == m_EncodeFuncMap.end())
+        return NULL;
+    return it->second;
+}
+
+DeFuncC{{ xml.coder['name'] }} C{{ xml.coder['name'] }}::FindDecodeFunc(uint32 msgID)
+{
+    std::map<uint32, DeFuncC{{ xml.coder['name'] }}>::iterator it = m_DecodeFuncMap.find(msgID);
+    if(it == m_DecodeFuncMap.end())
+        return NULL;
+    return it->second;
+}
+
+{{ def_parser_func() }}
+

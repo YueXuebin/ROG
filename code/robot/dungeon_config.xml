@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dungeon_config>
+    <!--副本配置-->
+    <dungeons>
+        <!--type=1 主城 type=2 副本-->
+        <dungeon id="1001" type="1">
+            <!--伊利亚村-->
+            <scenes>
+                <scene design="yiliyacun.dgn" id="1" map="yiliyacun1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="1002" type="1">
+            <!--休息厅-->
+            <scenes>
+                <scene design="xiuxiting01.dgn" id="1" map="xiuxiting01.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="1100" type="1">
+            <!--修罗场-->
+            <scenes>
+                <scene design="xiuluochang.dgn" id="1" map="jiaodouchang01.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2001" type="2">
+            <!--狼人山脉F1-->
+            <scenes>
+                <scene close="0" design="milin1_baitian_langren_f1_1.dgn" id="1" map="milin1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="milin2_baitian_langren_f1_1.dgn" id="2" map="milin2_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                        <trigger source="2" target_scene="3" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="milin1_baitian_a_langren_f1_1.dgn" id="3" map="milin1_baitian_a.map">
+                    <triggers>
+                        <trigger source="1" target_scene="3" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2002" type="2">
+            <!--狼人山脉F2-->
+            <scenes>
+                <scene close="0" design="milin2_baitian_a_langren_f2_1.dgn" id="1" map="milin2_baitian_a.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="diaoqiao_baitian_langren_f2_1.dgn" id="2" map="diaoqiao_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                        <trigger source="2" target_scene="3" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="xinyangzhiya_baitian_langren_f2_1.dgn" id="3" map="xinyangzhiya_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="3" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2003" type="2">
+            <!--狼人山脉F3-->
+            <scenes>
+                <scene close="0" design="milin1_yewan_langren_f3_1.dgn" id="1" map="milin1_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="milin2_yewan_langren_f3_1.dgn" id="2" map="milin2_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                        <trigger source="2" target_scene="3" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="milin1_yewan_a_langren_f3_1.dgn" id="3" map="milin1_yewan_a.map">
+                    <triggers>
+                        <trigger source="1" target_scene="3" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2004" type="2">
+            <!--狼人山脉F4-->
+            <scenes>
+                <scene close="0" design="milin2_yewan_a_langren_f4_1.dgn" id="1" map="milin2_yewan_a.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="diaoqiao_yewan_langren_f4_1.dgn" id="2" map="diaoqiao_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                        <trigger source="2" target_scene="3" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="xinyangzhiya_yewan_langren_f4_1.dgn" id="3" map="xinyangzhiya_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="3" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2005" type="2">
+            <!--兽人雪原F1-->
+            <scenes>
+                <scene close="0" design="qianxian1_baitian_lunxian_f1_1.dgn" id="1" map="qianxian1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="qianxian1_baitian_beijing_f1_1.dgn" id="2" map="qianxian1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                        <trigger source="2" target_scene="3" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="0" design="qianxian1_baitian_beijing_f1_2.dgn" id="3" map="qianxian1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="3" target_trigger="0"/>
+                        <trigger source="2" target_scene="4" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="qianxian1_baitian_beijing_f1_3.dgn" id="4" map="qianxian1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="4" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2006" type="2">
+            <!--净化泉水\nF1-->
+            <scenes>
+                <scene close="0" design="cunkou1_baitian_cunkou_f1_1.dgn" id="1" map="cunkou1_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="shidi_baitian_cunkou_f1_1.dgn" id="2" map="shidi_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2007" type="2">
+            <!--净化泉水\nF2-->
+            <scenes>
+                <scene close="0" design="cunkou1_yewan_tumo_f2_1.dgn" id="1" map="cunkou1_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="shidi_yewan_tumo_f2_1.dgn" id="2" map="shidi_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2008" type="2">
+            <!--净化泉水\nF3-->
+            <scenes>
+                <scene close="0" design="shidi_baitian_tuzi_f3_1.dgn" id="1" map="shidi_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="tuziwo_baitian_tuzi_f3_1.dgn" id="2" map="tuziwo_baitian.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="2009" type="2">
+            <!--净化泉水\nF4-->
+            <scenes>
+                <scene close="0" design="shidi_yewan_quanshui_f4_1.dgn" id="1" map="shidi_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                        <trigger source="2" target_scene="2" target_trigger="1"/>
+                    </triggers>
+                </scene>
+                <scene close="1" design="shuitai_baitian_quanshui_f4_1.dgn" id="2" map="shuitai_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="2" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="3001" type="2">
+            <!--角斗场-->
+            <scenes>
+                <scene close="1" design="juedouchang_baitian_juedou_f1_1.dgn" id="1" map="jiaodouchang01.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="3002" type="2">
+            <!--角斗场-->
+            <scenes>
+                <scene close="1" design="juedouchang_baitian_juedou_f1_2.dgn" id="1" map="jiaodouchang01.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="3003" type="2">
+            <!--通道-->
+            <scenes>
+                <scene close="1" design="xinyangzhiya_yewan_tongdao_f1_1.dgn" id="1" map="xinyangzhiya_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="3004" type="2">
+            <!--逃亡-->
+            <scenes>
+                <scene close="1" design="xinyangzhiya_yewan_taowang_f1_2.dgn" id="1" map="xinyangzhiya_yewan.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+        <dungeon id="4001" type="2">
+            <!--PK-->
+            <scenes>
+                <scene close="1" design="pk.dgn" id="1" map="jiaodouchang01.map">
+                    <triggers>
+                        <trigger source="1" target_scene="1" target_trigger="0"/>
+                    </triggers>
+                </scene>
+            </scenes>
+        </dungeon>
+    </dungeons>
+    <gameserver id="1">
+        <dungeon channel_number="1" id="1001" max_player="50"/>
+        <dungeon channel_number="1" id="1002" max_player="50"/>
+        <dungeon channel_number="1" id="1100" max_player="50"/>
+        <dungeon channel_number="1" id="2001" max_player="50"/>
+        <dungeon channel_number="1" id="2002" max_player="50"/>
+        <dungeon channel_number="1" id="2003" max_player="50"/>
+        <dungeon channel_number="1" id="2004" max_player="50"/>
+        <dungeon channel_number="1" id="2005" max_player="50"/>
+        <dungeon channel_number="1" id="2006" max_player="50"/>
+        <dungeon channel_number="1" id="2007" max_player="50"/>
+        <dungeon channel_number="1" id="2008" max_player="50"/>
+        <dungeon channel_number="1" id="2009" max_player="50"/>
+        <dungeon channel_number="1" id="3001" max_player="50"/>
+        <dungeon channel_number="1" id="3002" max_player="50"/>
+        <dungeon channel_number="1" id="3003" max_player="50"/>
+        <dungeon channel_number="1" id="3004" max_player="50"/>
+        <dungeon channel_number="1" id="4001" max_player="50"/>
+    </gameserver>
+</dungeon_config>

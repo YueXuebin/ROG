@@ -1,0 +1,147 @@
+{% autoescape None %}
+package net.socket 
+{
+	import flash.utils.ByteArray;
+	import flash.utils.Dictionary;
+	import flash.utils.Endian;
+	
+	{% for i in xml.types.findAll('type') %}
+	import net.socket.msgvo.NET_{{ i['name'] }};
+	{% end %}
+
+	import net.socket.IMessageHandler;
+
+	public class MessageController
+	{	
+		{% for t in xml.defines.findAll('define') 
+		%}public static const {{t['name']}} : {% if (t['value'][0]=='-' and t['value'][1].isdigit()) or t['value'].isdigit() %}int = {{ t['value'] }}{% else %}String = "{{ t['value'] }}"{% end %};
+		{% end %}		
+		{% for m in xml.messages.findAll('message') 
+		%}public static const {{m['name']}} : uint = {{m['id']}};
+		{% end %}
+		
+		private static var _handler : IMessageHandler;
+		private static var _instance : MessageController;
+		
+		public static function getHandler() : IMessageHandler
+		{
+			return _handler;
+		}
+
+		public static function setHandler(vo: IMessageHandler): void
+		{
+			_handler = vo;
+		}
+
+		public static function getInstance() : MessageController 
+		{
+			if(_instance) return _instance;
+			_instance = new MessageController();
+			setHandler(new MessageHandler());
+			return _instance;
+		}
+		
+		public var context : blSocketIO;
+		
+		public function MessageController() : void 
+		{
+			if(_instance) throw new Error("Singleton Mode Only!");
+			initMessages();
+		}
+		
+		private var Messages : Dictionary = new Dictionary();
+		private function initMessages() : void 
+		{
+			{% for m in xml.messages.findAll('message') %}
+			{% if m['dir'] == 'cs' %}Messages[{{m['id']}}] = send{{m['name']}};
+			{% elif m['dir'] == 'sc' %}Messages[{{m['id']}}] = recv{{m['name']}};{% end %}
+			{% end %}
+		}
+		
+		private var lastId : uint = 0;
+		private var lastLen : uint = 0;
+		public var sendhook : Function;
+		public var recvhook : Function;
+		public var holding : Boolean = false;
+		
+		public function decode(ba : ByteArray) : void 
+		{
+			var hasMorePackage : Boolean = false;
+			var lastCorrectId : uint = 0;
+			var checkHead:uint;
+			var checkTail:uint;
+			do 				
+			{
+				// trace("ba "+ba.bytesAvailable+"/"+ba.length);
+				if(ba.bytesAvailable > 0)
+				{
+					if(lastId != 0 && lastLen != 0)
+					{	// ba is half package
+						if(ba.bytesAvailable >= lastLen)
+						{
+							if(Messages[lastId])
+							{
+								(Messages[lastId]).call(this, ba);
+								checkTail = ba.readShort();
+							}
+							else
+								throw new Error("protocol "+lastId+" undefined");
+							lastId = lastLen = 0;
+							hasMorePackage = true;
+						}
+						else
+							hasMorePackage = false;				// package数据仍然不全
+					}
+					else
+					{	// ba is new package
+						if(ba.bytesAvailable >= 18)
+						{
+							// 读包头
+							//if(id > 100000)
+							//	throw new Error("protocol error, last correct id="+lastCorrectId);
+							checkHead = ba.readShort();	// 验证头
+							var dataLen : uint = ba.readUnsignedInt();	// 全包长度
+							ba.readUnsignedInt(); // 这个字段对客户端是无用的
+							ba.readUnsignedInt(); // 这个字段对客户端是无用的
+							var msgID : uint = ba.readUnsignedInt();
+							if(dataLen > NET_MSG_BUFFER_LEN)
+								throw new Error("protocol "+msgID+" dataLen > NET_MSG_BUFFER_LEN");
+							
+							var remainPackageLen : uint = dataLen - 18;
+							if( ba.bytesAvailable >= remainPackageLen )
+							{
+								if(Messages[msgID])
+								{
+									(Messages[msgID]).call(this, ba);
+									checkTail = ba.readShort();
+								}
+								else
+									throw new Error("protocol "+msgID+" undefined");
+								lastCorrectId = msgID;
+								lastId = lastLen = 0;
+								hasMorePackage = true;
+							}
+							else
+							{	// 此包被截断
+								//							trace("package truncation");
+								lastId = msgID;
+								lastLen = remainPackageLen;
+								hasMorePackage = false;
+							}
+						}
+						else
+							hasMorePackage = false;		// ba is less than package head
+					}
+				}
+				else if(ba.bytesAvailable == 0)
+				{
+					ba.clear();
+					hasMorePackage = false;
+				}					
+				
+			} while(hasMorePackage && !holding);
+		}
+		
+		{{ generate_as_parser_code() }}
+	}
+}
